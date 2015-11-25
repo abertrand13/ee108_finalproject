@@ -15,3 +15,11 @@ This is where the documentation will go.  Eventually.  You know, when we finish 
 - Alex - Chords, Launchpad, (Context Sensitive)
 - Brendan - Dynamics, Color Changing
 - Nick - Harmonics, Revamping song ROM format
+
+#### Other Proposed Extensions
+- Multiple Voices
+- Some idea that Brendan had 
+- Speed up/slow down
+- Multiple song ROMs
+- switch to turn on features (eg echo)
+- Color brightness for amplitude of sine wave (we can probably use the same methods here as we're using for decay in dynamics)

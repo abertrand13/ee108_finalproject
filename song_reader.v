@@ -15,10 +15,10 @@ module song_reader(
 	input reset, 
 	input play, 
 	input note_done,						// Comes from note_player
-   input [1:0] song,
-   output song_done,
+	input [1:0] song,
+   	output song_done,
 	output new_note,						// outputs to note_player when time to play new note
-   output [5:0] note, duration
+   	output [5:0] note, duration
    );
 	
 	wire [6:0] addr;
