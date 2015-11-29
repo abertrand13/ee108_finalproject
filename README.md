@@ -12,9 +12,9 @@ This is where the documentation will go.  Eventually.  You know, when we finish 
 - Context Sensitive Display (launchpad buttons) - 1 pt
 
 #### Work Distribution
-- Alex - Chords, Launchpad, (Context Sensitive)
+- Alex - Chords, Launchpad, (Context Sensitive), Revamping song ROM format
 - Brendan - Dynamics, Color Changing
-- Nick - Harmonics, Revamping song ROM format
+- Nick - Harmonics
 
 #### Other Proposed Extensions
 - Multiple Voices
