@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2015-11-28T18:00:54</DateModified>
+  <DateModified>2015-11-29T14:35:19</DateModified>
   <ModuleName>lab5_top</ModuleName>
-  <SummaryTimeStamp>Unknown</SummaryTimeStamp>
-  <SavedFilePath>/afs/ir.stanford.edu/class/ee108/groups/8/final_project/iseconfig/lab5_top.xreport</SavedFilePath>
-  <ImplementationReportsDirectory>/afs/ir.stanford.edu/class/ee108/groups/8/final_project</ImplementationReportsDirectory>
+  <SummaryTimeStamp>2015-11-29T14:35:02</SummaryTimeStamp>
+  <SavedFilePath>Z:/groups/8/final_project/iseconfig/lab5_top.xreport</SavedFilePath>
+  <ImplementationReportsDirectory>Z:/groups/8/final_project\</ImplementationReportsDirectory>
   <DateInitialized>2015-11-28T18:00:53</DateInitialized>
   <EnableMessageFiltering>false</EnableMessageFiltering>
  </header>

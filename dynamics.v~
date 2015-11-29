@@ -1,0 +1,61 @@
+module dynamics(
+input [5:0] attack,					// May not need these
+	input [5:0] decay,					// ^^
+	input [5:0] note_duration,			// Taken from Note_Player
+	input clk,
+	input reset,
+	input [15:0] sample,				// Taken from Note_Player/Harmonics
+	input new_sample_ready,				// Also Taken from Note_player
+	input generate_next_sample,			// From Note_Player
+	output [15:0] final_sample			
+);
+
+	// IGNORING THE ATTACK PHASE FOR NOW. IF WE WANT TO IMPLEMENT, WE WILL HAVE TO SLIGHTLY CHANGE HOW DECAY
+	// WORKS BUT IT SHOULDN'T BE TOO MUCH...
+
+	// We need to figure out how to decay using the note_duration. Making it a smooth transition no matter how
+	// long or short a time the note is played for. We need to know how note_duration stores the actual duration
+	// of the note. As in is it one_hot? is it just simply a number and if so what does that number represent?
+
+
+
+	wire [4:0] count;
+	wire beat;
+	wire beat_input;
+
+
+	// USE CL TO FIGURE OUT BEAT_INPUT
+	// BEAT OF 1000 AS PARAMETER IS 1/48 OF A SECOND. WE CAN USE THIS TO MANIPULATE THE INPUT SO THAT EVEN IF THE
+	// NOTE IS ONLY A 16TH NOTE IT WILL DECAY PROPERLY.
+
+	beat_generator #(.STOP(beat_input))(
+		.clk(clk),
+		.r(reset),
+		.en(generate_next_sample),
+		.beat(beat)
+	);
+
+	dffre #(6) counter(
+		.clk(clk),
+		.r(reset || new_sample_ready),
+		.en(beat),
+		.d(count + 1),
+		.q(count)
+	);
+
+
+
+
+
+
+
+	// WE MAY ALSO NOT WANT TO SHIFT EVERY TIME, OR WE MAY WANT TO SHIFT EVERY COUPLE AND SUBTRACT THAT AMOUNT FROM THE PAST AMOUNT...
+
+
+
+
+
+	assign final_sample = sample >> count;
+
+
+endmodule

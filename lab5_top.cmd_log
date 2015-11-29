@@ -1,0 +1,1 @@
+xst -intstyle ise -ifn "Z:/groups/8/final_project/lab5_top.xst" -ofn "Z:/groups/8/final_project/lab5_top.syr" 

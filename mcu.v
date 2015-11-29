@@ -28,7 +28,10 @@ module mcu(
 
 	assign reset_player = (next_button | song_done);
 
-
+		// We will need to change this to work with our keypad, we basically want
+		// to play a given set of notes for each keypad entry and then if we press
+		// another keypad button, it will stop what it is doing and play the current
+		// button's set of notes.
    	always @(*) begin
 		casex({currState,next_button,play_button,song_done})
 			{`PAUSE0,3'b000}: {next1,song1} = {`PAUSE0,2'b00};

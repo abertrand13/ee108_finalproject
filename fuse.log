@@ -1,0 +1,28 @@
+Running: C:\Xilinx\14.7\ISE_DS\ISE\bin\nt\unwrapped\fuse.exe -intstyle ise -incremental -lib unisims_ver -lib unimacro_ver -lib xilinxcorelib_ver -lib secureip -o Z:/groups/8/final_project/dynamics_tb_isim_beh.exe -prj Z:/groups/8/final_project/dynamics_tb_beh.prj work.dynamics_tb work.glbl 
+ISim P.20131013 (signature 0x8ef4fb42)
+Number of CPUs detected in this system: 2
+Turning on mult-threading, number of parallel sub-compilation jobs: 4 
+Determining compilation order of HDL files
+Analyzing Verilog file "Z:/groups/8/final_project/ff_lib.v" into library work
+Analyzing Verilog file "Z:/groups/8/final_project/beat_generator.v" into library work
+Analyzing Verilog file "Z:/groups/8/final_project/dynamics.v" into library work
+Analyzing Verilog file "Z:/groups/8/final_project/dynamics_tb.v" into library work
+Analyzing Verilog file "C:/Xilinx/14.7/ISE_DS/ISE//verilog/src/glbl.v" into library work
+Starting static elaboration
+WARNING:HDLCompiler:189 - "Z:/groups/8/final_project/dynamics.v" Line 45: Size mismatch in connection of port <d>. Formal port size is 14-bit while actual signal size is 1-bit.
+Completed static elaboration
+Fuse Memory Usage: 104092 KB
+Fuse CPU Usage: 327 ms
+Compiling module dffre(WIDTH=10)
+Compiling module beat_generator(STOP=3'b100)
+Compiling module dffre(WIDTH=4)
+Compiling module dffr(WIDTH=14)
+Compiling module dynamics
+Compiling module dynamics_tb
+Compiling module glbl
+Time Resolution for simulation is 1ps.
+Waiting for 1 sub-compilation(s) to finish...
+Compiled 7 Verilog Units
+Built simulation executable Z:/groups/8/final_project/dynamics_tb_isim_beh.exe
+Fuse Memory Usage: 129292 KB
+Fuse CPU Usage: 436 ms

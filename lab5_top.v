@@ -70,7 +70,8 @@ module lab5_top(
 //      Button processor units
 //  ****************************************************************************
 //  
-    wire play;
+    wire play;	// We should probably set this to always be true and use
+					// this vv for switching to set color.
     button_press_unit #(.WIDTH(BPU_WIDTH)) play_button_press_unit(
         .clk(clk),
         .reset(reset),
@@ -78,7 +79,8 @@ module lab5_top(
         .out(play)
     );
 
-    wire next;
+    wire next; // Change this so that it goes true when we hit a button
+					// on the keypad.
     button_press_unit #(.WIDTH(BPU_WIDTH)) next_button_press_unit(
         .clk(clk),
         .reset(reset),

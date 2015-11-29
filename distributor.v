@@ -1,0 +1,2 @@
+/* SKELETON CODE
+* module distributor */
