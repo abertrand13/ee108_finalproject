@@ -45,7 +45,10 @@ module lab5_top(
     input btn_up,
     input btn_left,
     input btn_right,
-    input btn_down
+    input btn_down,
+	 
+	 // JB Pmod interfce
+	 inout [7:0] JB
 );  
     // button_press_unit's WIDTH parameter is exposed here so that you can
     // reduce it in simulation.  Setting it to 1 effectively disables it.
@@ -142,7 +145,20 @@ module lab5_top(
         .line_in_l(line_in_l),
         .line_in_r(line_in_r),
         .new_sample(new_frame)
-    );  
+    );
+
+//
+//  ****************************************************************************
+//		  Launchpad interface
+//  ****************************************************************************
+//  
+	 wire [3:0] keypad_value;
+	 // Instantiate module to read keypresses
+	 keypad_decoder key_dec(
+		  .clk(clk),
+		  .Row(JB[7:4]),
+		  .Col(JB[3:0]),
+		  .DecodeOut(keypad_value));
     
 //   
 //  ****************************************************************************
@@ -246,9 +262,10 @@ module lab5_top(
 		.y(y_q),
 		.valid(valid),
 		.vsync(hdmi_vsync),
+		.keypad_value(keypad_value),
 		.r(r),
 		.g(g),
-		.b(b) 
+		.b(b)
     );
 
 endmodule

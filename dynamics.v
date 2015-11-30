@@ -1,39 +1,33 @@
 `define BEAT_INPUT 3'd4
 
 module dynamics(
-	//input [5:0] attack,						// May not need these
-	//input [5:0] decay,					// ^^
 	input [5:0] note_duration,			// Taken from Note_Player
 	input clk,
 	input reset,
 	input [15:0] sample,					// Taken from Note_Player/Harmonics
 	input new_sample_ready,				// Also Taken from Note_player
-	input generate_next_sample,		// From Note_Player
 	output [15:0] final_sample			
 );
 
 	// IGNORING THE ATTACK PHASE FOR NOW. IF WE WANT TO IMPLEMENT, WE WILL HAVE TO SLIGHTLY CHANGE HOW DECAY
 	// WORKS BUT IT SHOULDN'T BE TOO MUCH...
+	// We could theoretically just have a variable set into the reset of [counter, length_of_time & subtract_by]
+	// which is true while we are attacking and possibly for a defined amount of time after. Say a total of 1/4
+	// of the note. Then after we set it to false we could just subtract 1/8 of the note for the remaining amount
+	//	of time, making the remaining amount of time effectively the new note_duration. And WABAMM!!! we've got it.
 
 	wire [3:0] count;
-	wire beat;
-	wire [13:0] new_duration;
+	wire [13:0] new_duration, temp_duration;
 	wire [13:0] subtractor;
 	wire zero;
 	wire [13:0] result;
-	assign zero = result == 0 ? 1'b1: 1'b0;
-	
-	beat_generator #(.STOP(`BEAT_INPUT)) beat_gen(
-		.clk(clk),
-		.reset(reset),
-		.en(generate_next_sample && zero),
-		.beat(beat)
-	);
+	assign zero = result == 0;
+	assign temp_duration = note_duration;
 
 	dffre #(.WIDTH(4)) counter(
 		.clk(clk),
 		.r(reset || new_sample_ready),
-		.en(beat),
+		.en(zero),
 		.d(count + 1'b1),
 		.q(count)
 	);
@@ -41,25 +35,20 @@ module dynamics(
 	// Used to make new_duration long enough.
 	dffr #(.WIDTH(14)) length_of_time(
 		.clk(clk),
-		.r(reset),
-		.d(duration << count),
+		.r(reset || new_sample_ready),
+		.d(temp_duration << count + 1), // Changed this ( + 1 )
 		.q(new_duration)
 	);
 	
 	dffr #(.WIDTH(14)) subtract_by(
 		.clk(clk),
-		.r(reset),
+		.r(reset || new_sample_ready || zero),
 		.d(subtractor + 1'b1),
 		.q(subtractor)
 	);
+
+	assign result = new_duration - subtractor;
 	
-	
-	dffr #(.WIDTH(14)) subtract(
-		.clk(clk),
-		.r(reset),
-		.d(new_duration - subtractor),
-		.q(result)
-	);
 
 	wire [15:0] sample_subtract_8;
 	wire [15:0] sample_subtract_4;
@@ -69,8 +58,9 @@ module dynamics(
 	assign sample_subtract_2 = sample >> 1;
 	assign sample_subtract_4 = sample >> 2;
 	assign sample_subtract_8 = sample >> 3;
-	initial @(*) begin
-		case(count)
+	
+	always @(*) begin
+		case (count)
 		1:			final_temp = sample - sample_subtract_8;
 		2:			final_temp = sample - sample_subtract_4;
 		3:			final_temp = sample - sample_subtract_4 - sample_subtract_8;

@@ -102,3 +102,14 @@ NET "sw<6>"          LOC = H18  | IOSTANDARD=LVCMOS18;  # "SW5"
 NET "sw<7>"          LOC = H17  | IOSTANDARD=LVCMOS18;  # "SW6"
 NET "sw<8>"          LOC = M15  | IOSTANDARD=LVCMOS18;  # "SW7"
 NET AC_SDA        LOC = AB5  | IOSTANDARD=LVCMOS33;  # "AC-SDA"
+
+# JB PMOD INTERFACE --ALEX
+# LA LA LA IM IN YO YOO SEE EFF FILES EDITIN YO CONSTRAINTZ
+Net "JB<0>" LOC = W12 | IOSTANDARD = LVCMOS33; #Bank = 2, pin name = IO_L19P, Sch name = JB1
+Net "JB<1>" LOC = W11 | IOSTANDARD = LVCMOS33; #Bank = 2, pin name = IO_L19N, Sch name = JB2  
+Net "JB<2>" LOC = V10 | IOSTANDARD = LVCMOS33; #Bank = 2, pin name = IO_L20P, Sch name = JB3
+Net "JB<3>" LOC = W8 | IOSTANDARD = LVCMOS33; #Bank = 2, pin name = IO_L20N, Sch name = JB4
+Net "JB<4>" LOC = V12 | IOSTANDARD = LVCMOS33; #Bank = 2, pin name = IO_L22P, Sch name = JB7
+Net "JB<5>" LOC = W10 | IOSTANDARD = LVCMOS33; #Bank = 2, pin name = IO_L22N, Sch name = JB8
+Net "JB<6>" LOC = V9 | IOSTANDARD = LVCMOS33; #Bank = 2, pin name = IO_L23P, Sch name = JB9
+Net "JB<7>" LOC = V8 | IOSTANDARD = LVCMOS33; #Bank = 2, pin name = IO_L23N, Sch name = JB10

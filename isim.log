@@ -1,21 +1,22 @@
 ISim log file
-Running: Z:\groups\8\final_project\dynamics_tb_isim_beh.exe -intstyle ise -gui -tclbatch isim.cmd -wdb Z:/groups/8/final_project/dynamics_tb_isim_beh.wdb 
+Running: Z:\groups\8\final_project\color_changer_tb_isim_beh.exe -intstyle ise -gui -tclbatch isim.cmd -wdb Z:/groups/8/final_project/color_changer_tb_isim_beh.wdb 
 ISim P.20131013 (signature 0x8ef4fb42)
 WARNING: A WEBPACK license was found.
 WARNING: Please use Xilinx License Configuration Manager to check out a full ISim license.
 WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
 This is a Lite version of ISim.
-WARNING:  For instance dut/length_of_time/, width 14 of formal port d is not equal to width 1 of actual constant.
 Time resolution is 1 ps
 # onerror resume
 # wave add /
 # run 1000 ns
 Simulator is doing circuit initialization process.
 Finished circuit initialization process.
-Duration: 000000, new_sample_ready : 0, generate_next_sample: 0, final_sample: 0000000000000000, expected: 0000000000000000
-Duration: 000011, new_sample_ready : 0, generate_next_sample: 0, final_sample expected? 0
-Duration: 000011, new_sample_ready : 0, generate_next_sample: 1, final_sample expected? 0
-Duration: 000011, new_sample_ready : 0, generate_next_sample: 1, final_sample expected? 0
-Duration: 000011, new_sample_ready : 0, generate_next_sample: 1, final_sample expected? 0
-Duration: 000011, new_sample_ready : 0, generate_next_sample: 1, final_sample expected? 0
-Duration: 000011, new_sample_ready : 0, generate_next_sample: 1, final_sample expected? 0
+Button pressed: 0, button value: 0001, final_color: xxxxxxxxxxxxxxxxxxxxxxxx, done: 0
+Button pressed: 1, button value: 1100, final_color: 1100xxxxxxxxxxxxxxxxxxxx, expected: 110000000000000000000000, done: 0, expected 0,
+Button pressed: 0, button value: 1000, final_color: 1100xxxxxxxxxxxxxxxxxxxx, expected: 110000000000000000000000, done: 0, expected 0,
+Button pressed: 1, button value: 0101, final_color: 11000101xxxxxxxxxxxxxxxx, expected: 110001010000000000000000, done: 0, expected 0,
+Button pressed: 1, button value: 1010, final_color: 110001011010xxxxxxxxxxxx, expected: 110001011010000000000000, done: 0, expected 0,
+Button pressed: 1, button value: 0000, final_color: 1100010110100000xxxxxxxx, expected: 110001011010000000000000, done: 0, expected 0,
+Button pressed: 1, button value: 1101, final_color: 11000101101000001101xxxx, expected: 110001011010000011010000, done: 0, expected 0,
+Button pressed: 1, button value: 1000, final_color: 110001011010000011011000, expected: 110001011010000011011000, done: 1, expected 1,
+Stopped at time : 600 ns :  in File "//afs/ir/class/ee108/groups/8/final_project/color_changer_tb.v" Line 106 

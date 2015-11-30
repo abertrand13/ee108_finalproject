@@ -3,6 +3,7 @@ module wave_display(
 	input [10:0] x,
 	input [9:0] y,
 	input [7:0] read_value,
+	input [3:0] keypad_value,
 	output [8:0] read_address,
 	output valid_pixel,
 	output [7:0] r,g,b
@@ -52,7 +53,6 @@ module wave_display(
 	
 	
 	// This will hold the value of valid so that it is compared with the correct pixel
-	// TODO: We are not currently using this.
 	wire delayed_valid;
 	dffr #(.WIDTH(1)) new_valid(
 		.clk(clk), 
@@ -84,13 +84,64 @@ module wave_display(
 	assign read_value_mod = next_addr_valid ? read_value : last_value;
 	
 																							
-	wire valid_y;
+	wire valid_y, valid_wave_pixel;
 	assign valid_y = ((last_value <= trans_y) && (trans_y <= read_value_mod)) || ((last_value >= trans_y) && (trans_y >= read_value_mod));
 	
-	assign valid_pixel = valid_x && delayed_valid && !delayed_y[9] && valid_y; // going down or going up
-  
+	// logic to determine whether we should turn this pixel on as part of the wave display
+	assign valid_wave_pixel = valid_x && delayed_valid && !delayed_y[9] && valid_y; // going down or going up
+
+	// logic to determine whether we should turn this pixel on as part of the
+	// launchpad display (ld)
+	wire [10:0] ld_top_x;
+	wire [9:0] ld_top_y;
+	wire [7:0] ld_size;
+	wire [6:0] ld_grid;
 	
-   
+	wire [1:0] ld_row, ld_col; //pressed button
+	
+
+	assign ld_top_x = 11'd1000;
+	assign ld_top_y = 10'd500;
+	assign ld_size = 8'd200;
+	assign ld_grid = ld_size >> 2;
+
+	wire valid_row_pixel, valid_col_pixel, valid_grid_pixel, valid_btn_pixel, valid_launch_pixel;
+	assign valid_row_pixel = y == ld_top_y ||
+							 y == ld_top_y + ld_grid ||
+						 	 y == ld_top_y + (ld_grid << 1'b1) ||
+							 y == ld_top_y + ld_size - ld_grid ||
+							 y == ld_top_y + ld_size;
+	
+	assign valid_col_pixel = (x == ld_top_x ||
+							 x == ld_top_x + ld_grid ||
+							 x == ld_top_x + (ld_grid << 1'b1) ||
+							 x == ld_top_x + ld_size - ld_grid ||
+							 x == ld_top_x + ld_size);
+
+	assign valid_grid_pixel = valid_row_pixel || valid_col_pixel;
+	
+	// this is WAY too complicated.  Damn multiplication.
+	wire[6:0] ld_grid_xlowbound, ld_grid_ylowbound;
+	
+	multiplier #(.WIDTH(7)) xlowbound (
+		.val(ld_grid),
+		.mult(ld_col),
+		.out(ld_grid_xlowbound));
+		
+	multiplier #(.WIDTH(7)) ylowbound (
+		.val(ld_grid),
+		.mult(ld_row),
+		.out(ld_grid_ylowbound));
+	
+	assign valid_btn_pixel = (x > ld_top_x + ld_grid_xlowbound) &&
+									 (x < ld_top_x + ld_grid_xlowbound + ld_grid) &&
+									 (y > ld_top_y + ld_grid_ylowbound) &&
+									 (y < ld_top_y + ld_grid_ylowbound + ld_grid);
+	
+	assign valid_launch_pixel = valid_grid_pixel || valid_btn_pixel;
+	
+	assign valid_pixel = valid_wave_pixel || valid_launch_pixel;
+
 	assign {r,g,b} = 24'hFFFFFF;
 
 endmodule

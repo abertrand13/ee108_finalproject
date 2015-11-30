@@ -1,0 +1,555 @@
+//! **************************************************************************
+// Written by: Map P.20131013 on Sun Nov 29 17:38:22 2015
+//! **************************************************************************
+
+SCHEMATIC START;
+COMP "btn_right" LOCATE = SITE "R18" LEVEL 1;
+COMP "scl" LOCATE = SITE "AA18" LEVEL 1;
+COMP "sda" LOCATE = SITE "Y16" LEVEL 1;
+COMP "btn_up" LOCATE = SITE "T18" LEVEL 1;
+COMP "hdmi_de" LOCATE = SITE "U16" LEVEL 1;
+COMP "JB<0>" LOCATE = SITE "W12" LEVEL 1;
+COMP "JB<1>" LOCATE = SITE "W11" LEVEL 1;
+COMP "JB<2>" LOCATE = SITE "V10" LEVEL 1;
+COMP "JB<3>" LOCATE = SITE "W8" LEVEL 1;
+COMP "JB<4>" LOCATE = SITE "V12" LEVEL 1;
+COMP "JB<5>" LOCATE = SITE "W10" LEVEL 1;
+COMP "JB<6>" LOCATE = SITE "V9" LEVEL 1;
+COMP "JB<7>" LOCATE = SITE "V8" LEVEL 1;
+COMP "btn_down" LOCATE = SITE "R16" LEVEL 1;
+COMP "leds_l<0>" LOCATE = SITE "T22" LEVEL 1;
+COMP "leds_l<3>" LOCATE = SITE "U21" LEVEL 1;
+COMP "leds_l<2>" LOCATE = SITE "U22" LEVEL 1;
+COMP "leds_l<1>" LOCATE = SITE "T21" LEVEL 1;
+COMP "sw<1>" LOCATE = SITE "F22" LEVEL 1;
+COMP "sw<2>" LOCATE = SITE "G22" LEVEL 1;
+COMP "sw<3>" LOCATE = SITE "H22" LEVEL 1;
+COMP "sw<4>" LOCATE = SITE "F21" LEVEL 1;
+COMP "sw<5>" LOCATE = SITE "H19" LEVEL 1;
+COMP "sw<6>" LOCATE = SITE "H18" LEVEL 1;
+COMP "sw<7>" LOCATE = SITE "H17" LEVEL 1;
+COMP "sw<8>" LOCATE = SITE "M15" LEVEL 1;
+COMP "hdmi_d<10>" LOCATE = SITE "W13" LEVEL 1;
+COMP "hdmi_d<14>" LOCATE = SITE "V14" LEVEL 1;
+COMP "hdmi_d<13>" LOCATE = SITE "U17" LEVEL 1;
+COMP "hdmi_d<12>" LOCATE = SITE "V15" LEVEL 1;
+COMP "hdmi_d<11>" LOCATE = SITE "W15" LEVEL 1;
+COMP "hdmi_d<15>" LOCATE = SITE "V13" LEVEL 1;
+COMP "leds_r<0>" LOCATE = SITE "V22" LEVEL 1;
+COMP "leds_r<3>" LOCATE = SITE "U14" LEVEL 1;
+COMP "leds_r<2>" LOCATE = SITE "U19" LEVEL 1;
+COMP "leds_r<1>" LOCATE = SITE "W22" LEVEL 1;
+COMP "hdmi_d<8>" LOCATE = SITE "AA17" LEVEL 1;
+COMP "hdmi_d<7>" LOCATE = SITE "AB17" LEVEL 1;
+COMP "hdmi_d<6>" LOCATE = SITE "AA16" LEVEL 1;
+COMP "hdmi_d<5>" LOCATE = SITE "AB16" LEVEL 1;
+COMP "hdmi_d<9>" LOCATE = SITE "Y15" LEVEL 1;
+COMP "hdmi_d<0>" LOCATE = SITE "Y13" LEVEL 1;
+COMP "hdmi_d<4>" LOCATE = SITE "AB15" LEVEL 1;
+COMP "hdmi_d<3>" LOCATE = SITE "Y14" LEVEL 1;
+COMP "hdmi_d<2>" LOCATE = SITE "AA14" LEVEL 1;
+COMP "hdmi_d<1>" LOCATE = SITE "AA13" LEVEL 1;
+COMP "AC_MCLK" LOCATE = SITE "AB2" LEVEL 1;
+COMP "btn_left" LOCATE = SITE "N15" LEVEL 1;
+COMP "hdmi_clock" LOCATE = SITE "W18" LEVEL 1;
+COMP "clk" LOCATE = SITE "Y9" LEVEL 1;
+COMP "AC_ADR0" LOCATE = SITE "AB1" LEVEL 1;
+COMP "AC_ADR1" LOCATE = SITE "Y5" LEVEL 1;
+COMP "hdmi_vsync" LOCATE = SITE "W17" LEVEL 1;
+COMP "AC_GPIO0" LOCATE = SITE "Y8" LEVEL 1;
+COMP "AC_GPIO1" LOCATE = SITE "AA7" LEVEL 1;
+COMP "AC_GPIO2" LOCATE = SITE "AA6" LEVEL 1;
+COMP "AC_GPIO3" LOCATE = SITE "Y6" LEVEL 1;
+COMP "hdmi_hsync" LOCATE = SITE "V17" LEVEL 1;
+COMP "AC_SCK" LOCATE = SITE "AB4" LEVEL 1;
+COMP "AC_SDA" LOCATE = SITE "AB5" LEVEL 1;
+COMP "hdmi_int" LOCATE = SITE "W16" LEVEL 1;
+PIN Madd_n0053_Madd1_pins<117> = BEL "Madd_n0053_Madd1" PINNAME CLK;
+PIN Madd_n0052_Madd1_pins<117> = BEL "Madd_n0052_Madd1" PINNAME CLK;
+PIN adau1761_codec/codec_clock_gen/mmcm_adv_inst_pins<2> = BEL
+        "adau1761_codec/codec_clock_gen/mmcm_adv_inst" PINNAME CLKIN1;
+PIN wd_top/sample_ram/Mram_RAM_pins<32> = BEL "wd_top/sample_ram/Mram_RAM"
+        PINNAME CLKARDCLK;
+PIN wd_top/sample_ram/Mram_RAM_pins<33> = BEL "wd_top/sample_ram/Mram_RAM"
+        PINNAME CLKBWRCLK;
+PIN
+        music_player/note_player/sine_read_mySineROM/Mram_addr[9]_memory[1023][15]_wide_mux_1_OUT_pins<32>
+        = BEL
+        "music_player/note_player/sine_read_mySineROM/Mram_addr[9]_memory[1023][15]_wide_mux_1_OUT"
+        PINNAME CLKARDCLK;
+PIN
+        music_player/song_reader_lib/Mram_addr[6]_memory[127][11]_wide_mux_1_OUT_pins<32>
+        = BEL
+        "music_player/song_reader_lib/Mram_addr[6]_memory[127][11]_wide_mux_1_OUT"
+        PINNAME CLKARDCLK;
+PIN hdmi/PLLE2_BASE_inst_pins<2> = BEL "hdmi/PLLE2_BASE_inst" PINNAME CLKIN1;
+TIMEGRP clk = BEL "converted_0" BEL "converted_1" BEL "converted_2" BEL
+        "converted_3" BEL "converted_4" BEL "converted_5" BEL "converted_6"
+        BEL "converted_7" BEL "converted_8" BEL "converted_9" BEL
+        "converted_10" BEL "converted_11" BEL "converted_12" BEL
+        "converted_13" BEL "converted_14" BEL "converted_15" BEL
+        "converted_17" BEL
+        "next_button_press_unit/one_pulse/last_value_storage/q_0" BEL
+        "play_button_press_unit/one_pulse/last_value_storage/q_0" BEL
+        "led_div/q_0" BEL "led_div/q_1" BEL "led_div/q_2" BEL "led_div/q_3"
+        BEL "led_div/q_4" BEL "led_div/q_5" BEL "led_div/q_6" BEL
+        "led_div/q_7" BEL "led_div/q_8" BEL "led_div/q_9" BEL "led_div/q_10"
+        BEL "led_div/q_11" BEL "led_div/q_12" BEL "led_div/q_13" BEL
+        "led_div/q_14" BEL "led_div/q_15" BEL "led_div/q_16" BEL
+        "led_div/q_17" BEL "led_div/q_18" BEL "led_div/q_19" BEL
+        "led_div/q_20" BEL "led_div/q_21" BEL "led_div/q_22" BEL
+        "led_div/q_23" BEL "led_div/q_24" BEL "led_div/q_25" BEL
+        "led_div/q_26" BEL "music_player/beat_generator/counter/q_0" BEL
+        "music_player/beat_generator/counter/q_1" BEL
+        "music_player/beat_generator/counter/q_2" BEL
+        "music_player/beat_generator/counter/q_3" BEL
+        "music_player/beat_generator/counter/q_4" BEL
+        "music_player/beat_generator/counter/q_5" BEL
+        "music_player/beat_generator/counter/q_6" BEL
+        "music_player/beat_generator/counter/q_7" BEL
+        "music_player/beat_generator/counter/q_8" BEL
+        "music_player/beat_generator/counter/q_9" PIN
+        "Madd_n0053_Madd1_pins<117>" PIN "Madd_n0052_Madd1_pins<117>" PIN
+        "adau1761_codec/codec_clock_gen/mmcm_adv_inst_pins<2>" BEL
+        "play_button_press_unit/debounce/counter/q_19" BEL
+        "play_button_press_unit/debounce/counter/q_18" BEL
+        "play_button_press_unit/debounce/counter/q_17" BEL
+        "play_button_press_unit/debounce/counter/q_16" BEL
+        "play_button_press_unit/debounce/counter/q_15" BEL
+        "play_button_press_unit/debounce/counter/q_14" BEL
+        "play_button_press_unit/debounce/counter/q_13" BEL
+        "play_button_press_unit/debounce/counter/q_12" BEL
+        "play_button_press_unit/debounce/counter/q_11" BEL
+        "play_button_press_unit/debounce/counter/q_10" BEL
+        "play_button_press_unit/debounce/counter/q_9" BEL
+        "play_button_press_unit/debounce/counter/q_8" BEL
+        "play_button_press_unit/debounce/counter/q_7" BEL
+        "play_button_press_unit/debounce/counter/q_6" BEL
+        "play_button_press_unit/debounce/counter/q_5" BEL
+        "play_button_press_unit/debounce/counter/q_4" BEL
+        "play_button_press_unit/debounce/counter/q_3" BEL
+        "play_button_press_unit/debounce/counter/q_2" BEL
+        "play_button_press_unit/debounce/counter/q_1" BEL
+        "play_button_press_unit/debounce/counter/q_0" BEL
+        "play_button_press_unit/debounce/state/q_0" BEL
+        "play_button_press_unit/debounce/state/q_1" BEL
+        "next_button_press_unit/debounce/counter/q_19" BEL
+        "next_button_press_unit/debounce/counter/q_18" BEL
+        "next_button_press_unit/debounce/counter/q_17" BEL
+        "next_button_press_unit/debounce/counter/q_16" BEL
+        "next_button_press_unit/debounce/counter/q_15" BEL
+        "next_button_press_unit/debounce/counter/q_14" BEL
+        "next_button_press_unit/debounce/counter/q_13" BEL
+        "next_button_press_unit/debounce/counter/q_12" BEL
+        "next_button_press_unit/debounce/counter/q_11" BEL
+        "next_button_press_unit/debounce/counter/q_10" BEL
+        "next_button_press_unit/debounce/counter/q_9" BEL
+        "next_button_press_unit/debounce/counter/q_8" BEL
+        "next_button_press_unit/debounce/counter/q_7" BEL
+        "next_button_press_unit/debounce/counter/q_6" BEL
+        "next_button_press_unit/debounce/counter/q_5" BEL
+        "next_button_press_unit/debounce/counter/q_4" BEL
+        "next_button_press_unit/debounce/counter/q_3" BEL
+        "next_button_press_unit/debounce/counter/q_2" BEL
+        "next_button_press_unit/debounce/counter/q_1" BEL
+        "next_button_press_unit/debounce/counter/q_0" BEL
+        "next_button_press_unit/debounce/state/q_0" BEL
+        "next_button_press_unit/debounce/state/q_1" BEL
+        "music_player/mcu/flipper/q_0" BEL "music_player/mcu/flipper/q_1" BEL
+        "music_player/mcu/flipper/q_2" BEL
+        "music_player/song_reader/increment/q_4" BEL
+        "music_player/song_reader/increment/q_3" BEL
+        "music_player/song_reader/increment/q_2" BEL
+        "music_player/song_reader/increment/q_1" BEL
+        "music_player/song_reader/increment/q_0" BEL
+        "music_player/song_reader/states/q_0" BEL
+        "music_player/song_reader/states/q_1" BEL
+        "music_player/song_reader/states/q_2" BEL
+        "music_player/note_player/state_reg/q_5" BEL
+        "music_player/note_player/state_reg/q_4" BEL
+        "music_player/note_player/state_reg/q_3" BEL
+        "music_player/note_player/state_reg/q_2" BEL
+        "music_player/note_player/state_reg/q_1" BEL
+        "music_player/note_player/state_reg/q_0" BEL
+        "music_player/note_player/freq_reg/q_5" BEL
+        "music_player/note_player/freq_reg/q_4" BEL
+        "music_player/note_player/freq_reg/q_3" BEL
+        "music_player/note_player/freq_reg/q_2" BEL
+        "music_player/note_player/freq_reg/q_1" BEL
+        "music_player/note_player/freq_reg/q_0" BEL
+        "music_player/note_player/freq_rom/dout_18" BEL
+        "music_player/note_player/freq_rom/dout_17" BEL
+        "music_player/note_player/freq_rom/dout_16" BEL
+        "music_player/note_player/freq_rom/dout_15" BEL
+        "music_player/note_player/freq_rom/dout_14" BEL
+        "music_player/note_player/freq_rom/dout_13" BEL
+        "music_player/note_player/freq_rom/dout_12" BEL
+        "music_player/note_player/freq_rom/dout_11" BEL
+        "music_player/note_player/freq_rom/dout_10" BEL
+        "music_player/note_player/freq_rom/dout_9" BEL
+        "music_player/note_player/freq_rom/dout_8" BEL
+        "music_player/note_player/freq_rom/dout_7" BEL
+        "music_player/note_player/freq_rom/dout_6" BEL
+        "music_player/note_player/freq_rom/dout_5" BEL
+        "music_player/note_player/freq_rom/dout_4" BEL
+        "music_player/note_player/freq_rom/dout_3" BEL
+        "music_player/note_player/freq_rom/dout_2" BEL
+        "music_player/note_player/freq_rom/dout_1" BEL
+        "music_player/note_player/freq_rom/dout_0" BEL
+        "music_player/note_player/sine_read/flipper/q_21" BEL
+        "music_player/note_player/sine_read/flipper/q_20" BEL
+        "music_player/note_player/sine_read/flipper/q_19" BEL
+        "music_player/note_player/sine_read/flipper/q_18" BEL
+        "music_player/note_player/sine_read/flipper/q_17" BEL
+        "music_player/note_player/sine_read/flipper/q_16" BEL
+        "music_player/note_player/sine_read/flipper/q_15" BEL
+        "music_player/note_player/sine_read/flipper/q_14" BEL
+        "music_player/note_player/sine_read/flipper/q_13" BEL
+        "music_player/note_player/sine_read/flipper/q_12" BEL
+        "music_player/note_player/sine_read/flipper/q_11" BEL
+        "music_player/note_player/sine_read/flipper/q_10" BEL
+        "music_player/note_player/sine_read/flipper/q_9" BEL
+        "music_player/note_player/sine_read/flipper/q_8" BEL
+        "music_player/note_player/sine_read/flipper/q_7" BEL
+        "music_player/note_player/sine_read/flipper/q_6" BEL
+        "music_player/note_player/sine_read/flipper/q_5" BEL
+        "music_player/note_player/sine_read/flipper/q_4" BEL
+        "music_player/note_player/sine_read/flipper/q_3" BEL
+        "music_player/note_player/sine_read/flipper/q_2" BEL
+        "music_player/note_player/sine_read/flipper/q_1" BEL
+        "music_player/note_player/sine_read/flipper/q_0" BEL
+        "music_player/note_player/sine_read/shift_register1/q_0" BEL
+        "music_player/note_player/sine_read/shift_register2/q_0" BEL
+        "music_player/codec_conditioner/next_sample_latch/q_15" BEL
+        "music_player/codec_conditioner/next_sample_latch/q_14" BEL
+        "music_player/codec_conditioner/next_sample_latch/q_13" BEL
+        "music_player/codec_conditioner/next_sample_latch/q_12" BEL
+        "music_player/codec_conditioner/next_sample_latch/q_11" BEL
+        "music_player/codec_conditioner/next_sample_latch/q_10" BEL
+        "music_player/codec_conditioner/next_sample_latch/q_9" BEL
+        "music_player/codec_conditioner/next_sample_latch/q_8" BEL
+        "music_player/codec_conditioner/next_sample_latch/q_7" BEL
+        "music_player/codec_conditioner/next_sample_latch/q_6" BEL
+        "music_player/codec_conditioner/next_sample_latch/q_5" BEL
+        "music_player/codec_conditioner/next_sample_latch/q_4" BEL
+        "music_player/codec_conditioner/next_sample_latch/q_3" BEL
+        "music_player/codec_conditioner/next_sample_latch/q_2" BEL
+        "music_player/codec_conditioner/next_sample_latch/q_1" BEL
+        "music_player/codec_conditioner/next_sample_latch/q_0" BEL
+        "music_player/codec_conditioner/current_sample_latch/q_15" BEL
+        "music_player/codec_conditioner/current_sample_latch/q_14" BEL
+        "music_player/codec_conditioner/current_sample_latch/q_13" BEL
+        "music_player/codec_conditioner/current_sample_latch/q_12" BEL
+        "music_player/codec_conditioner/current_sample_latch/q_11" BEL
+        "music_player/codec_conditioner/current_sample_latch/q_10" BEL
+        "music_player/codec_conditioner/current_sample_latch/q_9" BEL
+        "music_player/codec_conditioner/current_sample_latch/q_8" BEL
+        "music_player/codec_conditioner/current_sample_latch/q_7" BEL
+        "music_player/codec_conditioner/current_sample_latch/q_6" BEL
+        "music_player/codec_conditioner/current_sample_latch/q_5" BEL
+        "music_player/codec_conditioner/current_sample_latch/q_4" BEL
+        "music_player/codec_conditioner/current_sample_latch/q_3" BEL
+        "music_player/codec_conditioner/current_sample_latch/q_2" BEL
+        "music_player/codec_conditioner/current_sample_latch/q_1" BEL
+        "music_player/codec_conditioner/current_sample_latch/q_0" BEL
+        "sample_reg/q_15" BEL "sample_reg/q_14" BEL "sample_reg/q_13" BEL
+        "sample_reg/q_12" BEL "sample_reg/q_11" BEL "sample_reg/q_10" BEL
+        "sample_reg/q_9" BEL "sample_reg/q_8" BEL "key_dec/sclk_19" BEL
+        "key_dec/sclk_18" BEL "key_dec/sclk_17" BEL "key_dec/sclk_16" BEL
+        "key_dec/sclk_15" BEL "key_dec/sclk_14" BEL "key_dec/sclk_13" BEL
+        "key_dec/sclk_12" BEL "key_dec/sclk_11" BEL "key_dec/sclk_10" BEL
+        "key_dec/sclk_9" BEL "key_dec/sclk_8" BEL "key_dec/sclk_7" BEL
+        "key_dec/sclk_6" BEL "key_dec/sclk_5" BEL "key_dec/sclk_4" BEL
+        "key_dec/sclk_3" BEL "key_dec/sclk_2" BEL "key_dec/sclk_1" BEL
+        "key_dec/sclk_0" BEL "key_dec/Col_3" BEL "key_dec/Col_2" BEL
+        "key_dec/Col_1" BEL "key_dec/Col_0" BEL "ye_dff/q_17" BEL "y_dff/q_9"
+        BEL "y_dff/q_8" BEL "y_dff/q_7" BEL "y_dff/q_6" BEL "y_dff/q_5" BEL
+        "y_dff/q_4" BEL "y_dff/q_3" BEL "y_dff/q_2" BEL "y_dff/q_1" BEL
+        "y_dff/q_0" BEL "x_dff/q_10" BEL "x_dff/q_9" BEL "x_dff/q_8" BEL
+        "x_dff/q_7" BEL "x_dff/q_6" BEL "x_dff/q_5" BEL "x_dff/q_4" BEL
+        "x_dff/q_3" BEL "x_dff/q_2" BEL "x_dff/q_1" BEL "x_dff/q_0" BEL
+        "wd_top/wc/counter/q_7" BEL "wd_top/wc/counter/q_6" BEL
+        "wd_top/wc/counter/q_5" BEL "wd_top/wc/counter/q_4" BEL
+        "wd_top/wc/counter/q_3" BEL "wd_top/wc/counter/q_2" BEL
+        "wd_top/wc/counter/q_1" BEL "wd_top/wc/counter/q_0" BEL
+        "wd_top/wc/positive_zero/q_0" BEL "wd_top/wc/states/q_0" BEL
+        "wd_top/wc/states/q_1" BEL "wd_top/wd/new_valid/q_0" BEL
+        "wd_top/wd/last_read_value/q_7" BEL "wd_top/wd/last_read_value/q_6"
+        BEL "wd_top/wd/last_read_value/q_5" BEL
+        "wd_top/wd/last_read_value/q_4" BEL "wd_top/wd/last_read_value/q_3"
+        BEL "wd_top/wd/last_read_value/q_2" BEL
+        "wd_top/wd/last_read_value/q_1" BEL "wd_top/wd/last_read_value/q_0"
+        BEL "wd_top/wd/new_y/q_9" BEL "wd_top/wd/new_y/q_8" BEL
+        "wd_top/wd/new_y/q_7" BEL "wd_top/wd/new_y/q_6" BEL
+        "wd_top/wd/new_y/q_5" BEL "wd_top/wd/new_y/q_4" BEL
+        "wd_top/wd/new_y/q_3" BEL "wd_top/wd/new_y/q_2" BEL
+        "wd_top/wd/new_y/q_1" BEL "wd_top/wd/last_read_addr/q_8" BEL
+        "wd_top/wd/last_read_addr/q_7" BEL "wd_top/wd/last_read_addr/q_6" BEL
+        "wd_top/wd/last_read_addr/q_5" BEL "wd_top/wd/last_read_addr/q_4" BEL
+        "wd_top/wd/last_read_addr/q_3" BEL "wd_top/wd/last_read_addr/q_2" BEL
+        "wd_top/wd/last_read_addr/q_1" BEL "wd_top/wd/last_read_addr/q_0" BEL
+        "music_player/codec_conditioner/new_frame_state/q_0" BEL
+        "wd_top/wc/index/q_0" BEL "clk_IBUF_BUFG" BEL "Mshreg_converted_20"
+        BEL "converted_20" BEL "next_button_press_unit/sync/ff3/Mshreg_q_0"
+        BEL "next_button_press_unit/sync/ff3/q_0" BEL
+        "play_button_press_unit/sync/ff3/Mshreg_q_0" BEL
+        "play_button_press_unit/sync/ff3/q_0" PIN
+        "wd_top/sample_ram/Mram_RAM_pins<32>" PIN
+        "wd_top/sample_ram/Mram_RAM_pins<33>" PIN
+        "music_player/note_player/sine_read_mySineROM/Mram_addr[9]_memory[1023][15]_wide_mux_1_OUT_pins<32>"
+        PIN
+        "music_player/song_reader_lib/Mram_addr[6]_memory[127][11]_wide_mux_1_OUT_pins<32>"
+        PIN "hdmi/PLLE2_BASE_inst_pins<2>";
+PIN
+        adau1761_codec/i2c_interface/Inst_i2c_Inst_adau1761_configuraiton_data/Mram__n0373_pins<32>
+        = BEL
+        "adau1761_codec/i2c_interface/Inst_i2c_Inst_adau1761_configuraiton_data/Mram__n0373"
+        PINNAME CLKARDCLK;
+TIMEGRP adau1761_codec_codec_clock_gen_clkout0 = BEL
+        "adau1761_codec/i2c_interface/i_ADAU1761_interface/master_clk" BEL
+        "adau1761_codec/codec_clock_gen/clkout1_buf" BEL
+        "adau1761_codec/i2c_interface/Inst_i2s_data_interface/i2s_d_out" BEL
+        "adau1761_codec/i2c_interface/Inst_i2s_data_interface/sr_out_63" BEL
+        "adau1761_codec/i2c_interface/Inst_i2s_data_interface/sr_out_62" BEL
+        "adau1761_codec/i2c_interface/Inst_i2s_data_interface/sr_out_61" BEL
+        "adau1761_codec/i2c_interface/Inst_i2s_data_interface/sr_out_60" BEL
+        "adau1761_codec/i2c_interface/Inst_i2s_data_interface/sr_out_59" BEL
+        "adau1761_codec/i2c_interface/Inst_i2s_data_interface/sr_out_58" BEL
+        "adau1761_codec/i2c_interface/Inst_i2s_data_interface/sr_out_57" BEL
+        "adau1761_codec/i2c_interface/Inst_i2s_data_interface/sr_out_56" BEL
+        "adau1761_codec/i2c_interface/Inst_i2s_data_interface/sr_out_55" BEL
+        "adau1761_codec/i2c_interface/Inst_i2s_data_interface/sr_out_54" BEL
+        "adau1761_codec/i2c_interface/Inst_i2s_data_interface/sr_out_53" BEL
+        "adau1761_codec/i2c_interface/Inst_i2s_data_interface/sr_out_52" BEL
+        "adau1761_codec/i2c_interface/Inst_i2s_data_interface/sr_out_51" BEL
+        "adau1761_codec/i2c_interface/Inst_i2s_data_interface/sr_out_50" BEL
+        "adau1761_codec/i2c_interface/Inst_i2s_data_interface/sr_out_49" BEL
+        "adau1761_codec/i2c_interface/Inst_i2s_data_interface/sr_out_48" BEL
+        "adau1761_codec/i2c_interface/Inst_i2s_data_interface/i2s_lr_last" BEL
+        "adau1761_codec/i2c_interface/Inst_i2s_data_interface/bclk_delay_0"
+        BEL "adau1761_codec/i2c_interface/Inst_i2c/Inst_i3c2/state_FSM_FFd2"
+        BEL "adau1761_codec/i2c_interface/Inst_i2c/Inst_i3c2/state_FSM_FFd3"
+        BEL "adau1761_codec/i2c_interface/Inst_i2c/Inst_i3c2/state_FSM_FFd1"
+        BEL "adau1761_codec/i2c_interface/Inst_i2c/Inst_i3c2/i2c_scl" BEL
+        "adau1761_codec/i2c_interface/Inst_i2c/Inst_i3c2/i2c_sda_t" BEL
+        "adau1761_codec/i2c_interface/Inst_i2c/Inst_i3c2/bitcount_6" BEL
+        "adau1761_codec/i2c_interface/Inst_i2c/Inst_i3c2/bitcount_5" BEL
+        "adau1761_codec/i2c_interface/Inst_i2c/Inst_i3c2/bitcount_4" BEL
+        "adau1761_codec/i2c_interface/Inst_i2c/Inst_i3c2/bitcount_3" BEL
+        "adau1761_codec/i2c_interface/Inst_i2c/Inst_i3c2/bitcount_2" BEL
+        "adau1761_codec/i2c_interface/Inst_i2c/Inst_i3c2/bitcount_1" BEL
+        "adau1761_codec/i2c_interface/Inst_i2c/Inst_i3c2/bitcount_0" BEL
+        "adau1761_codec/i2c_interface/Inst_i2c/Inst_i3c2/pcnext_9" BEL
+        "adau1761_codec/i2c_interface/Inst_i2c/Inst_i3c2/pcnext_8" BEL
+        "adau1761_codec/i2c_interface/Inst_i2c/Inst_i3c2/pcnext_7" BEL
+        "adau1761_codec/i2c_interface/Inst_i2c/Inst_i3c2/pcnext_6" BEL
+        "adau1761_codec/i2c_interface/Inst_i2c/Inst_i3c2/pcnext_5" BEL
+        "adau1761_codec/i2c_interface/Inst_i2c/Inst_i3c2/pcnext_4" BEL
+        "adau1761_codec/i2c_interface/Inst_i2c/Inst_i3c2/pcnext_3" BEL
+        "adau1761_codec/i2c_interface/Inst_i2c/Inst_i3c2/pcnext_2" BEL
+        "adau1761_codec/i2c_interface/Inst_i2c/Inst_i3c2/pcnext_1" BEL
+        "adau1761_codec/i2c_interface/Inst_i2c/Inst_i3c2/pcnext_0" BEL
+        "adau1761_codec/i2c_interface/Inst_i2c/Inst_i3c2/skip" BEL
+        "adau1761_codec/i2c_interface/Inst_i2c/Inst_i3c2/i2c_started" BEL
+        "adau1761_codec/i2c_interface/Inst_i2c/Inst_i3c2/i2c_data_8" BEL
+        "adau1761_codec/i2c_interface/Inst_i2c/Inst_i3c2/i2c_data_7" BEL
+        "adau1761_codec/i2c_interface/Inst_i2c/Inst_i3c2/i2c_data_6" BEL
+        "adau1761_codec/i2c_interface/Inst_i2c/Inst_i3c2/i2c_data_5" BEL
+        "adau1761_codec/i2c_interface/Inst_i2c/Inst_i3c2/i2c_data_4" BEL
+        "adau1761_codec/i2c_interface/Inst_i2c/Inst_i3c2/i2c_data_3" BEL
+        "adau1761_codec/i2c_interface/Inst_i2c/Inst_i3c2/i2c_data_2" BEL
+        "adau1761_codec/i2c_interface/Inst_i2c/Inst_i3c2/i2c_data_1" BEL
+        "adau1761_codec/i2c_interface/Inst_i2c/Inst_i3c2/i2c_data_0" BEL
+        "adau1761_codec/i2c_interface/Inst_i2c/Inst_i3c2/i2c_bits_left_3" BEL
+        "adau1761_codec/i2c_interface/Inst_i2c/Inst_i3c2/i2c_bits_left_2" BEL
+        "adau1761_codec/i2c_interface/Inst_i2c/Inst_i3c2/i2c_bits_left_1" BEL
+        "adau1761_codec/i2c_interface/Inst_i2c/Inst_i3c2/i2c_bits_left_0" BEL
+        "adau1761_codec/i2c_interface/Inst_i2c/Inst_i3c2/delay_15" BEL
+        "adau1761_codec/i2c_interface/Inst_i2c/Inst_i3c2/delay_14" BEL
+        "adau1761_codec/i2c_interface/Inst_i2c/Inst_i3c2/delay_13" BEL
+        "adau1761_codec/i2c_interface/Inst_i2c/Inst_i3c2/delay_12" BEL
+        "adau1761_codec/i2c_interface/Inst_i2c/Inst_i3c2/delay_11" BEL
+        "adau1761_codec/i2c_interface/Inst_i2c/Inst_i3c2/delay_10" BEL
+        "adau1761_codec/i2c_interface/Inst_i2c/Inst_i3c2/delay_9" BEL
+        "adau1761_codec/i2c_interface/Inst_i2c/Inst_i3c2/delay_8" BEL
+        "adau1761_codec/i2c_interface/Inst_i2c/Inst_i3c2/delay_7" BEL
+        "adau1761_codec/i2c_interface/Inst_i2c/Inst_i3c2/delay_6" BEL
+        "adau1761_codec/i2c_interface/Inst_i2c/Inst_i3c2/delay_5" BEL
+        "adau1761_codec/i2c_interface/Inst_i2c/Inst_i3c2/delay_4" BEL
+        "adau1761_codec/i2c_interface/Inst_i2c/Inst_i3c2/delay_3" BEL
+        "adau1761_codec/i2c_interface/Inst_i2c/Inst_i3c2/delay_2" BEL
+        "adau1761_codec/i2c_interface/Inst_i2c/Inst_i3c2/delay_1" BEL
+        "adau1761_codec/i2c_interface/Inst_i2c/Inst_i3c2/delay_0" BEL
+        "adau1761_codec/i2c_interface/Inst_i2s_data_interface/new_sample" BEL
+        "adau1761_codec/i2c_interface/Inst_i2c/Inst_i3c2/ack_flag" BEL
+        "adau1761_codec/i2c_interface/Inst_i2s_data_interface/Mshreg_bclk_delay_1"
+        BEL
+        "adau1761_codec/i2c_interface/Inst_i2s_data_interface/bclk_delay_1"
+        PIN
+        "adau1761_codec/i2c_interface/Inst_i2c_Inst_adau1761_configuraiton_data/Mram__n0373_pins<32>";
+TIMEGRP hdmi_clk_vgax2 = BEL "hdmi/ODDR_inst" BEL "hdmi/vcounter_10" BEL
+        "hdmi/vcounter_9" BEL "hdmi/vcounter_8" BEL "hdmi/vcounter_7" BEL
+        "hdmi/vcounter_6" BEL "hdmi/vcounter_5" BEL "hdmi/vcounter_4" BEL
+        "hdmi/vcounter_3" BEL "hdmi/vcounter_2" BEL "hdmi/vcounter_1" BEL
+        "hdmi/vcounter_0" BEL "hdmi/hcounter_10" BEL "hdmi/hcounter_9" BEL
+        "hdmi/hcounter_8" BEL "hdmi/hcounter_7" BEL "hdmi/hcounter_6" BEL
+        "hdmi/hcounter_5" BEL "hdmi/hcounter_4" BEL "hdmi/hcounter_3" BEL
+        "hdmi/hcounter_2" BEL "hdmi/hcounter_1" BEL "hdmi/hcounter_0" BEL
+        "hdmi/valid" BEL "hdmi/hdmi_de" BEL "hdmi/xpos_10" BEL "hdmi/xpos_9"
+        BEL "hdmi/xpos_8" BEL "hdmi/xpos_7" BEL "hdmi/xpos_6" BEL
+        "hdmi/xpos_5" BEL "hdmi/xpos_4" BEL "hdmi/xpos_3" BEL "hdmi/xpos_2"
+        BEL "hdmi/xpos_1" BEL "hdmi/xpos_0" BEL "hdmi/blanking" BEL
+        "hdmi/ypos_9" BEL "hdmi/ypos_8" BEL "hdmi/ypos_7" BEL "hdmi/ypos_6"
+        BEL "hdmi/ypos_5" BEL "hdmi/ypos_4" BEL "hdmi/ypos_3" BEL
+        "hdmi/ypos_2" BEL "hdmi/ypos_1" BEL "hdmi/ypos_0" BEL "hdmi/hdmi_d_15"
+        BEL "hdmi/hdmi_d_14" BEL "hdmi/hdmi_d_13" BEL "hdmi/hdmi_d_12" BEL
+        "hdmi/hdmi_d_11" BEL "hdmi/hdmi_d_10" BEL "hdmi/hdmi_d_9" BEL
+        "hdmi/hdmi_d_8" BEL "hdmi/hdmi_vsync" BEL "hdmi/hdmi_hsync" BEL
+        "hdmi/edge" BEL "hdmi/hsync" BEL "hdmi/vsync";
+TIMEGRP hdmi_clk = BEL "hdmi/Inst_i2c_sender/divider_7" BEL
+        "hdmi/Inst_i2c_sender/divider_6" BEL "hdmi/Inst_i2c_sender/divider_5"
+        BEL "hdmi/Inst_i2c_sender/divider_4" BEL
+        "hdmi/Inst_i2c_sender/divider_3" BEL "hdmi/Inst_i2c_sender/divider_2"
+        BEL "hdmi/Inst_i2c_sender/divider_1" BEL
+        "hdmi/Inst_i2c_sender/divider_0" BEL
+        "hdmi/Inst_i2c_sender/initial_pause_7" BEL
+        "hdmi/Inst_i2c_sender/initial_pause_6" BEL
+        "hdmi/Inst_i2c_sender/initial_pause_5" BEL
+        "hdmi/Inst_i2c_sender/initial_pause_4" BEL
+        "hdmi/Inst_i2c_sender/initial_pause_3" BEL
+        "hdmi/Inst_i2c_sender/initial_pause_2" BEL
+        "hdmi/Inst_i2c_sender/initial_pause_1" BEL
+        "hdmi/Inst_i2c_sender/initial_pause_0" BEL
+        "hdmi/Inst_i2c_sender/address_5" BEL "hdmi/Inst_i2c_sender/address_4"
+        BEL "hdmi/Inst_i2c_sender/address_3" BEL
+        "hdmi/Inst_i2c_sender/address_2" BEL "hdmi/Inst_i2c_sender/address_1"
+        BEL "hdmi/Inst_i2c_sender/address_0" BEL
+        "hdmi/Inst_i2c_sender/data_sr_28" BEL
+        "hdmi/Inst_i2c_sender/data_sr_27" BEL
+        "hdmi/Inst_i2c_sender/data_sr_26" BEL
+        "hdmi/Inst_i2c_sender/data_sr_25" BEL
+        "hdmi/Inst_i2c_sender/data_sr_24" BEL
+        "hdmi/Inst_i2c_sender/data_sr_23" BEL
+        "hdmi/Inst_i2c_sender/data_sr_22" BEL
+        "hdmi/Inst_i2c_sender/data_sr_21" BEL
+        "hdmi/Inst_i2c_sender/data_sr_20" BEL
+        "hdmi/Inst_i2c_sender/data_sr_19" BEL
+        "hdmi/Inst_i2c_sender/data_sr_18" BEL
+        "hdmi/Inst_i2c_sender/data_sr_17" BEL
+        "hdmi/Inst_i2c_sender/data_sr_16" BEL
+        "hdmi/Inst_i2c_sender/data_sr_15" BEL
+        "hdmi/Inst_i2c_sender/data_sr_14" BEL
+        "hdmi/Inst_i2c_sender/data_sr_13" BEL
+        "hdmi/Inst_i2c_sender/data_sr_12" BEL
+        "hdmi/Inst_i2c_sender/data_sr_11" BEL
+        "hdmi/Inst_i2c_sender/data_sr_10" BEL "hdmi/Inst_i2c_sender/data_sr_9"
+        BEL "hdmi/Inst_i2c_sender/data_sr_8" BEL
+        "hdmi/Inst_i2c_sender/data_sr_7" BEL "hdmi/Inst_i2c_sender/data_sr_6"
+        BEL "hdmi/Inst_i2c_sender/data_sr_5" BEL
+        "hdmi/Inst_i2c_sender/data_sr_4" BEL "hdmi/Inst_i2c_sender/data_sr_3"
+        BEL "hdmi/Inst_i2c_sender/data_sr_2" BEL
+        "hdmi/Inst_i2c_sender/data_sr_1" BEL
+        "hdmi/Inst_i2c_sender/reg_value_15" BEL
+        "hdmi/Inst_i2c_sender/reg_value_14" BEL
+        "hdmi/Inst_i2c_sender/reg_value_13" BEL
+        "hdmi/Inst_i2c_sender/reg_value_12" BEL
+        "hdmi/Inst_i2c_sender/reg_value_11" BEL
+        "hdmi/Inst_i2c_sender/reg_value_10" BEL
+        "hdmi/Inst_i2c_sender/reg_value_9" BEL
+        "hdmi/Inst_i2c_sender/reg_value_8" BEL
+        "hdmi/Inst_i2c_sender/reg_value_7" BEL
+        "hdmi/Inst_i2c_sender/reg_value_6" BEL
+        "hdmi/Inst_i2c_sender/reg_value_5" BEL
+        "hdmi/Inst_i2c_sender/reg_value_4" BEL
+        "hdmi/Inst_i2c_sender/reg_value_3" BEL
+        "hdmi/Inst_i2c_sender/reg_value_2" BEL
+        "hdmi/Inst_i2c_sender/reg_value_1" BEL
+        "hdmi/Inst_i2c_sender/reg_value_0" BEL
+        "hdmi/Inst_i2c_sender/busy_sr_28" BEL
+        "hdmi/Inst_i2c_sender/busy_sr_27" BEL
+        "hdmi/Inst_i2c_sender/busy_sr_26" BEL
+        "hdmi/Inst_i2c_sender/busy_sr_25" BEL
+        "hdmi/Inst_i2c_sender/busy_sr_24" BEL
+        "hdmi/Inst_i2c_sender/busy_sr_23" BEL
+        "hdmi/Inst_i2c_sender/busy_sr_22" BEL
+        "hdmi/Inst_i2c_sender/busy_sr_21" BEL
+        "hdmi/Inst_i2c_sender/busy_sr_20" BEL
+        "hdmi/Inst_i2c_sender/busy_sr_19" BEL
+        "hdmi/Inst_i2c_sender/busy_sr_18" BEL
+        "hdmi/Inst_i2c_sender/busy_sr_17" BEL
+        "hdmi/Inst_i2c_sender/busy_sr_16" BEL
+        "hdmi/Inst_i2c_sender/busy_sr_15" BEL
+        "hdmi/Inst_i2c_sender/busy_sr_14" BEL
+        "hdmi/Inst_i2c_sender/busy_sr_13" BEL
+        "hdmi/Inst_i2c_sender/busy_sr_12" BEL
+        "hdmi/Inst_i2c_sender/busy_sr_11" BEL
+        "hdmi/Inst_i2c_sender/busy_sr_10" BEL "hdmi/Inst_i2c_sender/busy_sr_9"
+        BEL "hdmi/Inst_i2c_sender/busy_sr_8" BEL
+        "hdmi/Inst_i2c_sender/busy_sr_7" BEL "hdmi/Inst_i2c_sender/busy_sr_6"
+        BEL "hdmi/Inst_i2c_sender/busy_sr_5" BEL
+        "hdmi/Inst_i2c_sender/busy_sr_4" BEL "hdmi/Inst_i2c_sender/busy_sr_3"
+        BEL "hdmi/Inst_i2c_sender/busy_sr_2" BEL
+        "hdmi/Inst_i2c_sender/busy_sr_1" BEL "hdmi/Inst_i2c_sender/busy_sr_0"
+        BEL "hdmi/Inst_i2c_sender/tristate_sr_28" BEL
+        "hdmi/Inst_i2c_sender/tristate_sr_27" BEL
+        "hdmi/Inst_i2c_sender/tristate_sr_26" BEL
+        "hdmi/Inst_i2c_sender/tristate_sr_25" BEL
+        "hdmi/Inst_i2c_sender/tristate_sr_24" BEL
+        "hdmi/Inst_i2c_sender/tristate_sr_23" BEL
+        "hdmi/Inst_i2c_sender/tristate_sr_22" BEL
+        "hdmi/Inst_i2c_sender/tristate_sr_21" BEL
+        "hdmi/Inst_i2c_sender/tristate_sr_20" BEL
+        "hdmi/Inst_i2c_sender/tristate_sr_19" BEL
+        "hdmi/Inst_i2c_sender/tristate_sr_18" BEL
+        "hdmi/Inst_i2c_sender/tristate_sr_17" BEL
+        "hdmi/Inst_i2c_sender/tristate_sr_16" BEL
+        "hdmi/Inst_i2c_sender/tristate_sr_15" BEL
+        "hdmi/Inst_i2c_sender/tristate_sr_14" BEL
+        "hdmi/Inst_i2c_sender/tristate_sr_13" BEL
+        "hdmi/Inst_i2c_sender/tristate_sr_12" BEL
+        "hdmi/Inst_i2c_sender/tristate_sr_11" BEL
+        "hdmi/Inst_i2c_sender/tristate_sr_10" BEL
+        "hdmi/Inst_i2c_sender/tristate_sr_9" BEL
+        "hdmi/Inst_i2c_sender/tristate_sr_8" BEL
+        "hdmi/Inst_i2c_sender/tristate_sr_7" BEL
+        "hdmi/Inst_i2c_sender/tristate_sr_6" BEL
+        "hdmi/Inst_i2c_sender/tristate_sr_5" BEL
+        "hdmi/Inst_i2c_sender/tristate_sr_4" BEL
+        "hdmi/Inst_i2c_sender/tristate_sr_3" BEL
+        "hdmi/Inst_i2c_sender/tristate_sr_1" BEL
+        "hdmi/Inst_i2c_sender/clk_first_quarter_28" BEL
+        "hdmi/Inst_i2c_sender/clk_first_quarter_27" BEL
+        "hdmi/Inst_i2c_sender/clk_first_quarter_26" BEL
+        "hdmi/Inst_i2c_sender/clk_first_quarter_25" BEL
+        "hdmi/Inst_i2c_sender/clk_first_quarter_24" BEL
+        "hdmi/Inst_i2c_sender/clk_first_quarter_23" BEL
+        "hdmi/Inst_i2c_sender/clk_first_quarter_22" BEL
+        "hdmi/Inst_i2c_sender/clk_first_quarter_21" BEL
+        "hdmi/Inst_i2c_sender/clk_first_quarter_20" BEL
+        "hdmi/Inst_i2c_sender/clk_first_quarter_19" BEL
+        "hdmi/Inst_i2c_sender/clk_first_quarter_18" BEL
+        "hdmi/Inst_i2c_sender/clk_first_quarter_17" BEL
+        "hdmi/Inst_i2c_sender/clk_first_quarter_16" BEL
+        "hdmi/Inst_i2c_sender/clk_first_quarter_15" BEL
+        "hdmi/Inst_i2c_sender/clk_first_quarter_14" BEL
+        "hdmi/Inst_i2c_sender/clk_first_quarter_13" BEL
+        "hdmi/Inst_i2c_sender/clk_first_quarter_12" BEL
+        "hdmi/Inst_i2c_sender/clk_first_quarter_11" BEL
+        "hdmi/Inst_i2c_sender/clk_first_quarter_10" BEL
+        "hdmi/Inst_i2c_sender/clk_first_quarter_9" BEL
+        "hdmi/Inst_i2c_sender/clk_first_quarter_8" BEL
+        "hdmi/Inst_i2c_sender/clk_first_quarter_7" BEL
+        "hdmi/Inst_i2c_sender/clk_first_quarter_6" BEL
+        "hdmi/Inst_i2c_sender/clk_first_quarter_5" BEL
+        "hdmi/Inst_i2c_sender/clk_first_quarter_4" BEL
+        "hdmi/Inst_i2c_sender/clk_first_quarter_3" BEL
+        "hdmi/Inst_i2c_sender/clk_first_quarter_2" BEL
+        "hdmi/Inst_i2c_sender/clk_first_quarter_1" BEL
+        "hdmi/Inst_i2c_sender/finished";
+TS_clk = PERIOD TIMEGRP "clk" 10 ns HIGH 50%;
+TS_adau1761_codec_codec_clock_gen_clkout0 = PERIOD TIMEGRP
+        "adau1761_codec_codec_clock_gen_clkout0" TS_clk / 0.48 HIGH 50%;
+TS_hdmi_clk = PERIOD TIMEGRP "hdmi_clk" TS_clk HIGH 50%;
+TS_hdmi_clk_vgax2 = PERIOD TIMEGRP "hdmi_clk_vgax2" TS_clk / 1.8 HIGH 50%;
+SCHEMATIC END;
+

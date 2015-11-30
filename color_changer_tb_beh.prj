@@ -1,3 +1,4 @@
+verilog work "launchpad_interface.v"
 verilog work "ff_lib.v"
 verilog work "color_changer.v"
 verilog work "color_changer_tb.v"

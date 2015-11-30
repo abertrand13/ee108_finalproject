@@ -34,7 +34,7 @@ module dynamics_tb();
 	initial begin
 	// First Testing a Note with a 1/16sec Duration.
 	reset = 1;
-	note_duration = 6'd0;
+	note_duration = 6'd3;
 	sample = 16'd0;
 	new_sample_ready = 1'b0;
 	generate_next_sample = 1'b0;
@@ -47,9 +47,9 @@ module dynamics_tb();
 	note_duration = 6'd3;
 	sample = 16'd10400;
 	new_sample_ready = 1'b0;
-	generate_next_sample = 1'b0;
+	generate_next_sample = 1'b1;
 	expected_final_sample = 16'd9100;
-	#12
+	#120
 	$display("Duration: %b, new_sample_ready : %b, generate_next_sample: %b, final_sample expected? %b",
 	note_duration, new_sample_ready, generate_next_sample, final_sample == expected_final_sample);
 	
@@ -58,7 +58,7 @@ module dynamics_tb();
 	new_sample_ready = 1'b0;
 	generate_next_sample = 1'b1;
 	expected_final_sample = 16'd7800;
-	#24
+	#240
 	$display("Duration: %b, new_sample_ready : %b, generate_next_sample: %b, final_sample expected? %b",
 	note_duration, new_sample_ready, generate_next_sample, final_sample == expected_final_sample);
 	
@@ -67,7 +67,7 @@ module dynamics_tb();
 	new_sample_ready = 1'b0;
 	generate_next_sample = 1'b1;
 	expected_final_sample = 16'd6500;
-	#48
+	#480
 	$display("Duration: %b, new_sample_ready : %b, generate_next_sample: %b, final_sample expected? %b",
 	note_duration, new_sample_ready, generate_next_sample, final_sample == expected_final_sample);
 	
@@ -76,7 +76,7 @@ module dynamics_tb();
 	new_sample_ready = 1'b0;
 	generate_next_sample = 1'b1;
 	expected_final_sample = 16'd5200;
-	#96
+	#960
 	$display("Duration: %b, new_sample_ready : %b, generate_next_sample: %b, final_sample expected? %b",
 	note_duration, new_sample_ready, generate_next_sample, final_sample == expected_final_sample);
 	
@@ -85,7 +85,7 @@ module dynamics_tb();
 	new_sample_ready = 1'b0;
 	generate_next_sample = 1'b1;
 	expected_final_sample = 16'd3900;
-	#192
+	#1920
 	$display("Duration: %b, new_sample_ready : %b, generate_next_sample: %b, final_sample expected? %b",
 	note_duration, new_sample_ready, generate_next_sample, final_sample == expected_final_sample);
 	
@@ -94,7 +94,7 @@ module dynamics_tb();
 	new_sample_ready = 1'b0;
 	generate_next_sample = 1'b1;
 	expected_final_sample = 16'd2600;
-	#384
+	#3840
 	$display("Duration: %b, new_sample_ready : %b, generate_next_sample: %b, final_sample expected? %b",
 	note_duration, new_sample_ready, generate_next_sample, final_sample == expected_final_sample);
 	
@@ -103,7 +103,7 @@ module dynamics_tb();
 	new_sample_ready = 1'b0;
 	generate_next_sample = 1'b1;
 	expected_final_sample = 16'd1300;
-	#768
+	#7680
 	$display("Duration: %b, new_sample_ready : %b, generate_next_sample: %b, final_sample expected? %b",
 	note_duration, new_sample_ready, generate_next_sample, final_sample == expected_final_sample);
 	
@@ -112,7 +112,7 @@ module dynamics_tb();
 	new_sample_ready = 1'b0;
 	generate_next_sample = 1'b1;
 	expected_final_sample = 16'd0;
-	#1536
+	#15360
 	$display("Duration: %b, new_sample_ready : %b, generate_next_sample: %b, final_sample expected? %b",
 	note_duration, new_sample_ready, generate_next_sample, final_sample == expected_final_sample);
 	
@@ -128,9 +128,9 @@ module dynamics_tb();
 	note_duration = 6'd24;
 	sample = 16'd10400;
 	new_sample_ready = 1'b0;
-	generate_next_sample = 1'b1;
 	expected_final_sample = 16'd9100;
-	#96
+	#10 generate_next_sample = 1'b1;
+	#950
 	$display("Duration: %b, new_sample_ready : %b, generate_next_sample: %b, final_sample expected? %b",
 	note_duration, new_sample_ready, generate_next_sample, final_sample == expected_final_sample);
 	
@@ -139,7 +139,7 @@ module dynamics_tb();
 	new_sample_ready = 1'b0;
 	generate_next_sample = 1'b1;
 	expected_final_sample = 16'd7800;
-	#192
+	#1920
 	$display("Duration: %b, new_sample_ready : %b, generate_next_sample: %b, final_sample expected? %b",
 	note_duration, new_sample_ready, generate_next_sample, final_sample == expected_final_sample);
 	
@@ -148,7 +148,7 @@ module dynamics_tb();
 	new_sample_ready = 1'b0;
 	generate_next_sample = 1'b1;
 	expected_final_sample = 16'd6500;
-	#384
+	#3840
 	$display("Duration: %b, new_sample_ready : %b, generate_next_sample: %b, final_sample expected? %b",
 	note_duration, new_sample_ready, generate_next_sample, final_sample == expected_final_sample);
 	
@@ -157,7 +157,7 @@ module dynamics_tb();
 	new_sample_ready = 1'b0;
 	generate_next_sample = 1'b1;
 	expected_final_sample = 16'd5200;
-	#768
+	#7680
 	$display("Duration: %b, new_sample_ready : %b, generate_next_sample: %b, final_sample expected? %b",
 	note_duration, new_sample_ready, generate_next_sample, final_sample == expected_final_sample);
 	
@@ -166,7 +166,7 @@ module dynamics_tb();
 	new_sample_ready = 1'b0;
 	generate_next_sample = 1'b1;
 	expected_final_sample = 16'd3900;
-	#1536
+	#15360
 	$display("Duration: %b, new_sample_ready : %b, generate_next_sample: %b, final_sample expected? %b",
 	note_duration, new_sample_ready, generate_next_sample, final_sample == expected_final_sample);
 	
@@ -175,7 +175,7 @@ module dynamics_tb();
 	new_sample_ready = 1'b0;
 	generate_next_sample = 1'b1;
 	expected_final_sample = 16'd2600;
-	#3072
+	#30720
 	$display("Duration: %b, new_sample_ready : %b, generate_next_sample: %b, final_sample expected? %b",
 	note_duration, new_sample_ready, generate_next_sample, final_sample == expected_final_sample);
 	
@@ -184,7 +184,7 @@ module dynamics_tb();
 	new_sample_ready = 1'b0;
 	generate_next_sample = 1'b1;
 	expected_final_sample = 16'd1300;
-	#6144
+	#61440
 	$display("Duration: %b, new_sample_ready : %b, generate_next_sample: %b, final_sample expected? %b",
 	note_duration, new_sample_ready, generate_next_sample, final_sample == expected_final_sample);
 	
@@ -193,7 +193,7 @@ module dynamics_tb();
 	new_sample_ready = 1'b0;
 	generate_next_sample = 1'b1;
 	expected_final_sample = 16'd0;
-	#12288
+	#122880
 	$display("Duration: %b, new_sample_ready : %b, generate_next_sample: %b, final_sample expected? %b",
 	note_duration, new_sample_ready, generate_next_sample, final_sample == expected_final_sample);
 	
