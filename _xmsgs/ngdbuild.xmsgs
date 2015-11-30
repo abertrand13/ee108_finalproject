@@ -17,17 +17,5 @@
 <arg fmt="%s" index="7">CLKOUT1</arg>: <arg fmt="%s" index="8">&lt;TIMESPEC TS_hdmi_clk_vgax2 = PERIOD &quot;hdmi_clk_vgax2&quot; TS_clk / 1.8 HIGH 50%&gt;</arg>
 </msg>
 
-<msg type="warning" file="NgdBuild" num="470" delta="old" ><arg fmt="%s" index="1">bidirect</arg> pad net &apos;<arg fmt="%s" index="2">JB&lt;7&gt;</arg>&apos; has no legal driver
-</msg>
-
-<msg type="warning" file="NgdBuild" num="470" delta="old" ><arg fmt="%s" index="1">bidirect</arg> pad net &apos;<arg fmt="%s" index="2">JB&lt;6&gt;</arg>&apos; has no legal driver
-</msg>
-
-<msg type="warning" file="NgdBuild" num="470" delta="old" ><arg fmt="%s" index="1">bidirect</arg> pad net &apos;<arg fmt="%s" index="2">JB&lt;5&gt;</arg>&apos; has no legal driver
-</msg>
-
-<msg type="warning" file="NgdBuild" num="470" delta="old" ><arg fmt="%s" index="1">bidirect</arg> pad net &apos;<arg fmt="%s" index="2">JB&lt;4&gt;</arg>&apos; has no legal driver
-</msg>
-
 </messages>
 

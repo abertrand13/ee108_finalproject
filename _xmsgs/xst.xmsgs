@@ -32,15 +32,6 @@
 <msg type="warning" file="HDLCompiler" num="413" delta="old" >"\\afs\ir\class\ee108\groups\8\final_project\lab5_top.v" Line 221: Result of <arg fmt="%d" index="1">32</arg>-bit expression is truncated to fit in <arg fmt="%d" index="2">8</arg>-bit target.
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="189" delta="new" >"\\afs\ir\class\ee108\groups\8\final_project\wave_display.v" Line 128: Size mismatch in connection of port &lt;<arg fmt="%s" index="3">out</arg>&gt;. Formal port size is <arg fmt="%d" index="2">8</arg>-bit while actual signal size is <arg fmt="%d" index="1">7</arg>-bit.
-</msg>
-
-<msg type="warning" file="HDLCompiler" num="189" delta="new" >"\\afs\ir\class\ee108\groups\8\final_project\wave_display.v" Line 133: Size mismatch in connection of port &lt;<arg fmt="%s" index="3">out</arg>&gt;. Formal port size is <arg fmt="%d" index="2">8</arg>-bit while actual signal size is <arg fmt="%d" index="1">7</arg>-bit.
-</msg>
-
-<msg type="warning" file="HDLCompiler" num="634" delta="old" >"\\afs\ir\class\ee108\groups\8\final_project\wave_display.v" Line 100: Net &lt;<arg fmt="%s" index="1">ld_row[1]</arg>&gt; does not have a driver.
-</msg>
-
 <msg type="warning" file="HDLCompiler" num="189" delta="old" >"\\afs\ir\class\ee108\groups\8\final_project\lab5_top.v" Line 262: Size mismatch in connection of port &lt;<arg fmt="%s" index="3">y</arg>&gt;. Formal port size is <arg fmt="%d" index="2">10</arg>-bit while actual signal size is <arg fmt="%d" index="1">11</arg>-bit.
 </msg>
 
@@ -90,15 +81,6 @@
 </msg>
 
 <msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">new_sample_in&lt;7:0&gt;</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-</msg>
-
-<msg type="warning" file="Xst" num="647" delta="old" >Input &lt;<arg fmt="%s" index="1">keypad_value</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-</msg>
-
-<msg type="warning" file="Xst" num="653" delta="old" >Signal &lt;<arg fmt="%s" index="1">ld_row</arg>&gt; is used but never assigned. This sourceless signal will be automatically connected to value <arg fmt="%s" index="2">GND</arg>.
-</msg>
-
-<msg type="warning" file="Xst" num="653" delta="old" >Signal &lt;<arg fmt="%s" index="1">ld_col</arg>&gt; is used but never assigned. This sourceless signal will be automatically connected to value <arg fmt="%s" index="2">GND</arg>.
 </msg>
 
 <msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">hdmi_clk_bits_0</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">hdmi</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;hdmi_clk_bits_1&gt; </arg>
@@ -181,14 +163,14 @@
 <msg type="info" file="Xst" num="3231" delta="old" >The small RAM &lt;<arg fmt="%s" index="1">Mram_reg_value_pairs</arg>&gt; will be implemented on LUTs in order to maximize performance and save block RAM resources. If you want to force its implementation on block, use option/constraint ram_style.
 </msg>
 
+<msg type="info" file="Xst" num="3231" delta="old" >The small RAM &lt;<arg fmt="%s" index="1">Mram__n0025</arg>&gt; will be implemented on LUTs in order to maximize performance and save block RAM resources. If you want to force its implementation on block, use option/constraint ram_style.
+</msg>
+
 <msg type="info" file="Xst" num="3227" delta="old" >The RAM &lt;<arg fmt="%s" index="1">Mram_RAM</arg>&gt;, combined with &lt;<arg fmt="%s" index="2">Mram_RAM1</arg>&gt;, will be implemented as a BLOCK RAM, absorbing the following register(s):</msg>
 
 <msg type="info" file="Xst" num="3226" delta="old" >The RAM &lt;<arg fmt="%s" index="1">Mram_addr[9]_memory[1023][15]_wide_mux_1_OUT</arg>&gt; will be implemented as a BLOCK RAM, absorbing the following register(s):</msg>
 
 <msg type="info" file="Xst" num="3226" delta="old" >The RAM &lt;<arg fmt="%s" index="1">Mram_addr[6]_memory[127][11]_wide_mux_1_OUT</arg>&gt; will be implemented as a BLOCK RAM, absorbing the following register(s):</msg>
-
-<msg type="warning" file="Xst" num="1989" delta="old" >Unit &lt;<arg fmt="%s" index="1">wave_display</arg>&gt;: instances &lt;<arg fmt="%s" index="2">xlowbound</arg>&gt;, &lt;<arg fmt="%s" index="3">ylowbound</arg>&gt; of unit &lt;<arg fmt="%s" index="4">multiplier</arg>&gt; are equivalent, second instance is removed
-</msg>
 
 <msg type="info" file="Xst" num="2261" delta="old" >The FF/Latch &lt;<arg fmt="%s" index="1">hdmi_clk_bits_0</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">zedboard_hdmi</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">FF/Latch</arg>, which will be removed : <arg fmt="%s" index="4">&lt;hdmi_clk_bits_1&gt; </arg>
 </msg>
@@ -989,18 +971,6 @@
 </msg>
 
 <msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">adau1761_codec/i2c_interface/Inst_i2s_data_interface/i2s_d_in_last</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">lab5_top</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">key_dec/DecodeOut_3</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">lab5_top</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">key_dec/DecodeOut_2</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">lab5_top</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">key_dec/DecodeOut_1</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">lab5_top</arg>&gt;.
-</msg>
-
-<msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">key_dec/DecodeOut_0</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">lab5_top</arg>&gt;.
 </msg>
 
 <msg type="warning" file="Xst" num="2677" delta="old" >Node &lt;<arg fmt="%s" index="1">cr_dff/q_19</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">lab5_top</arg>&gt;.

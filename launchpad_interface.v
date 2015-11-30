@@ -5,11 +5,11 @@ module launchpad_interface(
 );
 
 	reg [1:0] x,y;
-	assign row = x;
 	assign row = y;
+	assign col = x;
 	
 	always @(*) begin
-		case({row, col})
+		case(val)
 			4'b0000: begin
 				// 0
 				x = 2'd0;
@@ -53,7 +53,7 @@ module launchpad_interface(
 			4'b1000: begin
 				// 8
 				x = 2'd1;
-				y = 2'd1;
+				y = 2'd2;
 			end
 			4'b1001: begin
 				// 9
@@ -78,7 +78,7 @@ module launchpad_interface(
 			4'b1101: begin
 				// D
 				x = 2'd3;
-				x = 2'd3;
+				y = 2'd3;
 			end
 			4'b1110: begin
 				// E

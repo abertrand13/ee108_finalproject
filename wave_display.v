@@ -97,8 +97,12 @@ module wave_display(
 	wire [7:0] ld_size;
 	wire [6:0] ld_grid;
 	
-	wire [1:0] ld_row, ld_col; //pressed button
-	
+	// convert the value of the pressed button to row/column format
+	wire [1:0] ld_row, ld_col; // for the pressed button
+	launchpad_interface converter(
+		.val(keypad_value),
+		.row(ld_row),
+		.col(ld_col));
 
 	assign ld_top_x = 11'd1000;
 	assign ld_top_y = 10'd500;
@@ -106,22 +110,26 @@ module wave_display(
 	assign ld_grid = ld_size >> 2;
 
 	wire valid_row_pixel, valid_col_pixel, valid_grid_pixel, valid_btn_pixel, valid_launch_pixel;
-	assign valid_row_pixel = y == ld_top_y ||
+	assign valid_row_pixel = (y == ld_top_y ||
 							 y == ld_top_y + ld_grid ||
 						 	 y == ld_top_y + (ld_grid << 1'b1) ||
 							 y == ld_top_y + ld_size - ld_grid ||
-							 y == ld_top_y + ld_size;
+							 y == ld_top_y + ld_size) &&
+							 (x >= ld_top_x) &&
+							 (x <= ld_top_x + ld_size);
 	
 	assign valid_col_pixel = (x == ld_top_x ||
 							 x == ld_top_x + ld_grid ||
 							 x == ld_top_x + (ld_grid << 1'b1) ||
 							 x == ld_top_x + ld_size - ld_grid ||
-							 x == ld_top_x + ld_size);
+							 x == ld_top_x + ld_size) &&
+							 (y >= ld_top_y) &&
+							 (y <= ld_top_y + ld_size);
 
 	assign valid_grid_pixel = valid_row_pixel || valid_col_pixel;
 	
 	// this is WAY too complicated.  Damn multiplication.
-	wire[6:0] ld_grid_xlowbound, ld_grid_ylowbound;
+	wire[8:0] ld_grid_xlowbound, ld_grid_ylowbound;
 	
 	multiplier #(.WIDTH(7)) xlowbound (
 		.val(ld_grid),

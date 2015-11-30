@@ -1,5 +1,5 @@
 //! **************************************************************************
-// Written by: Map P.20131013 on Sun Nov 29 17:38:22 2015
+// Written by: Map P.20131013 on Sun Nov 29 20:15:59 2015
 //! **************************************************************************
 
 SCHEMATIC START;
@@ -261,13 +261,15 @@ TIMEGRP clk = BEL "converted_0" BEL "converted_1" BEL "converted_2" BEL
         "key_dec/sclk_9" BEL "key_dec/sclk_8" BEL "key_dec/sclk_7" BEL
         "key_dec/sclk_6" BEL "key_dec/sclk_5" BEL "key_dec/sclk_4" BEL
         "key_dec/sclk_3" BEL "key_dec/sclk_2" BEL "key_dec/sclk_1" BEL
-        "key_dec/sclk_0" BEL "key_dec/Col_3" BEL "key_dec/Col_2" BEL
-        "key_dec/Col_1" BEL "key_dec/Col_0" BEL "ye_dff/q_17" BEL "y_dff/q_9"
-        BEL "y_dff/q_8" BEL "y_dff/q_7" BEL "y_dff/q_6" BEL "y_dff/q_5" BEL
-        "y_dff/q_4" BEL "y_dff/q_3" BEL "y_dff/q_2" BEL "y_dff/q_1" BEL
-        "y_dff/q_0" BEL "x_dff/q_10" BEL "x_dff/q_9" BEL "x_dff/q_8" BEL
-        "x_dff/q_7" BEL "x_dff/q_6" BEL "x_dff/q_5" BEL "x_dff/q_4" BEL
-        "x_dff/q_3" BEL "x_dff/q_2" BEL "x_dff/q_1" BEL "x_dff/q_0" BEL
+        "key_dec/sclk_0" BEL "key_dec/DecodeOut_3" BEL "key_dec/DecodeOut_2"
+        BEL "key_dec/DecodeOut_1" BEL "key_dec/DecodeOut_0" BEL
+        "key_dec/Col_3" BEL "key_dec/Col_2" BEL "key_dec/Col_1" BEL
+        "key_dec/Col_0" BEL "ye_dff/q_17" BEL "y_dff/q_9" BEL "y_dff/q_8" BEL
+        "y_dff/q_7" BEL "y_dff/q_6" BEL "y_dff/q_5" BEL "y_dff/q_4" BEL
+        "y_dff/q_3" BEL "y_dff/q_2" BEL "y_dff/q_1" BEL "y_dff/q_0" BEL
+        "x_dff/q_10" BEL "x_dff/q_9" BEL "x_dff/q_8" BEL "x_dff/q_7" BEL
+        "x_dff/q_6" BEL "x_dff/q_5" BEL "x_dff/q_4" BEL "x_dff/q_3" BEL
+        "x_dff/q_2" BEL "x_dff/q_1" BEL "x_dff/q_0" BEL
         "wd_top/wc/counter/q_7" BEL "wd_top/wc/counter/q_6" BEL
         "wd_top/wc/counter/q_5" BEL "wd_top/wc/counter/q_4" BEL
         "wd_top/wc/counter/q_3" BEL "wd_top/wc/counter/q_2" BEL

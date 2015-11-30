@@ -3,14 +3,14 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 --> Parameter TMPDIR set to xst/projnav.tmp
 
 
-Total REAL time to Xst completion: 1.00 secs
-Total CPU time to Xst completion: 0.17 secs
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.15 secs
  
 --> Parameter xsthdpdir set to xst
 
 
-Total REAL time to Xst completion: 1.00 secs
-Total CPU time to Xst completion: 0.17 secs
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.15 secs
  
 --> Reading design: lab5_top.prj
 
@@ -117,6 +117,8 @@ Analyzing Verilog file "\\afs\ir\class\ee108\groups\8\final_project\sine_reader.
 Parsing module <sine_reader>.
 Analyzing Verilog file "\\afs\ir\class\ee108\groups\8\final_project\multiplier.v" into library work
 Parsing module <multiplier>.
+Analyzing Verilog file "\\afs\ir\class\ee108\groups\8\final_project\launchpad_interface.v" into library work
+Parsing module <launchpad_interface>.
 Analyzing Verilog file "\\afs\ir\class\ee108\groups\8\final_project\frequency_rom.v" into library work
 Parsing module <frequency_rom>.
 Analyzing Verilog file "\\afs\ir\class\ee108\groups\8\final_project\wave_display.v" into library work
@@ -300,10 +302,9 @@ Elaborating module <dffr(WIDTH=9)>.
 
 Elaborating module <dffr(WIDTH=10)>.
 
+Elaborating module <launchpad_interface>.
+
 Elaborating module <multiplier(WIDTH=7)>.
-WARNING:HDLCompiler:189 - "\\afs\ir\class\ee108\groups\8\final_project\wave_display.v" Line 128: Size mismatch in connection of port <out>. Formal port size is 8-bit while actual signal size is 7-bit.
-WARNING:HDLCompiler:189 - "\\afs\ir\class\ee108\groups\8\final_project\wave_display.v" Line 133: Size mismatch in connection of port <out>. Formal port size is 8-bit while actual signal size is 7-bit.
-WARNING:HDLCompiler:634 - "\\afs\ir\class\ee108\groups\8\final_project\wave_display.v" Line 100: Net <ld_row[1]> does not have a driver.
 WARNING:HDLCompiler:189 - "\\afs\ir\class\ee108\groups\8\final_project\lab5_top.v" Line 262: Size mismatch in connection of port <y>. Formal port size is 10-bit while actual signal size is 11-bit.
 
 =========================================================================
@@ -811,15 +812,12 @@ Unit <ram_1w2r> synthesized.
 
 Synthesizing Unit <wave_display>.
     Related source file is "\\afs\ir\class\ee108\groups\8\final_project\wave_display.v".
-WARNING:Xst:647 - Input <keypad_value> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
-WARNING:Xst:653 - Signal <ld_row> is used but never assigned. This sourceless signal will be automatically connected to value GND.
-WARNING:Xst:653 - Signal <ld_col> is used but never assigned. This sourceless signal will be automatically connected to value GND.
     Found 11-bit subtractor for signal <x[10]_GND_113_o_sub_8_OUT> created at line 76.
     Found 11-bit adder for signal <x[10]_GND_113_o_add_10_OUT> created at line 82.
-    Found 11-bit adder for signal <n0147> created at line 135.
-    Found 11-bit adder for signal <ld_top_x[10]_GND_113_o_add_44_OUT> created at line 136.
-    Found 10-bit adder for signal <n0153> created at line 137.
-    Found 10-bit adder for signal <ld_top_y[9]_GND_113_o_add_49_OUT> created at line 138.
+    Found 11-bit adder for signal <n0159> created at line 144.
+    Found 11-bit adder for signal <ld_top_x[10]_GND_113_o_add_50_OUT> created at line 145.
+    Found 10-bit adder for signal <n0165> created at line 146.
+    Found 10-bit adder for signal <ld_top_y[9]_GND_113_o_add_55_OUT> created at line 147.
     Found 9-bit comparator not equal for signal <n0007> created at line 50
     Found 11-bit comparator greater for signal <last_addr_valid> created at line 76
     Found 11-bit comparator greater for signal <next_addr_valid> created at line 82
@@ -827,13 +825,17 @@ WARNING:Xst:653 - Signal <ld_col> is used but never assigned. This sourceless si
     Found 8-bit comparator lessequal for signal <n0018> created at line 88
     Found 8-bit comparator lessequal for signal <n0021> created at line 88
     Found 8-bit comparator lessequal for signal <n0023> created at line 88
-    Found 11-bit comparator greater for signal <ld_top_x[10]_x[10]_LessThan_43_o> created at line 135
-    Found 11-bit comparator greater for signal <x[10]_ld_top_x[10]_LessThan_46_o> created at line 136
-    Found 10-bit comparator greater for signal <ld_top_y[9]_y[9]_LessThan_48_o> created at line 137
-    Found 10-bit comparator greater for signal <y[9]_ld_top_y[9]_LessThan_51_o> created at line 138
+    Found 11-bit comparator lessequal for signal <n0048> created at line 118
+    Found 11-bit comparator lessequal for signal <n0052> created at line 119
+    Found 10-bit comparator lessequal for signal <n0067> created at line 126
+    Found 10-bit comparator lessequal for signal <n0070> created at line 127
+    Found 11-bit comparator greater for signal <ld_top_x[10]_x[10]_LessThan_49_o> created at line 144
+    Found 11-bit comparator greater for signal <x[10]_ld_top_x[10]_LessThan_52_o> created at line 145
+    Found 10-bit comparator greater for signal <ld_top_y[9]_y[9]_LessThan_54_o> created at line 146
+    Found 10-bit comparator greater for signal <y[9]_ld_top_y[9]_LessThan_57_o> created at line 147
     Summary:
 	inferred   6 Adder/Subtractor(s).
-	inferred  11 Comparator(s).
+	inferred  15 Comparator(s).
 	inferred   2 Multiplexer(s).
 Unit <wave_display> synthesized.
 
@@ -853,26 +855,32 @@ Synthesizing Unit <dffr_6>.
 	inferred  10 D-type flip-flop(s).
 Unit <dffr_6> synthesized.
 
+Synthesizing Unit <launchpad_interface>.
+    Related source file is "\\afs\ir\class\ee108\groups\8\final_project\launchpad_interface.v".
+    Found 16x4-bit Read Only RAM for signal <_n0025>
+    Summary:
+	inferred   1 RAM(s).
+Unit <launchpad_interface> synthesized.
+
 Synthesizing Unit <multiplier>.
     Related source file is "\\afs\ir\class\ee108\groups\8\final_project\multiplier.v".
         WIDTH = 7
-    Found 8-bit adder for signal <GND_116_o_newval[7]_add_2_OUT> created at line 28.
-    Found 8-bit shifter logical left for signal <newval[7]_GND_116_o_shift_left_3_OUT> created at line 28
-    Found 8-bit 4-to-1 multiplexer for signal <outval> created at line 24.
+    Found 9-bit adder for signal <newval[7]_newval[8]_add_2_OUT> created at line 28.
+    Found 9-bit 4-to-1 multiplexer for signal <outval> created at line 24.
     Summary:
 	inferred   1 Adder/Subtractor(s).
-	inferred   2 Multiplexer(s).
-	inferred   1 Combinational logic shifter(s).
+	inferred   1 Multiplexer(s).
 Unit <multiplier> synthesized.
 
 =========================================================================
 HDL Synthesis Report
 
 Macro Statistics
-# RAMs                                                 : 7
+# RAMs                                                 : 8
  1024x16-bit single-port Read Only RAM                 : 1
  128x12-bit single-port Read Only RAM                  : 1
  128x9-bit single-port Read Only RAM                   : 1
+ 16x4-bit single-port Read Only RAM                    : 1
  512x8-bit dual-port RAM                               : 2
  64x16-bit single-port Read Only RAM                   : 1
  64x20-bit single-port Read Only RAM                   : 1
@@ -900,9 +908,9 @@ Macro Statistics
  4-bit subtractor                                      : 1
  5-bit adder                                           : 1
  6-bit subtractor                                      : 1
- 8-bit adder                                           : 6
+ 8-bit adder                                           : 4
  8-bit subtractor                                      : 1
- 9-bit adder                                           : 1
+ 9-bit adder                                           : 3
 # Registers                                            : 98
  1-bit register                                        : 35
  10-bit register                                       : 4
@@ -925,15 +933,16 @@ Macro Statistics
  64-bit register                                       : 1
  8-bit register                                        : 6
  9-bit register                                        : 6
-# Comparators                                          : 16
+# Comparators                                          : 20
  1-bit comparator greater                              : 1
  10-bit comparator greater                             : 2
+ 10-bit comparator lessequal                           : 2
  11-bit comparator greater                             : 5
- 11-bit comparator lessequal                           : 1
+ 11-bit comparator lessequal                           : 3
  21-bit comparator lessequal                           : 2
  8-bit comparator lessequal                            : 4
  9-bit comparator not equal                            : 1
-# Multiplexers                                         : 175
+# Multiplexers                                         : 173
  1-bit 2-to-1 multiplexer                              : 73
  1-bit 4-to-1 multiplexer                              : 3
  10-bit 2-to-1 multiplexer                             : 15
@@ -947,11 +956,9 @@ Macro Statistics
  4-bit 2-to-1 multiplexer                              : 26
  6-bit 2-to-1 multiplexer                              : 1
  64-bit 2-to-1 multiplexer                             : 1
- 8-bit 2-to-1 multiplexer                              : 19
- 8-bit 4-to-1 multiplexer                              : 2
+ 8-bit 2-to-1 multiplexer                              : 17
  9-bit 2-to-1 multiplexer                              : 7
-# Logic shifters                                       : 2
- 8-bit shifter logical left                            : 2
+ 9-bit 4-to-1 multiplexer                              : 2
 # Tristates                                            : 1
  1-bit tristate buffer                                 : 1
 # FSMs                                                 : 1
@@ -1062,6 +1069,20 @@ The following registers are absorbed into counter <led_div/q>: 1 register on sig
 	Multiplier <Mmult_PWR_1_o_g[7]_MuLt_19_OUT> in block <lab5_top> and adder/subtractor <Msub__n0115_Madd> in block <lab5_top> are combined into a MAC<Maddsub_PWR_1_o_g[7]_MuLt_19_OUT>.
 Unit <lab5_top> synthesized (advanced).
 
+Synthesizing (advanced) Unit <launchpad_interface>.
+INFO:Xst:3231 - The small RAM <Mram__n0025> will be implemented on LUTs in order to maximize performance and save block RAM resources. If you want to force its implementation on block, use option/constraint ram_style.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 16-word x 4-bit                     |          |
+    |     weA            | connected to signal <GND>           | high     |
+    |     addrA          | connected to signal <val>           |          |
+    |     diA            | connected to signal <GND>           |          |
+    |     doA            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+Unit <launchpad_interface> synthesized (advanced).
+
 Synthesizing (advanced) Unit <note_player>.
 The following registers are absorbed into counter <state_reg/q>: 1 register on signal <state_reg/q>.
 Unit <note_player> synthesized (advanced).
@@ -1150,10 +1171,11 @@ Unit <zedboard_hdmi> synthesized (advanced).
 Advanced HDL Synthesis Report
 
 Macro Statistics
-# RAMs                                                 : 6
+# RAMs                                                 : 7
  1024x16-bit single-port block Read Only RAM           : 1
  128x12-bit single-port block Read Only RAM            : 1
  128x9-bit single-port block Read Only RAM             : 1
+ 16x4-bit single-port distributed Read Only RAM        : 1
  512x8-bit dual-port block RAM                         : 1
  64x16-bit single-port distributed Read Only RAM       : 1
  64x20-bit single-port distributed Read Only RAM       : 1
@@ -1175,8 +1197,9 @@ Macro Statistics
  16-bit subtractor                                     : 2
  21-bit adder                                          : 3
  4-bit subtractor                                      : 1
- 8-bit adder                                           : 3
+ 8-bit adder                                           : 1
  8-bit subtractor                                      : 1
+ 9-bit adder                                           : 2
 # Counters                                             : 13
  10-bit up counter                                     : 1
  11-bit up counter                                     : 2
@@ -1190,15 +1213,16 @@ Macro Statistics
  22-bit up accumulator                                 : 1
 # Registers                                            : 761
  Flip-Flops                                            : 761
-# Comparators                                          : 16
+# Comparators                                          : 20
  1-bit comparator greater                              : 1
  10-bit comparator greater                             : 2
+ 10-bit comparator lessequal                           : 2
  11-bit comparator greater                             : 5
- 11-bit comparator lessequal                           : 1
+ 11-bit comparator lessequal                           : 3
  21-bit comparator lessequal                           : 2
  8-bit comparator lessequal                            : 4
  9-bit comparator not equal                            : 1
-# Multiplexers                                         : 146
+# Multiplexers                                         : 144
  1-bit 2-to-1 multiplexer                              : 50
  1-bit 4-to-1 multiplexer                              : 3
  10-bit 2-to-1 multiplexer                             : 15
@@ -1211,11 +1235,9 @@ Macro Statistics
  32-bit 2-to-1 multiplexer                             : 6
  4-bit 2-to-1 multiplexer                              : 26
  64-bit 2-to-1 multiplexer                             : 1
- 8-bit 2-to-1 multiplexer                              : 15
- 8-bit 4-to-1 multiplexer                              : 2
+ 8-bit 2-to-1 multiplexer                              : 13
  9-bit 2-to-1 multiplexer                              : 6
-# Logic shifters                                       : 2
- 8-bit shifter logical left                            : 2
+ 9-bit 4-to-1 multiplexer                              : 2
 # FSMs                                                 : 1
 # Xors                                                 : 1
  1-bit xor2                                            : 1
@@ -1225,7 +1247,6 @@ Macro Statistics
 =========================================================================
 *                         Low Level Synthesis                           *
 =========================================================================
-WARNING:Xst:1989 - Unit <wave_display>: instances <xlowbound>, <ylowbound> of unit <multiplier> are equivalent, second instance is removed
 INFO:Xst:2261 - The FF/Latch <hdmi_clk_bits_0> in Unit <zedboard_hdmi> is equivalent to the following FF/Latch, which will be removed : <hdmi_clk_bits_1> 
 Analyzing FSM <MFsm> for best encoding.
 Optimizing FSM <adau1761_codec/i2c_interface/Inst_i2c/FSM_0> on signal <state[1:3]> with sequential encoding.
@@ -1540,10 +1561,6 @@ WARNING:Xst:2677 - Node <adau1761_codec/i2c_interface/Inst_i2s_data_interface/sr
 WARNING:Xst:2677 - Node <adau1761_codec/i2c_interface/Inst_i2s_data_interface/sr_in_1> of sequential type is unconnected in block <lab5_top>.
 WARNING:Xst:2677 - Node <adau1761_codec/i2c_interface/Inst_i2s_data_interface/sr_in_0> of sequential type is unconnected in block <lab5_top>.
 WARNING:Xst:2677 - Node <adau1761_codec/i2c_interface/Inst_i2s_data_interface/i2s_d_in_last> of sequential type is unconnected in block <lab5_top>.
-WARNING:Xst:2677 - Node <key_dec/DecodeOut_3> of sequential type is unconnected in block <lab5_top>.
-WARNING:Xst:2677 - Node <key_dec/DecodeOut_2> of sequential type is unconnected in block <lab5_top>.
-WARNING:Xst:2677 - Node <key_dec/DecodeOut_1> of sequential type is unconnected in block <lab5_top>.
-WARNING:Xst:2677 - Node <key_dec/DecodeOut_0> of sequential type is unconnected in block <lab5_top>.
 WARNING:Xst:2677 - Node <cr_dff/q_19> of sequential type is unconnected in block <lab5_top>.
 WARNING:Xst:2677 - Node <cr_dff/q_18> of sequential type is unconnected in block <lab5_top>.
 WARNING:Xst:2677 - Node <cr_dff/q_9> of sequential type is unconnected in block <lab5_top>.
@@ -1616,8 +1633,8 @@ Unit <lab5_top> processed.
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 577
- Flip-Flops                                            : 577
+# Registers                                            : 581
+ Flip-Flops                                            : 581
 # Shift Registers                                      : 4
  2-bit shift register                                  : 1
  3-bit shift register                                  : 2
@@ -1644,22 +1661,22 @@ Top Level Output File Name         : lab5_top.ngc
 
 Primitive and Black Box Usage:
 ------------------------------
-# BELS                             : 1570
+# BELS                             : 1653
 #      GND                         : 1
 #      INV                         : 49
-#      LUT1                        : 157
-#      LUT2                        : 161
-#      LUT3                        : 126
-#      LUT4                        : 75
-#      LUT5                        : 89
-#      LUT6                        : 267
-#      MUXCY                       : 316
-#      MUXF7                       : 13
+#      LUT1                        : 158
+#      LUT2                        : 165
+#      LUT3                        : 128
+#      LUT4                        : 119
+#      LUT5                        : 96
+#      LUT6                        : 273
+#      MUXCY                       : 336
+#      MUXF7                       : 12
 #      VCC                         : 1
 #      XORCY                       : 315
-# FlipFlops/Latches                : 582
+# FlipFlops/Latches                : 586
 #      FD                          : 175
-#      FDE                         : 152
+#      FDE                         : 156
 #      FDR                         : 104
 #      FDRE                        : 120
 #      FDSE                        : 30
@@ -1670,8 +1687,8 @@ Primitive and Black Box Usage:
 #      SRLC16E                     : 4
 # Clock Buffers                    : 3
 #      BUFG                        : 3
-# IO Buffers                       : 46
-#      IBUF                        : 6
+# IO Buffers                       : 50
+#      IBUF                        : 10
 #      IOBUF                       : 1
 #      OBUF                        : 38
 #      OBUFT                       : 1
@@ -1688,22 +1705,22 @@ Selected Device : 7z020clg484-3
 
 
 Slice Logic Utilization: 
- Number of Slice Registers:             582  out of  106400     0%  
- Number of Slice LUTs:                  928  out of  53200     1%  
-    Number used as Logic:               924  out of  53200     1%  
+ Number of Slice Registers:             586  out of  106400     0%  
+ Number of Slice LUTs:                  992  out of  53200     1%  
+    Number used as Logic:               988  out of  53200     1%  
     Number used as Memory:                4  out of  17400     0%  
        Number used as SRL:                4
 
 Slice Logic Distribution: 
- Number of LUT Flip Flop pairs used:   1010
-   Number with an unused Flip Flop:     428  out of   1010    42%  
-   Number with an unused LUT:            82  out of   1010     8%  
-   Number of fully used LUT-FF pairs:   500  out of   1010    49%  
-   Number of unique control sets:        33
+ Number of LUT Flip Flop pairs used:   1078
+   Number with an unused Flip Flop:     492  out of   1078    45%  
+   Number with an unused LUT:            86  out of   1078     7%  
+   Number of fully used LUT-FF pairs:   500  out of   1078    46%  
+   Number of unique control sets:        34
 
 IO Utilization: 
  Number of IOs:                          61
- Number of bonded IOBs:                  46  out of    200    23%  
+ Number of bonded IOBs:                  50  out of    200    25%  
 
 Specific Feature Utilization:
  Number of Block RAM/FIFO:                2  out of    140     1%  
@@ -1732,25 +1749,25 @@ Clock Information:
 --------------------------------------+------------------------+-------+
 Clock Signal                          | Clock buffer(FF name)  | Load  |
 --------------------------------------+------------------------+-------+
-clk                                   | PLLE2_ADV:CLKOUT0      | 454   |
+clk                                   | PLLE2_ADV:CLKOUT0      | 458   |
 adau1761_codec/codec_clock_gen/clkout0| BUFG                   | 78    |
 clk                                   | PLLE2_ADV:CLKOUT1      | 60    |
 --------------------------------------+------------------------+-------+
 
 Asynchronous Control Signals Information:
 ----------------------------------------
--------------------------------------------------------+-------------------------------------------------------------------------------+-------+
-Control Signal                                         | Buffer(FF name)                                                               | Load  |
--------------------------------------------------------+-------------------------------------------------------------------------------+-------+
-Maddsub_PWR_1_o_r[7]_MuLt_9_OUT_Madd4_lut<6>(XST_GND:G)| NONE(music_player/song_reader_lib/Mram_addr[6]_memory[127][11]_wide_mux_1_OUT)| 6     |
-wd_top/write_en(wd_top/wc/write_enable1:O)             | NONE(wd_top/sample_ram/Mram_RAM)                                              | 2     |
--------------------------------------------------------+-------------------------------------------------------------------------------+-------+
+-------------------------------------------------------+------------------------------------------------------------------------------------------------+-------+
+Control Signal                                         | Buffer(FF name)                                                                                | Load  |
+-------------------------------------------------------+------------------------------------------------------------------------------------------------+-------+
+Maddsub_PWR_1_o_r[7]_MuLt_9_OUT_Madd4_lut<6>(XST_GND:G)| NONE(music_player/note_player/sine_read_mySineROM/Mram_addr[9]_memory[1023][15]_wide_mux_1_OUT)| 6     |
+wd_top/write_en(wd_top/wc/write_enable1:O)             | NONE(wd_top/sample_ram/Mram_RAM)                                                               | 2     |
+-------------------------------------------------------+------------------------------------------------------------------------------------------------+-------+
 
 Timing Summary:
 ---------------
 Speed Grade: -3
 
-   Minimum period: 10.199ns (Maximum Frequency: 98.048MHz)
+   Minimum period: 10.208ns (Maximum Frequency: 97.966MHz)
    Minimum input arrival time before clock: 1.671ns
    Maximum output required time after clock: 1.076ns
    Maximum combinational path delay: 0.393ns
@@ -1761,10 +1778,10 @@ All values displayed in nanoseconds (ns)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'clk'
-  Clock period: 10.199ns (frequency: 98.048MHz)
-  Total number of paths / destination ports: 6917215586 / 1132
+  Clock period: 10.208ns (frequency: 97.966MHz)
+  Total number of paths / destination ports: 7681246532 / 1140
 -------------------------------------------------------------------------
-Delay:               10.199ns (Levels of Logic = 8)
+Delay:               10.208ns (Levels of Logic = 8)
   Source:            wd_top/sample_ram/Mram_RAM (RAM)
   Destination:       Madd_n0053_Madd1 (DSP)
   Source Clock:      clk rising
@@ -1774,19 +1791,19 @@ Delay:               10.199ns (Levels of Logic = 8)
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     RAMB18E1:CLKARDCLK->DOBDO0    4   1.846   0.303  wd_top/sample_ram/Mram_RAM (wd_top/read_sample<0>)
-     LUT4:I3->O            2   0.043   0.433  wd_top/wd/Mmux_read_value_mod11 (wd_top/wd/read_value_mod<0>)
-     LUT6:I3->O            1   0.043   0.289  wd_top/wd/trans_y[7]_read_value_mod[7]_LessThan_15_o2 (wd_top/wd/trans_y[7]_read_value_mod[7]_LessThan_15_o1)
-     LUT5:I4->O            3   0.043   0.299  wd_top/wd/trans_y[7]_read_value_mod[7]_LessThan_15_o1 (wd_top/wd/trans_y[7]_read_value_mod[7]_LessThan_15_o2)
-     LUT5:I4->O            2   0.043   0.293  wd_top/wd/valid_pixel34 (wd_top/wd/valid_pixel35)
-     LUT6:I5->O            1   0.043   0.289  wd_top/wd/valid_pixel36_1 (wd_top/wd/valid_pixel361)
-     LUT6:I5->O           63   0.043   0.391  wd_top/wd/valid_pixel37 (Maddsub_PWR_1_o_r[7]_MuLt_9_OUT_Madd4_lut<12>)
+     RAMB18E1:CLKARDCLK->DOBDO2    4   1.846   0.564  wd_top/sample_ram/Mram_RAM (wd_top/read_sample<2>)
+     LUT6:I0->O            1   0.043   0.000  wd_top/wd/last_value[7]_trans_y[7]_LessThan_14_o2_F (N218)
+     MUXF7:I0->O           3   0.169   0.299  wd_top/wd/last_value[7]_trans_y[7]_LessThan_14_o2 (wd_top/wd/last_value[7]_trans_y[7]_LessThan_14_o1)
+     LUT5:I4->O            1   0.043   0.343  wd_top/wd/last_value[7]_trans_y[7]_LessThan_14_o1 (wd_top/wd/last_value[7]_trans_y[7]_LessThan_14_o2)
+     LUT5:I3->O            2   0.043   0.293  wd_top/wd/valid_pixel28 (wd_top/wd/valid_pixel28)
+     LUT6:I5->O            1   0.043   0.289  wd_top/wd/valid_pixel30_1 (wd_top/wd/valid_pixel301)
+     LUT6:I5->O           63   0.043   0.391  wd_top/wd/valid_pixel36 (Maddsub_PWR_1_o_r[7]_MuLt_9_OUT_Madd4_lut<12>)
      DSP48E1:A5->PCOUT47    1   2.970   0.000  Mmult_n0069 (Mmult_n0069_PCOUT_to_Mmult_n00691_PCIN_47)
      DSP48E1:PCIN47->P3    1   1.107   0.279  Mmult_n00691 (n0069<20>)
      DSP48E1:A2                1.441          Madd_n0053_Madd1
     ----------------------------------------
-    Total                     10.199ns (7.622ns logic, 2.577ns route)
-                                       (74.7% logic, 25.3% route)
+    Total                     10.208ns (7.748ns logic, 2.460ns route)
+                                       (75.9% logic, 24.1% route)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'adau1761_codec/codec_clock_gen/clkout0'
@@ -1804,8 +1821,8 @@ Delay:               4.623ns (Levels of Logic = 6)
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
      RAMB18E1:CLKARDCLK->DOADO2   23   1.846   0.526  adau1761_codec/i2c_interface/Inst_i2c_Inst_adau1761_configuraiton_data/Mram__n0373 (adau1761_codec/i2c_interface/Inst_i2c/inst_data<2>)
-     LUT4:I1->O            1   0.043   0.343  adau1761_codec/i2c_interface/Inst_i2c/Inst_i3c2/_n0572<3>_SW0 (N42)
-     LUT6:I4->O            6   0.043   0.479  adau1761_codec/i2c_interface/Inst_i2c/Inst_i3c2/_n0572<3> (adau1761_codec/i2c_interface/Inst_i2c/Inst_i3c2/_n0572)
+     LUT4:I1->O            1   0.043   0.343  adau1761_codec/i2c_interface/Inst_i2c/Inst_i3c2/_n0562<3>_SW0 (N42)
+     LUT6:I4->O            6   0.043   0.479  adau1761_codec/i2c_interface/Inst_i2c/Inst_i3c2/_n0562<3> (adau1761_codec/i2c_interface/Inst_i2c/Inst_i3c2/_n0562)
      LUT6:I2->O            2   0.043   0.293  adau1761_codec/i2c_interface/Inst_i2c/Inst_i3c2/Mmux_state[3]_GND_37_o_wide_mux_118_OUT251 (adau1761_codec/i2c_interface/Inst_i2c/Inst_i3c2/Mmux_state[3]_GND_37_o_wide_mux_118_OUT25)
      LUT6:I5->O            9   0.043   0.587  adau1761_codec/i2c_interface/Inst_i2c/Inst_i3c2/Mmux_state[3]_GND_37_o_wide_mux_118_OUT92 (adau1761_codec/i2c_interface/Inst_i2c/Inst_i3c2/Mmux_state[3]_GND_37_o_wide_mux_118_OUT92)
      LUT6:I0->O            1   0.043   0.289  adau1761_codec/i2c_interface/Inst_i2c/Inst_i3c2/Mmux_state[3]_GND_37_o_wide_mux_118_OUT151 (adau1761_codec/i2c_interface/Inst_i2c/Inst_i3c2/Mmux_state[3]_GND_37_o_wide_mux_118_OUT15)
@@ -1817,7 +1834,7 @@ Delay:               4.623ns (Levels of Logic = 6)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
-  Total number of paths / destination ports: 183 / 183
+  Total number of paths / destination ports: 210 / 191
 -------------------------------------------------------------------------
 Offset:              1.671ns (Levels of Logic = 4)
   Source:            btn_up (PAD)
@@ -1841,7 +1858,7 @@ Offset:              1.671ns (Levels of Logic = 4)
 Timing constraint: Default OFFSET IN BEFORE for Clock 'adau1761_codec/codec_clock_gen/clkout0'
   Total number of paths / destination ports: 20 / 20
 -------------------------------------------------------------------------
-Offset:              1.004ns (Levels of Logic = 3)
+Offset:              1.058ns (Levels of Logic = 3)
   Source:            AC_GPIO3 (PAD)
   Destination:       adau1761_codec/i2c_interface/Inst_i2s_data_interface/sr_out_55 (FF)
   Destination Clock: adau1761_codec/codec_clock_gen/clkout0 rising
@@ -1850,13 +1867,13 @@ Offset:              1.004ns (Levels of Logic = 3)
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O            12   0.000   0.340  AC_GPIO3_IBUF (AC_GPIO3_IBUF)
-     LUT2:I1->O            7   0.043   0.578  adau1761_codec/i2c_interface/Inst_i2s_data_interface/i2s_lr_i2s_lr_last_AND_216_o1 (adau1761_codec/i2c_interface/Inst_i2s_data_interface/i2s_lr_i2s_lr_last_AND_216_o)
+     IBUF:I->O            12   0.000   0.394  AC_GPIO3_IBUF (AC_GPIO3_IBUF)
+     LUT2:I0->O            7   0.043   0.578  adau1761_codec/i2c_interface/Inst_i2s_data_interface/i2s_lr_i2s_lr_last_AND_216_o1 (adau1761_codec/i2c_interface/Inst_i2s_data_interface/i2s_lr_i2s_lr_last_AND_216_o)
      LUT6:I0->O            1   0.043   0.000  adau1761_codec/i2c_interface/Inst_i2s_data_interface/Mmux_sr_out[62]_audio_l_in[23]_mux_5_OUT431 (adau1761_codec/i2c_interface/Inst_i2s_data_interface/sr_out[62]_audio_l_in[23]_mux_5_OUT<49>)
      FDE:D                    -0.001          adau1761_codec/i2c_interface/Inst_i2s_data_interface/sr_out_49
     ----------------------------------------
-    Total                      1.004ns (0.086ns logic, 0.918ns route)
-                                       (8.6% logic, 91.4% route)
+    Total                      1.058ns (0.086ns logic, 0.972ns route)
+                                       (8.1% logic, 91.9% route)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
@@ -1936,20 +1953,20 @@ Clock to Setup on destination clock clk
 Source Clock                          |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 --------------------------------------+---------+---------+---------+---------+
 adau1761_codec/codec_clock_gen/clkout0|    1.454|         |         |         |
-clk                                   |   10.199|         |         |         |
+clk                                   |   10.208|         |         |         |
 --------------------------------------+---------+---------+---------+---------+
 
 =========================================================================
 
 
-Total REAL time to Xst completion: 25.00 secs
-Total CPU time to Xst completion: 24.79 secs
+Total REAL time to Xst completion: 26.00 secs
+Total CPU time to Xst completion: 26.69 secs
  
 --> 
 
-Total memory usage is 302136 kilobytes
+Total memory usage is 301304 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :  345 (   0 filtered)
-Number of infos    :   43 (   0 filtered)
+Number of warnings :  334 (   0 filtered)
+Number of infos    :   44 (   0 filtered)
 

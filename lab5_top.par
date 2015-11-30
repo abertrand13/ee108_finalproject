@@ -1,7 +1,7 @@
 Release 14.7 par P.20131013 (nt)
 Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
-RM128-13::  Sun Nov 29 17:38:28 2015
+RM128-13::  Sun Nov 29 20:16:05 2015
 
 par -w -intstyle ise -ol high -mt off lab5_top_map.ncd lab5_top.ncd
 lab5_top.pcf 
@@ -33,14 +33,14 @@ Device Utilization Summary:
    Number of OLOGICE2s                       1 out of 200     1%
    Number of PLLE2_ADVs                      1 out of 4      25%
    Number of RAMB18E1s                       4 out of 280     1%
-   Number of Slices                        315 out of 13300   2%
-   Number of Slice Registers               581 out of 106400  1%
-      Number used as Flip Flops            581
+   Number of Slices                        329 out of 13300   2%
+   Number of Slice Registers               585 out of 106400  1%
+      Number used as Flip Flops            585
       Number used as Latches                 0
       Number used as LatchThrus              0
 
-   Number of Slice LUTS                    841 out of 53200   1%
-   Number of Slice LUT-Flip Flop pairs     884 out of 53200   1%
+   Number of Slice LUTS                    894 out of 53200   1%
+   Number of Slice LUT-Flip Flop pairs     929 out of 53200   1%
 
 
 Overall effort level (-ol):   High 
@@ -49,10 +49,6 @@ Router effort level (-rl):    High
 Starting initial Timing Analysis.  REAL time: 20 secs 
 Finished initial Timing Analysis.  REAL time: 20 secs 
 
-WARNING:Par:288 - The signal JB<4>_IBUF has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal JB<5>_IBUF has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal JB<6>_IBUF has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal JB<7>_IBUF has no load.  PAR will not attempt to route this signal.
 WARNING:Par:288 - The signal btn_down_IBUF has no load.  PAR will not attempt to route this signal.
 WARNING:Par:288 - The signal sw<1>_IBUF has no load.  PAR will not attempt to route this signal.
 WARNING:Par:288 - The signal sw<2>_IBUF has no load.  PAR will not attempt to route this signal.
@@ -67,27 +63,27 @@ WARNING:Par:288 - The signal hdmi_int_IBUF has no load.  PAR will not attempt to
 Starting Router
 
 
-Phase  1  : 5688 unrouted;      REAL time: 22 secs 
+Phase  1  : 5898 unrouted;      REAL time: 22 secs 
 
-Phase  2  : 3664 unrouted;      REAL time: 22 secs 
+Phase  2  : 3852 unrouted;      REAL time: 22 secs 
 
-Phase  3  : 970 unrouted;      REAL time: 25 secs 
+Phase  3  : 1029 unrouted;      REAL time: 25 secs 
 
-Phase  4  : 970 unrouted; (Setup:511960, Hold:7546, Component Switching Limit:0)     REAL time: 32 secs 
+Phase  4  : 1033 unrouted; (Setup:441883, Hold:8654, Component Switching Limit:0)     REAL time: 31 secs 
 
 Updating file: lab5_top.ncd with current fully routed design.
 
-Phase  5  : 0 unrouted; (Setup:533953, Hold:6847, Component Switching Limit:0)     REAL time: 37 secs 
+Phase  5  : 0 unrouted; (Setup:502795, Hold:8498, Component Switching Limit:0)     REAL time: 34 secs 
 
-Phase  6  : 0 unrouted; (Setup:544769, Hold:6847, Component Switching Limit:0)     REAL time: 54 secs 
+Phase  6  : 0 unrouted; (Setup:502483, Hold:8498, Component Switching Limit:0)     REAL time: 35 secs 
 
-Phase  7  : 0 unrouted; (Setup:544769, Hold:6847, Component Switching Limit:0)     REAL time: 54 secs 
+Phase  7  : 0 unrouted; (Setup:502483, Hold:8498, Component Switching Limit:0)     REAL time: 35 secs 
 
-Phase  8  : 0 unrouted; (Setup:544769, Hold:6847, Component Switching Limit:0)     REAL time: 54 secs 
+Phase  8  : 0 unrouted; (Setup:502483, Hold:8498, Component Switching Limit:0)     REAL time: 35 secs 
 
-Phase  9  : 0 unrouted; (Setup:539521, Hold:0, Component Switching Limit:0)     REAL time: 55 secs 
-Total REAL time to Router completion: 55 secs 
-Total CPU time to Router completion: 55 secs 
+Phase  9  : 0 unrouted; (Setup:492067, Hold:0, Component Switching Limit:0)     REAL time: 35 secs 
+Total REAL time to Router completion: 35 secs 
+Total CPU time to Router completion: 36 secs 
 
 Partition Implementation Status
 -------------------------------
@@ -105,18 +101,18 @@ Generating Clock Report
 +---------------------+--------------+------+------+------------+-------------+
 |        Clock Net    |   Resource   |Locked|Fanout|Net Skew(ns)|Max Delay(ns)|
 +---------------------+--------------+------+------+------------+-------------+
-|       clk_IBUF_BUFG | BUFGCTRL_X0Y0| No   |  105 |  0.309     |  1.548      |
+|       clk_IBUF_BUFG | BUFGCTRL_X0Y0| No   |  108 |  0.188     |  1.441      |
 +---------------------+--------------+------+------+------------+-------------+
 |adau1761_codec/clk_4 |              |      |      |            |             |
-|                   8 | BUFGCTRL_X0Y1| No   |   42 |  0.162     |  1.401      |
+|                   8 | BUFGCTRL_X0Y1| No   |   41 |  0.099     |  1.403      |
 +---------------------+--------------+------+------+------------+-------------+
 |adau1761_codec/codec |              |      |      |            |             |
 |_clock_gen/clkfbout_ |              |      |      |            |             |
 |                 buf | BUFGCTRL_X0Y2| No   |    1 |  0.000     |  1.389      |
 +---------------------+--------------+------+------+------------+-------------+
-|            hdmi/clk |         Local|      |   27 |  0.063     |  1.818      |
+|            hdmi/clk |         Local|      |   27 |  0.058     |  1.815      |
 +---------------------+--------------+------+------+------------+-------------+
-|      hdmi/clk_vgax2 |         Local|      |   22 |  0.496     |  2.298      |
+|      hdmi/clk_vgax2 |         Local|      |   20 |  0.559     |  2.298      |
 +---------------------+--------------+------+------+------------+-------------+
 |            clk_IBUF |         Local|      |    3 |  0.014     |  1.027      |
 +---------------------+--------------+------+------+------------+-------------+
@@ -131,7 +127,7 @@ the minimum and maximum path delays which includes logic delays.
 * The fanout is the number of component pins not the individual BEL loads,
 for example SLICE loads not FF loads.
 
-Timing Score: 539521 (Setup: 539521, Hold: 0, Component Switching Limit: 0)
+Timing Score: 492067 (Setup: 492067, Hold: 0, Component Switching Limit: 0)
 
 WARNING:Par:468 - Your design did not meet timing.  The following are some suggestions to assist you to meet timing in your design.
 
@@ -156,19 +152,19 @@ Asterisk (*) preceding a constraint indicates it was not met.
   Constraint                                |    Check    | Worst Case |  Best Case | Timing |   Timing   
                                             |             |    Slack   | Achievable | Errors |    Score   
 ----------------------------------------------------------------------------------------------------------
-* TS_adau1761_codec_codec_clock_gen_clkout0 | SETUP       |    -6.227ns|   176.567ns|      32|      180223
-   = PERIOD TIMEGRP         "adau1761_codec | HOLD        |     0.175ns|            |       0|           0
+* TS_adau1761_codec_codec_clock_gen_clkout0 | SETUP       |    -6.210ns|   176.142ns|      32|      180328
+   = PERIOD TIMEGRP         "adau1761_codec | HOLD        |     0.144ns|            |       0|           0
   _codec_clock_gen_clkout0" TS_clk / 0.48 H |             |            |            |        |            
   IGH 50%                                   |             |            |            |        |            
 ----------------------------------------------------------------------------------------------------------
-* TS_clk = PERIOD TIMEGRP "clk" 10 ns HIGH  | SETUP       |    -3.540ns|    13.540ns|     135|      347473
-  50%                                       | HOLD        |     0.034ns|            |       0|           0
+* TS_clk = PERIOD TIMEGRP "clk" 10 ns HIGH  | SETUP       |    -3.035ns|    14.973ns|     136|      298638
+  50%                                       | HOLD        |     0.054ns|            |       0|           0
 ----------------------------------------------------------------------------------------------------------
-* TS_hdmi_clk_vgax2 = PERIOD TIMEGRP "hdmi_ | SETUP       |    -0.701ns|     9.060ns|      22|       11825
-  clk_vgax2" TS_clk / 1.8 HIGH 50%          | HOLD        |     0.184ns|            |       0|           0
+* TS_hdmi_clk_vgax2 = PERIOD TIMEGRP "hdmi_ | SETUP       |    -0.748ns|     9.295ns|      22|       13101
+  clk_vgax2" TS_clk / 1.8 HIGH 50%          | HOLD        |     0.012ns|            |       0|           0
 ----------------------------------------------------------------------------------------------------------
-  TS_hdmi_clk = PERIOD TIMEGRP "hdmi_clk" T | SETUP       |     6.479ns|     3.521ns|       0|           0
-  S_clk HIGH 50%                            | HOLD        |     0.038ns|            |       0|           0
+  TS_hdmi_clk = PERIOD TIMEGRP "hdmi_clk" T | SETUP       |     6.381ns|     3.619ns|       0|           0
+  S_clk HIGH 50%                            | HOLD        |     0.179ns|            |       0|           0
 ----------------------------------------------------------------------------------------------------------
 
 
@@ -182,11 +178,11 @@ Derived Constraints for TS_clk
 |           Constraint          | Requirement |-------------+-------------|-------------+-------------|-------------+-------------|
 |                               |             |   Direct    | Derivative  |   Direct    | Derivative  |   Direct    | Derivative  |
 +-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
-|TS_clk                         |     10.000ns|     13.540ns|     84.752ns|          135|           54|   6917211101|         8442|
-| TS_adau1761_codec_codec_clock_|     20.833ns|    176.567ns|          N/A|           32|            0|         3884|            0|
+|TS_clk                         |     10.000ns|     14.973ns|     84.548ns|          136|           54|   7681242047|         8442|
+| TS_adau1761_codec_codec_clock_|     20.833ns|    176.142ns|          N/A|           32|            0|         3884|            0|
 | gen_clkout0                   |             |             |             |             |             |             |             |
-| TS_hdmi_clk                   |     10.000ns|      3.521ns|          N/A|            0|            0|         3413|            0|
-| TS_hdmi_clk_vgax2             |      5.556ns|      9.060ns|          N/A|           22|            0|         1145|            0|
+| TS_hdmi_clk                   |     10.000ns|      3.619ns|          N/A|            0|            0|         3413|            0|
+| TS_hdmi_clk_vgax2             |      5.556ns|      9.295ns|          N/A|           22|            0|         1145|            0|
 +-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
 
 3 constraints not met.
@@ -196,19 +192,19 @@ Generating Pad Report.
 
 All signals are completely routed.
 
-WARNING:Par:283 - There are 15 loadless signals in this design. This design will cause Bitgen to issue DRC warnings.
+WARNING:Par:283 - There are 11 loadless signals in this design. This design will cause Bitgen to issue DRC warnings.
 
-Total REAL time to PAR completion: 58 secs 
-Total CPU time to PAR completion: 57 secs 
+Total REAL time to PAR completion: 39 secs 
+Total CPU time to PAR completion: 38 secs 
 
-Peak Memory Usage:  502 MB
+Peak Memory Usage:  470 MB
 
 Placer: Placement generated during map.
 Routing: Completed - No errors found.
-Timing: Completed - 189 errors found.
+Timing: Completed - 190 errors found.
 
 Number of error messages: 0
-Number of warning messages: 18
+Number of warning messages: 14
 Number of info messages: 0
 
 Writing design to file lab5_top.ncd

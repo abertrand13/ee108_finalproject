@@ -8,7 +8,7 @@
 <msg type="info" file="LIT" num="243" delta="old" >Logical network <arg fmt="%s" index="1">sw&lt;8&gt;_IBUF</arg> has no load.
 </msg>
 
-<msg type="info" file="LIT" num="395" delta="old" >The above <arg fmt="%s" index="1">info</arg> message is repeated <arg fmt="%d" index="2">14</arg> more times for the following (max. 5 shown):
+<msg type="info" file="LIT" num="395" delta="old" >The above <arg fmt="%s" index="1">info</arg> message is repeated <arg fmt="%d" index="2">10</arg> more times for the following (max. 5 shown):
 <arg fmt="%s" index="3">sw&lt;7&gt;_IBUF,
 sw&lt;6&gt;_IBUF,
 sw&lt;5&gt;_IBUF,
@@ -41,18 +41,6 @@ For more information about the Timing Analyzer, consult the Xilinx Timing Analyz
 </msg>
 
 <msg type="warning" file="PhysDesignRules" num="2500" delta="old" >This design does not have a PS7 block. Instantiate the PS7 block in order to ensure proper fabric tie-offs and correct operation of the processing_system7.
-</msg>
-
-<msg type="warning" file="PhysDesignRules" num="367" delta="old" >The signal &lt;<arg fmt="%s" index="1">JB&lt;4&gt;_IBUF</arg>&gt; is incomplete. The signal does not drive any load pins in the design.
-</msg>
-
-<msg type="warning" file="PhysDesignRules" num="367" delta="old" >The signal &lt;<arg fmt="%s" index="1">JB&lt;5&gt;_IBUF</arg>&gt; is incomplete. The signal does not drive any load pins in the design.
-</msg>
-
-<msg type="warning" file="PhysDesignRules" num="367" delta="old" >The signal &lt;<arg fmt="%s" index="1">JB&lt;6&gt;_IBUF</arg>&gt; is incomplete. The signal does not drive any load pins in the design.
-</msg>
-
-<msg type="warning" file="PhysDesignRules" num="367" delta="old" >The signal &lt;<arg fmt="%s" index="1">JB&lt;7&gt;_IBUF</arg>&gt; is incomplete. The signal does not drive any load pins in the design.
 </msg>
 
 <msg type="warning" file="PhysDesignRules" num="367" delta="old" >The signal &lt;<arg fmt="%s" index="1">AC_GPIO1_IBUF</arg>&gt; is incomplete. The signal does not drive any load pins in the design.
