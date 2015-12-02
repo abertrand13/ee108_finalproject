@@ -1,38 +1,44 @@
-// SONG READER MODULE
+// SONG READER NEW MODULE
 // Manages the reading of song_rom to get notes, and
 // passing those notes to note_player
 
 
-`define PAUSE 3'b000 // This pauses the song
-`define READ 3'b001	// This reads the next note
-`define WAIT 3'b010	// This goes through a wait cycle to catch up
-`define WAIT_DONE 3'b011	// This waits until note_done is high
-`define INCREMENT 3'b100	// Increments the addr so we know which note we are on
+`define PAUSE 3'b000 		// This pauses the song.  Triggered when we press pause
+`define READ 3'b001			// This reads the next note
+`define REST 3'b110 		// Resting before we read the next note (after we hit a rest in the ROM)
+`define WAIT 3'b010			// This goes through a wait cycle to allow the song ROM a cycle to return
+`define WAIT_DONE 3'b011	// This waits until note_done is high.  Do we need this anymore?
+`define INCREMENT 3'b100	// Increments the addr so we know which note we are on.  Do we need this anymore?
 
 
-module song_reader(
+module song_reader_new(
 	input clk,
 	input reset, 
-	input play, 
-	input note_done,						// Comes from note_player
-	input [1:0] song,
-   output song_done,
-	output new_note,						// outputs to note_player when time to play new note
-   output [5:0] note, duration
-   );
+	input play, 					// whether or not to play (pause button affects this)
+	input note_done,				// Comes from note_player when a note is finished.  Do we need this?
+	input [1:0] song,				// what song we're currently playing
+	input beat,						// the (48th of a second) beat
+	output song_done,				// go high when we're finished reading a particular song
+	output new_note,				// outputs to note_player when its time to play new note
+   	output [5:0] note, duration,	// the rest is info about the note to play
+   	output [2:0] metadata
+);
 	
 	wire [6:0] addr;
-	wire [4:0] note_addr; 
-	
+	wire [4:0] note_addr;
 	assign addr = {song, note_addr};
 
-	// INSTANTIATIONS
-  
+	reg new_note_reg;
+	assign new_note = new_note_reg;
+
+
+	wire note_type;	// whether we've read in a note or a rest (the first bit)
+	
 	// Song ROM
 	song_rom lib(
 		.clk(clk),
 		.addr(addr),
-		.dout({note, duration})
+		.dout({note_type, note, duration, metadata})
 		);
 
 
@@ -47,28 +53,54 @@ module song_reader(
 		.q(state)
 	);
 	
-	// increments the note to read from the song rom
-	dffre #(5) increment(
+	// increments the note address to read from the song rom
+	// note that this is a 'greedy' reader - it goes until it hits a rest
+	dffre #(5) increment( // will have to up the bits on this to accomodate larger ROM
 		.r(reset),
 		.clk(clk),
 		.d(note_addr + 1'b1),
 		.q(note_addr),
 		.en(state == `INCREMENT)
 	);
+	
+	wire [4:0] rest_beats;
+	reg [4:0] load_rest_beats;
+	dffre #(5) rest_counter (
+		.clk(clk),
+		.r(reset),
+		.d(state == `REST ? rest_beats - 1'b1 : load_rest_beats),
+		.q(rest_beats),
+		.en(beat)
+	);
 
 	always @(*) begin
 		case(state)
-		`PAUSE 		: 	next = play ? `READ : `PAUSE;
-		`READ			:	next = play ? `WAIT : `PAUSE;
-		`WAIT			:	next = play ? `WAIT_DONE : `PAUSE;
-		`WAIT_DONE	:	next = (play && note_done) ? `INCREMENT : (play ? `WAIT_DONE: `PAUSE);
-		`INCREMENT	:	next = `READ;
-		
-		default next = `PAUSE;
+			`PAUSE : next = (play ? `READ : `PAUSE); // this may cause problems if you resume in the middle of a rest?
+			`READ : begin
+				next = `WAIT; // I don't like this mandatory delay, but it may be necessary
+			end
+			`WAIT : begin
+				next = (note_type == 1'b0 ? `INCREMENT : `REST);
+				new_note_reg = ~note_type;
+				if(note_type) begin
+					load_rest_beats = note; // hack.  works because bit representations
+				end else begin
+					load_rest_beats = 1'b0;
+				end
+			end
+			`INCREMENT : begin	
+				new_note_reg = 1'b0;
+				next = `READ; // THIS IS SO MUCH DELAY
+			end
+			`REST : begin
+				new_note_reg = 1'b0;	
+				next = (rest_beats == 1'b0 ? `INCREMENT : `REST);
+			end
+			default: next = `PAUSE;
 		endcase
 	end
 	
-	assign new_note = state == `WAIT ? 1'b1 : 1'b0;
+	// assign new_note = state == `READ ? 1'b1 : 1'b0;
 	assign song_done = (note_done && (addr[4:0] == 5'd31));
 	
 endmodule

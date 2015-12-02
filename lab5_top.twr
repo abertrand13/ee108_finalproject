@@ -29,19 +29,19 @@ INFO:Timing:3339 - The clock-to-out numbers in this timing report are based on
 Timing constraint: TS_clk = PERIOD TIMEGRP "clk" 10 ns HIGH 50%;
 For more information, see Period Analysis in the Timing Closure User Guide (UG612).
 
- 8324465330 paths analyzed, 1995 endpoints analyzed, 145 failing endpoints
- 145 timing errors detected. (143 setup errors, 2 hold errors, 0 component switching limit errors)
- Minimum period is  13.645ns.
+ 8325164244 paths analyzed, 2151 endpoints analyzed, 168 failing endpoints
+ 168 timing errors detected. (168 setup errors, 0 hold errors, 0 component switching limit errors)
+ Minimum period is  14.505ns.
 --------------------------------------------------------------------------------
 
-Paths for end point Madd_n0053_Madd1 (DSP48_X3Y9.A1), 1434328 paths
+Paths for end point Madd_n0053_Madd1 (DSP48_X3Y14.A1), 1434328 paths
 --------------------------------------------------------------------------------
-Slack (setup path):     -3.645ns (requirement - (data path - clock path skew + uncertainty))
+Slack (setup path):     -3.003ns (requirement - (data path - clock path skew + uncertainty))
   Source:               wd_top/sample_ram/Mram_RAM (RAM)
   Destination:          Madd_n0053_Madd1 (DSP)
   Requirement:          10.000ns
-  Data Path Delay:      13.592ns (Levels of Logic = 7)
-  Clock Path Skew:      -0.018ns (0.720 - 0.738)
+  Data Path Delay:      13.023ns (Levels of Logic = 7)
+  Clock Path Skew:      0.055ns (0.730 - 0.675)
   Source Clock:         clk_IBUF_BUFG rising at 0.000ns
   Destination Clock:    clk_IBUF_BUFG rising at 10.000ns
   Clock Uncertainty:    0.035ns
@@ -56,43 +56,43 @@ Slack (setup path):     -3.645ns (requirement - (data path - clock path skew + u
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    RAMB18_X4Y9.DOBDO0   Trcko_DOB             1.846   wd_top/sample_ram/Mram_RAM
+    RAMB18_X3Y11.DOBDO0  Trcko_DOB             1.846   wd_top/sample_ram/Mram_RAM
                                                        wd_top/sample_ram/Mram_RAM
-    SLICE_X94Y24.C6      net (fanout=4)        0.598   wd_top/read_sample<0>
-    SLICE_X94Y24.C       Tilo                  0.097   wd_top/wd/last_read_value/q<2>
+    SLICE_X53Y27.A6      net (fanout=4)        0.452   wd_top/read_sample<0>
+    SLICE_X53Y27.A       Tilo                  0.097   wd_top/wd/last_read_value/q<1>
                                                        wd_top/wd/Mmux_read_value_mod11
-    SLICE_X92Y23.D1      net (fanout=2)        0.838   wd_top/wd/read_value_mod<0>
-    SLICE_X92Y23.D       Tilo                  0.097   hdmi/xpos<3>
+    SLICE_X53Y29.B2      net (fanout=2)        1.106   wd_top/wd/read_value_mod<0>
+    SLICE_X53Y29.B       Tilo                  0.097   wd_top/wd/read_value_mod[7]_trans_y[7]_LessThan_17_o1
                                                        wd_top/wd/read_value_mod[7]_trans_y[7]_LessThan_17_o2
-    SLICE_X92Y23.C2      net (fanout=1)        0.816   wd_top/wd/read_value_mod[7]_trans_y[7]_LessThan_17_o1
-    SLICE_X92Y23.C       Tilo                  0.097   hdmi/xpos<3>
+    SLICE_X53Y29.A6      net (fanout=1)        0.311   wd_top/wd/read_value_mod[7]_trans_y[7]_LessThan_17_o1
+    SLICE_X53Y29.A       Tilo                  0.097   wd_top/wd/read_value_mod[7]_trans_y[7]_LessThan_17_o1
                                                        wd_top/wd/read_value_mod[7]_trans_y[7]_LessThan_17_o1
-    SLICE_X91Y23.B1      net (fanout=6)        0.747   wd_top/wd/read_value_mod[7]_trans_y[7]_LessThan_17_o2
-    SLICE_X91Y23.B       Tilo                  0.097   x_dff/q<2>
+    SLICE_X52Y26.A3      net (fanout=6)        0.789   wd_top/wd/read_value_mod[7]_trans_y[7]_LessThan_17_o2
+    SLICE_X52Y26.A       Tilo                  0.097   wd_top/wd/new_valid/q_0
                                                        wd_top/wd/valid_pixel30_1
-    SLICE_X68Y17.B6      net (fanout=1)        0.805   wd_top/wd/valid_pixel301
-    SLICE_X68Y17.B       Tilo                  0.097   Maddsub_PWR_1_o_b[7]_MuLt_6_OUT_Madd_cy<3>
+    SLICE_X55Y30.B6      net (fanout=1)        0.423   wd_top/wd/valid_pixel301
+    SLICE_X55Y30.B       Tilo                  0.097   Maddsub_PWR_1_o_b[7]_MuLt_6_OUT_Madd_cy<3>
                                                        wd_top/wd/valid_pixel36
-    DSP48_X3Y10.A6       net (fanout=102)      1.224   Maddsub_PWR_1_o_r[7]_MuLt_9_OUT_Madd4_lut<12>
-    DSP48_X3Y10.PCOUT0   Tdspdo_A_PCOUT_MULT   2.970   Mmult_n0069
+    DSP48_X3Y15.A6       net (fanout=102)      1.405   Maddsub_PWR_1_o_r[7]_MuLt_9_OUT_Madd4_lut<12>
+    DSP48_X3Y15.PCOUT0   Tdspdo_A_PCOUT_MULT   2.970   Mmult_n0069
                                                        Mmult_n0069
-    DSP48_X3Y11.PCIN0    net (fanout=1)        0.002   Mmult_n0069_PCOUT_to_Mmult_n00691_PCIN_0
-    DSP48_X3Y11.P2       Tdspdo_PCIN_P         1.107   Mmult_n00691
+    DSP48_X3Y16.PCIN0    net (fanout=1)        0.002   Mmult_n0069_PCOUT_to_Mmult_n00691_PCIN_0
+    DSP48_X3Y16.P2       Tdspdo_PCIN_P         1.107   Mmult_n00691
                                                        Mmult_n00691
-    DSP48_X3Y9.A1        net (fanout=1)        0.713   n0069<19>
-    DSP48_X3Y9.CLK       Tdspdck_A_PREG        1.441   Madd_n0053_Madd1
+    DSP48_X3Y14.A1       net (fanout=1)        0.686   n0069<19>
+    DSP48_X3Y14.CLK      Tdspdck_A_PREG        1.441   Madd_n0053_Madd1
                                                        Madd_n0053_Madd1
     -------------------------------------------------  ---------------------------
-    Total                                     13.592ns (7.849ns logic, 5.743ns route)
-                                                       (57.7% logic, 42.3% route)
+    Total                                     13.023ns (7.849ns logic, 5.174ns route)
+                                                       (60.3% logic, 39.7% route)
 
 --------------------------------------------------------------------------------
-Slack (setup path):     -3.645ns (requirement - (data path - clock path skew + uncertainty))
+Slack (setup path):     -3.003ns (requirement - (data path - clock path skew + uncertainty))
   Source:               wd_top/sample_ram/Mram_RAM (RAM)
   Destination:          Madd_n0053_Madd1 (DSP)
   Requirement:          10.000ns
-  Data Path Delay:      13.592ns (Levels of Logic = 7)
-  Clock Path Skew:      -0.018ns (0.720 - 0.738)
+  Data Path Delay:      13.023ns (Levels of Logic = 7)
+  Clock Path Skew:      0.055ns (0.730 - 0.675)
   Source Clock:         clk_IBUF_BUFG rising at 0.000ns
   Destination Clock:    clk_IBUF_BUFG rising at 10.000ns
   Clock Uncertainty:    0.035ns
@@ -107,43 +107,43 @@ Slack (setup path):     -3.645ns (requirement - (data path - clock path skew + u
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    RAMB18_X4Y9.DOBDO0   Trcko_DOB             1.846   wd_top/sample_ram/Mram_RAM
+    RAMB18_X3Y11.DOBDO0  Trcko_DOB             1.846   wd_top/sample_ram/Mram_RAM
                                                        wd_top/sample_ram/Mram_RAM
-    SLICE_X94Y24.C6      net (fanout=4)        0.598   wd_top/read_sample<0>
-    SLICE_X94Y24.C       Tilo                  0.097   wd_top/wd/last_read_value/q<2>
+    SLICE_X53Y27.A6      net (fanout=4)        0.452   wd_top/read_sample<0>
+    SLICE_X53Y27.A       Tilo                  0.097   wd_top/wd/last_read_value/q<1>
                                                        wd_top/wd/Mmux_read_value_mod11
-    SLICE_X92Y23.D1      net (fanout=2)        0.838   wd_top/wd/read_value_mod<0>
-    SLICE_X92Y23.D       Tilo                  0.097   hdmi/xpos<3>
+    SLICE_X53Y29.B2      net (fanout=2)        1.106   wd_top/wd/read_value_mod<0>
+    SLICE_X53Y29.B       Tilo                  0.097   wd_top/wd/read_value_mod[7]_trans_y[7]_LessThan_17_o1
                                                        wd_top/wd/read_value_mod[7]_trans_y[7]_LessThan_17_o2
-    SLICE_X92Y23.C2      net (fanout=1)        0.816   wd_top/wd/read_value_mod[7]_trans_y[7]_LessThan_17_o1
-    SLICE_X92Y23.C       Tilo                  0.097   hdmi/xpos<3>
+    SLICE_X53Y29.A6      net (fanout=1)        0.311   wd_top/wd/read_value_mod[7]_trans_y[7]_LessThan_17_o1
+    SLICE_X53Y29.A       Tilo                  0.097   wd_top/wd/read_value_mod[7]_trans_y[7]_LessThan_17_o1
                                                        wd_top/wd/read_value_mod[7]_trans_y[7]_LessThan_17_o1
-    SLICE_X91Y23.B1      net (fanout=6)        0.747   wd_top/wd/read_value_mod[7]_trans_y[7]_LessThan_17_o2
-    SLICE_X91Y23.B       Tilo                  0.097   x_dff/q<2>
+    SLICE_X52Y26.A3      net (fanout=6)        0.789   wd_top/wd/read_value_mod[7]_trans_y[7]_LessThan_17_o2
+    SLICE_X52Y26.A       Tilo                  0.097   wd_top/wd/new_valid/q_0
                                                        wd_top/wd/valid_pixel30_1
-    SLICE_X68Y17.B6      net (fanout=1)        0.805   wd_top/wd/valid_pixel301
-    SLICE_X68Y17.B       Tilo                  0.097   Maddsub_PWR_1_o_b[7]_MuLt_6_OUT_Madd_cy<3>
+    SLICE_X55Y30.B6      net (fanout=1)        0.423   wd_top/wd/valid_pixel301
+    SLICE_X55Y30.B       Tilo                  0.097   Maddsub_PWR_1_o_b[7]_MuLt_6_OUT_Madd_cy<3>
                                                        wd_top/wd/valid_pixel36
-    DSP48_X3Y10.A6       net (fanout=102)      1.224   Maddsub_PWR_1_o_r[7]_MuLt_9_OUT_Madd4_lut<12>
-    DSP48_X3Y10.PCOUT9   Tdspdo_A_PCOUT_MULT   2.970   Mmult_n0069
+    DSP48_X3Y15.A6       net (fanout=102)      1.405   Maddsub_PWR_1_o_r[7]_MuLt_9_OUT_Madd4_lut<12>
+    DSP48_X3Y15.PCOUT9   Tdspdo_A_PCOUT_MULT   2.970   Mmult_n0069
                                                        Mmult_n0069
-    DSP48_X3Y11.PCIN9    net (fanout=1)        0.002   Mmult_n0069_PCOUT_to_Mmult_n00691_PCIN_9
-    DSP48_X3Y11.P2       Tdspdo_PCIN_P         1.107   Mmult_n00691
+    DSP48_X3Y16.PCIN9    net (fanout=1)        0.002   Mmult_n0069_PCOUT_to_Mmult_n00691_PCIN_9
+    DSP48_X3Y16.P2       Tdspdo_PCIN_P         1.107   Mmult_n00691
                                                        Mmult_n00691
-    DSP48_X3Y9.A1        net (fanout=1)        0.713   n0069<19>
-    DSP48_X3Y9.CLK       Tdspdck_A_PREG        1.441   Madd_n0053_Madd1
+    DSP48_X3Y14.A1       net (fanout=1)        0.686   n0069<19>
+    DSP48_X3Y14.CLK      Tdspdck_A_PREG        1.441   Madd_n0053_Madd1
                                                        Madd_n0053_Madd1
     -------------------------------------------------  ---------------------------
-    Total                                     13.592ns (7.849ns logic, 5.743ns route)
-                                                       (57.7% logic, 42.3% route)
+    Total                                     13.023ns (7.849ns logic, 5.174ns route)
+                                                       (60.3% logic, 39.7% route)
 
 --------------------------------------------------------------------------------
-Slack (setup path):     -3.645ns (requirement - (data path - clock path skew + uncertainty))
+Slack (setup path):     -3.003ns (requirement - (data path - clock path skew + uncertainty))
   Source:               wd_top/sample_ram/Mram_RAM (RAM)
   Destination:          Madd_n0053_Madd1 (DSP)
   Requirement:          10.000ns
-  Data Path Delay:      13.592ns (Levels of Logic = 7)
-  Clock Path Skew:      -0.018ns (0.720 - 0.738)
+  Data Path Delay:      13.023ns (Levels of Logic = 7)
+  Clock Path Skew:      0.055ns (0.730 - 0.675)
   Source Clock:         clk_IBUF_BUFG rising at 0.000ns
   Destination Clock:    clk_IBUF_BUFG rising at 10.000ns
   Clock Uncertainty:    0.035ns
@@ -158,46 +158,46 @@ Slack (setup path):     -3.645ns (requirement - (data path - clock path skew + u
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    RAMB18_X4Y9.DOBDO0   Trcko_DOB             1.846   wd_top/sample_ram/Mram_RAM
+    RAMB18_X3Y11.DOBDO0  Trcko_DOB             1.846   wd_top/sample_ram/Mram_RAM
                                                        wd_top/sample_ram/Mram_RAM
-    SLICE_X94Y24.C6      net (fanout=4)        0.598   wd_top/read_sample<0>
-    SLICE_X94Y24.C       Tilo                  0.097   wd_top/wd/last_read_value/q<2>
+    SLICE_X53Y27.A6      net (fanout=4)        0.452   wd_top/read_sample<0>
+    SLICE_X53Y27.A       Tilo                  0.097   wd_top/wd/last_read_value/q<1>
                                                        wd_top/wd/Mmux_read_value_mod11
-    SLICE_X92Y23.D1      net (fanout=2)        0.838   wd_top/wd/read_value_mod<0>
-    SLICE_X92Y23.D       Tilo                  0.097   hdmi/xpos<3>
+    SLICE_X53Y29.B2      net (fanout=2)        1.106   wd_top/wd/read_value_mod<0>
+    SLICE_X53Y29.B       Tilo                  0.097   wd_top/wd/read_value_mod[7]_trans_y[7]_LessThan_17_o1
                                                        wd_top/wd/read_value_mod[7]_trans_y[7]_LessThan_17_o2
-    SLICE_X92Y23.C2      net (fanout=1)        0.816   wd_top/wd/read_value_mod[7]_trans_y[7]_LessThan_17_o1
-    SLICE_X92Y23.C       Tilo                  0.097   hdmi/xpos<3>
+    SLICE_X53Y29.A6      net (fanout=1)        0.311   wd_top/wd/read_value_mod[7]_trans_y[7]_LessThan_17_o1
+    SLICE_X53Y29.A       Tilo                  0.097   wd_top/wd/read_value_mod[7]_trans_y[7]_LessThan_17_o1
                                                        wd_top/wd/read_value_mod[7]_trans_y[7]_LessThan_17_o1
-    SLICE_X91Y23.B1      net (fanout=6)        0.747   wd_top/wd/read_value_mod[7]_trans_y[7]_LessThan_17_o2
-    SLICE_X91Y23.B       Tilo                  0.097   x_dff/q<2>
+    SLICE_X52Y26.A3      net (fanout=6)        0.789   wd_top/wd/read_value_mod[7]_trans_y[7]_LessThan_17_o2
+    SLICE_X52Y26.A       Tilo                  0.097   wd_top/wd/new_valid/q_0
                                                        wd_top/wd/valid_pixel30_1
-    SLICE_X68Y17.B6      net (fanout=1)        0.805   wd_top/wd/valid_pixel301
-    SLICE_X68Y17.B       Tilo                  0.097   Maddsub_PWR_1_o_b[7]_MuLt_6_OUT_Madd_cy<3>
+    SLICE_X55Y30.B6      net (fanout=1)        0.423   wd_top/wd/valid_pixel301
+    SLICE_X55Y30.B       Tilo                  0.097   Maddsub_PWR_1_o_b[7]_MuLt_6_OUT_Madd_cy<3>
                                                        wd_top/wd/valid_pixel36
-    DSP48_X3Y10.A6       net (fanout=102)      1.224   Maddsub_PWR_1_o_r[7]_MuLt_9_OUT_Madd4_lut<12>
-    DSP48_X3Y10.PCOUT1   Tdspdo_A_PCOUT_MULT   2.970   Mmult_n0069
+    DSP48_X3Y15.A6       net (fanout=102)      1.405   Maddsub_PWR_1_o_r[7]_MuLt_9_OUT_Madd4_lut<12>
+    DSP48_X3Y15.PCOUT1   Tdspdo_A_PCOUT_MULT   2.970   Mmult_n0069
                                                        Mmult_n0069
-    DSP48_X3Y11.PCIN1    net (fanout=1)        0.002   Mmult_n0069_PCOUT_to_Mmult_n00691_PCIN_1
-    DSP48_X3Y11.P2       Tdspdo_PCIN_P         1.107   Mmult_n00691
+    DSP48_X3Y16.PCIN1    net (fanout=1)        0.002   Mmult_n0069_PCOUT_to_Mmult_n00691_PCIN_1
+    DSP48_X3Y16.P2       Tdspdo_PCIN_P         1.107   Mmult_n00691
                                                        Mmult_n00691
-    DSP48_X3Y9.A1        net (fanout=1)        0.713   n0069<19>
-    DSP48_X3Y9.CLK       Tdspdck_A_PREG        1.441   Madd_n0053_Madd1
+    DSP48_X3Y14.A1       net (fanout=1)        0.686   n0069<19>
+    DSP48_X3Y14.CLK      Tdspdck_A_PREG        1.441   Madd_n0053_Madd1
                                                        Madd_n0053_Madd1
     -------------------------------------------------  ---------------------------
-    Total                                     13.592ns (7.849ns logic, 5.743ns route)
-                                                       (57.7% logic, 42.3% route)
+    Total                                     13.023ns (7.849ns logic, 5.174ns route)
+                                                       (60.3% logic, 39.7% route)
 
 --------------------------------------------------------------------------------
 
-Paths for end point Madd_n0053_Madd1 (DSP48_X3Y9.A2), 1434328 paths
+Paths for end point Madd_n0053_Madd1 (DSP48_X3Y14.A2), 1434328 paths
 --------------------------------------------------------------------------------
-Slack (setup path):     -3.634ns (requirement - (data path - clock path skew + uncertainty))
+Slack (setup path):     -2.992ns (requirement - (data path - clock path skew + uncertainty))
   Source:               wd_top/sample_ram/Mram_RAM (RAM)
   Destination:          Madd_n0053_Madd1 (DSP)
   Requirement:          10.000ns
-  Data Path Delay:      13.581ns (Levels of Logic = 7)
-  Clock Path Skew:      -0.018ns (0.720 - 0.738)
+  Data Path Delay:      13.012ns (Levels of Logic = 7)
+  Clock Path Skew:      0.055ns (0.730 - 0.675)
   Source Clock:         clk_IBUF_BUFG rising at 0.000ns
   Destination Clock:    clk_IBUF_BUFG rising at 10.000ns
   Clock Uncertainty:    0.035ns
@@ -212,43 +212,43 @@ Slack (setup path):     -3.634ns (requirement - (data path - clock path skew + u
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    RAMB18_X4Y9.DOBDO0   Trcko_DOB             1.846   wd_top/sample_ram/Mram_RAM
+    RAMB18_X3Y11.DOBDO0  Trcko_DOB             1.846   wd_top/sample_ram/Mram_RAM
                                                        wd_top/sample_ram/Mram_RAM
-    SLICE_X94Y24.C6      net (fanout=4)        0.598   wd_top/read_sample<0>
-    SLICE_X94Y24.C       Tilo                  0.097   wd_top/wd/last_read_value/q<2>
+    SLICE_X53Y27.A6      net (fanout=4)        0.452   wd_top/read_sample<0>
+    SLICE_X53Y27.A       Tilo                  0.097   wd_top/wd/last_read_value/q<1>
                                                        wd_top/wd/Mmux_read_value_mod11
-    SLICE_X92Y23.D1      net (fanout=2)        0.838   wd_top/wd/read_value_mod<0>
-    SLICE_X92Y23.D       Tilo                  0.097   hdmi/xpos<3>
+    SLICE_X53Y29.B2      net (fanout=2)        1.106   wd_top/wd/read_value_mod<0>
+    SLICE_X53Y29.B       Tilo                  0.097   wd_top/wd/read_value_mod[7]_trans_y[7]_LessThan_17_o1
                                                        wd_top/wd/read_value_mod[7]_trans_y[7]_LessThan_17_o2
-    SLICE_X92Y23.C2      net (fanout=1)        0.816   wd_top/wd/read_value_mod[7]_trans_y[7]_LessThan_17_o1
-    SLICE_X92Y23.C       Tilo                  0.097   hdmi/xpos<3>
+    SLICE_X53Y29.A6      net (fanout=1)        0.311   wd_top/wd/read_value_mod[7]_trans_y[7]_LessThan_17_o1
+    SLICE_X53Y29.A       Tilo                  0.097   wd_top/wd/read_value_mod[7]_trans_y[7]_LessThan_17_o1
                                                        wd_top/wd/read_value_mod[7]_trans_y[7]_LessThan_17_o1
-    SLICE_X91Y23.B1      net (fanout=6)        0.747   wd_top/wd/read_value_mod[7]_trans_y[7]_LessThan_17_o2
-    SLICE_X91Y23.B       Tilo                  0.097   x_dff/q<2>
+    SLICE_X52Y26.A3      net (fanout=6)        0.789   wd_top/wd/read_value_mod[7]_trans_y[7]_LessThan_17_o2
+    SLICE_X52Y26.A       Tilo                  0.097   wd_top/wd/new_valid/q_0
                                                        wd_top/wd/valid_pixel30_1
-    SLICE_X68Y17.B6      net (fanout=1)        0.805   wd_top/wd/valid_pixel301
-    SLICE_X68Y17.B       Tilo                  0.097   Maddsub_PWR_1_o_b[7]_MuLt_6_OUT_Madd_cy<3>
+    SLICE_X55Y30.B6      net (fanout=1)        0.423   wd_top/wd/valid_pixel301
+    SLICE_X55Y30.B       Tilo                  0.097   Maddsub_PWR_1_o_b[7]_MuLt_6_OUT_Madd_cy<3>
                                                        wd_top/wd/valid_pixel36
-    DSP48_X3Y10.A6       net (fanout=102)      1.224   Maddsub_PWR_1_o_r[7]_MuLt_9_OUT_Madd4_lut<12>
-    DSP48_X3Y10.PCOUT0   Tdspdo_A_PCOUT_MULT   2.970   Mmult_n0069
+    DSP48_X3Y15.A6       net (fanout=102)      1.405   Maddsub_PWR_1_o_r[7]_MuLt_9_OUT_Madd4_lut<12>
+    DSP48_X3Y15.PCOUT0   Tdspdo_A_PCOUT_MULT   2.970   Mmult_n0069
                                                        Mmult_n0069
-    DSP48_X3Y11.PCIN0    net (fanout=1)        0.002   Mmult_n0069_PCOUT_to_Mmult_n00691_PCIN_0
-    DSP48_X3Y11.P3       Tdspdo_PCIN_P         1.107   Mmult_n00691
+    DSP48_X3Y16.PCIN0    net (fanout=1)        0.002   Mmult_n0069_PCOUT_to_Mmult_n00691_PCIN_0
+    DSP48_X3Y16.P3       Tdspdo_PCIN_P         1.107   Mmult_n00691
                                                        Mmult_n00691
-    DSP48_X3Y9.A2        net (fanout=1)        0.702   n0069<20>
-    DSP48_X3Y9.CLK       Tdspdck_A_PREG        1.441   Madd_n0053_Madd1
+    DSP48_X3Y14.A2       net (fanout=1)        0.675   n0069<20>
+    DSP48_X3Y14.CLK      Tdspdck_A_PREG        1.441   Madd_n0053_Madd1
                                                        Madd_n0053_Madd1
     -------------------------------------------------  ---------------------------
-    Total                                     13.581ns (7.849ns logic, 5.732ns route)
-                                                       (57.8% logic, 42.2% route)
+    Total                                     13.012ns (7.849ns logic, 5.163ns route)
+                                                       (60.3% logic, 39.7% route)
 
 --------------------------------------------------------------------------------
-Slack (setup path):     -3.634ns (requirement - (data path - clock path skew + uncertainty))
+Slack (setup path):     -2.992ns (requirement - (data path - clock path skew + uncertainty))
   Source:               wd_top/sample_ram/Mram_RAM (RAM)
   Destination:          Madd_n0053_Madd1 (DSP)
   Requirement:          10.000ns
-  Data Path Delay:      13.581ns (Levels of Logic = 7)
-  Clock Path Skew:      -0.018ns (0.720 - 0.738)
+  Data Path Delay:      13.012ns (Levels of Logic = 7)
+  Clock Path Skew:      0.055ns (0.730 - 0.675)
   Source Clock:         clk_IBUF_BUFG rising at 0.000ns
   Destination Clock:    clk_IBUF_BUFG rising at 10.000ns
   Clock Uncertainty:    0.035ns
@@ -263,43 +263,43 @@ Slack (setup path):     -3.634ns (requirement - (data path - clock path skew + u
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    RAMB18_X4Y9.DOBDO0   Trcko_DOB             1.846   wd_top/sample_ram/Mram_RAM
+    RAMB18_X3Y11.DOBDO0  Trcko_DOB             1.846   wd_top/sample_ram/Mram_RAM
                                                        wd_top/sample_ram/Mram_RAM
-    SLICE_X94Y24.C6      net (fanout=4)        0.598   wd_top/read_sample<0>
-    SLICE_X94Y24.C       Tilo                  0.097   wd_top/wd/last_read_value/q<2>
+    SLICE_X53Y27.A6      net (fanout=4)        0.452   wd_top/read_sample<0>
+    SLICE_X53Y27.A       Tilo                  0.097   wd_top/wd/last_read_value/q<1>
                                                        wd_top/wd/Mmux_read_value_mod11
-    SLICE_X92Y23.D1      net (fanout=2)        0.838   wd_top/wd/read_value_mod<0>
-    SLICE_X92Y23.D       Tilo                  0.097   hdmi/xpos<3>
+    SLICE_X53Y29.B2      net (fanout=2)        1.106   wd_top/wd/read_value_mod<0>
+    SLICE_X53Y29.B       Tilo                  0.097   wd_top/wd/read_value_mod[7]_trans_y[7]_LessThan_17_o1
                                                        wd_top/wd/read_value_mod[7]_trans_y[7]_LessThan_17_o2
-    SLICE_X92Y23.C2      net (fanout=1)        0.816   wd_top/wd/read_value_mod[7]_trans_y[7]_LessThan_17_o1
-    SLICE_X92Y23.C       Tilo                  0.097   hdmi/xpos<3>
+    SLICE_X53Y29.A6      net (fanout=1)        0.311   wd_top/wd/read_value_mod[7]_trans_y[7]_LessThan_17_o1
+    SLICE_X53Y29.A       Tilo                  0.097   wd_top/wd/read_value_mod[7]_trans_y[7]_LessThan_17_o1
                                                        wd_top/wd/read_value_mod[7]_trans_y[7]_LessThan_17_o1
-    SLICE_X91Y23.B1      net (fanout=6)        0.747   wd_top/wd/read_value_mod[7]_trans_y[7]_LessThan_17_o2
-    SLICE_X91Y23.B       Tilo                  0.097   x_dff/q<2>
+    SLICE_X52Y26.A3      net (fanout=6)        0.789   wd_top/wd/read_value_mod[7]_trans_y[7]_LessThan_17_o2
+    SLICE_X52Y26.A       Tilo                  0.097   wd_top/wd/new_valid/q_0
                                                        wd_top/wd/valid_pixel30_1
-    SLICE_X68Y17.B6      net (fanout=1)        0.805   wd_top/wd/valid_pixel301
-    SLICE_X68Y17.B       Tilo                  0.097   Maddsub_PWR_1_o_b[7]_MuLt_6_OUT_Madd_cy<3>
+    SLICE_X55Y30.B6      net (fanout=1)        0.423   wd_top/wd/valid_pixel301
+    SLICE_X55Y30.B       Tilo                  0.097   Maddsub_PWR_1_o_b[7]_MuLt_6_OUT_Madd_cy<3>
                                                        wd_top/wd/valid_pixel36
-    DSP48_X3Y10.A6       net (fanout=102)      1.224   Maddsub_PWR_1_o_r[7]_MuLt_9_OUT_Madd4_lut<12>
-    DSP48_X3Y10.PCOUT9   Tdspdo_A_PCOUT_MULT   2.970   Mmult_n0069
+    DSP48_X3Y15.A6       net (fanout=102)      1.405   Maddsub_PWR_1_o_r[7]_MuLt_9_OUT_Madd4_lut<12>
+    DSP48_X3Y15.PCOUT9   Tdspdo_A_PCOUT_MULT   2.970   Mmult_n0069
                                                        Mmult_n0069
-    DSP48_X3Y11.PCIN9    net (fanout=1)        0.002   Mmult_n0069_PCOUT_to_Mmult_n00691_PCIN_9
-    DSP48_X3Y11.P3       Tdspdo_PCIN_P         1.107   Mmult_n00691
+    DSP48_X3Y16.PCIN9    net (fanout=1)        0.002   Mmult_n0069_PCOUT_to_Mmult_n00691_PCIN_9
+    DSP48_X3Y16.P3       Tdspdo_PCIN_P         1.107   Mmult_n00691
                                                        Mmult_n00691
-    DSP48_X3Y9.A2        net (fanout=1)        0.702   n0069<20>
-    DSP48_X3Y9.CLK       Tdspdck_A_PREG        1.441   Madd_n0053_Madd1
+    DSP48_X3Y14.A2       net (fanout=1)        0.675   n0069<20>
+    DSP48_X3Y14.CLK      Tdspdck_A_PREG        1.441   Madd_n0053_Madd1
                                                        Madd_n0053_Madd1
     -------------------------------------------------  ---------------------------
-    Total                                     13.581ns (7.849ns logic, 5.732ns route)
-                                                       (57.8% logic, 42.2% route)
+    Total                                     13.012ns (7.849ns logic, 5.163ns route)
+                                                       (60.3% logic, 39.7% route)
 
 --------------------------------------------------------------------------------
-Slack (setup path):     -3.634ns (requirement - (data path - clock path skew + uncertainty))
+Slack (setup path):     -2.992ns (requirement - (data path - clock path skew + uncertainty))
   Source:               wd_top/sample_ram/Mram_RAM (RAM)
   Destination:          Madd_n0053_Madd1 (DSP)
   Requirement:          10.000ns
-  Data Path Delay:      13.581ns (Levels of Logic = 7)
-  Clock Path Skew:      -0.018ns (0.720 - 0.738)
+  Data Path Delay:      13.012ns (Levels of Logic = 7)
+  Clock Path Skew:      0.055ns (0.730 - 0.675)
   Source Clock:         clk_IBUF_BUFG rising at 0.000ns
   Destination Clock:    clk_IBUF_BUFG rising at 10.000ns
   Clock Uncertainty:    0.035ns
@@ -314,46 +314,46 @@ Slack (setup path):     -3.634ns (requirement - (data path - clock path skew + u
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    RAMB18_X4Y9.DOBDO0   Trcko_DOB             1.846   wd_top/sample_ram/Mram_RAM
+    RAMB18_X3Y11.DOBDO0  Trcko_DOB             1.846   wd_top/sample_ram/Mram_RAM
                                                        wd_top/sample_ram/Mram_RAM
-    SLICE_X94Y24.C6      net (fanout=4)        0.598   wd_top/read_sample<0>
-    SLICE_X94Y24.C       Tilo                  0.097   wd_top/wd/last_read_value/q<2>
+    SLICE_X53Y27.A6      net (fanout=4)        0.452   wd_top/read_sample<0>
+    SLICE_X53Y27.A       Tilo                  0.097   wd_top/wd/last_read_value/q<1>
                                                        wd_top/wd/Mmux_read_value_mod11
-    SLICE_X92Y23.D1      net (fanout=2)        0.838   wd_top/wd/read_value_mod<0>
-    SLICE_X92Y23.D       Tilo                  0.097   hdmi/xpos<3>
+    SLICE_X53Y29.B2      net (fanout=2)        1.106   wd_top/wd/read_value_mod<0>
+    SLICE_X53Y29.B       Tilo                  0.097   wd_top/wd/read_value_mod[7]_trans_y[7]_LessThan_17_o1
                                                        wd_top/wd/read_value_mod[7]_trans_y[7]_LessThan_17_o2
-    SLICE_X92Y23.C2      net (fanout=1)        0.816   wd_top/wd/read_value_mod[7]_trans_y[7]_LessThan_17_o1
-    SLICE_X92Y23.C       Tilo                  0.097   hdmi/xpos<3>
+    SLICE_X53Y29.A6      net (fanout=1)        0.311   wd_top/wd/read_value_mod[7]_trans_y[7]_LessThan_17_o1
+    SLICE_X53Y29.A       Tilo                  0.097   wd_top/wd/read_value_mod[7]_trans_y[7]_LessThan_17_o1
                                                        wd_top/wd/read_value_mod[7]_trans_y[7]_LessThan_17_o1
-    SLICE_X91Y23.B1      net (fanout=6)        0.747   wd_top/wd/read_value_mod[7]_trans_y[7]_LessThan_17_o2
-    SLICE_X91Y23.B       Tilo                  0.097   x_dff/q<2>
+    SLICE_X52Y26.A3      net (fanout=6)        0.789   wd_top/wd/read_value_mod[7]_trans_y[7]_LessThan_17_o2
+    SLICE_X52Y26.A       Tilo                  0.097   wd_top/wd/new_valid/q_0
                                                        wd_top/wd/valid_pixel30_1
-    SLICE_X68Y17.B6      net (fanout=1)        0.805   wd_top/wd/valid_pixel301
-    SLICE_X68Y17.B       Tilo                  0.097   Maddsub_PWR_1_o_b[7]_MuLt_6_OUT_Madd_cy<3>
+    SLICE_X55Y30.B6      net (fanout=1)        0.423   wd_top/wd/valid_pixel301
+    SLICE_X55Y30.B       Tilo                  0.097   Maddsub_PWR_1_o_b[7]_MuLt_6_OUT_Madd_cy<3>
                                                        wd_top/wd/valid_pixel36
-    DSP48_X3Y10.A6       net (fanout=102)      1.224   Maddsub_PWR_1_o_r[7]_MuLt_9_OUT_Madd4_lut<12>
-    DSP48_X3Y10.PCOUT1   Tdspdo_A_PCOUT_MULT   2.970   Mmult_n0069
+    DSP48_X3Y15.A6       net (fanout=102)      1.405   Maddsub_PWR_1_o_r[7]_MuLt_9_OUT_Madd4_lut<12>
+    DSP48_X3Y15.PCOUT1   Tdspdo_A_PCOUT_MULT   2.970   Mmult_n0069
                                                        Mmult_n0069
-    DSP48_X3Y11.PCIN1    net (fanout=1)        0.002   Mmult_n0069_PCOUT_to_Mmult_n00691_PCIN_1
-    DSP48_X3Y11.P3       Tdspdo_PCIN_P         1.107   Mmult_n00691
+    DSP48_X3Y16.PCIN1    net (fanout=1)        0.002   Mmult_n0069_PCOUT_to_Mmult_n00691_PCIN_1
+    DSP48_X3Y16.P3       Tdspdo_PCIN_P         1.107   Mmult_n00691
                                                        Mmult_n00691
-    DSP48_X3Y9.A2        net (fanout=1)        0.702   n0069<20>
-    DSP48_X3Y9.CLK       Tdspdck_A_PREG        1.441   Madd_n0053_Madd1
+    DSP48_X3Y14.A2       net (fanout=1)        0.675   n0069<20>
+    DSP48_X3Y14.CLK      Tdspdck_A_PREG        1.441   Madd_n0053_Madd1
                                                        Madd_n0053_Madd1
     -------------------------------------------------  ---------------------------
-    Total                                     13.581ns (7.849ns logic, 5.732ns route)
-                                                       (57.8% logic, 42.2% route)
+    Total                                     13.012ns (7.849ns logic, 5.163ns route)
+                                                       (60.3% logic, 39.7% route)
 
 --------------------------------------------------------------------------------
 
-Paths for end point Madd_n0053_Madd1 (DSP48_X3Y9.A0), 1434328 paths
+Paths for end point Madd_n0053_Madd1 (DSP48_X3Y14.A0), 1434328 paths
 --------------------------------------------------------------------------------
-Slack (setup path):     -3.591ns (requirement - (data path - clock path skew + uncertainty))
+Slack (setup path):     -2.951ns (requirement - (data path - clock path skew + uncertainty))
   Source:               wd_top/sample_ram/Mram_RAM (RAM)
   Destination:          Madd_n0053_Madd1 (DSP)
   Requirement:          10.000ns
-  Data Path Delay:      13.538ns (Levels of Logic = 7)
-  Clock Path Skew:      -0.018ns (0.720 - 0.738)
+  Data Path Delay:      12.971ns (Levels of Logic = 7)
+  Clock Path Skew:      0.055ns (0.730 - 0.675)
   Source Clock:         clk_IBUF_BUFG rising at 0.000ns
   Destination Clock:    clk_IBUF_BUFG rising at 10.000ns
   Clock Uncertainty:    0.035ns
@@ -368,43 +368,43 @@ Slack (setup path):     -3.591ns (requirement - (data path - clock path skew + u
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    RAMB18_X4Y9.DOBDO0   Trcko_DOB             1.846   wd_top/sample_ram/Mram_RAM
+    RAMB18_X3Y11.DOBDO0  Trcko_DOB             1.846   wd_top/sample_ram/Mram_RAM
                                                        wd_top/sample_ram/Mram_RAM
-    SLICE_X94Y24.C6      net (fanout=4)        0.598   wd_top/read_sample<0>
-    SLICE_X94Y24.C       Tilo                  0.097   wd_top/wd/last_read_value/q<2>
+    SLICE_X53Y27.A6      net (fanout=4)        0.452   wd_top/read_sample<0>
+    SLICE_X53Y27.A       Tilo                  0.097   wd_top/wd/last_read_value/q<1>
                                                        wd_top/wd/Mmux_read_value_mod11
-    SLICE_X92Y23.D1      net (fanout=2)        0.838   wd_top/wd/read_value_mod<0>
-    SLICE_X92Y23.D       Tilo                  0.097   hdmi/xpos<3>
+    SLICE_X53Y29.B2      net (fanout=2)        1.106   wd_top/wd/read_value_mod<0>
+    SLICE_X53Y29.B       Tilo                  0.097   wd_top/wd/read_value_mod[7]_trans_y[7]_LessThan_17_o1
                                                        wd_top/wd/read_value_mod[7]_trans_y[7]_LessThan_17_o2
-    SLICE_X92Y23.C2      net (fanout=1)        0.816   wd_top/wd/read_value_mod[7]_trans_y[7]_LessThan_17_o1
-    SLICE_X92Y23.C       Tilo                  0.097   hdmi/xpos<3>
+    SLICE_X53Y29.A6      net (fanout=1)        0.311   wd_top/wd/read_value_mod[7]_trans_y[7]_LessThan_17_o1
+    SLICE_X53Y29.A       Tilo                  0.097   wd_top/wd/read_value_mod[7]_trans_y[7]_LessThan_17_o1
                                                        wd_top/wd/read_value_mod[7]_trans_y[7]_LessThan_17_o1
-    SLICE_X91Y23.B1      net (fanout=6)        0.747   wd_top/wd/read_value_mod[7]_trans_y[7]_LessThan_17_o2
-    SLICE_X91Y23.B       Tilo                  0.097   x_dff/q<2>
+    SLICE_X52Y26.A3      net (fanout=6)        0.789   wd_top/wd/read_value_mod[7]_trans_y[7]_LessThan_17_o2
+    SLICE_X52Y26.A       Tilo                  0.097   wd_top/wd/new_valid/q_0
                                                        wd_top/wd/valid_pixel30_1
-    SLICE_X68Y17.B6      net (fanout=1)        0.805   wd_top/wd/valid_pixel301
-    SLICE_X68Y17.B       Tilo                  0.097   Maddsub_PWR_1_o_b[7]_MuLt_6_OUT_Madd_cy<3>
+    SLICE_X55Y30.B6      net (fanout=1)        0.423   wd_top/wd/valid_pixel301
+    SLICE_X55Y30.B       Tilo                  0.097   Maddsub_PWR_1_o_b[7]_MuLt_6_OUT_Madd_cy<3>
                                                        wd_top/wd/valid_pixel36
-    DSP48_X3Y10.A6       net (fanout=102)      1.224   Maddsub_PWR_1_o_r[7]_MuLt_9_OUT_Madd4_lut<12>
-    DSP48_X3Y10.PCOUT0   Tdspdo_A_PCOUT_MULT   2.970   Mmult_n0069
+    DSP48_X3Y15.A6       net (fanout=102)      1.405   Maddsub_PWR_1_o_r[7]_MuLt_9_OUT_Madd4_lut<12>
+    DSP48_X3Y15.PCOUT0   Tdspdo_A_PCOUT_MULT   2.970   Mmult_n0069
                                                        Mmult_n0069
-    DSP48_X3Y11.PCIN0    net (fanout=1)        0.002   Mmult_n0069_PCOUT_to_Mmult_n00691_PCIN_0
-    DSP48_X3Y11.P1       Tdspdo_PCIN_P         1.107   Mmult_n00691
+    DSP48_X3Y16.PCIN0    net (fanout=1)        0.002   Mmult_n0069_PCOUT_to_Mmult_n00691_PCIN_0
+    DSP48_X3Y16.P1       Tdspdo_PCIN_P         1.107   Mmult_n00691
                                                        Mmult_n00691
-    DSP48_X3Y9.A0        net (fanout=1)        0.659   n0069<18>
-    DSP48_X3Y9.CLK       Tdspdck_A_PREG        1.441   Madd_n0053_Madd1
+    DSP48_X3Y14.A0       net (fanout=1)        0.634   n0069<18>
+    DSP48_X3Y14.CLK      Tdspdck_A_PREG        1.441   Madd_n0053_Madd1
                                                        Madd_n0053_Madd1
     -------------------------------------------------  ---------------------------
-    Total                                     13.538ns (7.849ns logic, 5.689ns route)
-                                                       (58.0% logic, 42.0% route)
+    Total                                     12.971ns (7.849ns logic, 5.122ns route)
+                                                       (60.5% logic, 39.5% route)
 
 --------------------------------------------------------------------------------
-Slack (setup path):     -3.591ns (requirement - (data path - clock path skew + uncertainty))
+Slack (setup path):     -2.951ns (requirement - (data path - clock path skew + uncertainty))
   Source:               wd_top/sample_ram/Mram_RAM (RAM)
   Destination:          Madd_n0053_Madd1 (DSP)
   Requirement:          10.000ns
-  Data Path Delay:      13.538ns (Levels of Logic = 7)
-  Clock Path Skew:      -0.018ns (0.720 - 0.738)
+  Data Path Delay:      12.971ns (Levels of Logic = 7)
+  Clock Path Skew:      0.055ns (0.730 - 0.675)
   Source Clock:         clk_IBUF_BUFG rising at 0.000ns
   Destination Clock:    clk_IBUF_BUFG rising at 10.000ns
   Clock Uncertainty:    0.035ns
@@ -419,43 +419,43 @@ Slack (setup path):     -3.591ns (requirement - (data path - clock path skew + u
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    RAMB18_X4Y9.DOBDO0   Trcko_DOB             1.846   wd_top/sample_ram/Mram_RAM
+    RAMB18_X3Y11.DOBDO0  Trcko_DOB             1.846   wd_top/sample_ram/Mram_RAM
                                                        wd_top/sample_ram/Mram_RAM
-    SLICE_X94Y24.C6      net (fanout=4)        0.598   wd_top/read_sample<0>
-    SLICE_X94Y24.C       Tilo                  0.097   wd_top/wd/last_read_value/q<2>
+    SLICE_X53Y27.A6      net (fanout=4)        0.452   wd_top/read_sample<0>
+    SLICE_X53Y27.A       Tilo                  0.097   wd_top/wd/last_read_value/q<1>
                                                        wd_top/wd/Mmux_read_value_mod11
-    SLICE_X92Y23.D1      net (fanout=2)        0.838   wd_top/wd/read_value_mod<0>
-    SLICE_X92Y23.D       Tilo                  0.097   hdmi/xpos<3>
+    SLICE_X53Y29.B2      net (fanout=2)        1.106   wd_top/wd/read_value_mod<0>
+    SLICE_X53Y29.B       Tilo                  0.097   wd_top/wd/read_value_mod[7]_trans_y[7]_LessThan_17_o1
                                                        wd_top/wd/read_value_mod[7]_trans_y[7]_LessThan_17_o2
-    SLICE_X92Y23.C2      net (fanout=1)        0.816   wd_top/wd/read_value_mod[7]_trans_y[7]_LessThan_17_o1
-    SLICE_X92Y23.C       Tilo                  0.097   hdmi/xpos<3>
+    SLICE_X53Y29.A6      net (fanout=1)        0.311   wd_top/wd/read_value_mod[7]_trans_y[7]_LessThan_17_o1
+    SLICE_X53Y29.A       Tilo                  0.097   wd_top/wd/read_value_mod[7]_trans_y[7]_LessThan_17_o1
                                                        wd_top/wd/read_value_mod[7]_trans_y[7]_LessThan_17_o1
-    SLICE_X91Y23.B1      net (fanout=6)        0.747   wd_top/wd/read_value_mod[7]_trans_y[7]_LessThan_17_o2
-    SLICE_X91Y23.B       Tilo                  0.097   x_dff/q<2>
+    SLICE_X52Y26.A3      net (fanout=6)        0.789   wd_top/wd/read_value_mod[7]_trans_y[7]_LessThan_17_o2
+    SLICE_X52Y26.A       Tilo                  0.097   wd_top/wd/new_valid/q_0
                                                        wd_top/wd/valid_pixel30_1
-    SLICE_X68Y17.B6      net (fanout=1)        0.805   wd_top/wd/valid_pixel301
-    SLICE_X68Y17.B       Tilo                  0.097   Maddsub_PWR_1_o_b[7]_MuLt_6_OUT_Madd_cy<3>
+    SLICE_X55Y30.B6      net (fanout=1)        0.423   wd_top/wd/valid_pixel301
+    SLICE_X55Y30.B       Tilo                  0.097   Maddsub_PWR_1_o_b[7]_MuLt_6_OUT_Madd_cy<3>
                                                        wd_top/wd/valid_pixel36
-    DSP48_X3Y10.A6       net (fanout=102)      1.224   Maddsub_PWR_1_o_r[7]_MuLt_9_OUT_Madd4_lut<12>
-    DSP48_X3Y10.PCOUT9   Tdspdo_A_PCOUT_MULT   2.970   Mmult_n0069
+    DSP48_X3Y15.A6       net (fanout=102)      1.405   Maddsub_PWR_1_o_r[7]_MuLt_9_OUT_Madd4_lut<12>
+    DSP48_X3Y15.PCOUT9   Tdspdo_A_PCOUT_MULT   2.970   Mmult_n0069
                                                        Mmult_n0069
-    DSP48_X3Y11.PCIN9    net (fanout=1)        0.002   Mmult_n0069_PCOUT_to_Mmult_n00691_PCIN_9
-    DSP48_X3Y11.P1       Tdspdo_PCIN_P         1.107   Mmult_n00691
+    DSP48_X3Y16.PCIN9    net (fanout=1)        0.002   Mmult_n0069_PCOUT_to_Mmult_n00691_PCIN_9
+    DSP48_X3Y16.P1       Tdspdo_PCIN_P         1.107   Mmult_n00691
                                                        Mmult_n00691
-    DSP48_X3Y9.A0        net (fanout=1)        0.659   n0069<18>
-    DSP48_X3Y9.CLK       Tdspdck_A_PREG        1.441   Madd_n0053_Madd1
+    DSP48_X3Y14.A0       net (fanout=1)        0.634   n0069<18>
+    DSP48_X3Y14.CLK      Tdspdck_A_PREG        1.441   Madd_n0053_Madd1
                                                        Madd_n0053_Madd1
     -------------------------------------------------  ---------------------------
-    Total                                     13.538ns (7.849ns logic, 5.689ns route)
-                                                       (58.0% logic, 42.0% route)
+    Total                                     12.971ns (7.849ns logic, 5.122ns route)
+                                                       (60.5% logic, 39.5% route)
 
 --------------------------------------------------------------------------------
-Slack (setup path):     -3.591ns (requirement - (data path - clock path skew + uncertainty))
+Slack (setup path):     -2.951ns (requirement - (data path - clock path skew + uncertainty))
   Source:               wd_top/sample_ram/Mram_RAM (RAM)
   Destination:          Madd_n0053_Madd1 (DSP)
   Requirement:          10.000ns
-  Data Path Delay:      13.538ns (Levels of Logic = 7)
-  Clock Path Skew:      -0.018ns (0.720 - 0.738)
+  Data Path Delay:      12.971ns (Levels of Logic = 7)
+  Clock Path Skew:      0.055ns (0.730 - 0.675)
   Source Clock:         clk_IBUF_BUFG rising at 0.000ns
   Destination Clock:    clk_IBUF_BUFG rising at 10.000ns
   Clock Uncertainty:    0.035ns
@@ -470,121 +470,119 @@ Slack (setup path):     -3.591ns (requirement - (data path - clock path skew + u
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    RAMB18_X4Y9.DOBDO0   Trcko_DOB             1.846   wd_top/sample_ram/Mram_RAM
+    RAMB18_X3Y11.DOBDO0  Trcko_DOB             1.846   wd_top/sample_ram/Mram_RAM
                                                        wd_top/sample_ram/Mram_RAM
-    SLICE_X94Y24.C6      net (fanout=4)        0.598   wd_top/read_sample<0>
-    SLICE_X94Y24.C       Tilo                  0.097   wd_top/wd/last_read_value/q<2>
+    SLICE_X53Y27.A6      net (fanout=4)        0.452   wd_top/read_sample<0>
+    SLICE_X53Y27.A       Tilo                  0.097   wd_top/wd/last_read_value/q<1>
                                                        wd_top/wd/Mmux_read_value_mod11
-    SLICE_X92Y23.D1      net (fanout=2)        0.838   wd_top/wd/read_value_mod<0>
-    SLICE_X92Y23.D       Tilo                  0.097   hdmi/xpos<3>
+    SLICE_X53Y29.B2      net (fanout=2)        1.106   wd_top/wd/read_value_mod<0>
+    SLICE_X53Y29.B       Tilo                  0.097   wd_top/wd/read_value_mod[7]_trans_y[7]_LessThan_17_o1
                                                        wd_top/wd/read_value_mod[7]_trans_y[7]_LessThan_17_o2
-    SLICE_X92Y23.C2      net (fanout=1)        0.816   wd_top/wd/read_value_mod[7]_trans_y[7]_LessThan_17_o1
-    SLICE_X92Y23.C       Tilo                  0.097   hdmi/xpos<3>
+    SLICE_X53Y29.A6      net (fanout=1)        0.311   wd_top/wd/read_value_mod[7]_trans_y[7]_LessThan_17_o1
+    SLICE_X53Y29.A       Tilo                  0.097   wd_top/wd/read_value_mod[7]_trans_y[7]_LessThan_17_o1
                                                        wd_top/wd/read_value_mod[7]_trans_y[7]_LessThan_17_o1
-    SLICE_X91Y23.B1      net (fanout=6)        0.747   wd_top/wd/read_value_mod[7]_trans_y[7]_LessThan_17_o2
-    SLICE_X91Y23.B       Tilo                  0.097   x_dff/q<2>
+    SLICE_X52Y26.A3      net (fanout=6)        0.789   wd_top/wd/read_value_mod[7]_trans_y[7]_LessThan_17_o2
+    SLICE_X52Y26.A       Tilo                  0.097   wd_top/wd/new_valid/q_0
                                                        wd_top/wd/valid_pixel30_1
-    SLICE_X68Y17.B6      net (fanout=1)        0.805   wd_top/wd/valid_pixel301
-    SLICE_X68Y17.B       Tilo                  0.097   Maddsub_PWR_1_o_b[7]_MuLt_6_OUT_Madd_cy<3>
+    SLICE_X55Y30.B6      net (fanout=1)        0.423   wd_top/wd/valid_pixel301
+    SLICE_X55Y30.B       Tilo                  0.097   Maddsub_PWR_1_o_b[7]_MuLt_6_OUT_Madd_cy<3>
                                                        wd_top/wd/valid_pixel36
-    DSP48_X3Y10.A6       net (fanout=102)      1.224   Maddsub_PWR_1_o_r[7]_MuLt_9_OUT_Madd4_lut<12>
-    DSP48_X3Y10.PCOUT1   Tdspdo_A_PCOUT_MULT   2.970   Mmult_n0069
+    DSP48_X3Y15.A6       net (fanout=102)      1.405   Maddsub_PWR_1_o_r[7]_MuLt_9_OUT_Madd4_lut<12>
+    DSP48_X3Y15.PCOUT1   Tdspdo_A_PCOUT_MULT   2.970   Mmult_n0069
                                                        Mmult_n0069
-    DSP48_X3Y11.PCIN1    net (fanout=1)        0.002   Mmult_n0069_PCOUT_to_Mmult_n00691_PCIN_1
-    DSP48_X3Y11.P1       Tdspdo_PCIN_P         1.107   Mmult_n00691
+    DSP48_X3Y16.PCIN1    net (fanout=1)        0.002   Mmult_n0069_PCOUT_to_Mmult_n00691_PCIN_1
+    DSP48_X3Y16.P1       Tdspdo_PCIN_P         1.107   Mmult_n00691
                                                        Mmult_n00691
-    DSP48_X3Y9.A0        net (fanout=1)        0.659   n0069<18>
-    DSP48_X3Y9.CLK       Tdspdck_A_PREG        1.441   Madd_n0053_Madd1
+    DSP48_X3Y14.A0       net (fanout=1)        0.634   n0069<18>
+    DSP48_X3Y14.CLK      Tdspdck_A_PREG        1.441   Madd_n0053_Madd1
                                                        Madd_n0053_Madd1
     -------------------------------------------------  ---------------------------
-    Total                                     13.538ns (7.849ns logic, 5.689ns route)
-                                                       (58.0% logic, 42.0% route)
+    Total                                     12.971ns (7.849ns logic, 5.122ns route)
+                                                       (60.5% logic, 39.5% route)
 
 --------------------------------------------------------------------------------
 
 Hold Paths: TS_clk = PERIOD TIMEGRP "clk" 10 ns HIGH 50%;
 --------------------------------------------------------------------------------
 
-Paths for end point sample_reg/q_10 (SLICE_X51Y36.C6), 1 path
+Paths for end point music_player/song_reader_lib/Mram_addr[6]_memory[127][11]_wide_mux_1_OUT (RAMB18_X4Y21.ADDRARDADDR6), 1 path
 --------------------------------------------------------------------------------
-Slack (hold path):      -0.047ns (requirement - (clock path skew + uncertainty - data path))
-  Source:               music_player/codec_conditioner/next_sample_latch/q_10 (FF)
-  Destination:          sample_reg/q_10 (FF)
+Slack (hold path):      0.011ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               music_player/song_reader/increment/q_2 (FF)
+  Destination:          music_player/song_reader_lib/Mram_addr[6]_memory[127][11]_wide_mux_1_OUT (RAM)
   Requirement:          0.000ns
-  Data Path Delay:      0.211ns (Levels of Logic = 1)
-  Clock Path Skew:      0.258ns (0.763 - 0.505)
+  Data Path Delay:      0.337ns (Levels of Logic = 0)
+  Clock Path Skew:      0.326ns (0.913 - 0.587)
   Source Clock:         clk_IBUF_BUFG rising at 10.000ns
   Destination Clock:    clk_IBUF_BUFG rising at 10.000ns
   Clock Uncertainty:    0.000ns
 
-  Minimum Data Path at Fast Process Corner: music_player/codec_conditioner/next_sample_latch/q_10 to sample_reg/q_10
-    Location             Delay type         Delay(ns)  Physical Resource
-                                                       Logical Resource(s)
-    -------------------------------------------------  -------------------
-    SLICE_X49Y36.BQ      Tcko                  0.141   music_player/codec_conditioner/next_sample_latch/q<10>
-                                                       music_player/codec_conditioner/next_sample_latch/q_10
-    SLICE_X51Y36.C6      net (fanout=2)        0.117   music_player/codec_conditioner/next_sample_latch/q<10>
-    SLICE_X51Y36.CLK     Tah         (-Th)     0.047   sample_reg/q<11>
-                                                       music_player/codec_conditioner/Mmux_valid_sample21
-                                                       sample_reg/q_10
-    -------------------------------------------------  ---------------------------
-    Total                                      0.211ns (0.094ns logic, 0.117ns route)
-                                                       (44.5% logic, 55.5% route)
+  Minimum Data Path at Fast Process Corner: music_player/song_reader/increment/q_2 to music_player/song_reader_lib/Mram_addr[6]_memory[127][11]_wide_mux_1_OUT
+    Location                  Delay type         Delay(ns)  Physical Resource
+                                                            Logical Resource(s)
+    ------------------------------------------------------  -------------------
+    SLICE_X84Y48.BQ           Tcko                  0.141   music_player/song_reader/increment/q<3>
+                                                            music_player/song_reader/increment/q_2
+    RAMB18_X4Y21.ADDRARDADDR6 net (fanout=4)        0.379   music_player/song_reader/increment/q<2>
+    RAMB18_X4Y21.CLKARDCLK    Trckc_ADDRA (-Th)     0.183   music_player/song_reader_lib/Mram_addr[6]_memory[127][11]_wide_mux_1_OUT
+                                                            music_player/song_reader_lib/Mram_addr[6]_memory[127][11]_wide_mux_1_OUT
+    ------------------------------------------------------  ---------------------------
+    Total                                           0.337ns (-0.042ns logic, 0.379ns route)
+                                                            (-12.5% logic, 112.5% route)
 
 --------------------------------------------------------------------------------
 
-Paths for end point sample_reg/q_9 (SLICE_X51Y36.B6), 1 path
+Paths for end point music_player/song_reader_lib/Mram_addr[6]_memory[127][11]_wide_mux_1_OUT (RAMB18_X4Y21.ADDRARDADDR9), 1 path
 --------------------------------------------------------------------------------
-Slack (hold path):      -0.041ns (requirement - (clock path skew + uncertainty - data path))
-  Source:               music_player/codec_conditioner/next_sample_latch/q_9 (FF)
-  Destination:          sample_reg/q_9 (FF)
+Slack (hold path):      0.014ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               music_player/mcu/flipper/q_0 (FF)
+  Destination:          music_player/song_reader_lib/Mram_addr[6]_memory[127][11]_wide_mux_1_OUT (RAM)
   Requirement:          0.000ns
-  Data Path Delay:      0.217ns (Levels of Logic = 1)
-  Clock Path Skew:      0.258ns (0.763 - 0.505)
+  Data Path Delay:      0.340ns (Levels of Logic = 0)
+  Clock Path Skew:      0.326ns (0.913 - 0.587)
   Source Clock:         clk_IBUF_BUFG rising at 10.000ns
   Destination Clock:    clk_IBUF_BUFG rising at 10.000ns
   Clock Uncertainty:    0.000ns
 
-  Minimum Data Path at Fast Process Corner: music_player/codec_conditioner/next_sample_latch/q_9 to sample_reg/q_9
-    Location             Delay type         Delay(ns)  Physical Resource
-                                                       Logical Resource(s)
-    -------------------------------------------------  -------------------
-    SLICE_X48Y36.CQ      Tcko                  0.141   music_player/codec_conditioner/next_sample_latch/q<9>
-                                                       music_player/codec_conditioner/next_sample_latch/q_9
-    SLICE_X51Y36.B6      net (fanout=2)        0.123   music_player/codec_conditioner/next_sample_latch/q<9>
-    SLICE_X51Y36.CLK     Tah         (-Th)     0.047   sample_reg/q<11>
-                                                       music_player/codec_conditioner/Mmux_valid_sample121
-                                                       sample_reg/q_9
-    -------------------------------------------------  ---------------------------
-    Total                                      0.217ns (0.094ns logic, 0.123ns route)
-                                                       (43.3% logic, 56.7% route)
+  Minimum Data Path at Fast Process Corner: music_player/mcu/flipper/q_0 to music_player/song_reader_lib/Mram_addr[6]_memory[127][11]_wide_mux_1_OUT
+    Location                  Delay type         Delay(ns)  Physical Resource
+                                                            Logical Resource(s)
+    ------------------------------------------------------  -------------------
+    SLICE_X85Y48.BQ           Tcko                  0.141   music_player/mcu/flipper/q<2>
+                                                            music_player/mcu/flipper/q_0
+    RAMB18_X4Y21.ADDRARDADDR9 net (fanout=3)        0.382   music_player/mcu/flipper/q<0>
+    RAMB18_X4Y21.CLKARDCLK    Trckc_ADDRA (-Th)     0.183   music_player/song_reader_lib/Mram_addr[6]_memory[127][11]_wide_mux_1_OUT
+                                                            music_player/song_reader_lib/Mram_addr[6]_memory[127][11]_wide_mux_1_OUT
+    ------------------------------------------------------  ---------------------------
+    Total                                           0.340ns (-0.042ns logic, 0.382ns route)
+                                                            (-12.4% logic, 112.4% route)
 
 --------------------------------------------------------------------------------
 
-Paths for end point music_player/codec_conditioner/current_sample_latch/q_8 (SLICE_X51Y35.AX), 1 path
+Paths for end point music_player/song_reader_lib/Mram_addr[6]_memory[127][11]_wide_mux_1_OUT (RAMB18_X4Y21.ADDRARDADDR10), 1 path
 --------------------------------------------------------------------------------
-Slack (hold path):      0.026ns (requirement - (clock path skew + uncertainty - data path))
-  Source:               music_player/codec_conditioner/next_sample_latch/q_8 (FF)
-  Destination:          music_player/codec_conditioner/current_sample_latch/q_8 (FF)
+Slack (hold path):      0.047ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               music_player/mcu/flipper/q_1 (FF)
+  Destination:          music_player/song_reader_lib/Mram_addr[6]_memory[127][11]_wide_mux_1_OUT (RAM)
   Requirement:          0.000ns
-  Data Path Delay:      0.284ns (Levels of Logic = 0)
-  Clock Path Skew:      0.258ns (0.763 - 0.505)
+  Data Path Delay:      0.373ns (Levels of Logic = 0)
+  Clock Path Skew:      0.326ns (0.913 - 0.587)
   Source Clock:         clk_IBUF_BUFG rising at 10.000ns
   Destination Clock:    clk_IBUF_BUFG rising at 10.000ns
   Clock Uncertainty:    0.000ns
 
-  Minimum Data Path at Fast Process Corner: music_player/codec_conditioner/next_sample_latch/q_8 to music_player/codec_conditioner/current_sample_latch/q_8
-    Location             Delay type         Delay(ns)  Physical Resource
-                                                       Logical Resource(s)
-    -------------------------------------------------  -------------------
-    SLICE_X48Y36.AQ      Tcko                  0.141   music_player/codec_conditioner/next_sample_latch/q<9>
-                                                       music_player/codec_conditioner/next_sample_latch/q_8
-    SLICE_X51Y35.AX      net (fanout=2)        0.218   music_player/codec_conditioner/next_sample_latch/q<8>
-    SLICE_X51Y35.CLK     Tckdi       (-Th)     0.075   music_player/codec_conditioner/current_sample_latch/q<7>
-                                                       music_player/codec_conditioner/current_sample_latch/q_8
-    -------------------------------------------------  ---------------------------
-    Total                                      0.284ns (0.066ns logic, 0.218ns route)
-                                                       (23.2% logic, 76.8% route)
+  Minimum Data Path at Fast Process Corner: music_player/mcu/flipper/q_1 to music_player/song_reader_lib/Mram_addr[6]_memory[127][11]_wide_mux_1_OUT
+    Location                   Delay type         Delay(ns)  Physical Resource
+                                                             Logical Resource(s)
+    -------------------------------------------------------  -------------------
+    SLICE_X85Y48.CQ            Tcko                  0.141   music_player/mcu/flipper/q<2>
+                                                             music_player/mcu/flipper/q_1
+    RAMB18_X4Y21.ADDRARDADDR10 net (fanout=2)        0.415   music_player/mcu/flipper/q<1>
+    RAMB18_X4Y21.CLKARDCLK     Trckc_ADDRA (-Th)     0.183   music_player/song_reader_lib/Mram_addr[6]_memory[127][11]_wide_mux_1_OUT
+                                                             music_player/song_reader_lib/Mram_addr[6]_memory[127][11]_wide_mux_1_OUT
+    -------------------------------------------------------  ---------------------------
+    Total                                            0.373ns (-0.042ns logic, 0.415ns route)
+                                                             (-11.3% logic, 111.3% route)
 
 --------------------------------------------------------------------------------
 
@@ -624,83 +622,17 @@ For more information, see Period Analysis in the Timing Closure User Guide (UG61
 
  3883 paths analyzed, 405 endpoints analyzed, 32 failing endpoints
  32 timing errors detected. (32 setup errors, 0 hold errors, 0 component switching limit errors)
- Minimum period is 182.795ns.
+ Minimum period is 175.242ns.
 --------------------------------------------------------------------------------
 
-Paths for end point adau1761_codec/i2c_interface/Inst_i2s_data_interface/sr_out_63 (SLICE_X52Y35.D5), 4 paths
+Paths for end point adau1761_codec/i2c_interface/Inst_i2s_data_interface/sr_out_63 (SLICE_X67Y72.C5), 4 paths
 --------------------------------------------------------------------------------
-Slack (setup path):     -6.476ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               music_player/codec_conditioner/new_frame_state/q_0 (FF)
-  Destination:          adau1761_codec/i2c_interface/Inst_i2s_data_interface/sr_out_63 (FF)
-  Requirement:          0.833ns
-  Data Path Delay:      1.794ns (Levels of Logic = 2)(Component delays alone exceeds constraint)
-  Clock Path Skew:      -5.080ns (-2.107 - 2.973)
-  Source Clock:         clk_IBUF_BUFG rising at 20.000ns
-  Destination Clock:    adau1761_codec/clk_48 rising at 20.833ns
-  Clock Uncertainty:    0.435ns
-
-  Clock Uncertainty:          0.435ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
-    Total System Jitter (TSJ):  0.070ns
-    Discrete Jitter (DJ):       0.266ns
-    Phase Error (PE):           0.296ns
-
-  Maximum Data Path at Slow Process Corner: music_player/codec_conditioner/new_frame_state/q_0 to adau1761_codec/i2c_interface/Inst_i2s_data_interface/sr_out_63
-    Location             Delay type         Delay(ns)  Physical Resource
-                                                       Logical Resource(s)
-    -------------------------------------------------  -------------------
-    SLICE_X50Y36.AQ      Tcko                  0.393   music_player/codec_conditioner/new_frame_state/q_0
-                                                       music_player/codec_conditioner/new_frame_state/q_0
-    SLICE_X52Y36.D3      net (fanout=17)       0.674   music_player/codec_conditioner/new_frame_state/q_0
-    SLICE_X52Y36.DMUX    Tilo                  0.258   sample_reg/q<15>
-                                                       music_player/codec_conditioner/Mmux_valid_sample161
-    SLICE_X52Y35.D5      net (fanout=2)        0.414   leds_r_3_OBUF
-    SLICE_X52Y35.CLK     Tas                   0.055   adau1761_codec/i2c_interface/Inst_i2s_data_interface/sr_out<63>
-                                                       adau1761_codec/i2c_interface/Inst_i2s_data_interface/Mmux_sr_out[62]_audio_l_in[23]_mux_5_OUT591
-                                                       adau1761_codec/i2c_interface/Inst_i2s_data_interface/sr_out_63
-    -------------------------------------------------  ---------------------------
-    Total                                      1.794ns (0.706ns logic, 1.088ns route)
-                                                       (39.4% logic, 60.6% route)
-
---------------------------------------------------------------------------------
-Slack (setup path):     -6.400ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               music_player/codec_conditioner/next_sample_latch/q_15 (FF)
-  Destination:          adau1761_codec/i2c_interface/Inst_i2s_data_interface/sr_out_63 (FF)
-  Requirement:          0.833ns
-  Data Path Delay:      1.663ns (Levels of Logic = 2)(Component delays alone exceeds constraint)
-  Clock Path Skew:      -5.135ns (-2.107 - 3.028)
-  Source Clock:         clk_IBUF_BUFG rising at 20.000ns
-  Destination Clock:    adau1761_codec/clk_48 rising at 20.833ns
-  Clock Uncertainty:    0.435ns
-
-  Clock Uncertainty:          0.435ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
-    Total System Jitter (TSJ):  0.070ns
-    Discrete Jitter (DJ):       0.266ns
-    Phase Error (PE):           0.296ns
-
-  Maximum Data Path at Slow Process Corner: music_player/codec_conditioner/next_sample_latch/q_15 to adau1761_codec/i2c_interface/Inst_i2s_data_interface/sr_out_63
-    Location             Delay type         Delay(ns)  Physical Resource
-                                                       Logical Resource(s)
-    -------------------------------------------------  -------------------
-    SLICE_X55Y37.CQ      Tcko                  0.341   music_player/codec_conditioner/next_sample_latch/q<15>
-                                                       music_player/codec_conditioner/next_sample_latch/q_15
-    SLICE_X52Y36.D4      net (fanout=2)        0.594   music_player/codec_conditioner/next_sample_latch/q<15>
-    SLICE_X52Y36.DMUX    Tilo                  0.259   sample_reg/q<15>
-                                                       music_player/codec_conditioner/Mmux_valid_sample161
-    SLICE_X52Y35.D5      net (fanout=2)        0.414   leds_r_3_OBUF
-    SLICE_X52Y35.CLK     Tas                   0.055   adau1761_codec/i2c_interface/Inst_i2s_data_interface/sr_out<63>
-                                                       adau1761_codec/i2c_interface/Inst_i2s_data_interface/Mmux_sr_out[62]_audio_l_in[23]_mux_5_OUT591
-                                                       adau1761_codec/i2c_interface/Inst_i2s_data_interface/sr_out_63
-    -------------------------------------------------  ---------------------------
-    Total                                      1.663ns (0.655ns logic, 1.008ns route)
-                                                       (39.4% logic, 60.6% route)
-
---------------------------------------------------------------------------------
-Slack (setup path):     -5.927ns (requirement - (data path - clock path skew + uncertainty))
+Slack (setup path):     -6.174ns (requirement - (data path - clock path skew + uncertainty))
   Source:               music_player/codec_conditioner/current_sample_latch/q_15 (FF)
   Destination:          adau1761_codec/i2c_interface/Inst_i2s_data_interface/sr_out_63 (FF)
   Requirement:          0.833ns
-  Data Path Delay:      1.245ns (Levels of Logic = 2)(Component delays alone exceeds constraint)
-  Clock Path Skew:      -5.080ns (-2.107 - 2.973)
+  Data Path Delay:      1.494ns (Levels of Logic = 2)(Component delays alone exceeds constraint)
+  Clock Path Skew:      -5.078ns (-2.073 - 3.005)
   Source Clock:         clk_IBUF_BUFG rising at 20.000ns
   Destination Clock:    adau1761_codec/clk_48 rising at 20.833ns
   Clock Uncertainty:    0.435ns
@@ -714,29 +646,26 @@ Slack (setup path):     -5.927ns (requirement - (data path - clock path skew + u
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X53Y36.DQ      Tcko                  0.341   music_player/codec_conditioner/current_sample_latch/q<15>
+    SLICE_X64Y71.DQ      Tcko                  0.341   music_player/codec_conditioner/current_sample_latch/q<15>
                                                        music_player/codec_conditioner/current_sample_latch/q_15
-    SLICE_X52Y36.D5      net (fanout=1)        0.183   music_player/codec_conditioner/current_sample_latch/q<15>
-    SLICE_X52Y36.DMUX    Tilo                  0.252   sample_reg/q<15>
+    SLICE_X65Y72.D3      net (fanout=1)        0.452   music_player/codec_conditioner/current_sample_latch/q<15>
+    SLICE_X65Y72.DMUX    Tilo                  0.258   sample_reg/q<15>
                                                        music_player/codec_conditioner/Mmux_valid_sample161
-    SLICE_X52Y35.D5      net (fanout=2)        0.414   leds_r_3_OBUF
-    SLICE_X52Y35.CLK     Tas                   0.055   adau1761_codec/i2c_interface/Inst_i2s_data_interface/sr_out<63>
+    SLICE_X67Y72.C5      net (fanout=2)        0.381   leds_r_3_OBUF
+    SLICE_X67Y72.CLK     Tas                   0.062   adau1761_codec/i2c_interface/Inst_i2s_data_interface/sr_out<50>
                                                        adau1761_codec/i2c_interface/Inst_i2s_data_interface/Mmux_sr_out[62]_audio_l_in[23]_mux_5_OUT591
                                                        adau1761_codec/i2c_interface/Inst_i2s_data_interface/sr_out_63
     -------------------------------------------------  ---------------------------
-    Total                                      1.245ns (0.648ns logic, 0.597ns route)
-                                                       (52.0% logic, 48.0% route)
+    Total                                      1.494ns (0.661ns logic, 0.833ns route)
+                                                       (44.2% logic, 55.8% route)
 
 --------------------------------------------------------------------------------
-
-Paths for end point adau1761_codec/i2c_interface/Inst_i2s_data_interface/sr_out_62 (SLICE_X54Y37.A6), 4 paths
---------------------------------------------------------------------------------
-Slack (setup path):     -6.109ns (requirement - (data path - clock path skew + uncertainty))
+Slack (setup path):     -6.066ns (requirement - (data path - clock path skew + uncertainty))
   Source:               music_player/codec_conditioner/new_frame_state/q_0 (FF)
-  Destination:          adau1761_codec/i2c_interface/Inst_i2s_data_interface/sr_out_62 (FF)
+  Destination:          adau1761_codec/i2c_interface/Inst_i2s_data_interface/sr_out_63 (FF)
   Requirement:          0.833ns
-  Data Path Delay:      1.481ns (Levels of Logic = 2)(Component delays alone exceeds constraint)
-  Clock Path Skew:      -5.026ns (-2.053 - 2.973)
+  Data Path Delay:      1.389ns (Levels of Logic = 2)(Component delays alone exceeds constraint)
+  Clock Path Skew:      -5.075ns (-2.073 - 3.002)
   Source Clock:         clk_IBUF_BUFG rising at 20.000ns
   Destination Clock:    adau1761_codec/clk_48 rising at 20.833ns
   Clock Uncertainty:    0.435ns
@@ -746,30 +675,30 @@ Slack (setup path):     -6.109ns (requirement - (data path - clock path skew + u
     Discrete Jitter (DJ):       0.266ns
     Phase Error (PE):           0.296ns
 
-  Maximum Data Path at Slow Process Corner: music_player/codec_conditioner/new_frame_state/q_0 to adau1761_codec/i2c_interface/Inst_i2s_data_interface/sr_out_62
+  Maximum Data Path at Slow Process Corner: music_player/codec_conditioner/new_frame_state/q_0 to adau1761_codec/i2c_interface/Inst_i2s_data_interface/sr_out_63
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X50Y36.AQ      Tcko                  0.393   music_player/codec_conditioner/new_frame_state/q_0
+    SLICE_X67Y73.AQ      Tcko                  0.341   music_player/codec_conditioner/new_frame_state/q_0
                                                        music_player/codec_conditioner/new_frame_state/q_0
-    SLICE_X55Y36.D3      net (fanout=17)       0.751   music_player/codec_conditioner/new_frame_state/q_0
-    SLICE_X55Y36.D       Tilo                  0.097   music_player/note_player/sine_read3/shift_register1/q_0
-                                                       music_player/codec_conditioner/Mmux_valid_sample151
-    SLICE_X54Y37.A6      net (fanout=3)        0.212   leds_r_2_OBUF
-    SLICE_X54Y37.CLK     Tas                   0.028   adau1761_codec/i2c_interface/Inst_i2s_data_interface/sr_out<62>
-                                                       adau1761_codec/i2c_interface/Inst_i2s_data_interface/Mmux_sr_out[62]_audio_l_in[23]_mux_5_OUT581
-                                                       adau1761_codec/i2c_interface/Inst_i2s_data_interface/sr_out_62
+    SLICE_X65Y72.D5      net (fanout=17)       0.353   music_player/codec_conditioner/new_frame_state/q_0
+    SLICE_X65Y72.DMUX    Tilo                  0.252   sample_reg/q<15>
+                                                       music_player/codec_conditioner/Mmux_valid_sample161
+    SLICE_X67Y72.C5      net (fanout=2)        0.381   leds_r_3_OBUF
+    SLICE_X67Y72.CLK     Tas                   0.062   adau1761_codec/i2c_interface/Inst_i2s_data_interface/sr_out<50>
+                                                       adau1761_codec/i2c_interface/Inst_i2s_data_interface/Mmux_sr_out[62]_audio_l_in[23]_mux_5_OUT591
+                                                       adau1761_codec/i2c_interface/Inst_i2s_data_interface/sr_out_63
     -------------------------------------------------  ---------------------------
-    Total                                      1.481ns (0.518ns logic, 0.963ns route)
-                                                       (35.0% logic, 65.0% route)
+    Total                                      1.389ns (0.655ns logic, 0.734ns route)
+                                                       (47.2% logic, 52.8% route)
 
 --------------------------------------------------------------------------------
-Slack (setup path):     -5.781ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               music_player/codec_conditioner/current_sample_latch/q_14 (FF)
-  Destination:          adau1761_codec/i2c_interface/Inst_i2s_data_interface/sr_out_62 (FF)
+Slack (setup path):     -6.039ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               music_player/codec_conditioner/next_sample_latch/q_15 (FF)
+  Destination:          adau1761_codec/i2c_interface/Inst_i2s_data_interface/sr_out_63 (FF)
   Requirement:          0.833ns
-  Data Path Delay:      1.097ns (Levels of Logic = 2)(Component delays alone exceeds constraint)
-  Clock Path Skew:      -5.082ns (-2.053 - 3.029)
+  Data Path Delay:      1.360ns (Levels of Logic = 2)(Component delays alone exceeds constraint)
+  Clock Path Skew:      -5.077ns (-2.073 - 3.004)
   Source Clock:         clk_IBUF_BUFG rising at 20.000ns
   Destination Clock:    adau1761_codec/clk_48 rising at 20.833ns
   Clock Uncertainty:    0.435ns
@@ -779,132 +708,33 @@ Slack (setup path):     -5.781ns (requirement - (data path - clock path skew + u
     Discrete Jitter (DJ):       0.266ns
     Phase Error (PE):           0.296ns
 
-  Maximum Data Path at Slow Process Corner: music_player/codec_conditioner/current_sample_latch/q_14 to adau1761_codec/i2c_interface/Inst_i2s_data_interface/sr_out_62
+  Maximum Data Path at Slow Process Corner: music_player/codec_conditioner/next_sample_latch/q_15 to adau1761_codec/i2c_interface/Inst_i2s_data_interface/sr_out_63
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X56Y36.DQ      Tcko                  0.341   music_player/codec_conditioner/current_sample_latch/q<14>
-                                                       music_player/codec_conditioner/current_sample_latch/q_14
-    SLICE_X55Y36.D4      net (fanout=1)        0.419   music_player/codec_conditioner/current_sample_latch/q<14>
-    SLICE_X55Y36.D       Tilo                  0.097   music_player/note_player/sine_read3/shift_register1/q_0
-                                                       music_player/codec_conditioner/Mmux_valid_sample151
-    SLICE_X54Y37.A6      net (fanout=3)        0.212   leds_r_2_OBUF
-    SLICE_X54Y37.CLK     Tas                   0.028   adau1761_codec/i2c_interface/Inst_i2s_data_interface/sr_out<62>
-                                                       adau1761_codec/i2c_interface/Inst_i2s_data_interface/Mmux_sr_out[62]_audio_l_in[23]_mux_5_OUT581
-                                                       adau1761_codec/i2c_interface/Inst_i2s_data_interface/sr_out_62
+    SLICE_X64Y72.CQ      Tcko                  0.341   music_player/codec_conditioner/next_sample_latch/q<15>
+                                                       music_player/codec_conditioner/next_sample_latch/q_15
+    SLICE_X65Y72.D4      net (fanout=2)        0.317   music_player/codec_conditioner/next_sample_latch/q<15>
+    SLICE_X65Y72.DMUX    Tilo                  0.259   sample_reg/q<15>
+                                                       music_player/codec_conditioner/Mmux_valid_sample161
+    SLICE_X67Y72.C5      net (fanout=2)        0.381   leds_r_3_OBUF
+    SLICE_X67Y72.CLK     Tas                   0.062   adau1761_codec/i2c_interface/Inst_i2s_data_interface/sr_out<50>
+                                                       adau1761_codec/i2c_interface/Inst_i2s_data_interface/Mmux_sr_out[62]_audio_l_in[23]_mux_5_OUT591
+                                                       adau1761_codec/i2c_interface/Inst_i2s_data_interface/sr_out_63
     -------------------------------------------------  ---------------------------
-    Total                                      1.097ns (0.466ns logic, 0.631ns route)
-                                                       (42.5% logic, 57.5% route)
-
---------------------------------------------------------------------------------
-Slack (setup path):     -5.666ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               music_player/codec_conditioner/next_sample_latch/q_14 (FF)
-  Destination:          adau1761_codec/i2c_interface/Inst_i2s_data_interface/sr_out_62 (FF)
-  Requirement:          0.833ns
-  Data Path Delay:      0.981ns (Levels of Logic = 2)(Component delays alone exceeds constraint)
-  Clock Path Skew:      -5.083ns (-2.053 - 3.030)
-  Source Clock:         clk_IBUF_BUFG rising at 20.000ns
-  Destination Clock:    adau1761_codec/clk_48 rising at 20.833ns
-  Clock Uncertainty:    0.435ns
-
-  Clock Uncertainty:          0.435ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
-    Total System Jitter (TSJ):  0.070ns
-    Discrete Jitter (DJ):       0.266ns
-    Phase Error (PE):           0.296ns
-
-  Maximum Data Path at Slow Process Corner: music_player/codec_conditioner/next_sample_latch/q_14 to adau1761_codec/i2c_interface/Inst_i2s_data_interface/sr_out_62
-    Location             Delay type         Delay(ns)  Physical Resource
-                                                       Logical Resource(s)
-    -------------------------------------------------  -------------------
-    SLICE_X56Y37.AQ      Tcko                  0.341   music_player/codec_conditioner/next_sample_latch/q<14>
-                                                       music_player/codec_conditioner/next_sample_latch/q_14
-    SLICE_X55Y36.D5      net (fanout=2)        0.303   music_player/codec_conditioner/next_sample_latch/q<14>
-    SLICE_X55Y36.D       Tilo                  0.097   music_player/note_player/sine_read3/shift_register1/q_0
-                                                       music_player/codec_conditioner/Mmux_valid_sample151
-    SLICE_X54Y37.A6      net (fanout=3)        0.212   leds_r_2_OBUF
-    SLICE_X54Y37.CLK     Tas                   0.028   adau1761_codec/i2c_interface/Inst_i2s_data_interface/sr_out<62>
-                                                       adau1761_codec/i2c_interface/Inst_i2s_data_interface/Mmux_sr_out[62]_audio_l_in[23]_mux_5_OUT581
-                                                       adau1761_codec/i2c_interface/Inst_i2s_data_interface/sr_out_62
-    -------------------------------------------------  ---------------------------
-    Total                                      0.981ns (0.466ns logic, 0.515ns route)
-                                                       (47.5% logic, 52.5% route)
+    Total                                      1.360ns (0.662ns logic, 0.698ns route)
+                                                       (48.7% logic, 51.3% route)
 
 --------------------------------------------------------------------------------
 
-Paths for end point adau1761_codec/i2c_interface/Inst_i2s_data_interface/sr_out_59 (SLICE_X53Y37.A6), 4 paths
+Paths for end point adau1761_codec/i2c_interface/Inst_i2s_data_interface/sr_out_59 (SLICE_X63Y71.A6), 4 paths
 --------------------------------------------------------------------------------
-Slack (setup path):     -6.074ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               music_player/codec_conditioner/next_sample_latch/q_11 (FF)
-  Destination:          adau1761_codec/i2c_interface/Inst_i2s_data_interface/sr_out_59 (FF)
-  Requirement:          0.833ns
-  Data Path Delay:      1.385ns (Levels of Logic = 2)(Component delays alone exceeds constraint)
-  Clock Path Skew:      -5.087ns (-2.105 - 2.982)
-  Source Clock:         clk_IBUF_BUFG rising at 20.000ns
-  Destination Clock:    adau1761_codec/clk_48 rising at 20.833ns
-  Clock Uncertainty:    0.435ns
-
-  Clock Uncertainty:          0.435ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
-    Total System Jitter (TSJ):  0.070ns
-    Discrete Jitter (DJ):       0.266ns
-    Phase Error (PE):           0.296ns
-
-  Maximum Data Path at Slow Process Corner: music_player/codec_conditioner/next_sample_latch/q_11 to adau1761_codec/i2c_interface/Inst_i2s_data_interface/sr_out_59
-    Location             Delay type         Delay(ns)  Physical Resource
-                                                       Logical Resource(s)
-    -------------------------------------------------  -------------------
-    SLICE_X46Y36.CQ      Tcko                  0.393   music_player/codec_conditioner/next_sample_latch/q<11>
-                                                       music_player/codec_conditioner/next_sample_latch/q_11
-    SLICE_X51Y36.D4      net (fanout=2)        0.538   music_player/codec_conditioner/next_sample_latch/q<11>
-    SLICE_X51Y36.D       Tilo                  0.097   sample_reg/q<11>
-                                                       music_player/codec_conditioner/Mmux_valid_sample31
-    SLICE_X53Y37.A6      net (fanout=1)        0.290   codec_sample<11>
-    SLICE_X53Y37.CLK     Tas                   0.067   adau1761_codec/i2c_interface/Inst_i2s_data_interface/sr_out<61>
-                                                       adau1761_codec/i2c_interface/Inst_i2s_data_interface/Mmux_sr_out[62]_audio_l_in[23]_mux_5_OUT541
-                                                       adau1761_codec/i2c_interface/Inst_i2s_data_interface/sr_out_59
-    -------------------------------------------------  ---------------------------
-    Total                                      1.385ns (0.557ns logic, 0.828ns route)
-                                                       (40.2% logic, 59.8% route)
-
---------------------------------------------------------------------------------
-Slack (setup path):     -5.928ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               music_player/codec_conditioner/new_frame_state/q_0 (FF)
-  Destination:          adau1761_codec/i2c_interface/Inst_i2s_data_interface/sr_out_59 (FF)
-  Requirement:          0.833ns
-  Data Path Delay:      1.248ns (Levels of Logic = 2)(Component delays alone exceeds constraint)
-  Clock Path Skew:      -5.078ns (-2.105 - 2.973)
-  Source Clock:         clk_IBUF_BUFG rising at 20.000ns
-  Destination Clock:    adau1761_codec/clk_48 rising at 20.833ns
-  Clock Uncertainty:    0.435ns
-
-  Clock Uncertainty:          0.435ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
-    Total System Jitter (TSJ):  0.070ns
-    Discrete Jitter (DJ):       0.266ns
-    Phase Error (PE):           0.296ns
-
-  Maximum Data Path at Slow Process Corner: music_player/codec_conditioner/new_frame_state/q_0 to adau1761_codec/i2c_interface/Inst_i2s_data_interface/sr_out_59
-    Location             Delay type         Delay(ns)  Physical Resource
-                                                       Logical Resource(s)
-    -------------------------------------------------  -------------------
-    SLICE_X50Y36.AQ      Tcko                  0.393   music_player/codec_conditioner/new_frame_state/q_0
-                                                       music_player/codec_conditioner/new_frame_state/q_0
-    SLICE_X51Y36.D5      net (fanout=17)       0.401   music_player/codec_conditioner/new_frame_state/q_0
-    SLICE_X51Y36.D       Tilo                  0.097   sample_reg/q<11>
-                                                       music_player/codec_conditioner/Mmux_valid_sample31
-    SLICE_X53Y37.A6      net (fanout=1)        0.290   codec_sample<11>
-    SLICE_X53Y37.CLK     Tas                   0.067   adau1761_codec/i2c_interface/Inst_i2s_data_interface/sr_out<61>
-                                                       adau1761_codec/i2c_interface/Inst_i2s_data_interface/Mmux_sr_out[62]_audio_l_in[23]_mux_5_OUT541
-                                                       adau1761_codec/i2c_interface/Inst_i2s_data_interface/sr_out_59
-    -------------------------------------------------  ---------------------------
-    Total                                      1.248ns (0.557ns logic, 0.691ns route)
-                                                       (44.6% logic, 55.4% route)
-
---------------------------------------------------------------------------------
-Slack (setup path):     -5.771ns (requirement - (data path - clock path skew + uncertainty))
+Slack (setup path):     -5.955ns (requirement - (data path - clock path skew + uncertainty))
   Source:               music_player/codec_conditioner/current_sample_latch/q_11 (FF)
   Destination:          adau1761_codec/i2c_interface/Inst_i2s_data_interface/sr_out_59 (FF)
   Requirement:          0.833ns
-  Data Path Delay:      1.090ns (Levels of Logic = 2)(Component delays alone exceeds constraint)
-  Clock Path Skew:      -5.079ns (-2.105 - 2.974)
+  Data Path Delay:      1.277ns (Levels of Logic = 2)(Component delays alone exceeds constraint)
+  Clock Path Skew:      -5.076ns (-2.077 - 2.999)
   Source Clock:         clk_IBUF_BUFG rising at 20.000ns
   Destination Clock:    adau1761_codec/clk_48 rising at 20.833ns
   Clock Uncertainty:    0.435ns
@@ -918,18 +748,186 @@ Slack (setup path):     -5.771ns (requirement - (data path - clock path skew + u
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X51Y38.DMUX    Tshcko                0.429   music_player/codec_conditioner/current_sample_latch/q<5>
+    SLICE_X63Y74.BQ      Tcko                  0.341   music_player/codec_conditioner/current_sample_latch/q<11>
                                                        music_player/codec_conditioner/current_sample_latch/q_11
-    SLICE_X51Y36.D6      net (fanout=1)        0.207   music_player/codec_conditioner/current_sample_latch/q<11>
-    SLICE_X51Y36.D       Tilo                  0.097   sample_reg/q<11>
+    SLICE_X65Y73.D3      net (fanout=1)        0.459   music_player/codec_conditioner/current_sample_latch/q<11>
+    SLICE_X65Y73.D       Tilo                  0.097   sample_reg/q<11>
                                                        music_player/codec_conditioner/Mmux_valid_sample31
-    SLICE_X53Y37.A6      net (fanout=1)        0.290   codec_sample<11>
-    SLICE_X53Y37.CLK     Tas                   0.067   adau1761_codec/i2c_interface/Inst_i2s_data_interface/sr_out<61>
+    SLICE_X63Y71.A6      net (fanout=1)        0.313   codec_sample<11>
+    SLICE_X63Y71.CLK     Tas                   0.067   adau1761_codec/i2c_interface/Inst_i2s_data_interface/sr_out<59>
                                                        adau1761_codec/i2c_interface/Inst_i2s_data_interface/Mmux_sr_out[62]_audio_l_in[23]_mux_5_OUT541
                                                        adau1761_codec/i2c_interface/Inst_i2s_data_interface/sr_out_59
     -------------------------------------------------  ---------------------------
-    Total                                      1.090ns (0.593ns logic, 0.497ns route)
-                                                       (54.4% logic, 45.6% route)
+    Total                                      1.277ns (0.505ns logic, 0.772ns route)
+                                                       (39.5% logic, 60.5% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     -5.775ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               music_player/codec_conditioner/new_frame_state/q_0 (FF)
+  Destination:          adau1761_codec/i2c_interface/Inst_i2s_data_interface/sr_out_59 (FF)
+  Requirement:          0.833ns
+  Data Path Delay:      1.094ns (Levels of Logic = 2)(Component delays alone exceeds constraint)
+  Clock Path Skew:      -5.079ns (-2.077 - 3.002)
+  Source Clock:         clk_IBUF_BUFG rising at 20.000ns
+  Destination Clock:    adau1761_codec/clk_48 rising at 20.833ns
+  Clock Uncertainty:    0.435ns
+
+  Clock Uncertainty:          0.435ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Discrete Jitter (DJ):       0.266ns
+    Phase Error (PE):           0.296ns
+
+  Maximum Data Path at Slow Process Corner: music_player/codec_conditioner/new_frame_state/q_0 to adau1761_codec/i2c_interface/Inst_i2s_data_interface/sr_out_59
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X67Y73.AQ      Tcko                  0.341   music_player/codec_conditioner/new_frame_state/q_0
+                                                       music_player/codec_conditioner/new_frame_state/q_0
+    SLICE_X65Y73.D6      net (fanout=17)       0.276   music_player/codec_conditioner/new_frame_state/q_0
+    SLICE_X65Y73.D       Tilo                  0.097   sample_reg/q<11>
+                                                       music_player/codec_conditioner/Mmux_valid_sample31
+    SLICE_X63Y71.A6      net (fanout=1)        0.313   codec_sample<11>
+    SLICE_X63Y71.CLK     Tas                   0.067   adau1761_codec/i2c_interface/Inst_i2s_data_interface/sr_out<59>
+                                                       adau1761_codec/i2c_interface/Inst_i2s_data_interface/Mmux_sr_out[62]_audio_l_in[23]_mux_5_OUT541
+                                                       adau1761_codec/i2c_interface/Inst_i2s_data_interface/sr_out_59
+    -------------------------------------------------  ---------------------------
+    Total                                      1.094ns (0.505ns logic, 0.589ns route)
+                                                       (46.2% logic, 53.8% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     -5.688ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               music_player/codec_conditioner/next_sample_latch/q_11 (FF)
+  Destination:          adau1761_codec/i2c_interface/Inst_i2s_data_interface/sr_out_59 (FF)
+  Requirement:          0.833ns
+  Data Path Delay:      1.007ns (Levels of Logic = 2)(Component delays alone exceeds constraint)
+  Clock Path Skew:      -5.079ns (-2.077 - 3.002)
+  Source Clock:         clk_IBUF_BUFG rising at 20.000ns
+  Destination Clock:    adau1761_codec/clk_48 rising at 20.833ns
+  Clock Uncertainty:    0.435ns
+
+  Clock Uncertainty:          0.435ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Discrete Jitter (DJ):       0.266ns
+    Phase Error (PE):           0.296ns
+
+  Maximum Data Path at Slow Process Corner: music_player/codec_conditioner/next_sample_latch/q_11 to adau1761_codec/i2c_interface/Inst_i2s_data_interface/sr_out_59
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X64Y73.DQ      Tcko                  0.341   music_player/codec_conditioner/next_sample_latch/q<11>
+                                                       music_player/codec_conditioner/next_sample_latch/q_11
+    SLICE_X65Y73.D5      net (fanout=2)        0.189   music_player/codec_conditioner/next_sample_latch/q<11>
+    SLICE_X65Y73.D       Tilo                  0.097   sample_reg/q<11>
+                                                       music_player/codec_conditioner/Mmux_valid_sample31
+    SLICE_X63Y71.A6      net (fanout=1)        0.313   codec_sample<11>
+    SLICE_X63Y71.CLK     Tas                   0.067   adau1761_codec/i2c_interface/Inst_i2s_data_interface/sr_out<59>
+                                                       adau1761_codec/i2c_interface/Inst_i2s_data_interface/Mmux_sr_out[62]_audio_l_in[23]_mux_5_OUT541
+                                                       adau1761_codec/i2c_interface/Inst_i2s_data_interface/sr_out_59
+    -------------------------------------------------  ---------------------------
+    Total                                      1.007ns (0.505ns logic, 0.502ns route)
+                                                       (50.1% logic, 49.9% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point adau1761_codec/i2c_interface/Inst_i2s_data_interface/sr_out_56 (SLICE_X65Y74.B6), 4 paths
+--------------------------------------------------------------------------------
+Slack (setup path):     -5.940ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               music_player/codec_conditioner/next_sample_latch/q_8 (FF)
+  Destination:          adau1761_codec/i2c_interface/Inst_i2s_data_interface/sr_out_56 (FF)
+  Requirement:          0.833ns
+  Data Path Delay:      1.262ns (Levels of Logic = 2)(Component delays alone exceeds constraint)
+  Clock Path Skew:      -5.076ns (-2.076 - 3.000)
+  Source Clock:         clk_IBUF_BUFG rising at 20.000ns
+  Destination Clock:    adau1761_codec/clk_48 rising at 20.833ns
+  Clock Uncertainty:    0.435ns
+
+  Clock Uncertainty:          0.435ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Discrete Jitter (DJ):       0.266ns
+    Phase Error (PE):           0.296ns
+
+  Maximum Data Path at Slow Process Corner: music_player/codec_conditioner/next_sample_latch/q_8 to adau1761_codec/i2c_interface/Inst_i2s_data_interface/sr_out_56
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X63Y73.BQ      Tcko                  0.341   music_player/codec_conditioner/next_sample_latch/q<9>
+                                                       music_player/codec_conditioner/next_sample_latch/q_8
+    SLICE_X65Y73.A3      net (fanout=2)        0.468   music_player/codec_conditioner/next_sample_latch/q<8>
+    SLICE_X65Y73.A       Tilo                  0.097   sample_reg/q<11>
+                                                       music_player/codec_conditioner/Mmux_valid_sample111
+    SLICE_X65Y74.B6      net (fanout=1)        0.291   codec_sample<8>
+    SLICE_X65Y74.CLK     Tas                   0.065   adau1761_codec/i2c_interface/Inst_i2s_data_interface/sr_out<58>
+                                                       adau1761_codec/i2c_interface/Inst_i2s_data_interface/Mmux_sr_out[62]_audio_l_in[23]_mux_5_OUT511
+                                                       adau1761_codec/i2c_interface/Inst_i2s_data_interface/sr_out_56
+    -------------------------------------------------  ---------------------------
+    Total                                      1.262ns (0.503ns logic, 0.759ns route)
+                                                       (39.9% logic, 60.1% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     -5.846ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               music_player/codec_conditioner/new_frame_state/q_0 (FF)
+  Destination:          adau1761_codec/i2c_interface/Inst_i2s_data_interface/sr_out_56 (FF)
+  Requirement:          0.833ns
+  Data Path Delay:      1.166ns (Levels of Logic = 2)(Component delays alone exceeds constraint)
+  Clock Path Skew:      -5.078ns (-2.076 - 3.002)
+  Source Clock:         clk_IBUF_BUFG rising at 20.000ns
+  Destination Clock:    adau1761_codec/clk_48 rising at 20.833ns
+  Clock Uncertainty:    0.435ns
+
+  Clock Uncertainty:          0.435ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Discrete Jitter (DJ):       0.266ns
+    Phase Error (PE):           0.296ns
+
+  Maximum Data Path at Slow Process Corner: music_player/codec_conditioner/new_frame_state/q_0 to adau1761_codec/i2c_interface/Inst_i2s_data_interface/sr_out_56
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X67Y73.AQ      Tcko                  0.341   music_player/codec_conditioner/new_frame_state/q_0
+                                                       music_player/codec_conditioner/new_frame_state/q_0
+    SLICE_X65Y73.A6      net (fanout=17)       0.372   music_player/codec_conditioner/new_frame_state/q_0
+    SLICE_X65Y73.A       Tilo                  0.097   sample_reg/q<11>
+                                                       music_player/codec_conditioner/Mmux_valid_sample111
+    SLICE_X65Y74.B6      net (fanout=1)        0.291   codec_sample<8>
+    SLICE_X65Y74.CLK     Tas                   0.065   adau1761_codec/i2c_interface/Inst_i2s_data_interface/sr_out<58>
+                                                       adau1761_codec/i2c_interface/Inst_i2s_data_interface/Mmux_sr_out[62]_audio_l_in[23]_mux_5_OUT511
+                                                       adau1761_codec/i2c_interface/Inst_i2s_data_interface/sr_out_56
+    -------------------------------------------------  ---------------------------
+    Total                                      1.166ns (0.503ns logic, 0.663ns route)
+                                                       (43.1% logic, 56.9% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     -5.821ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               music_player/codec_conditioner/current_sample_latch/q_8 (FF)
+  Destination:          adau1761_codec/i2c_interface/Inst_i2s_data_interface/sr_out_56 (FF)
+  Requirement:          0.833ns
+  Data Path Delay:      1.141ns (Levels of Logic = 2)(Component delays alone exceeds constraint)
+  Clock Path Skew:      -5.078ns (-2.076 - 3.002)
+  Source Clock:         clk_IBUF_BUFG rising at 20.000ns
+  Destination Clock:    adau1761_codec/clk_48 rising at 20.833ns
+  Clock Uncertainty:    0.435ns
+
+  Clock Uncertainty:          0.435ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Discrete Jitter (DJ):       0.266ns
+    Phase Error (PE):           0.296ns
+
+  Maximum Data Path at Slow Process Corner: music_player/codec_conditioner/current_sample_latch/q_8 to adau1761_codec/i2c_interface/Inst_i2s_data_interface/sr_out_56
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X62Y72.AQ      Tcko                  0.393   music_player/codec_conditioner/current_sample_latch/q<6>
+                                                       music_player/codec_conditioner/current_sample_latch/q_8
+    SLICE_X65Y73.A5      net (fanout=1)        0.295   music_player/codec_conditioner/current_sample_latch/q<8>
+    SLICE_X65Y73.A       Tilo                  0.097   sample_reg/q<11>
+                                                       music_player/codec_conditioner/Mmux_valid_sample111
+    SLICE_X65Y74.B6      net (fanout=1)        0.291   codec_sample<8>
+    SLICE_X65Y74.CLK     Tas                   0.065   adau1761_codec/i2c_interface/Inst_i2s_data_interface/sr_out<58>
+                                                       adau1761_codec/i2c_interface/Inst_i2s_data_interface/Mmux_sr_out[62]_audio_l_in[23]_mux_5_OUT511
+                                                       adau1761_codec/i2c_interface/Inst_i2s_data_interface/sr_out_56
+    -------------------------------------------------  ---------------------------
+    Total                                      1.141ns (0.555ns logic, 0.586ns route)
+                                                       (48.6% logic, 51.4% route)
 
 --------------------------------------------------------------------------------
 
@@ -937,87 +935,86 @@ Hold Paths: TS_adau1761_codec_codec_clock_gen_clkout0 = PERIOD TIMEGRP
         "adau1761_codec_codec_clock_gen_clkout0" TS_clk / 0.48 HIGH 50%;
 --------------------------------------------------------------------------------
 
-Paths for end point adau1761_codec/i2c_interface/Inst_i2s_data_interface/sr_out_53 (SLICE_X50Y37.B3), 1 path
+Paths for end point adau1761_codec/i2c_interface/Inst_i2c/Inst_i3c2/ack_flag (SLICE_X13Y17.A6), 1 path
 --------------------------------------------------------------------------------
-Slack (hold path):      0.118ns (requirement - (clock path skew + uncertainty - data path))
-  Source:               adau1761_codec/i2c_interface/Inst_i2s_data_interface/sr_out_52 (FF)
-  Destination:          adau1761_codec/i2c_interface/Inst_i2s_data_interface/sr_out_53 (FF)
+Slack (hold path):      0.186ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               adau1761_codec/i2c_interface/Inst_i2c/Inst_i3c2/i2c_data_0 (FF)
+  Destination:          adau1761_codec/i2c_interface/Inst_i2c/Inst_i3c2/ack_flag (FF)
   Requirement:          0.000ns
-  Data Path Delay:      0.376ns (Levels of Logic = 1)
-  Clock Path Skew:      0.258ns (0.764 - 0.506)
+  Data Path Delay:      0.199ns (Levels of Logic = 1)
+  Clock Path Skew:      0.013ns (0.071 - 0.058)
   Source Clock:         adau1761_codec/clk_48 rising at 20.833ns
   Destination Clock:    adau1761_codec/clk_48 rising at 20.833ns
   Clock Uncertainty:    0.000ns
 
-  Minimum Data Path at Fast Process Corner: adau1761_codec/i2c_interface/Inst_i2s_data_interface/sr_out_52 to adau1761_codec/i2c_interface/Inst_i2s_data_interface/sr_out_53
+  Minimum Data Path at Fast Process Corner: adau1761_codec/i2c_interface/Inst_i2c/Inst_i3c2/i2c_data_0 to adau1761_codec/i2c_interface/Inst_i2c/Inst_i3c2/ack_flag
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X49Y37.BQ      Tcko                  0.141   adau1761_codec/i2c_interface/Inst_i2s_data_interface/sr_out<52>
-                                                       adau1761_codec/i2c_interface/Inst_i2s_data_interface/sr_out_52
-    SLICE_X50Y37.B3      net (fanout=1)        0.311   adau1761_codec/i2c_interface/Inst_i2s_data_interface/sr_out<52>
-    SLICE_X50Y37.CLK     Tah         (-Th)     0.076   adau1761_codec/i2c_interface/Inst_i2s_data_interface/sr_out<53>
-                                                       adau1761_codec/i2c_interface/Inst_i2s_data_interface/Mmux_sr_out[62]_audio_l_in[23]_mux_5_OUT481
-                                                       adau1761_codec/i2c_interface/Inst_i2s_data_interface/sr_out_53
+    SLICE_X12Y17.CQ      Tcko                  0.164   adau1761_codec/i2c_interface/Inst_i2c/Inst_i3c2/i2c_data<0>
+                                                       adau1761_codec/i2c_interface/Inst_i2c/Inst_i3c2/i2c_data_0
+    SLICE_X13Y17.A6      net (fanout=4)        0.081   adau1761_codec/i2c_interface/Inst_i2c/Inst_i3c2/i2c_data<0>
+    SLICE_X13Y17.CLK     Tah         (-Th)     0.046   adau1761_codec/i2c_interface/Inst_i2c/Inst_i3c2/ack_flag
+                                                       adau1761_codec/i2c_interface/Inst_i2c/Inst_i3c2/i2c_data[0]_INV_99_o1_INV_0
+                                                       adau1761_codec/i2c_interface/Inst_i2c/Inst_i3c2/ack_flag
     -------------------------------------------------  ---------------------------
-    Total                                      0.376ns (0.065ns logic, 0.311ns route)
-                                                       (17.3% logic, 82.7% route)
+    Total                                      0.199ns (0.118ns logic, 0.081ns route)
+                                                       (59.3% logic, 40.7% route)
 
 --------------------------------------------------------------------------------
 
-Paths for end point adau1761_codec/i2c_interface/Inst_i2s_data_interface/sr_out_55 (SLICE_X50Y35.A3), 1 path
+Paths for end point adau1761_codec/i2c_interface/Inst_i2c_Inst_adau1761_configuraiton_data/Mram__n0373 (RAMB18_X1Y3.ADDRARDADDR9), 1 path
 --------------------------------------------------------------------------------
-Slack (hold path):      0.124ns (requirement - (clock path skew + uncertainty - data path))
-  Source:               adau1761_codec/i2c_interface/Inst_i2s_data_interface/sr_out_54 (FF)
-  Destination:          adau1761_codec/i2c_interface/Inst_i2s_data_interface/sr_out_55 (FF)
+Slack (hold path):      0.187ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               adau1761_codec/i2c_interface/Inst_i2c/Inst_i3c2/pcnext_6 (FF)
+  Destination:          adau1761_codec/i2c_interface/Inst_i2c_Inst_adau1761_configuraiton_data/Mram__n0373 (RAM)
   Requirement:          0.000ns
-  Data Path Delay:      0.382ns (Levels of Logic = 1)
-  Clock Path Skew:      0.258ns (0.763 - 0.505)
+  Data Path Delay:      0.262ns (Levels of Logic = 0)
+  Clock Path Skew:      0.075ns (0.372 - 0.297)
   Source Clock:         adau1761_codec/clk_48 rising at 20.833ns
   Destination Clock:    adau1761_codec/clk_48 rising at 20.833ns
   Clock Uncertainty:    0.000ns
 
-  Minimum Data Path at Fast Process Corner: adau1761_codec/i2c_interface/Inst_i2s_data_interface/sr_out_54 to adau1761_codec/i2c_interface/Inst_i2s_data_interface/sr_out_55
-    Location             Delay type         Delay(ns)  Physical Resource
-                                                       Logical Resource(s)
-    -------------------------------------------------  -------------------
-    SLICE_X49Y35.BQ      Tcko                  0.141   adau1761_codec/i2c_interface/Inst_i2s_data_interface/sr_out<54>
-                                                       adau1761_codec/i2c_interface/Inst_i2s_data_interface/sr_out_54
-    SLICE_X50Y35.A3      net (fanout=1)        0.316   adau1761_codec/i2c_interface/Inst_i2s_data_interface/sr_out<54>
-    SLICE_X50Y35.CLK     Tah         (-Th)     0.075   adau1761_codec/i2c_interface/Inst_i2s_data_interface/sr_out<57>
-                                                       adau1761_codec/i2c_interface/Inst_i2s_data_interface/Mmux_sr_out[62]_audio_l_in[23]_mux_5_OUT501
-                                                       adau1761_codec/i2c_interface/Inst_i2s_data_interface/sr_out_55
-    -------------------------------------------------  ---------------------------
-    Total                                      0.382ns (0.066ns logic, 0.316ns route)
-                                                       (17.3% logic, 82.7% route)
+  Minimum Data Path at Fast Process Corner: adau1761_codec/i2c_interface/Inst_i2c/Inst_i3c2/pcnext_6 to adau1761_codec/i2c_interface/Inst_i2c_Inst_adau1761_configuraiton_data/Mram__n0373
+    Location                 Delay type         Delay(ns)  Physical Resource
+                                                           Logical Resource(s)
+    -----------------------------------------------------  -------------------
+    SLICE_X25Y9.AQ           Tcko                  0.141   adau1761_codec/i2c_interface/Inst_i2c/Inst_i3c2/pcnext<7>
+                                                           adau1761_codec/i2c_interface/Inst_i2c/Inst_i3c2/pcnext_6
+    RAMB18_X1Y3.ADDRARDADDR9 net (fanout=5)        0.304   adau1761_codec/i2c_interface/Inst_i2c/Inst_i3c2/pcnext<6>
+    RAMB18_X1Y3.CLKARDCLK    Trckc_ADDRA (-Th)     0.183   adau1761_codec/i2c_interface/Inst_i2c_Inst_adau1761_configuraiton_data/Mram__n0373
+                                                           adau1761_codec/i2c_interface/Inst_i2c_Inst_adau1761_configuraiton_data/Mram__n0373
+    -----------------------------------------------------  ---------------------------
+    Total                                          0.262ns (-0.042ns logic, 0.304ns route)
+                                                           (-16.0% logic, 116.0% route)
 
 --------------------------------------------------------------------------------
 
-Paths for end point adau1761_codec/i2c_interface/Inst_i2s_data_interface/sr_out_48 (SLICE_X51Y34.A6), 1 path
+Paths for end point adau1761_codec/i2c_interface/Inst_i2c/Inst_i3c2/bitcount_2 (SLICE_X5Y22.B5), 1 path
 --------------------------------------------------------------------------------
-Slack (hold path):      0.125ns (requirement - (clock path skew + uncertainty - data path))
-  Source:               adau1761_codec/i2c_interface/Inst_i2s_data_interface/i2s_lr_last (FF)
-  Destination:          adau1761_codec/i2c_interface/Inst_i2s_data_interface/sr_out_48 (FF)
+Slack (hold path):      0.217ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               adau1761_codec/i2c_interface/Inst_i2c/Inst_i3c2/bitcount_1 (FF)
+  Destination:          adau1761_codec/i2c_interface/Inst_i2c/Inst_i3c2/bitcount_2 (FF)
   Requirement:          0.000ns
-  Data Path Delay:      0.382ns (Levels of Logic = 1)
-  Clock Path Skew:      0.257ns (0.762 - 0.505)
+  Data Path Delay:      0.230ns (Levels of Logic = 1)
+  Clock Path Skew:      0.013ns (0.071 - 0.058)
   Source Clock:         adau1761_codec/clk_48 rising at 20.833ns
   Destination Clock:    adau1761_codec/clk_48 rising at 20.833ns
   Clock Uncertainty:    0.000ns
 
-  Minimum Data Path at Fast Process Corner: adau1761_codec/i2c_interface/Inst_i2s_data_interface/i2s_lr_last to adau1761_codec/i2c_interface/Inst_i2s_data_interface/sr_out_48
+  Minimum Data Path at Fast Process Corner: adau1761_codec/i2c_interface/Inst_i2c/Inst_i3c2/bitcount_1 to adau1761_codec/i2c_interface/Inst_i2c/Inst_i3c2/bitcount_2
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X45Y33.DMUX    Tshcko                0.181   adau1761_codec/i2c_interface/Inst_i2s_data_interface/i2s_lr_last
-                                                       adau1761_codec/i2c_interface/Inst_i2s_data_interface/i2s_lr_last
-    SLICE_X51Y34.A6      net (fanout=10)       0.247   adau1761_codec/i2c_interface/Inst_i2s_data_interface/i2s_lr_last
-    SLICE_X51Y34.CLK     Tah         (-Th)     0.046   adau1761_codec/i2c_interface/Inst_i2s_data_interface/sr_out<50>
-                                                       adau1761_codec/i2c_interface/Inst_i2s_data_interface/Mmux_sr_out[62]_audio_l_in[23]_mux_5_OUT421
-                                                       adau1761_codec/i2c_interface/Inst_i2s_data_interface/sr_out_48
+    SLICE_X4Y22.AQ       Tcko                  0.164   adau1761_codec/i2c_interface/Inst_i2c/Inst_i3c2/bitcount<0>
+                                                       adau1761_codec/i2c_interface/Inst_i2c/Inst_i3c2/bitcount_1
+    SLICE_X5Y22.B5       net (fanout=10)       0.113   adau1761_codec/i2c_interface/Inst_i2c/Inst_i3c2/bitcount<1>
+    SLICE_X5Y22.CLK      Tah         (-Th)     0.047   adau1761_codec/i2c_interface/Inst_i2c/Inst_i3c2/bitcount<3>
+                                                       adau1761_codec/i2c_interface/Inst_i2c/Inst_i3c2/Mmux_state[3]_bitcount[7]_wide_mux_113_OUT63
+                                                       adau1761_codec/i2c_interface/Inst_i2c/Inst_i3c2/bitcount_2
     -------------------------------------------------  ---------------------------
-    Total                                      0.382ns (0.135ns logic, 0.247ns route)
-                                                       (35.3% logic, 64.7% route)
+    Total                                      0.230ns (0.117ns logic, 0.113ns route)
+                                                       (50.9% logic, 49.1% route)
 
 --------------------------------------------------------------------------------
 
@@ -1029,7 +1026,7 @@ Slack: 18.871ns (period - min period limit)
   Min period limit: 1.962ns (509.684MHz) (Trper_CLKA)
   Physical resource: adau1761_codec/i2c_interface/Inst_i2c_Inst_adau1761_configuraiton_data/Mram__n0373/CLKARDCLK
   Logical resource: adau1761_codec/i2c_interface/Inst_i2c_Inst_adau1761_configuraiton_data/Mram__n0373/CLKARDCLK
-  Location pin: RAMB18_X1Y1.CLKARDCLK
+  Location pin: RAMB18_X1Y3.CLKARDCLK
   Clock network: adau1761_codec/clk_48
 --------------------------------------------------------------------------------
 Slack: 19.241ns (period - min period limit)
@@ -1046,7 +1043,7 @@ Slack: 19.293ns (period - (min low pulse limit / (low pulse / period)))
   Low pulse limit: 0.770ns (Tmpw)
   Physical resource: adau1761_codec/i2c_interface/Inst_i2s_data_interface/bclk_delay<1>/CLK
   Logical resource: adau1761_codec/i2c_interface/Inst_i2s_data_interface/Mshreg_bclk_delay_1/CLK
-  Location pin: SLICE_X34Y30.CLK
+  Location pin: SLICE_X46Y59.CLK
   Clock network: adau1761_codec/clk_48
 --------------------------------------------------------------------------------
 
@@ -1056,55 +1053,17 @@ For more information, see Period Analysis in the Timing Closure User Guide (UG61
 
  3416 paths analyzed, 657 endpoints analyzed, 0 failing endpoints
  0 timing errors detected. (0 setup errors, 0 hold errors, 0 component switching limit errors)
- Minimum period is   3.428ns.
+ Minimum period is   4.636ns.
 --------------------------------------------------------------------------------
 
-Paths for end point hdmi/Inst_i2c_sender/busy_sr_24 (SLICE_X62Y45.SR), 19 paths
+Paths for end point hdmi/Inst_i2c_sender/clk_first_quarter_16 (SLICE_X78Y26.CE), 19 paths
 --------------------------------------------------------------------------------
-Slack (setup path):     6.572ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               hdmi/Inst_i2c_sender/divider_0 (FF)
-  Destination:          hdmi/Inst_i2c_sender/busy_sr_24 (FF)
-  Requirement:          10.000ns
-  Data Path Delay:      3.292ns (Levels of Logic = 3)
-  Clock Path Skew:      -0.059ns (0.605 - 0.664)
-  Source Clock:         hdmi/clk rising at 0.000ns
-  Destination Clock:    hdmi/clk rising at 10.000ns
-  Clock Uncertainty:    0.077ns
-
-  Clock Uncertainty:          0.077ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
-    Total System Jitter (TSJ):  0.070ns
-    Discrete Jitter (DJ):       0.135ns
-    Phase Error (PE):           0.000ns
-
-  Maximum Data Path at Slow Process Corner: hdmi/Inst_i2c_sender/divider_0 to hdmi/Inst_i2c_sender/busy_sr_24
-    Location             Delay type         Delay(ns)  Physical Resource
-                                                       Logical Resource(s)
-    -------------------------------------------------  -------------------
-    SLICE_X77Y41.AQ      Tcko                  0.341   hdmi/Inst_i2c_sender/divider<3>
-                                                       hdmi/Inst_i2c_sender/divider_0
-    SLICE_X76Y41.C1      net (fanout=2)        0.506   hdmi/Inst_i2c_sender/divider<0>
-    SLICE_X76Y41.CMUX    Tilo                  0.246   scl_OBUF
-                                                       hdmi/Inst_i2c_sender/divider[8]_GND_106_o_equal_11_o<8>_SW0
-    SLICE_X76Y41.B5      net (fanout=7)        0.215   N10
-    SLICE_X76Y41.B       Tilo                  0.097   scl_OBUF
-                                                       hdmi/Inst_i2c_sender/divider[8]_GND_106_o_equal_11_o<8>
-    SLICE_X71Y45.D2      net (fanout=6)        0.782   hdmi/Inst_i2c_sender/divider[8]_GND_106_o_equal_11_o
-    SLICE_X71Y45.DMUX    Tilo                  0.243   hdmi/Inst_i2c_sender/_n0181_inv
-                                                       hdmi/Inst_i2c_sender/_n015421
-    SLICE_X62Y45.SR      net (fanout=6)        0.489   hdmi/Inst_i2c_sender/_n01542
-    SLICE_X62Y45.CLK     Tsrck                 0.373   hdmi/Inst_i2c_sender/busy_sr<27>
-                                                       hdmi/Inst_i2c_sender/busy_sr_24
-    -------------------------------------------------  ---------------------------
-    Total                                      3.292ns (1.300ns logic, 1.992ns route)
-                                                       (39.5% logic, 60.5% route)
-
---------------------------------------------------------------------------------
-Slack (setup path):     6.751ns (requirement - (data path - clock path skew + uncertainty))
+Slack (setup path):     5.364ns (requirement - (data path - clock path skew + uncertainty))
   Source:               hdmi/Inst_i2c_sender/divider_2 (FF)
-  Destination:          hdmi/Inst_i2c_sender/busy_sr_24 (FF)
+  Destination:          hdmi/Inst_i2c_sender/clk_first_quarter_16 (FF)
   Requirement:          10.000ns
-  Data Path Delay:      3.113ns (Levels of Logic = 3)
-  Clock Path Skew:      -0.059ns (0.605 - 0.664)
+  Data Path Delay:      4.451ns (Levels of Logic = 3)
+  Clock Path Skew:      -0.108ns (0.595 - 0.703)
   Source Clock:         hdmi/clk rising at 0.000ns
   Destination Clock:    hdmi/clk rising at 10.000ns
   Clock Uncertainty:    0.077ns
@@ -1114,35 +1073,73 @@ Slack (setup path):     6.751ns (requirement - (data path - clock path skew + un
     Discrete Jitter (DJ):       0.135ns
     Phase Error (PE):           0.000ns
 
-  Maximum Data Path at Slow Process Corner: hdmi/Inst_i2c_sender/divider_2 to hdmi/Inst_i2c_sender/busy_sr_24
+  Maximum Data Path at Slow Process Corner: hdmi/Inst_i2c_sender/divider_2 to hdmi/Inst_i2c_sender/clk_first_quarter_16
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X77Y41.CQ      Tcko                  0.341   hdmi/Inst_i2c_sender/divider<3>
+    SLICE_X98Y22.CQ      Tcko                  0.393   hdmi/Inst_i2c_sender/divider<3>
                                                        hdmi/Inst_i2c_sender/divider_2
-    SLICE_X76Y41.C4      net (fanout=2)        0.315   hdmi/Inst_i2c_sender/divider<2>
-    SLICE_X76Y41.CMUX    Tilo                  0.258   scl_OBUF
+    SLICE_X99Y22.B3      net (fanout=2)        0.461   hdmi/Inst_i2c_sender/divider<2>
+    SLICE_X99Y22.BMUX    Tilo                  0.261   hdmi/Inst_i2c_sender/divider[8]_GND_106_o_equal_11_o_inv
                                                        hdmi/Inst_i2c_sender/divider[8]_GND_106_o_equal_11_o<8>_SW0
-    SLICE_X76Y41.B5      net (fanout=7)        0.215   N10
-    SLICE_X76Y41.B       Tilo                  0.097   scl_OBUF
+    SLICE_X99Y22.A1      net (fanout=7)        0.526   N10
+    SLICE_X99Y22.A       Tilo                  0.097   hdmi/Inst_i2c_sender/divider[8]_GND_106_o_equal_11_o_inv
                                                        hdmi/Inst_i2c_sender/divider[8]_GND_106_o_equal_11_o<8>
-    SLICE_X71Y45.D2      net (fanout=6)        0.782   hdmi/Inst_i2c_sender/divider[8]_GND_106_o_equal_11_o
-    SLICE_X71Y45.DMUX    Tilo                  0.243   hdmi/Inst_i2c_sender/_n0181_inv
-                                                       hdmi/Inst_i2c_sender/_n015421
-    SLICE_X62Y45.SR      net (fanout=6)        0.489   hdmi/Inst_i2c_sender/_n01542
-    SLICE_X62Y45.CLK     Tsrck                 0.373   hdmi/Inst_i2c_sender/busy_sr<27>
-                                                       hdmi/Inst_i2c_sender/busy_sr_24
+    SLICE_X95Y22.D1      net (fanout=6)        0.632   hdmi/Inst_i2c_sender/divider[8]_GND_106_o_equal_11_o
+    SLICE_X95Y22.D       Tilo                  0.097   hdmi/Inst_i2c_sender/_n0181_inv
+                                                       hdmi/Inst_i2c_sender/_n0181_inv1
+    SLICE_X78Y26.CE      net (fanout=12)       1.834   hdmi/Inst_i2c_sender/_n0181_inv
+    SLICE_X78Y26.CLK     Tceck                 0.150   hdmi/Inst_i2c_sender/clk_first_quarter<21>
+                                                       hdmi/Inst_i2c_sender/clk_first_quarter_16
     -------------------------------------------------  ---------------------------
-    Total                                      3.113ns (1.312ns logic, 1.801ns route)
-                                                       (42.1% logic, 57.9% route)
+    Total                                      4.451ns (0.998ns logic, 3.453ns route)
+                                                       (22.4% logic, 77.6% route)
 
 --------------------------------------------------------------------------------
-Slack (setup path):     6.758ns (requirement - (data path - clock path skew + uncertainty))
+Slack (setup path):     5.437ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               hdmi/Inst_i2c_sender/reg_value_14 (FF)
+  Destination:          hdmi/Inst_i2c_sender/clk_first_quarter_16 (FF)
+  Requirement:          10.000ns
+  Data Path Delay:      4.376ns (Levels of Logic = 3)
+  Clock Path Skew:      -0.110ns (0.595 - 0.705)
+  Source Clock:         hdmi/clk rising at 0.000ns
+  Destination Clock:    hdmi/clk rising at 10.000ns
+  Clock Uncertainty:    0.077ns
+
+  Clock Uncertainty:          0.077ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Discrete Jitter (DJ):       0.135ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: hdmi/Inst_i2c_sender/reg_value_14 to hdmi/Inst_i2c_sender/clk_first_quarter_16
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X94Y20.CQ      Tcko                  0.393   hdmi/Inst_i2c_sender/reg_value<15>
+                                                       hdmi/Inst_i2c_sender/reg_value_14
+    SLICE_X94Y22.B2      net (fanout=2)        0.694   hdmi/Inst_i2c_sender/reg_value<14>
+    SLICE_X94Y22.B       Tilo                  0.097   N6
+                                                       hdmi/Inst_i2c_sender/_n01541_SW0
+    SLICE_X95Y22.C1      net (fanout=1)        0.712   N6
+    SLICE_X95Y22.C       Tilo                  0.097   hdmi/Inst_i2c_sender/_n0181_inv
+                                                       hdmi/Inst_i2c_sender/_n01541
+    SLICE_X95Y22.D4      net (fanout=1)        0.302   hdmi/Inst_i2c_sender/_n01541
+    SLICE_X95Y22.D       Tilo                  0.097   hdmi/Inst_i2c_sender/_n0181_inv
+                                                       hdmi/Inst_i2c_sender/_n0181_inv1
+    SLICE_X78Y26.CE      net (fanout=12)       1.834   hdmi/Inst_i2c_sender/_n0181_inv
+    SLICE_X78Y26.CLK     Tceck                 0.150   hdmi/Inst_i2c_sender/clk_first_quarter<21>
+                                                       hdmi/Inst_i2c_sender/clk_first_quarter_16
+    -------------------------------------------------  ---------------------------
+    Total                                      4.376ns (0.834ns logic, 3.542ns route)
+                                                       (19.1% logic, 80.9% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     5.513ns (requirement - (data path - clock path skew + uncertainty))
   Source:               hdmi/Inst_i2c_sender/divider_1 (FF)
-  Destination:          hdmi/Inst_i2c_sender/busy_sr_24 (FF)
+  Destination:          hdmi/Inst_i2c_sender/clk_first_quarter_16 (FF)
   Requirement:          10.000ns
-  Data Path Delay:      3.106ns (Levels of Logic = 3)
-  Clock Path Skew:      -0.059ns (0.605 - 0.664)
+  Data Path Delay:      4.302ns (Levels of Logic = 3)
+  Clock Path Skew:      -0.108ns (0.595 - 0.703)
   Source Clock:         hdmi/clk rising at 0.000ns
   Destination Clock:    hdmi/clk rising at 10.000ns
   Clock Uncertainty:    0.077ns
@@ -1152,76 +1149,38 @@ Slack (setup path):     6.758ns (requirement - (data path - clock path skew + un
     Discrete Jitter (DJ):       0.135ns
     Phase Error (PE):           0.000ns
 
-  Maximum Data Path at Slow Process Corner: hdmi/Inst_i2c_sender/divider_1 to hdmi/Inst_i2c_sender/busy_sr_24
+  Maximum Data Path at Slow Process Corner: hdmi/Inst_i2c_sender/divider_1 to hdmi/Inst_i2c_sender/clk_first_quarter_16
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X77Y41.BQ      Tcko                  0.341   hdmi/Inst_i2c_sender/divider<3>
+    SLICE_X98Y22.BQ      Tcko                  0.393   hdmi/Inst_i2c_sender/divider<3>
                                                        hdmi/Inst_i2c_sender/divider_1
-    SLICE_X76Y41.C5      net (fanout=2)        0.316   hdmi/Inst_i2c_sender/divider<1>
-    SLICE_X76Y41.CMUX    Tilo                  0.250   scl_OBUF
+    SLICE_X99Y22.B4      net (fanout=2)        0.310   hdmi/Inst_i2c_sender/divider<1>
+    SLICE_X99Y22.BMUX    Tilo                  0.263   hdmi/Inst_i2c_sender/divider[8]_GND_106_o_equal_11_o_inv
                                                        hdmi/Inst_i2c_sender/divider[8]_GND_106_o_equal_11_o<8>_SW0
-    SLICE_X76Y41.B5      net (fanout=7)        0.215   N10
-    SLICE_X76Y41.B       Tilo                  0.097   scl_OBUF
+    SLICE_X99Y22.A1      net (fanout=7)        0.526   N10
+    SLICE_X99Y22.A       Tilo                  0.097   hdmi/Inst_i2c_sender/divider[8]_GND_106_o_equal_11_o_inv
                                                        hdmi/Inst_i2c_sender/divider[8]_GND_106_o_equal_11_o<8>
-    SLICE_X71Y45.D2      net (fanout=6)        0.782   hdmi/Inst_i2c_sender/divider[8]_GND_106_o_equal_11_o
-    SLICE_X71Y45.DMUX    Tilo                  0.243   hdmi/Inst_i2c_sender/_n0181_inv
-                                                       hdmi/Inst_i2c_sender/_n015421
-    SLICE_X62Y45.SR      net (fanout=6)        0.489   hdmi/Inst_i2c_sender/_n01542
-    SLICE_X62Y45.CLK     Tsrck                 0.373   hdmi/Inst_i2c_sender/busy_sr<27>
-                                                       hdmi/Inst_i2c_sender/busy_sr_24
+    SLICE_X95Y22.D1      net (fanout=6)        0.632   hdmi/Inst_i2c_sender/divider[8]_GND_106_o_equal_11_o
+    SLICE_X95Y22.D       Tilo                  0.097   hdmi/Inst_i2c_sender/_n0181_inv
+                                                       hdmi/Inst_i2c_sender/_n0181_inv1
+    SLICE_X78Y26.CE      net (fanout=12)       1.834   hdmi/Inst_i2c_sender/_n0181_inv
+    SLICE_X78Y26.CLK     Tceck                 0.150   hdmi/Inst_i2c_sender/clk_first_quarter<21>
+                                                       hdmi/Inst_i2c_sender/clk_first_quarter_16
     -------------------------------------------------  ---------------------------
-    Total                                      3.106ns (1.304ns logic, 1.802ns route)
-                                                       (42.0% logic, 58.0% route)
+    Total                                      4.302ns (1.000ns logic, 3.302ns route)
+                                                       (23.2% logic, 76.8% route)
 
 --------------------------------------------------------------------------------
 
-Paths for end point hdmi/Inst_i2c_sender/busy_sr_23 (SLICE_X62Y45.SR), 19 paths
+Paths for end point hdmi/Inst_i2c_sender/clk_first_quarter_15 (SLICE_X78Y26.CE), 19 paths
 --------------------------------------------------------------------------------
-Slack (setup path):     6.572ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               hdmi/Inst_i2c_sender/divider_0 (FF)
-  Destination:          hdmi/Inst_i2c_sender/busy_sr_23 (FF)
-  Requirement:          10.000ns
-  Data Path Delay:      3.292ns (Levels of Logic = 3)
-  Clock Path Skew:      -0.059ns (0.605 - 0.664)
-  Source Clock:         hdmi/clk rising at 0.000ns
-  Destination Clock:    hdmi/clk rising at 10.000ns
-  Clock Uncertainty:    0.077ns
-
-  Clock Uncertainty:          0.077ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
-    Total System Jitter (TSJ):  0.070ns
-    Discrete Jitter (DJ):       0.135ns
-    Phase Error (PE):           0.000ns
-
-  Maximum Data Path at Slow Process Corner: hdmi/Inst_i2c_sender/divider_0 to hdmi/Inst_i2c_sender/busy_sr_23
-    Location             Delay type         Delay(ns)  Physical Resource
-                                                       Logical Resource(s)
-    -------------------------------------------------  -------------------
-    SLICE_X77Y41.AQ      Tcko                  0.341   hdmi/Inst_i2c_sender/divider<3>
-                                                       hdmi/Inst_i2c_sender/divider_0
-    SLICE_X76Y41.C1      net (fanout=2)        0.506   hdmi/Inst_i2c_sender/divider<0>
-    SLICE_X76Y41.CMUX    Tilo                  0.246   scl_OBUF
-                                                       hdmi/Inst_i2c_sender/divider[8]_GND_106_o_equal_11_o<8>_SW0
-    SLICE_X76Y41.B5      net (fanout=7)        0.215   N10
-    SLICE_X76Y41.B       Tilo                  0.097   scl_OBUF
-                                                       hdmi/Inst_i2c_sender/divider[8]_GND_106_o_equal_11_o<8>
-    SLICE_X71Y45.D2      net (fanout=6)        0.782   hdmi/Inst_i2c_sender/divider[8]_GND_106_o_equal_11_o
-    SLICE_X71Y45.DMUX    Tilo                  0.243   hdmi/Inst_i2c_sender/_n0181_inv
-                                                       hdmi/Inst_i2c_sender/_n015421
-    SLICE_X62Y45.SR      net (fanout=6)        0.489   hdmi/Inst_i2c_sender/_n01542
-    SLICE_X62Y45.CLK     Tsrck                 0.373   hdmi/Inst_i2c_sender/busy_sr<27>
-                                                       hdmi/Inst_i2c_sender/busy_sr_23
-    -------------------------------------------------  ---------------------------
-    Total                                      3.292ns (1.300ns logic, 1.992ns route)
-                                                       (39.5% logic, 60.5% route)
-
---------------------------------------------------------------------------------
-Slack (setup path):     6.751ns (requirement - (data path - clock path skew + uncertainty))
+Slack (setup path):     5.364ns (requirement - (data path - clock path skew + uncertainty))
   Source:               hdmi/Inst_i2c_sender/divider_2 (FF)
-  Destination:          hdmi/Inst_i2c_sender/busy_sr_23 (FF)
+  Destination:          hdmi/Inst_i2c_sender/clk_first_quarter_15 (FF)
   Requirement:          10.000ns
-  Data Path Delay:      3.113ns (Levels of Logic = 3)
-  Clock Path Skew:      -0.059ns (0.605 - 0.664)
+  Data Path Delay:      4.451ns (Levels of Logic = 3)
+  Clock Path Skew:      -0.108ns (0.595 - 0.703)
   Source Clock:         hdmi/clk rising at 0.000ns
   Destination Clock:    hdmi/clk rising at 10.000ns
   Clock Uncertainty:    0.077ns
@@ -1231,35 +1190,73 @@ Slack (setup path):     6.751ns (requirement - (data path - clock path skew + un
     Discrete Jitter (DJ):       0.135ns
     Phase Error (PE):           0.000ns
 
-  Maximum Data Path at Slow Process Corner: hdmi/Inst_i2c_sender/divider_2 to hdmi/Inst_i2c_sender/busy_sr_23
+  Maximum Data Path at Slow Process Corner: hdmi/Inst_i2c_sender/divider_2 to hdmi/Inst_i2c_sender/clk_first_quarter_15
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X77Y41.CQ      Tcko                  0.341   hdmi/Inst_i2c_sender/divider<3>
+    SLICE_X98Y22.CQ      Tcko                  0.393   hdmi/Inst_i2c_sender/divider<3>
                                                        hdmi/Inst_i2c_sender/divider_2
-    SLICE_X76Y41.C4      net (fanout=2)        0.315   hdmi/Inst_i2c_sender/divider<2>
-    SLICE_X76Y41.CMUX    Tilo                  0.258   scl_OBUF
+    SLICE_X99Y22.B3      net (fanout=2)        0.461   hdmi/Inst_i2c_sender/divider<2>
+    SLICE_X99Y22.BMUX    Tilo                  0.261   hdmi/Inst_i2c_sender/divider[8]_GND_106_o_equal_11_o_inv
                                                        hdmi/Inst_i2c_sender/divider[8]_GND_106_o_equal_11_o<8>_SW0
-    SLICE_X76Y41.B5      net (fanout=7)        0.215   N10
-    SLICE_X76Y41.B       Tilo                  0.097   scl_OBUF
+    SLICE_X99Y22.A1      net (fanout=7)        0.526   N10
+    SLICE_X99Y22.A       Tilo                  0.097   hdmi/Inst_i2c_sender/divider[8]_GND_106_o_equal_11_o_inv
                                                        hdmi/Inst_i2c_sender/divider[8]_GND_106_o_equal_11_o<8>
-    SLICE_X71Y45.D2      net (fanout=6)        0.782   hdmi/Inst_i2c_sender/divider[8]_GND_106_o_equal_11_o
-    SLICE_X71Y45.DMUX    Tilo                  0.243   hdmi/Inst_i2c_sender/_n0181_inv
-                                                       hdmi/Inst_i2c_sender/_n015421
-    SLICE_X62Y45.SR      net (fanout=6)        0.489   hdmi/Inst_i2c_sender/_n01542
-    SLICE_X62Y45.CLK     Tsrck                 0.373   hdmi/Inst_i2c_sender/busy_sr<27>
-                                                       hdmi/Inst_i2c_sender/busy_sr_23
+    SLICE_X95Y22.D1      net (fanout=6)        0.632   hdmi/Inst_i2c_sender/divider[8]_GND_106_o_equal_11_o
+    SLICE_X95Y22.D       Tilo                  0.097   hdmi/Inst_i2c_sender/_n0181_inv
+                                                       hdmi/Inst_i2c_sender/_n0181_inv1
+    SLICE_X78Y26.CE      net (fanout=12)       1.834   hdmi/Inst_i2c_sender/_n0181_inv
+    SLICE_X78Y26.CLK     Tceck                 0.150   hdmi/Inst_i2c_sender/clk_first_quarter<21>
+                                                       hdmi/Inst_i2c_sender/clk_first_quarter_15
     -------------------------------------------------  ---------------------------
-    Total                                      3.113ns (1.312ns logic, 1.801ns route)
-                                                       (42.1% logic, 57.9% route)
+    Total                                      4.451ns (0.998ns logic, 3.453ns route)
+                                                       (22.4% logic, 77.6% route)
 
 --------------------------------------------------------------------------------
-Slack (setup path):     6.758ns (requirement - (data path - clock path skew + uncertainty))
+Slack (setup path):     5.437ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               hdmi/Inst_i2c_sender/reg_value_14 (FF)
+  Destination:          hdmi/Inst_i2c_sender/clk_first_quarter_15 (FF)
+  Requirement:          10.000ns
+  Data Path Delay:      4.376ns (Levels of Logic = 3)
+  Clock Path Skew:      -0.110ns (0.595 - 0.705)
+  Source Clock:         hdmi/clk rising at 0.000ns
+  Destination Clock:    hdmi/clk rising at 10.000ns
+  Clock Uncertainty:    0.077ns
+
+  Clock Uncertainty:          0.077ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Discrete Jitter (DJ):       0.135ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: hdmi/Inst_i2c_sender/reg_value_14 to hdmi/Inst_i2c_sender/clk_first_quarter_15
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X94Y20.CQ      Tcko                  0.393   hdmi/Inst_i2c_sender/reg_value<15>
+                                                       hdmi/Inst_i2c_sender/reg_value_14
+    SLICE_X94Y22.B2      net (fanout=2)        0.694   hdmi/Inst_i2c_sender/reg_value<14>
+    SLICE_X94Y22.B       Tilo                  0.097   N6
+                                                       hdmi/Inst_i2c_sender/_n01541_SW0
+    SLICE_X95Y22.C1      net (fanout=1)        0.712   N6
+    SLICE_X95Y22.C       Tilo                  0.097   hdmi/Inst_i2c_sender/_n0181_inv
+                                                       hdmi/Inst_i2c_sender/_n01541
+    SLICE_X95Y22.D4      net (fanout=1)        0.302   hdmi/Inst_i2c_sender/_n01541
+    SLICE_X95Y22.D       Tilo                  0.097   hdmi/Inst_i2c_sender/_n0181_inv
+                                                       hdmi/Inst_i2c_sender/_n0181_inv1
+    SLICE_X78Y26.CE      net (fanout=12)       1.834   hdmi/Inst_i2c_sender/_n0181_inv
+    SLICE_X78Y26.CLK     Tceck                 0.150   hdmi/Inst_i2c_sender/clk_first_quarter<21>
+                                                       hdmi/Inst_i2c_sender/clk_first_quarter_15
+    -------------------------------------------------  ---------------------------
+    Total                                      4.376ns (0.834ns logic, 3.542ns route)
+                                                       (19.1% logic, 80.9% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     5.513ns (requirement - (data path - clock path skew + uncertainty))
   Source:               hdmi/Inst_i2c_sender/divider_1 (FF)
-  Destination:          hdmi/Inst_i2c_sender/busy_sr_23 (FF)
+  Destination:          hdmi/Inst_i2c_sender/clk_first_quarter_15 (FF)
   Requirement:          10.000ns
-  Data Path Delay:      3.106ns (Levels of Logic = 3)
-  Clock Path Skew:      -0.059ns (0.605 - 0.664)
+  Data Path Delay:      4.302ns (Levels of Logic = 3)
+  Clock Path Skew:      -0.108ns (0.595 - 0.703)
   Source Clock:         hdmi/clk rising at 0.000ns
   Destination Clock:    hdmi/clk rising at 10.000ns
   Clock Uncertainty:    0.077ns
@@ -1269,76 +1266,38 @@ Slack (setup path):     6.758ns (requirement - (data path - clock path skew + un
     Discrete Jitter (DJ):       0.135ns
     Phase Error (PE):           0.000ns
 
-  Maximum Data Path at Slow Process Corner: hdmi/Inst_i2c_sender/divider_1 to hdmi/Inst_i2c_sender/busy_sr_23
+  Maximum Data Path at Slow Process Corner: hdmi/Inst_i2c_sender/divider_1 to hdmi/Inst_i2c_sender/clk_first_quarter_15
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X77Y41.BQ      Tcko                  0.341   hdmi/Inst_i2c_sender/divider<3>
+    SLICE_X98Y22.BQ      Tcko                  0.393   hdmi/Inst_i2c_sender/divider<3>
                                                        hdmi/Inst_i2c_sender/divider_1
-    SLICE_X76Y41.C5      net (fanout=2)        0.316   hdmi/Inst_i2c_sender/divider<1>
-    SLICE_X76Y41.CMUX    Tilo                  0.250   scl_OBUF
+    SLICE_X99Y22.B4      net (fanout=2)        0.310   hdmi/Inst_i2c_sender/divider<1>
+    SLICE_X99Y22.BMUX    Tilo                  0.263   hdmi/Inst_i2c_sender/divider[8]_GND_106_o_equal_11_o_inv
                                                        hdmi/Inst_i2c_sender/divider[8]_GND_106_o_equal_11_o<8>_SW0
-    SLICE_X76Y41.B5      net (fanout=7)        0.215   N10
-    SLICE_X76Y41.B       Tilo                  0.097   scl_OBUF
+    SLICE_X99Y22.A1      net (fanout=7)        0.526   N10
+    SLICE_X99Y22.A       Tilo                  0.097   hdmi/Inst_i2c_sender/divider[8]_GND_106_o_equal_11_o_inv
                                                        hdmi/Inst_i2c_sender/divider[8]_GND_106_o_equal_11_o<8>
-    SLICE_X71Y45.D2      net (fanout=6)        0.782   hdmi/Inst_i2c_sender/divider[8]_GND_106_o_equal_11_o
-    SLICE_X71Y45.DMUX    Tilo                  0.243   hdmi/Inst_i2c_sender/_n0181_inv
-                                                       hdmi/Inst_i2c_sender/_n015421
-    SLICE_X62Y45.SR      net (fanout=6)        0.489   hdmi/Inst_i2c_sender/_n01542
-    SLICE_X62Y45.CLK     Tsrck                 0.373   hdmi/Inst_i2c_sender/busy_sr<27>
-                                                       hdmi/Inst_i2c_sender/busy_sr_23
+    SLICE_X95Y22.D1      net (fanout=6)        0.632   hdmi/Inst_i2c_sender/divider[8]_GND_106_o_equal_11_o
+    SLICE_X95Y22.D       Tilo                  0.097   hdmi/Inst_i2c_sender/_n0181_inv
+                                                       hdmi/Inst_i2c_sender/_n0181_inv1
+    SLICE_X78Y26.CE      net (fanout=12)       1.834   hdmi/Inst_i2c_sender/_n0181_inv
+    SLICE_X78Y26.CLK     Tceck                 0.150   hdmi/Inst_i2c_sender/clk_first_quarter<21>
+                                                       hdmi/Inst_i2c_sender/clk_first_quarter_15
     -------------------------------------------------  ---------------------------
-    Total                                      3.106ns (1.304ns logic, 1.802ns route)
-                                                       (42.0% logic, 58.0% route)
+    Total                                      4.302ns (1.000ns logic, 3.302ns route)
+                                                       (23.2% logic, 76.8% route)
 
 --------------------------------------------------------------------------------
 
-Paths for end point hdmi/Inst_i2c_sender/busy_sr_26 (SLICE_X62Y45.SR), 19 paths
+Paths for end point hdmi/Inst_i2c_sender/clk_first_quarter_18 (SLICE_X78Y26.CE), 19 paths
 --------------------------------------------------------------------------------
-Slack (setup path):     6.572ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               hdmi/Inst_i2c_sender/divider_0 (FF)
-  Destination:          hdmi/Inst_i2c_sender/busy_sr_26 (FF)
-  Requirement:          10.000ns
-  Data Path Delay:      3.292ns (Levels of Logic = 3)
-  Clock Path Skew:      -0.059ns (0.605 - 0.664)
-  Source Clock:         hdmi/clk rising at 0.000ns
-  Destination Clock:    hdmi/clk rising at 10.000ns
-  Clock Uncertainty:    0.077ns
-
-  Clock Uncertainty:          0.077ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
-    Total System Jitter (TSJ):  0.070ns
-    Discrete Jitter (DJ):       0.135ns
-    Phase Error (PE):           0.000ns
-
-  Maximum Data Path at Slow Process Corner: hdmi/Inst_i2c_sender/divider_0 to hdmi/Inst_i2c_sender/busy_sr_26
-    Location             Delay type         Delay(ns)  Physical Resource
-                                                       Logical Resource(s)
-    -------------------------------------------------  -------------------
-    SLICE_X77Y41.AQ      Tcko                  0.341   hdmi/Inst_i2c_sender/divider<3>
-                                                       hdmi/Inst_i2c_sender/divider_0
-    SLICE_X76Y41.C1      net (fanout=2)        0.506   hdmi/Inst_i2c_sender/divider<0>
-    SLICE_X76Y41.CMUX    Tilo                  0.246   scl_OBUF
-                                                       hdmi/Inst_i2c_sender/divider[8]_GND_106_o_equal_11_o<8>_SW0
-    SLICE_X76Y41.B5      net (fanout=7)        0.215   N10
-    SLICE_X76Y41.B       Tilo                  0.097   scl_OBUF
-                                                       hdmi/Inst_i2c_sender/divider[8]_GND_106_o_equal_11_o<8>
-    SLICE_X71Y45.D2      net (fanout=6)        0.782   hdmi/Inst_i2c_sender/divider[8]_GND_106_o_equal_11_o
-    SLICE_X71Y45.DMUX    Tilo                  0.243   hdmi/Inst_i2c_sender/_n0181_inv
-                                                       hdmi/Inst_i2c_sender/_n015421
-    SLICE_X62Y45.SR      net (fanout=6)        0.489   hdmi/Inst_i2c_sender/_n01542
-    SLICE_X62Y45.CLK     Tsrck                 0.373   hdmi/Inst_i2c_sender/busy_sr<27>
-                                                       hdmi/Inst_i2c_sender/busy_sr_26
-    -------------------------------------------------  ---------------------------
-    Total                                      3.292ns (1.300ns logic, 1.992ns route)
-                                                       (39.5% logic, 60.5% route)
-
---------------------------------------------------------------------------------
-Slack (setup path):     6.751ns (requirement - (data path - clock path skew + uncertainty))
+Slack (setup path):     5.364ns (requirement - (data path - clock path skew + uncertainty))
   Source:               hdmi/Inst_i2c_sender/divider_2 (FF)
-  Destination:          hdmi/Inst_i2c_sender/busy_sr_26 (FF)
+  Destination:          hdmi/Inst_i2c_sender/clk_first_quarter_18 (FF)
   Requirement:          10.000ns
-  Data Path Delay:      3.113ns (Levels of Logic = 3)
-  Clock Path Skew:      -0.059ns (0.605 - 0.664)
+  Data Path Delay:      4.451ns (Levels of Logic = 3)
+  Clock Path Skew:      -0.108ns (0.595 - 0.703)
   Source Clock:         hdmi/clk rising at 0.000ns
   Destination Clock:    hdmi/clk rising at 10.000ns
   Clock Uncertainty:    0.077ns
@@ -1348,35 +1307,35 @@ Slack (setup path):     6.751ns (requirement - (data path - clock path skew + un
     Discrete Jitter (DJ):       0.135ns
     Phase Error (PE):           0.000ns
 
-  Maximum Data Path at Slow Process Corner: hdmi/Inst_i2c_sender/divider_2 to hdmi/Inst_i2c_sender/busy_sr_26
+  Maximum Data Path at Slow Process Corner: hdmi/Inst_i2c_sender/divider_2 to hdmi/Inst_i2c_sender/clk_first_quarter_18
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X77Y41.CQ      Tcko                  0.341   hdmi/Inst_i2c_sender/divider<3>
+    SLICE_X98Y22.CQ      Tcko                  0.393   hdmi/Inst_i2c_sender/divider<3>
                                                        hdmi/Inst_i2c_sender/divider_2
-    SLICE_X76Y41.C4      net (fanout=2)        0.315   hdmi/Inst_i2c_sender/divider<2>
-    SLICE_X76Y41.CMUX    Tilo                  0.258   scl_OBUF
+    SLICE_X99Y22.B3      net (fanout=2)        0.461   hdmi/Inst_i2c_sender/divider<2>
+    SLICE_X99Y22.BMUX    Tilo                  0.261   hdmi/Inst_i2c_sender/divider[8]_GND_106_o_equal_11_o_inv
                                                        hdmi/Inst_i2c_sender/divider[8]_GND_106_o_equal_11_o<8>_SW0
-    SLICE_X76Y41.B5      net (fanout=7)        0.215   N10
-    SLICE_X76Y41.B       Tilo                  0.097   scl_OBUF
+    SLICE_X99Y22.A1      net (fanout=7)        0.526   N10
+    SLICE_X99Y22.A       Tilo                  0.097   hdmi/Inst_i2c_sender/divider[8]_GND_106_o_equal_11_o_inv
                                                        hdmi/Inst_i2c_sender/divider[8]_GND_106_o_equal_11_o<8>
-    SLICE_X71Y45.D2      net (fanout=6)        0.782   hdmi/Inst_i2c_sender/divider[8]_GND_106_o_equal_11_o
-    SLICE_X71Y45.DMUX    Tilo                  0.243   hdmi/Inst_i2c_sender/_n0181_inv
-                                                       hdmi/Inst_i2c_sender/_n015421
-    SLICE_X62Y45.SR      net (fanout=6)        0.489   hdmi/Inst_i2c_sender/_n01542
-    SLICE_X62Y45.CLK     Tsrck                 0.373   hdmi/Inst_i2c_sender/busy_sr<27>
-                                                       hdmi/Inst_i2c_sender/busy_sr_26
+    SLICE_X95Y22.D1      net (fanout=6)        0.632   hdmi/Inst_i2c_sender/divider[8]_GND_106_o_equal_11_o
+    SLICE_X95Y22.D       Tilo                  0.097   hdmi/Inst_i2c_sender/_n0181_inv
+                                                       hdmi/Inst_i2c_sender/_n0181_inv1
+    SLICE_X78Y26.CE      net (fanout=12)       1.834   hdmi/Inst_i2c_sender/_n0181_inv
+    SLICE_X78Y26.CLK     Tceck                 0.150   hdmi/Inst_i2c_sender/clk_first_quarter<21>
+                                                       hdmi/Inst_i2c_sender/clk_first_quarter_18
     -------------------------------------------------  ---------------------------
-    Total                                      3.113ns (1.312ns logic, 1.801ns route)
-                                                       (42.1% logic, 57.9% route)
+    Total                                      4.451ns (0.998ns logic, 3.453ns route)
+                                                       (22.4% logic, 77.6% route)
 
 --------------------------------------------------------------------------------
-Slack (setup path):     6.758ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               hdmi/Inst_i2c_sender/divider_1 (FF)
-  Destination:          hdmi/Inst_i2c_sender/busy_sr_26 (FF)
+Slack (setup path):     5.437ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               hdmi/Inst_i2c_sender/reg_value_14 (FF)
+  Destination:          hdmi/Inst_i2c_sender/clk_first_quarter_18 (FF)
   Requirement:          10.000ns
-  Data Path Delay:      3.106ns (Levels of Logic = 3)
-  Clock Path Skew:      -0.059ns (0.605 - 0.664)
+  Data Path Delay:      4.376ns (Levels of Logic = 3)
+  Clock Path Skew:      -0.110ns (0.595 - 0.705)
   Source Clock:         hdmi/clk rising at 0.000ns
   Destination Clock:    hdmi/clk rising at 10.000ns
   Clock Uncertainty:    0.077ns
@@ -1386,68 +1345,78 @@ Slack (setup path):     6.758ns (requirement - (data path - clock path skew + un
     Discrete Jitter (DJ):       0.135ns
     Phase Error (PE):           0.000ns
 
-  Maximum Data Path at Slow Process Corner: hdmi/Inst_i2c_sender/divider_1 to hdmi/Inst_i2c_sender/busy_sr_26
+  Maximum Data Path at Slow Process Corner: hdmi/Inst_i2c_sender/reg_value_14 to hdmi/Inst_i2c_sender/clk_first_quarter_18
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X77Y41.BQ      Tcko                  0.341   hdmi/Inst_i2c_sender/divider<3>
-                                                       hdmi/Inst_i2c_sender/divider_1
-    SLICE_X76Y41.C5      net (fanout=2)        0.316   hdmi/Inst_i2c_sender/divider<1>
-    SLICE_X76Y41.CMUX    Tilo                  0.250   scl_OBUF
-                                                       hdmi/Inst_i2c_sender/divider[8]_GND_106_o_equal_11_o<8>_SW0
-    SLICE_X76Y41.B5      net (fanout=7)        0.215   N10
-    SLICE_X76Y41.B       Tilo                  0.097   scl_OBUF
-                                                       hdmi/Inst_i2c_sender/divider[8]_GND_106_o_equal_11_o<8>
-    SLICE_X71Y45.D2      net (fanout=6)        0.782   hdmi/Inst_i2c_sender/divider[8]_GND_106_o_equal_11_o
-    SLICE_X71Y45.DMUX    Tilo                  0.243   hdmi/Inst_i2c_sender/_n0181_inv
-                                                       hdmi/Inst_i2c_sender/_n015421
-    SLICE_X62Y45.SR      net (fanout=6)        0.489   hdmi/Inst_i2c_sender/_n01542
-    SLICE_X62Y45.CLK     Tsrck                 0.373   hdmi/Inst_i2c_sender/busy_sr<27>
-                                                       hdmi/Inst_i2c_sender/busy_sr_26
+    SLICE_X94Y20.CQ      Tcko                  0.393   hdmi/Inst_i2c_sender/reg_value<15>
+                                                       hdmi/Inst_i2c_sender/reg_value_14
+    SLICE_X94Y22.B2      net (fanout=2)        0.694   hdmi/Inst_i2c_sender/reg_value<14>
+    SLICE_X94Y22.B       Tilo                  0.097   N6
+                                                       hdmi/Inst_i2c_sender/_n01541_SW0
+    SLICE_X95Y22.C1      net (fanout=1)        0.712   N6
+    SLICE_X95Y22.C       Tilo                  0.097   hdmi/Inst_i2c_sender/_n0181_inv
+                                                       hdmi/Inst_i2c_sender/_n01541
+    SLICE_X95Y22.D4      net (fanout=1)        0.302   hdmi/Inst_i2c_sender/_n01541
+    SLICE_X95Y22.D       Tilo                  0.097   hdmi/Inst_i2c_sender/_n0181_inv
+                                                       hdmi/Inst_i2c_sender/_n0181_inv1
+    SLICE_X78Y26.CE      net (fanout=12)       1.834   hdmi/Inst_i2c_sender/_n0181_inv
+    SLICE_X78Y26.CLK     Tceck                 0.150   hdmi/Inst_i2c_sender/clk_first_quarter<21>
+                                                       hdmi/Inst_i2c_sender/clk_first_quarter_18
     -------------------------------------------------  ---------------------------
-    Total                                      3.106ns (1.304ns logic, 1.802ns route)
-                                                       (42.0% logic, 58.0% route)
+    Total                                      4.376ns (0.834ns logic, 3.542ns route)
+                                                       (19.1% logic, 80.9% route)
+
+--------------------------------------------------------------------------------
+Slack (setup path):     5.513ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               hdmi/Inst_i2c_sender/divider_1 (FF)
+  Destination:          hdmi/Inst_i2c_sender/clk_first_quarter_18 (FF)
+  Requirement:          10.000ns
+  Data Path Delay:      4.302ns (Levels of Logic = 3)
+  Clock Path Skew:      -0.108ns (0.595 - 0.703)
+  Source Clock:         hdmi/clk rising at 0.000ns
+  Destination Clock:    hdmi/clk rising at 10.000ns
+  Clock Uncertainty:    0.077ns
+
+  Clock Uncertainty:          0.077ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Discrete Jitter (DJ):       0.135ns
+    Phase Error (PE):           0.000ns
+
+  Maximum Data Path at Slow Process Corner: hdmi/Inst_i2c_sender/divider_1 to hdmi/Inst_i2c_sender/clk_first_quarter_18
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X98Y22.BQ      Tcko                  0.393   hdmi/Inst_i2c_sender/divider<3>
+                                                       hdmi/Inst_i2c_sender/divider_1
+    SLICE_X99Y22.B4      net (fanout=2)        0.310   hdmi/Inst_i2c_sender/divider<1>
+    SLICE_X99Y22.BMUX    Tilo                  0.263   hdmi/Inst_i2c_sender/divider[8]_GND_106_o_equal_11_o_inv
+                                                       hdmi/Inst_i2c_sender/divider[8]_GND_106_o_equal_11_o<8>_SW0
+    SLICE_X99Y22.A1      net (fanout=7)        0.526   N10
+    SLICE_X99Y22.A       Tilo                  0.097   hdmi/Inst_i2c_sender/divider[8]_GND_106_o_equal_11_o_inv
+                                                       hdmi/Inst_i2c_sender/divider[8]_GND_106_o_equal_11_o<8>
+    SLICE_X95Y22.D1      net (fanout=6)        0.632   hdmi/Inst_i2c_sender/divider[8]_GND_106_o_equal_11_o
+    SLICE_X95Y22.D       Tilo                  0.097   hdmi/Inst_i2c_sender/_n0181_inv
+                                                       hdmi/Inst_i2c_sender/_n0181_inv1
+    SLICE_X78Y26.CE      net (fanout=12)       1.834   hdmi/Inst_i2c_sender/_n0181_inv
+    SLICE_X78Y26.CLK     Tceck                 0.150   hdmi/Inst_i2c_sender/clk_first_quarter<21>
+                                                       hdmi/Inst_i2c_sender/clk_first_quarter_18
+    -------------------------------------------------  ---------------------------
+    Total                                      4.302ns (1.000ns logic, 3.302ns route)
+                                                       (23.2% logic, 76.8% route)
 
 --------------------------------------------------------------------------------
 
 Hold Paths: TS_hdmi_clk = PERIOD TIMEGRP "hdmi_clk" TS_clk HIGH 50%;
 --------------------------------------------------------------------------------
 
-Paths for end point hdmi/Inst_i2c_sender/data_sr_9 (SLICE_X66Y46.D5), 1 path
+Paths for end point hdmi/Inst_i2c_sender/data_sr_1 (SLICE_X87Y19.A5), 1 path
 --------------------------------------------------------------------------------
-Slack (hold path):      0.125ns (requirement - (clock path skew + uncertainty - data path))
-  Source:               hdmi/Inst_i2c_sender/reg_value_7 (FF)
-  Destination:          hdmi/Inst_i2c_sender/data_sr_9 (FF)
-  Requirement:          0.000ns
-  Data Path Delay:      0.138ns (Levels of Logic = 1)
-  Clock Path Skew:      0.013ns (0.071 - 0.058)
-  Source Clock:         hdmi/clk rising at 10.000ns
-  Destination Clock:    hdmi/clk rising at 10.000ns
-  Clock Uncertainty:    0.000ns
-
-  Minimum Data Path at Fast Process Corner: hdmi/Inst_i2c_sender/reg_value_7 to hdmi/Inst_i2c_sender/data_sr_9
-    Location             Delay type         Delay(ns)  Physical Resource
-                                                       Logical Resource(s)
-    -------------------------------------------------  -------------------
-    SLICE_X67Y46.DQ      Tcko                  0.141   hdmi/Inst_i2c_sender/reg_value<7>
-                                                       hdmi/Inst_i2c_sender/reg_value_7
-    SLICE_X66Y46.D5      net (fanout=1)        0.079   hdmi/Inst_i2c_sender/reg_value<7>
-    SLICE_X66Y46.CLK     Tah         (-Th)     0.082   hdmi/Inst_i2c_sender/data_sr<8>
-                                                       hdmi/Inst_i2c_sender/Mmux_data_sr[28]_data_sr[28]_mux_55_OUT291
-                                                       hdmi/Inst_i2c_sender/data_sr_9
-    -------------------------------------------------  ---------------------------
-    Total                                      0.138ns (0.059ns logic, 0.079ns route)
-                                                       (42.8% logic, 57.2% route)
-
---------------------------------------------------------------------------------
-
-Paths for end point hdmi/Inst_i2c_sender/data_sr_1 (SLICE_X66Y45.A5), 1 path
---------------------------------------------------------------------------------
-Slack (hold path):      0.131ns (requirement - (clock path skew + uncertainty - data path))
+Slack (hold path):      0.173ns (requirement - (clock path skew + uncertainty - data path))
   Source:               hdmi/Inst_i2c_sender/tristate_sr_1 (FF)
   Destination:          hdmi/Inst_i2c_sender/data_sr_1 (FF)
   Requirement:          0.000ns
-  Data Path Delay:      0.144ns (Levels of Logic = 1)
+  Data Path Delay:      0.186ns (Levels of Logic = 1)
   Clock Path Skew:      0.013ns (0.071 - 0.058)
   Source Clock:         hdmi/clk rising at 10.000ns
   Destination Clock:    hdmi/clk rising at 10.000ns
@@ -1457,25 +1426,25 @@ Slack (hold path):      0.131ns (requirement - (clock path skew + uncertainty - 
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X67Y45.AQ      Tcko                  0.141   hdmi/Inst_i2c_sender/tristate_sr<8>
+    SLICE_X86Y19.AQ      Tcko                  0.164   hdmi/Inst_i2c_sender/tristate_sr<8>
                                                        hdmi/Inst_i2c_sender/tristate_sr_1
-    SLICE_X66Y45.A5      net (fanout=1)        0.086   hdmi/Inst_i2c_sender/tristate_sr<1>
-    SLICE_X66Y45.CLK     Tah         (-Th)     0.083   hdmi/Inst_i2c_sender/clk_first_quarter<6>
+    SLICE_X87Y19.A5      net (fanout=1)        0.081   hdmi/Inst_i2c_sender/tristate_sr<1>
+    SLICE_X87Y19.CLK     Tah         (-Th)     0.059   hdmi/Inst_i2c_sender/clk_first_quarter<6>
                                                        hdmi/Inst_i2c_sender/Mmux_data_sr[28]_data_sr[28]_mux_55_OUT121
                                                        hdmi/Inst_i2c_sender/data_sr_1
     -------------------------------------------------  ---------------------------
-    Total                                      0.144ns (0.058ns logic, 0.086ns route)
-                                                       (40.3% logic, 59.7% route)
+    Total                                      0.186ns (0.105ns logic, 0.081ns route)
+                                                       (56.5% logic, 43.5% route)
 
 --------------------------------------------------------------------------------
 
-Paths for end point hdmi/Inst_i2c_sender/clk_first_quarter_1 (SLICE_X66Y45.A5), 1 path
+Paths for end point hdmi/Inst_i2c_sender/clk_first_quarter_1 (SLICE_X87Y19.A5), 1 path
 --------------------------------------------------------------------------------
-Slack (hold path):      0.139ns (requirement - (clock path skew + uncertainty - data path))
+Slack (hold path):      0.186ns (requirement - (clock path skew + uncertainty - data path))
   Source:               hdmi/Inst_i2c_sender/tristate_sr_1 (FF)
   Destination:          hdmi/Inst_i2c_sender/clk_first_quarter_1 (FF)
   Requirement:          0.000ns
-  Data Path Delay:      0.152ns (Levels of Logic = 1)
+  Data Path Delay:      0.199ns (Levels of Logic = 1)
   Clock Path Skew:      0.013ns (0.071 - 0.058)
   Source Clock:         hdmi/clk rising at 10.000ns
   Destination Clock:    hdmi/clk rising at 10.000ns
@@ -1485,15 +1454,43 @@ Slack (hold path):      0.139ns (requirement - (clock path skew + uncertainty - 
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X67Y45.AQ      Tcko                  0.141   hdmi/Inst_i2c_sender/tristate_sr<8>
+    SLICE_X86Y19.AQ      Tcko                  0.164   hdmi/Inst_i2c_sender/tristate_sr<8>
                                                        hdmi/Inst_i2c_sender/tristate_sr_1
-    SLICE_X66Y45.A5      net (fanout=1)        0.086   hdmi/Inst_i2c_sender/tristate_sr<1>
-    SLICE_X66Y45.CLK     Tah         (-Th)     0.075   hdmi/Inst_i2c_sender/clk_first_quarter<6>
+    SLICE_X87Y19.A5      net (fanout=1)        0.081   hdmi/Inst_i2c_sender/tristate_sr<1>
+    SLICE_X87Y19.CLK     Tah         (-Th)     0.046   hdmi/Inst_i2c_sender/clk_first_quarter<6>
                                                        hdmi/Inst_i2c_sender/clk_first_quarter[28]_clk_first_quarter[28]_mux_52_OUT<1>1
                                                        hdmi/Inst_i2c_sender/clk_first_quarter_1
     -------------------------------------------------  ---------------------------
-    Total                                      0.152ns (0.066ns logic, 0.086ns route)
-                                                       (43.4% logic, 56.6% route)
+    Total                                      0.199ns (0.118ns logic, 0.081ns route)
+                                                       (59.3% logic, 40.7% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point hdmi/Inst_i2c_sender/clk_first_quarter_10 (SLICE_X78Y24.B6), 1 path
+--------------------------------------------------------------------------------
+Slack (hold path):      0.192ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               hdmi/Inst_i2c_sender/clk_first_quarter_9 (FF)
+  Destination:          hdmi/Inst_i2c_sender/clk_first_quarter_10 (FF)
+  Requirement:          0.000ns
+  Data Path Delay:      0.192ns (Levels of Logic = 1)
+  Clock Path Skew:      0.000ns
+  Source Clock:         hdmi/clk rising at 10.000ns
+  Destination Clock:    hdmi/clk rising at 10.000ns
+  Clock Uncertainty:    0.000ns
+
+  Minimum Data Path at Fast Process Corner: hdmi/Inst_i2c_sender/clk_first_quarter_9 to hdmi/Inst_i2c_sender/clk_first_quarter_10
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X78Y24.AMUX    Tshcko                0.182   hdmi/Inst_i2c_sender/clk_first_quarter<13>
+                                                       hdmi/Inst_i2c_sender/clk_first_quarter_9
+    SLICE_X78Y24.B6      net (fanout=1)        0.057   hdmi/Inst_i2c_sender/clk_first_quarter<9>
+    SLICE_X78Y24.CLK     Tah         (-Th)     0.047   hdmi/Inst_i2c_sender/clk_first_quarter<13>
+                                                       hdmi/Inst_i2c_sender/clk_first_quarter[28]_clk_first_quarter[28]_mux_52_OUT<10>1
+                                                       hdmi/Inst_i2c_sender/clk_first_quarter_10
+    -------------------------------------------------  ---------------------------
+    Total                                      0.192ns (0.135ns logic, 0.057ns route)
+                                                       (70.3% logic, 29.7% route)
 
 --------------------------------------------------------------------------------
 
@@ -1505,7 +1502,7 @@ Slack: 9.000ns (period - (min low pulse limit / (low pulse / period)))
   Low pulse limit: 0.500ns (Tcl)
   Physical resource: hdmi/Inst_i2c_sender/address<3>/CLK
   Logical resource: hdmi/Inst_i2c_sender/address_0/CK
-  Location pin: SLICE_X68Y46.CLK
+  Location pin: SLICE_X91Y20.CLK
   Clock network: hdmi/clk
 --------------------------------------------------------------------------------
 Slack: 9.000ns (period - (min high pulse limit / (high pulse / period)))
@@ -1514,7 +1511,7 @@ Slack: 9.000ns (period - (min high pulse limit / (high pulse / period)))
   High pulse limit: 0.500ns (Tch)
   Physical resource: hdmi/Inst_i2c_sender/address<3>/CLK
   Logical resource: hdmi/Inst_i2c_sender/address_0/CK
-  Location pin: SLICE_X68Y46.CLK
+  Location pin: SLICE_X91Y20.CLK
   Clock network: hdmi/clk
 --------------------------------------------------------------------------------
 Slack: 9.000ns (period - min period limit)
@@ -1522,7 +1519,7 @@ Slack: 9.000ns (period - min period limit)
   Min period limit: 1.000ns (1000.000MHz) (Tcp)
   Physical resource: hdmi/Inst_i2c_sender/address<3>/CLK
   Logical resource: hdmi/Inst_i2c_sender/address_0/CK
-  Location pin: SLICE_X68Y46.CLK
+  Location pin: SLICE_X91Y20.CLK
   Clock network: hdmi/clk
 --------------------------------------------------------------------------------
 
@@ -1533,83 +1530,17 @@ For more information, see Period Analysis in the Timing Closure User Guide (UG61
 
  1170 paths analyzed, 227 endpoints analyzed, 22 failing endpoints
  22 timing errors detected. (22 setup errors, 0 hold errors, 0 component switching limit errors)
- Minimum period is   9.275ns.
+ Minimum period is   7.830ns.
 --------------------------------------------------------------------------------
 
-Paths for end point hdmi/hdmi_d_10 (SLICE_X85Y16.C5), 1 path
+Paths for end point hdmi/hdmi_d_11 (SLICE_X71Y28.D6), 1 path
 --------------------------------------------------------------------------------
-Slack (setup path):     -0.744ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               converted_10 (FF)
-  Destination:          hdmi/hdmi_d_10 (FF)
-  Requirement:          1.111ns
-  Data Path Delay:      1.236ns (Levels of Logic = 1)
-  Clock Path Skew:      -0.443ns (2.585 - 3.028)
-  Source Clock:         clk_IBUF_BUFG rising at 10.000ns
-  Destination Clock:    hdmi/clk_vgax2 rising at 11.111ns
-  Clock Uncertainty:    0.176ns
-
-  Clock Uncertainty:          0.176ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
-    Total System Jitter (TSJ):  0.070ns
-    Discrete Jitter (DJ):       0.121ns
-    Phase Error (PE):           0.105ns
-
-  Maximum Data Path at Slow Process Corner: converted_10 to hdmi/hdmi_d_10
-    Location             Delay type         Delay(ns)  Physical Resource
-                                                       Logical Resource(s)
-    -------------------------------------------------  -------------------
-    SLICE_X64Y16.BMUX    Tshcko                0.427   converted<15>
-                                                       converted_10
-    SLICE_X85Y16.C5      net (fanout=1)        0.744   converted<10>
-    SLICE_X85Y16.CLK     Tas                   0.065   hdmi/hdmi_d<11>
-                                                       hdmi/Mmux_Cb[15]_Y[15]_mux_16_OUT11
-                                                       hdmi/hdmi_d_10
-    -------------------------------------------------  ---------------------------
-    Total                                      1.236ns (0.492ns logic, 0.744ns route)
-                                                       (39.8% logic, 60.2% route)
-
---------------------------------------------------------------------------------
-
-Paths for end point hdmi/hdmi_d_14 (SLICE_X76Y17.C4), 1 path
---------------------------------------------------------------------------------
-Slack (setup path):     -0.700ns (requirement - (data path - clock path skew + uncertainty))
-  Source:               converted_6 (FF)
-  Destination:          hdmi/hdmi_d_14 (FF)
-  Requirement:          1.111ns
-  Data Path Delay:      1.187ns (Levels of Logic = 1)(Component delays alone exceeds constraint)
-  Clock Path Skew:      -0.448ns (2.583 - 3.031)
-  Source Clock:         clk_IBUF_BUFG rising at 10.000ns
-  Destination Clock:    hdmi/clk_vgax2 rising at 11.111ns
-  Clock Uncertainty:    0.176ns
-
-  Clock Uncertainty:          0.176ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
-    Total System Jitter (TSJ):  0.070ns
-    Discrete Jitter (DJ):       0.121ns
-    Phase Error (PE):           0.105ns
-
-  Maximum Data Path at Slow Process Corner: converted_6 to hdmi/hdmi_d_14
-    Location             Delay type         Delay(ns)  Physical Resource
-                                                       Logical Resource(s)
-    -------------------------------------------------  -------------------
-    SLICE_X88Y20.DMUX    Tshcko                0.429   converted<7>
-                                                       converted_6
-    SLICE_X76Y17.C4      net (fanout=1)        0.693   converted<6>
-    SLICE_X76Y17.CLK     Tas                   0.065   hdmi/hdmi_d<15>
-                                                       hdmi/Mmux_Cb[15]_Y[15]_mux_16_OUT51
-                                                       hdmi/hdmi_d_14
-    -------------------------------------------------  ---------------------------
-    Total                                      1.187ns (0.494ns logic, 0.693ns route)
-                                                       (41.6% logic, 58.4% route)
-
---------------------------------------------------------------------------------
-
-Paths for end point hdmi/hdmi_d_11 (SLICE_X85Y16.D6), 1 path
---------------------------------------------------------------------------------
-Slack (setup path):     -0.688ns (requirement - (data path - clock path skew + uncertainty))
+Slack (setup path):     -0.455ns (requirement - (data path - clock path skew + uncertainty))
   Source:               converted_17 (FF)
   Destination:          hdmi/hdmi_d_11 (FF)
   Requirement:          1.111ns
-  Data Path Delay:      1.186ns (Levels of Logic = 1)
-  Clock Path Skew:      -0.437ns (2.585 - 3.022)
+  Data Path Delay:      0.938ns (Levels of Logic = 1)
+  Clock Path Skew:      -0.452ns (2.576 - 3.028)
   Source Clock:         clk_IBUF_BUFG rising at 10.000ns
   Destination Clock:    hdmi/clk_vgax2 rising at 11.111ns
   Clock Uncertainty:    0.176ns
@@ -1623,164 +1554,165 @@ Slack (setup path):     -0.688ns (requirement - (data path - clock path skew + u
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X66Y21.AQ      Tcko                  0.393   converted<20>
+    SLICE_X66Y33.AQ      Tcko                  0.393   converted<20>
                                                        converted_17
-    SLICE_X85Y16.D6      net (fanout=5)        0.729   converted<17>
-    SLICE_X85Y16.CLK     Tas                   0.064   hdmi/hdmi_d<11>
+    SLICE_X71Y28.D6      net (fanout=5)        0.481   converted<17>
+    SLICE_X71Y28.CLK     Tas                   0.064   hdmi/hdmi_d<11>
                                                        hdmi/Mmux_Cb[15]_Y[15]_mux_16_OUT21
                                                        hdmi/hdmi_d_11
     -------------------------------------------------  ---------------------------
-    Total                                      1.186ns (0.457ns logic, 0.729ns route)
-                                                       (38.5% logic, 61.5% route)
+    Total                                      0.938ns (0.457ns logic, 0.481ns route)
+                                                       (48.7% logic, 51.3% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point hdmi/hdmi_d_9 (SLICE_X71Y28.B5), 1 path
+--------------------------------------------------------------------------------
+Slack (setup path):     -0.430ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               converted_17 (FF)
+  Destination:          hdmi/hdmi_d_9 (FF)
+  Requirement:          1.111ns
+  Data Path Delay:      0.913ns (Levels of Logic = 1)
+  Clock Path Skew:      -0.452ns (2.576 - 3.028)
+  Source Clock:         clk_IBUF_BUFG rising at 10.000ns
+  Destination Clock:    hdmi/clk_vgax2 rising at 11.111ns
+  Clock Uncertainty:    0.176ns
+
+  Clock Uncertainty:          0.176ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Discrete Jitter (DJ):       0.121ns
+    Phase Error (PE):           0.105ns
+
+  Maximum Data Path at Slow Process Corner: converted_17 to hdmi/hdmi_d_9
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X66Y33.AQ      Tcko                  0.393   converted<20>
+                                                       converted_17
+    SLICE_X71Y28.B5      net (fanout=5)        0.455   converted<17>
+    SLICE_X71Y28.CLK     Tas                   0.065   hdmi/hdmi_d<11>
+                                                       hdmi/Mmux_Cb[15]_Y[15]_mux_16_OUT81
+                                                       hdmi/hdmi_d_9
+    -------------------------------------------------  ---------------------------
+    Total                                      0.913ns (0.458ns logic, 0.455ns route)
+                                                       (50.2% logic, 49.8% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point hdmi/hdmi_d_15 (SLICE_X68Y30.D6), 1 path
+--------------------------------------------------------------------------------
+Slack (setup path):     -0.428ns (requirement - (data path - clock path skew + uncertainty))
+  Source:               converted_17 (FF)
+  Destination:          hdmi/hdmi_d_15 (FF)
+  Requirement:          1.111ns
+  Data Path Delay:      0.914ns (Levels of Logic = 1)
+  Clock Path Skew:      -0.449ns (2.579 - 3.028)
+  Source Clock:         clk_IBUF_BUFG rising at 10.000ns
+  Destination Clock:    hdmi/clk_vgax2 rising at 11.111ns
+  Clock Uncertainty:    0.176ns
+
+  Clock Uncertainty:          0.176ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter (TSJ):  0.070ns
+    Discrete Jitter (DJ):       0.121ns
+    Phase Error (PE):           0.105ns
+
+  Maximum Data Path at Slow Process Corner: converted_17 to hdmi/hdmi_d_15
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X66Y33.AQ      Tcko                  0.393   converted<20>
+                                                       converted_17
+    SLICE_X68Y30.D6      net (fanout=5)        0.457   converted<17>
+    SLICE_X68Y30.CLK     Tas                   0.064   hdmi/hdmi_d<15>
+                                                       hdmi/Mmux_Cb[15]_Y[15]_mux_16_OUT61
+                                                       hdmi/hdmi_d_15
+    -------------------------------------------------  ---------------------------
+    Total                                      0.914ns (0.457ns logic, 0.457ns route)
+                                                       (50.0% logic, 50.0% route)
 
 --------------------------------------------------------------------------------
 
 Hold Paths: TS_hdmi_clk_vgax2 = PERIOD TIMEGRP "hdmi_clk_vgax2" TS_clk / 1.8 HIGH 50%;
 --------------------------------------------------------------------------------
 
-Paths for end point hdmi/vsync (SLICE_X83Y24.B4), 1 path
+Paths for end point hdmi/xpos_4 (SLICE_X51Y24.AX), 1 path
 --------------------------------------------------------------------------------
-Slack (hold path):      0.026ns (requirement - (clock path skew + uncertainty - data path))
-  Source:               hdmi/vcounter_1 (FF)
-  Destination:          hdmi/vsync (FF)
+Slack (hold path):      0.035ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               hdmi/hcounter_4 (FF)
+  Destination:          hdmi/xpos_4 (FF)
   Requirement:          0.000ns
-  Data Path Delay:      0.335ns (Levels of Logic = 1)
-  Clock Path Skew:      0.309ns (0.593 - 0.284)
+  Data Path Delay:      0.321ns (Levels of Logic = 0)
+  Clock Path Skew:      0.286ns (0.543 - 0.257)
   Source Clock:         hdmi/clk_vgax2 rising at 0.000ns
   Destination Clock:    hdmi/clk_vgax2 rising at 0.000ns
   Clock Uncertainty:    0.000ns
 
-  Minimum Data Path at Fast Process Corner: hdmi/vcounter_1 to hdmi/vsync
+  Minimum Data Path at Fast Process Corner: hdmi/hcounter_4 to hdmi/xpos_4
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X82Y23.BQ      Tcko                  0.164   hdmi/vcounter<3>
-                                                       hdmi/vcounter_1
-    SLICE_X83Y24.B4      net (fanout=5)        0.230   hdmi/vcounter<1>
-    SLICE_X83Y24.CLK     Tah         (-Th)     0.059   hdmi/vsync
-                                                       hdmi/vsync_glue_set
-                                                       hdmi/vsync
+    SLICE_X51Y19.AQ      Tcko                  0.141   hdmi/hcounter<7>
+                                                       hdmi/hcounter_4
+    SLICE_X51Y24.AX      net (fanout=4)        0.250   hdmi/hcounter<4>
+    SLICE_X51Y24.CLK     Tckdi       (-Th)     0.070   hdmi/xpos<7>
+                                                       hdmi/xpos_4
     -------------------------------------------------  ---------------------------
-    Total                                      0.335ns (0.105ns logic, 0.230ns route)
-                                                       (31.3% logic, 68.7% route)
+    Total                                      0.321ns (0.071ns logic, 0.250ns route)
+                                                       (22.1% logic, 77.9% route)
 
 --------------------------------------------------------------------------------
 
-Paths for end point hdmi/vsync (SLICE_X83Y24.B3), 1 path
+Paths for end point hdmi/xpos_6 (SLICE_X51Y24.CX), 1 path
 --------------------------------------------------------------------------------
-Slack (hold path):      0.038ns (requirement - (clock path skew + uncertainty - data path))
-  Source:               hdmi/vcounter_3 (FF)
-  Destination:          hdmi/vsync (FF)
+Slack (hold path):      0.035ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               hdmi/hcounter_6 (FF)
+  Destination:          hdmi/xpos_6 (FF)
   Requirement:          0.000ns
-  Data Path Delay:      0.347ns (Levels of Logic = 1)
-  Clock Path Skew:      0.309ns (0.593 - 0.284)
+  Data Path Delay:      0.321ns (Levels of Logic = 0)
+  Clock Path Skew:      0.286ns (0.543 - 0.257)
   Source Clock:         hdmi/clk_vgax2 rising at 0.000ns
   Destination Clock:    hdmi/clk_vgax2 rising at 0.000ns
   Clock Uncertainty:    0.000ns
 
-  Minimum Data Path at Fast Process Corner: hdmi/vcounter_3 to hdmi/vsync
+  Minimum Data Path at Fast Process Corner: hdmi/hcounter_6 to hdmi/xpos_6
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X82Y23.DQ      Tcko                  0.164   hdmi/vcounter<3>
-                                                       hdmi/vcounter_3
-    SLICE_X83Y24.B3      net (fanout=4)        0.244   hdmi/vcounter<3>
-    SLICE_X83Y24.CLK     Tah         (-Th)     0.061   hdmi/vsync
-                                                       hdmi/vsync_glue_set
-                                                       hdmi/vsync
+    SLICE_X51Y19.CQ      Tcko                  0.141   hdmi/hcounter<7>
+                                                       hdmi/hcounter_6
+    SLICE_X51Y24.CX      net (fanout=4)        0.250   hdmi/hcounter<6>
+    SLICE_X51Y24.CLK     Tckdi       (-Th)     0.070   hdmi/xpos<7>
+                                                       hdmi/xpos_6
     -------------------------------------------------  ---------------------------
-    Total                                      0.347ns (0.103ns logic, 0.244ns route)
-                                                       (29.7% logic, 70.3% route)
+    Total                                      0.321ns (0.071ns logic, 0.250ns route)
+                                                       (22.1% logic, 77.9% route)
 
 --------------------------------------------------------------------------------
 
-Paths for end point hdmi/vcounter_4 (SLICE_X82Y24.CIN), 4 paths
+Paths for end point hdmi/xpos_5 (SLICE_X51Y24.BX), 1 path
 --------------------------------------------------------------------------------
-Slack (hold path):      0.085ns (requirement - (clock path skew + uncertainty - data path))
-  Source:               hdmi/vcounter_3 (FF)
-  Destination:          hdmi/vcounter_4 (FF)
+Slack (hold path):      0.052ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               hdmi/hcounter_5 (FF)
+  Destination:          hdmi/xpos_5 (FF)
   Requirement:          0.000ns
-  Data Path Delay:      0.394ns (Levels of Logic = 2)
-  Clock Path Skew:      0.309ns (0.593 - 0.284)
+  Data Path Delay:      0.338ns (Levels of Logic = 0)
+  Clock Path Skew:      0.286ns (0.543 - 0.257)
   Source Clock:         hdmi/clk_vgax2 rising at 0.000ns
   Destination Clock:    hdmi/clk_vgax2 rising at 0.000ns
   Clock Uncertainty:    0.000ns
 
-  Minimum Data Path at Fast Process Corner: hdmi/vcounter_3 to hdmi/vcounter_4
+  Minimum Data Path at Fast Process Corner: hdmi/hcounter_5 to hdmi/xpos_5
     Location             Delay type         Delay(ns)  Physical Resource
                                                        Logical Resource(s)
     -------------------------------------------------  -------------------
-    SLICE_X82Y23.DQ      Tcko                  0.164   hdmi/vcounter<3>
-                                                       hdmi/vcounter_3
-    SLICE_X82Y23.D3      net (fanout=4)        0.157   hdmi/vcounter<3>
-    SLICE_X82Y23.COUT    Topcyd                0.154   hdmi/vcounter<3>
-                                                       hdmi/vcounter<3>_rt
-                                                       hdmi/Mcount_vcounter_cy<3>
-    SLICE_X82Y24.CIN     net (fanout=1)        0.000   hdmi/Mcount_vcounter_cy<3>
-    SLICE_X82Y24.CLK     Tckcin      (-Th)     0.081   hdmi/vcounter<7>
-                                                       hdmi/Mcount_vcounter_cy<7>
-                                                       hdmi/vcounter_4
+    SLICE_X51Y19.BQ      Tcko                  0.141   hdmi/hcounter<7>
+                                                       hdmi/hcounter_5
+    SLICE_X51Y24.BX      net (fanout=4)        0.263   hdmi/hcounter<5>
+    SLICE_X51Y24.CLK     Tckdi       (-Th)     0.066   hdmi/xpos<7>
+                                                       hdmi/xpos_5
     -------------------------------------------------  ---------------------------
-    Total                                      0.394ns (0.237ns logic, 0.157ns route)
-                                                       (60.2% logic, 39.8% route)
-
---------------------------------------------------------------------------------
-Slack (hold path):      0.149ns (requirement - (clock path skew + uncertainty - data path))
-  Source:               hdmi/vcounter_0 (FF)
-  Destination:          hdmi/vcounter_4 (FF)
-  Requirement:          0.000ns
-  Data Path Delay:      0.458ns (Levels of Logic = 2)
-  Clock Path Skew:      0.309ns (0.593 - 0.284)
-  Source Clock:         hdmi/clk_vgax2 rising at 0.000ns
-  Destination Clock:    hdmi/clk_vgax2 rising at 0.000ns
-  Clock Uncertainty:    0.000ns
-
-  Minimum Data Path at Fast Process Corner: hdmi/vcounter_0 to hdmi/vcounter_4
-    Location             Delay type         Delay(ns)  Physical Resource
-                                                       Logical Resource(s)
-    -------------------------------------------------  -------------------
-    SLICE_X82Y23.AQ      Tcko                  0.164   hdmi/vcounter<3>
-                                                       hdmi/vcounter_0
-    SLICE_X82Y23.A3      net (fanout=4)        0.185   hdmi/vcounter<0>
-    SLICE_X82Y23.COUT    Topcya                0.190   hdmi/vcounter<3>
-                                                       hdmi/Mcount_vcounter_lut<0>_INV_0
-                                                       hdmi/Mcount_vcounter_cy<3>
-    SLICE_X82Y24.CIN     net (fanout=1)        0.000   hdmi/Mcount_vcounter_cy<3>
-    SLICE_X82Y24.CLK     Tckcin      (-Th)     0.081   hdmi/vcounter<7>
-                                                       hdmi/Mcount_vcounter_cy<7>
-                                                       hdmi/vcounter_4
-    -------------------------------------------------  ---------------------------
-    Total                                      0.458ns (0.273ns logic, 0.185ns route)
-                                                       (59.6% logic, 40.4% route)
-
---------------------------------------------------------------------------------
-Slack (hold path):      0.182ns (requirement - (clock path skew + uncertainty - data path))
-  Source:               hdmi/vcounter_2 (FF)
-  Destination:          hdmi/vcounter_4 (FF)
-  Requirement:          0.000ns
-  Data Path Delay:      0.491ns (Levels of Logic = 2)
-  Clock Path Skew:      0.309ns (0.593 - 0.284)
-  Source Clock:         hdmi/clk_vgax2 rising at 0.000ns
-  Destination Clock:    hdmi/clk_vgax2 rising at 0.000ns
-  Clock Uncertainty:    0.000ns
-
-  Minimum Data Path at Fast Process Corner: hdmi/vcounter_2 to hdmi/vcounter_4
-    Location             Delay type         Delay(ns)  Physical Resource
-                                                       Logical Resource(s)
-    -------------------------------------------------  -------------------
-    SLICE_X82Y23.CQ      Tcko                  0.164   hdmi/vcounter<3>
-                                                       hdmi/vcounter_2
-    SLICE_X82Y23.C2      net (fanout=4)        0.252   hdmi/vcounter<2>
-    SLICE_X82Y23.COUT    Topcyc                0.156   hdmi/vcounter<3>
-                                                       hdmi/vcounter<2>_rt
-                                                       hdmi/Mcount_vcounter_cy<3>
-    SLICE_X82Y24.CIN     net (fanout=1)        0.000   hdmi/Mcount_vcounter_cy<3>
-    SLICE_X82Y24.CLK     Tckcin      (-Th)     0.081   hdmi/vcounter<7>
-                                                       hdmi/Mcount_vcounter_cy<7>
-                                                       hdmi/vcounter_4
-    -------------------------------------------------  ---------------------------
-    Total                                      0.491ns (0.239ns logic, 0.252ns route)
-                                                       (48.7% logic, 51.3% route)
+    Total                                      0.338ns (0.075ns logic, 0.263ns route)
+                                                       (22.2% logic, 77.8% route)
 
 --------------------------------------------------------------------------------
 
@@ -1800,7 +1732,7 @@ Slack: 4.555ns (period - (min low pulse limit / (low pulse / period)))
   Low pulse limit: 0.500ns (Tcl)
   Physical resource: hdmi/hcounter<3>/CLK
   Logical resource: hdmi/hcounter_0/CK
-  Location pin: SLICE_X86Y22.CLK
+  Location pin: SLICE_X51Y18.CLK
   Clock network: hdmi/clk_vgax2
 --------------------------------------------------------------------------------
 Slack: 4.555ns (period - (min high pulse limit / (high pulse / period)))
@@ -1809,7 +1741,7 @@ Slack: 4.555ns (period - (min high pulse limit / (high pulse / period)))
   High pulse limit: 0.500ns (Tch)
   Physical resource: hdmi/hcounter<3>/CLK
   Logical resource: hdmi/hcounter_0/CK
-  Location pin: SLICE_X86Y22.CLK
+  Location pin: SLICE_X51Y18.CLK
   Clock network: hdmi/clk_vgax2
 --------------------------------------------------------------------------------
 
@@ -1821,11 +1753,11 @@ Derived Constraints for TS_clk
 |           Constraint          | Requirement |-------------+-------------|-------------+-------------|-------------+-------------|
 |                               |             |   Direct    | Derivative  |   Direct    | Derivative  |   Direct    | Derivative  |
 +-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
-|TS_clk                         |     10.000ns|     13.645ns|     87.742ns|          145|           54|   8324465330|         8469|
-| TS_adau1761_codec_codec_clock_|     20.833ns|    182.795ns|          N/A|           32|            0|         3883|            0|
+|TS_clk                         |     10.000ns|     14.505ns|     84.116ns|          168|           54|   8325164244|         8469|
+| TS_adau1761_codec_codec_clock_|     20.833ns|    175.242ns|          N/A|           32|            0|         3883|            0|
 | gen_clkout0                   |             |             |             |             |             |             |             |
-| TS_hdmi_clk                   |     10.000ns|      3.428ns|          N/A|            0|            0|         3416|            0|
-| TS_hdmi_clk_vgax2             |      5.556ns|      9.275ns|          N/A|           22|            0|         1170|            0|
+| TS_hdmi_clk                   |     10.000ns|      4.636ns|          N/A|            0|            0|         3416|            0|
+| TS_hdmi_clk_vgax2             |      5.556ns|      7.830ns|          N/A|           22|            0|         1170|            0|
 +-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
 
 3 constraints not met.
@@ -1840,32 +1772,32 @@ Clock to Setup on destination clock clk
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-clk            |   13.645|         |    1.135|         |
+clk            |   13.003|         |    1.135|         |
 ---------------+---------+---------+---------+---------+
 
 
 Timing summary:
 ---------------
 
-Timing errors: 199  Score: 554783  (Setup/Max: 554695, Hold: 88)
+Timing errors: 222  Score: 466671  (Setup/Max: 466671, Hold: 0)
 
-Constraints cover 8324473799 paths, 0 nets, and 5553 connections
+Constraints cover 8325172713 paths, 0 nets, and 6244 connections
 
 Design statistics:
-   Minimum period: 182.795ns{1}   (Maximum frequency:   5.471MHz)
+   Minimum period: 175.242ns{1}   (Maximum frequency:   5.706MHz)
 
 
 ------------------------------------Footnotes-----------------------------------
 1)  The minimum period statistic assumes all single cycle delays.
 
-Analysis completed Tue Dec 01 16:33:35 2015 
+Analysis completed Tue Dec 01 17:46:20 2015 
 --------------------------------------------------------------------------------
 
 Trace Settings:
 -------------------------
 Trace Settings 
 
-Peak Memory Usage: 400 MB
+Peak Memory Usage: 401 MB
 
 
 

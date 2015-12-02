@@ -53,7 +53,7 @@ module color_changer(
 		3: 			{part_1, part_2, part_3, part_4, part_5, part_6, done_temp} = {part_1, part_2, final_value, part_4, part_5, part_6, 1'b1};
 		4: 			{part_1, part_2, part_3, part_4, part_5, part_6, done_temp} = {part_1, part_2, part_3, final_value, part_5, part_6, 1'b0};
 		5: 			{part_1, part_2, part_3, part_4, part_5, part_6, done_temp} = {part_1, part_2, part_3, part_4, final_value, part_6, 1'b0};
-		6:				{part_1, part_2, part_3, part_4, part_5, part_6, done_temp} = {part_1, part_2, part_3, part_4, part_5, final_value, 1'b1};
+		6:			{part_1, part_2, part_3, part_4, part_5, part_6, done_temp} = {part_1, part_2, part_3, part_4, part_5, final_value, 1'b1};
 		default: 	{part_1, part_2, part_3, part_4, part_5, part_6, done_temp} = {part_1, part_2, part_3, part_4, part_5, part_6, 1'b0};
 		endcase
 	end

@@ -1,5 +1,5 @@
 `define BEAT_INPUT 3'd4
-
+// I'm actually attacking and Holding for 1/6 of the total for each... Not sure why...
 module dynamics(
 	input [5:0] note_duration,			// Taken from Note_Player
 	input clk,
@@ -18,32 +18,61 @@ module dynamics(
 	// of time, making the remaining amount of time effectively the new note_duration. And WABAMM!!! we've got it.
 
 
-	/* // Start Attack Phase and hold: Lets make attack always be a consistant 1/8 of note length, and hold it there
-	   // for another 1/8th of a second, then begin decay.
-	wire [3:0] attack_count;
-	wire attack_zero, attack_done;
+	 // Start Attack Phase and hold: Lets make attack always be a consistant 1/8 of note length, and hold it there
+	 // for another 1/8th of a second, then begin decay.
+	wire beat;
+	wire [4:0] attack_count;
+	wire attack_zero;
+	reg  attack_done;
+	reg [15:0] attack_final_temp;
 	wire [15:0] attack_final;
-	dffre #(.WIDTH(4)) attack(
+	wire [13:0] attack_duration, attack_subtract;
+	wire decay;
+	wire [13:0] hold;
+	
+	assign attack_duration = temp_duration << 2;
+	assign attack_zero = attack_duration - attack_subtract == 0;
+	assign decay = hold == attack_duration << 3;
+	
+	dffre #(.WIDTH(5)) attack(
 		.clk(clk),
 		.r(reset || done_with_note),
 		.d(attack_count + 1'b1),
 		.q(attack_count),
-		.en(attack_zero)
+		.en(beat && attack_duration - attack_subtract == 1 && !attack_done)
+	);
+	
+	dffre #(.WIDTH(14)) attack_sub(
+		.clk(clk),
+		.r(reset || done_with_note || attack_zero),
+		.en(beat),
+		.d(attack_subtract + 1'b1),
+		.q(attack_subtract)
+	);
+	// Still haven't figured this out all the way.
+	dffre #(.WIDTH(14)) hold_phase(
+		.clk(clk),
+		.r(reset),
+		.en(beat && !decay && attack_done),
+		.d(hold + 1'b1),
+		.q(hold)
 	);
 
 	always @(*) begin
 		case (attack_count)
-		1:			{attack_final, attack_done} = {sample_subtract_8, 1'b0};
-		2:			{attack_final, attack_done} = {sample_subtract_4, 1'b0};
-		3:			{attack_final, attack_done} = {sample_subtract_4 + sample_subtract_8, 1'b0};
-		4:			{attack_final, attack_done} = {sample_subtract_2, 1'b0};
-		5:			{attack_final, attack_done} = {sample_subtract_2 + sample_subtract_8, 1'b0};
-		6:			{attack_final, attack_done} = {sample_subtract_2 + sample_subtract_4, 1'b0};
-		7:			{attack_final, attack_done} = {sample - sample_subtract_8, 1'b0};
-		8:			{attack_final, attack_done} = {sample, 1'b1};
-		default: {attack_final, attack_done} = {16'd0, 1'b0};
+		1:			{attack_final_temp, attack_done} = {sample_subtract_8, 1'b0};
+		2:			{attack_final_temp, attack_done} = {sample_subtract_4, 1'b0};
+		3:			{attack_final_temp, attack_done} = {sample_subtract_4 + sample_subtract_8, 1'b0};
+		4:			{attack_final_temp, attack_done} = {sample_subtract_2, 1'b0};
+		5:			{attack_final_temp, attack_done} = {sample_subtract_2 + sample_subtract_8, 1'b0};
+		6:			{attack_final_temp, attack_done} = {sample_subtract_2 + sample_subtract_4, 1'b0};
+		7:			{attack_final_temp, attack_done} = {sample - sample_subtract_8, 1'b0};
+		8:			{attack_final_temp, attack_done} = {sample, 1'b1};
+		default: {attack_final_temp, attack_done} = {16'd0, 1'b0};
 		endcase
 	end
+	
+	assign attack_final = attack_final_temp;
 	
 	// Attack_zero should be true after every 1/64 of note_duration
 
@@ -52,20 +81,22 @@ module dynamics(
 
 	// This should take care of making the remaining decay last for only 3/4 of the duration.
 	// Effectively making the entire Attack and Decay last the whole amount of time.
-	wire [13:0] new_decay_duration;
-	assign new_decay_duration = new_duration >> 2	// This may not work, but worth a shot to test it.
-	assign result = new_duration - new_decay_duration - subtractor;
-	*/
+	
 
 	wire [3:0] count;
-	wire [13:0] new_duration, temp_duration;
+	wire [13:0] new_duration;
+	wire [13:0] temp_duration;
+	wire [13:0] fourth_temp_duration;
+	wire [13:0] decay_duration;
 	wire [13:0] subtractor;
 	wire zero;
 	wire [13:0] result;
+	
 	assign zero = result == 0;
 	assign temp_duration = {8'd0, note_duration};
+	assign fourth_temp_duration = temp_duration << 2;
+	assign decay_duration = fourth_temp_duration + fourth_temp_duration + fourth_temp_duration;
 	
-	wire beat; //
 	
 	beat_generator #(.STOP(`BEAT_INPUT)) beat_gen( //
 		.clk(clk),
@@ -80,18 +111,18 @@ module dynamics(
 	dffre #(.WIDTH(4)) counter(
 		.clk(clk),
 		.r(reset || done_with_note), // add || !attack_done
-		.en(zero && subtractor > 0),	// make this subtractor > large number for the hold phase!!
 		.d(count + 1'b1),
-		.q(count)
+		.q(count),
+		.en(zero && subtractor > 0 && attack_done && decay)
 	);
 	
 	// Used to make new_duration long enough.
 	dffre #(.WIDTH(14)) length_of_time(
 		.clk(clk),
-		.r(reset || done_with_note), // add || !attack_done
-		.d(temp_duration << count + 1'b1), // Changed this ( + 1 )
+		.r(reset || done_with_note),
+		.d(decay_duration << count + 1'b1), // Changed this from temp_duration
 		.q(new_duration),
-		.en(beat)	// Added
+		.en(beat && attack_done && decay)	// Added
 	);
 	
 	dffre #(.WIDTH(14)) subtract_by(
@@ -99,7 +130,7 @@ module dynamics(
 		.r(reset || done_with_note || zero), // add || !attack_done
 		.d(subtractor + 1'b1),
 		.q(subtractor),
-		.en(beat)	// Added
+		.en(beat && attack_done && decay)	// Added
 	);
 
 	// whether it's time to drop the volume of the note again (or not)
@@ -131,8 +162,8 @@ module dynamics(
 
 	// There may be an issure with the above case statement where at the end of the note a single sample
 	// is sent back that is at full amplitude.
-	assign final_sample = final_temp;
+	//assign final_sample = final_temp;
 	// For after ATTACK Phase
-	// assign final_sample = attack_done ? final_temp : attack_final;
+	assign final_sample = attack_done ? final_temp : attack_final;
 
 endmodule

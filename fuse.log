@@ -1,27 +1,27 @@
-Running: fuse.exe -relaunch -intstyle "ise" -incremental -lib "unisims_ver" -lib "unimacro_ver" -lib "xilinxcorelib_ver" -lib "secureip" -o "Z:/groups/8/final_project/dynamics_tb_isim_beh.exe" -prj "Z:/groups/8/final_project/dynamics_tb_beh.prj" "work.dynamics_tb" "work.glbl" 
-ISim P.20131013 (signature 0x8ef4fb42)
+Running: /afs/ir.stanford.edu/class/ee/xilinx/14.6/ISE_DS/ISE/bin/lin64/unwrapped/fuse -relaunch -intstyle "ise" -incremental -lib "unisims_ver" -lib "unimacro_ver" -lib "xilinxcorelib_ver" -lib "secureip" -o "/afs/ir.stanford.edu/class/ee108/groups/8/final_project/song_reader_new_tb_isim_beh.exe" -prj "/afs/ir.stanford.edu/class/ee108/groups/8/final_project/song_reader_new_tb_beh.prj" "work.song_reader_new_tb" "work.glbl" 
+ISim P.68d (signature 0xfbc00daa)
 Number of CPUs detected in this system: 2
 Turning on mult-threading, number of parallel sub-compilation jobs: 4 
 Determining compilation order of HDL files
-Analyzing Verilog file "Z:/groups/8/final_project/ff_lib.v" into library work
-Analyzing Verilog file "Z:/groups/8/final_project/beat_generator.v" into library work
-Analyzing Verilog file "Z:/groups/8/final_project/dynamics.v" into library work
-Analyzing Verilog file "Z:/groups/8/final_project/dynamics_tb.v" into library work
-Analyzing Verilog file "C:/Xilinx/14.7/ISE_DS/ISE//verilog/src/glbl.v" into library work
+Analyzing Verilog file "/afs/ir.stanford.edu/class/ee108/groups/8/final_project/song_rom.v" into library work
+Analyzing Verilog file "/afs/ir.stanford.edu/class/ee108/groups/8/final_project/ff_lib.v" into library work
+Analyzing Verilog file "/afs/ir.stanford.edu/class/ee108/groups/8/final_project/song_reader_new.v" into library work
+Analyzing Verilog file "/afs/ir.stanford.edu/class/ee108/groups/8/final_project/song_reader_new_tb.v" into library work
+Analyzing Verilog file "/afs/ir.stanford.edu/class/ee/xilinx/14.6/ISE_DS/ISE//verilog/src/glbl.v" into library work
 Starting static elaboration
 Completed static elaboration
-Fuse Memory Usage: 104824 KB
-Fuse CPU Usage: 327 ms
-Compiling module dffre(WIDTH=10)
-Compiling module beat_generator(STOP=3'b100)
-Compiling module dffre(WIDTH=4)
-Compiling module dffre(WIDTH=14)
-Compiling module dynamics
-Compiling module dynamics_tb
+Fuse Memory Usage: 94724 KB
+Fuse CPU Usage: 1080 ms
+Compiling module song_rom
+Compiling module dffr(WIDTH=3)
+Compiling module dffre(WIDTH=5)
+Compiling module song_reader_new
+Compiling module song_reader_new_tb
 Compiling module glbl
 Time Resolution for simulation is 1ps.
 Waiting for 1 sub-compilation(s) to finish...
-Compiled 7 Verilog Units
-Built simulation executable Z:/groups/8/final_project/dynamics_tb_isim_beh.exe
-Fuse Memory Usage: 129000 KB
-Fuse CPU Usage: 452 ms
+Compiled 6 Verilog Units
+Built simulation executable /afs/ir.stanford.edu/class/ee108/groups/8/final_project/song_reader_new_tb_isim_beh.exe
+Fuse Memory Usage: 393200 KB
+Fuse CPU Usage: 1120 ms
+GCC CPU Usage: 190 ms

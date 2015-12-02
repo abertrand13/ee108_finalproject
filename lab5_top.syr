@@ -3,13 +3,13 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 --> Parameter TMPDIR set to xst/projnav.tmp
 
 
-Total REAL time to Xst completion: 1.00 secs
+Total REAL time to Xst completion: 0.00 secs
 Total CPU time to Xst completion: 0.15 secs
  
 --> Parameter xsthdpdir set to xst
 
 
-Total REAL time to Xst completion: 1.00 secs
+Total REAL time to Xst completion: 0.00 secs
 Total CPU time to Xst completion: 0.16 secs
  
 --> Reading design: lab5_top.prj
@@ -237,13 +237,13 @@ WARNING:HDLCompiler:413 - "\\afs\ir\class\ee108\groups\8\final_project\note_play
 
 Elaborating module <dynamics>.
 
+Elaborating module <dffre(WIDTH=14)>.
+
 Elaborating module <beat_generator(STOP=3'b100)>.
 
 Elaborating module <dffre(WIDTH=10)>.
 
 Elaborating module <dffre(WIDTH=4)>.
-
-Elaborating module <dffre(WIDTH=14)>.
 
 Elaborating module <beat_generator(WIDTH=10,STOP=1000)>.
 
@@ -445,8 +445,8 @@ Unit <dff_1> synthesized.
 
 Synthesizing Unit <song_reader>.
     Related source file is "\\afs\ir\class\ee108\groups\8\final_project\song_reader.v".
-    Found 5-bit adder for signal <note_addr[4]_GND_13_o_add_1_OUT> created at line 52.
-    Found 3-bit 7-to-1 multiplexer for signal <next> created at line 58.
+    Found 5-bit adder for signal <note_addr[4]_GND_13_o_add_1_OUT> created at line 54.
+    Found 3-bit 7-to-1 multiplexer for signal <next> created at line 60.
     Summary:
 	inferred   1 Adder/Subtractor(s).
 	inferred   2 Multiplexer(s).
@@ -534,54 +534,64 @@ Unit <sine_rom> synthesized.
 
 Synthesizing Unit <dynamics>.
     Related source file is "\\afs\ir\class\ee108\groups\8\final_project\dynamics.v".
-    Found 14-bit subtractor for signal <result> created at line 106.
-    Found 16-bit subtractor for signal <sample[15]_sample_subtract_8[15]_sub_12_OUT> created at line 120.
-    Found 16-bit subtractor for signal <sample[15]_sample_subtract_4[15]_sub_13_OUT> created at line 121.
-    Found 16-bit subtractor for signal <sample[15]_sample_subtract_8[15]_sub_15_OUT> created at line 122.
-    Found 16-bit subtractor for signal <sample[15]_sample_subtract_2[15]_sub_16_OUT> created at line 123.
-    Found 16-bit subtractor for signal <sample[15]_sample_subtract_8[15]_sub_18_OUT> created at line 124.
-    Found 16-bit subtractor for signal <sample[15]_sample_subtract_4[15]_sub_20_OUT> created at line 125.
-    Found 4-bit adder for signal <count[3]_GND_23_o_add_3_OUT> created at line 84.
-    Found 14-bit adder for signal <subtractor[13]_GND_23_o_add_6_OUT> created at line 100.
-    Found 14-bit shifter logical left for signal <temp_duration[13]_count[3]_shift_left_5_OUT> created at line 92
-    Found 14-bit comparator greater for signal <GND_23_o_subtractor[13]_LessThan_3_o> created at line 83
+    Found 15-bit subtractor for signal <GND_23_o_GND_23_o_sub_6_OUT> created at line 42.
+    Found 16-bit subtractor for signal <sample[15]_sample_subtract_8[15]_sub_13_OUT> created at line 69.
+    Found 14-bit subtractor for signal <result> created at line 137.
+    Found 16-bit subtractor for signal <sample[15]_sample_subtract_4[15]_sub_41_OUT> created at line 152.
+    Found 16-bit subtractor for signal <sample[15]_sample_subtract_8[15]_sub_43_OUT> created at line 153.
+    Found 16-bit subtractor for signal <sample[15]_sample_subtract_2[15]_sub_44_OUT> created at line 154.
+    Found 16-bit subtractor for signal <sample[15]_sample_subtract_8[15]_sub_46_OUT> created at line 155.
+    Found 16-bit subtractor for signal <sample[15]_sample_subtract_4[15]_sub_48_OUT> created at line 156.
+    Found 5-bit adder for signal <attack_count[4]_GND_23_o_add_4_OUT> created at line 40.
+    Found 14-bit adder for signal <attack_subtract[13]_GND_23_o_add_7_OUT> created at line 49.
+    Found 14-bit adder for signal <hold[13]_GND_23_o_add_8_OUT> created at line 57.
+    Found 16-bit adder for signal <sample_subtract_4[15]_sample_subtract_8[15]_add_9_OUT> created at line 65.
+    Found 16-bit adder for signal <sample_subtract_2[15]_sample_subtract_8[15]_add_10_OUT> created at line 67.
+    Found 16-bit adder for signal <sample_subtract_2[15]_sample_subtract_4[15]_add_11_OUT> created at line 68.
+    Found 4-bit adder for signal <count[3]_GND_23_o_add_30_OUT> created at line 114.
+    Found 14-bit adder for signal <subtractor[13]_GND_23_o_add_34_OUT> created at line 131.
+    Found 14-bit adder for signal <decay_duration> created at line 90.
+    Found 14-bit shifter logical left for signal <decay_duration[13]_count[3]_shift_left_33_OUT> created at line 123
+    Found 14-bit comparator equal for signal <decay> created at line 35
+    Found 14-bit comparator greater for signal <GND_23_o_subtractor[13]_LessThan_32_o> created at line 116
     Summary:
-	inferred   9 Adder/Subtractor(s).
-	inferred   1 Comparator(s).
+	inferred  17 Adder/Subtractor(s).
+	inferred   2 Comparator(s).
+	inferred   1 Multiplexer(s).
 	inferred   1 Combinational logic shifter(s).
 Unit <dynamics> synthesized.
 
-Synthesizing Unit <beat_generator_1>.
-    Related source file is "\\afs\ir\class\ee108\groups\8\final_project\beat_generator.v".
-        WIDTH = 10
-        STOP = 3'b100
-    Found 10-bit adder for signal <count[9]_GND_24_o_add_1_OUT> created at line 15.
-    Summary:
-	inferred   1 Adder/Subtractor(s).
-Unit <beat_generator_1> synthesized.
-
 Synthesizing Unit <dffre_4>.
-    Related source file is "\\afs\ir\class\ee108\groups\8\final_project\ff_lib.v".
-        WIDTH = 10
-    Found 10-bit register for signal <q>.
-    Summary:
-	inferred  10 D-type flip-flop(s).
-Unit <dffre_4> synthesized.
-
-Synthesizing Unit <dffre_5>.
-    Related source file is "\\afs\ir\class\ee108\groups\8\final_project\ff_lib.v".
-        WIDTH = 4
-    Found 4-bit register for signal <q>.
-    Summary:
-	inferred   4 D-type flip-flop(s).
-Unit <dffre_5> synthesized.
-
-Synthesizing Unit <dffre_6>.
     Related source file is "\\afs\ir\class\ee108\groups\8\final_project\ff_lib.v".
         WIDTH = 14
     Found 14-bit register for signal <q>.
     Summary:
 	inferred  14 D-type flip-flop(s).
+Unit <dffre_4> synthesized.
+
+Synthesizing Unit <beat_generator_1>.
+    Related source file is "\\afs\ir\class\ee108\groups\8\final_project\beat_generator.v".
+        WIDTH = 10
+        STOP = 3'b100
+    Found 10-bit adder for signal <count[9]_GND_25_o_add_1_OUT> created at line 15.
+    Summary:
+	inferred   1 Adder/Subtractor(s).
+Unit <beat_generator_1> synthesized.
+
+Synthesizing Unit <dffre_5>.
+    Related source file is "\\afs\ir\class\ee108\groups\8\final_project\ff_lib.v".
+        WIDTH = 10
+    Found 10-bit register for signal <q>.
+    Summary:
+	inferred  10 D-type flip-flop(s).
+Unit <dffre_5> synthesized.
+
+Synthesizing Unit <dffre_6>.
+    Related source file is "\\afs\ir\class\ee108\groups\8\final_project\ff_lib.v".
+        WIDTH = 4
+    Found 4-bit register for signal <q>.
+    Summary:
+	inferred   4 D-type flip-flop(s).
 Unit <dffre_6> synthesized.
 
 Synthesizing Unit <beat_generator_2>.
@@ -776,7 +786,7 @@ WARNING:Xst:647 - Input <hdmi_int> is never used. This port will be preserved an
     Found 11-bit adder for signal <vcounter[10]_GND_103_o_add_25_OUT> created at line 1241.
     Found 11-bit adder for signal <hcounter[10]_GND_103_o_add_28_OUT> created at line 1241.
     Found 11-bit comparator lessequal for signal <n0022> created at line 167
-    Found 11-bit comparator greater for signal <hVisible[10]_INV_177_o> created at line 170
+    Found 11-bit comparator greater for signal <hVisible[10]_INV_195_o> created at line 170
     Summary:
 	inferred   2 Adder/Subtractor(s).
 	inferred  70 D-type flip-flop(s).
@@ -948,14 +958,15 @@ Macro Statistics
  8x7-bit multiplier                                    : 1
  8x8-bit multiplier                                    : 1
  9x8-bit multiplier                                    : 4
-# Adders/Subtractors                                   : 59
+# Adders/Subtractors                                   : 67
  10-bit adder                                          : 8
  10-bit subtractor                                     : 3
  11-bit adder                                          : 5
  11-bit subtractor                                     : 1
- 14-bit adder                                          : 1
+ 14-bit adder                                          : 4
  14-bit subtractor                                     : 1
- 16-bit adder                                          : 2
+ 15-bit subtractor                                     : 1
+ 16-bit adder                                          : 5
  16-bit subtractor                                     : 10
  18-bit subtractor                                     : 1
  19-bit adder                                          : 1
@@ -967,18 +978,18 @@ Macro Statistics
  32-bit subtractor                                     : 2
  4-bit adder                                           : 1
  4-bit subtractor                                      : 1
- 5-bit adder                                           : 1
+ 5-bit adder                                           : 2
  7-bit subtractor                                      : 1
  8-bit adder                                           : 4
  8-bit subtractor                                      : 1
  9-bit adder                                           : 3
-# Registers                                            : 110
+# Registers                                            : 113
  1-bit register                                        : 39
  10-bit register                                       : 5
  11-bit register                                       : 6
  12-bit register                                       : 1
  127-bit register                                      : 1
- 14-bit register                                       : 2
+ 14-bit register                                       : 4
  16-bit register                                       : 9
  17-bit register                                       : 1
  2-bit register                                        : 4
@@ -990,26 +1001,27 @@ Macro Statistics
  29-bit register                                       : 5
  3-bit register                                        : 2
  4-bit register                                        : 4
- 5-bit register                                        : 2
+ 5-bit register                                        : 3
  6-bit register                                        : 2
  64-bit register                                       : 1
  8-bit register                                        : 6
  9-bit register                                        : 6
-# Comparators                                          : 21
+# Comparators                                          : 22
  1-bit comparator greater                              : 1
  10-bit comparator greater                             : 2
  10-bit comparator lessequal                           : 2
  11-bit comparator greater                             : 5
  11-bit comparator lessequal                           : 3
+ 14-bit comparator equal                               : 1
  14-bit comparator greater                             : 1
  21-bit comparator lessequal                           : 2
  8-bit comparator lessequal                            : 4
  9-bit comparator not equal                            : 1
-# Multiplexers                                         : 177
+# Multiplexers                                         : 178
  1-bit 2-to-1 multiplexer                              : 73
  1-bit 4-to-1 multiplexer                              : 3
  10-bit 2-to-1 multiplexer                             : 17
- 16-bit 2-to-1 multiplexer                             : 12
+ 16-bit 2-to-1 multiplexer                             : 13
  2-bit 4-to-1 multiplexer                              : 3
  24-bit 2-to-1 multiplexer                             : 1
  29-bit 2-to-1 multiplexer                             : 5
@@ -1072,7 +1084,10 @@ The following registers are absorbed into counter <counter/q>: 1 register on sig
 Unit <debouncer> synthesized (advanced).
 
 Synthesizing (advanced) Unit <dynamics>.
+The following registers are absorbed into counter <attack/q>: 1 register on signal <attack/q>.
 The following registers are absorbed into counter <counter/q>: 1 register on signal <counter/q>.
+The following registers are absorbed into counter <hold_phase/q>: 1 register on signal <hold_phase/q>.
+The following registers are absorbed into counter <attack_sub/q>: 1 register on signal <attack_sub/q>.
 The following registers are absorbed into counter <subtract_by/q>: 1 register on signal <subtract_by/q>.
 Unit <dynamics> synthesized (advanced).
 
@@ -1258,13 +1273,15 @@ Macro Statistics
  10x8-bit multiplier                                   : 1
  32x8-bit multiplier                                   : 1
  9x8-bit multiplier                                    : 1
-# Adders/Subtractors                                   : 33
+# Adders/Subtractors                                   : 38
  10-bit adder                                          : 3
  10-bit subtractor borrow in                           : 3
  11-bit adder                                          : 3
  11-bit subtractor                                     : 1
+ 14-bit adder                                          : 1
  14-bit subtractor                                     : 1
- 16-bit adder                                          : 2
+ 15-bit subtractor                                     : 1
+ 16-bit adder                                          : 5
  16-bit subtractor                                     : 10
  21-bit adder                                          : 3
  4-bit adder                                           : 1
@@ -1273,35 +1290,36 @@ Macro Statistics
  8-bit adder                                           : 1
  8-bit subtractor                                      : 1
  9-bit adder                                           : 2
-# Counters                                             : 15
+# Counters                                             : 18
  10-bit up counter                                     : 2
  11-bit up counter                                     : 2
- 14-bit up counter                                     : 1
+ 14-bit up counter                                     : 3
  20-bit up counter                                     : 3
  27-bit up counter                                     : 1
  4-bit up counter                                      : 1
- 5-bit up counter                                      : 1
+ 5-bit up counter                                      : 2
  8-bit up counter                                      : 3
  9-bit up counter                                      : 1
 # Accumulators                                         : 3
  22-bit up accumulator                                 : 3
 # Registers                                            : 785
  Flip-Flops                                            : 785
-# Comparators                                          : 21
+# Comparators                                          : 22
  1-bit comparator greater                              : 1
  10-bit comparator greater                             : 2
  10-bit comparator lessequal                           : 2
  11-bit comparator greater                             : 5
  11-bit comparator lessequal                           : 3
+ 14-bit comparator equal                               : 1
  14-bit comparator greater                             : 1
  21-bit comparator lessequal                           : 2
  8-bit comparator lessequal                            : 4
  9-bit comparator not equal                            : 1
-# Multiplexers                                         : 149
+# Multiplexers                                         : 150
  1-bit 2-to-1 multiplexer                              : 50
  1-bit 4-to-1 multiplexer                              : 3
  10-bit 2-to-1 multiplexer                             : 17
- 16-bit 2-to-1 multiplexer                             : 12
+ 16-bit 2-to-1 multiplexer                             : 13
  2-bit 4-to-1 multiplexer                              : 3
  24-bit 2-to-1 multiplexer                             : 1
  29-bit 2-to-1 multiplexer                             : 5
@@ -1337,6 +1355,8 @@ Optimizing FSM <adau1761_codec/i2c_interface/Inst_i2c/FSM_0> on signal <state[1:
  0100  | 100
 -------------------
 WARNING:Xst:1710 - FF/Latch <dout_19> (without init value) has a constant value of 0 in block <frequency_rom>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <dyn/length_of_time/q_0> (without init value) has a constant value of 0 in block <note_player>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <dyn/length_of_time/q_1> (without init value) has a constant value of 0 in block <note_player>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1293 - FF/Latch <sr_out_24> has a constant value of 0 in block <i2s_data_interface>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sr_out_25> has a constant value of 0 in block <i2s_data_interface>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sr_out_26> has a constant value of 0 in block <i2s_data_interface>. This FF/Latch will be trimmed during the optimization process.
@@ -1662,6 +1682,7 @@ WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ye_dff/q_10> (witho
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ye_dff/q_12> (without init value) has a constant value of 0 in block <lab5_top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ye_dff/q_18> (without init value) has a constant value of 0 in block <lab5_top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <ye_dff/q_19> (without init value) has a constant value of 0 in block <lab5_top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <music_player/note_player/dyn/attack/q_4> (without init value) has a constant value of 0 in block <lab5_top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <music_player/note_player/dyn/beat_gen/counter/q_3> (without init value) has a constant value of 0 in block <lab5_top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <music_player/note_player/dyn/beat_gen/counter/q_4> (without init value) has a constant value of 0 in block <lab5_top>. This FF/Latch will be trimmed during the optimization process.
 WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <music_player/note_player/dyn/beat_gen/counter/q_5> (without init value) has a constant value of 0 in block <lab5_top>. This FF/Latch will be trimmed during the optimization process.
@@ -1717,8 +1738,8 @@ Unit <lab5_top> processed.
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 661
- Flip-Flops                                            : 661
+# Registers                                            : 691
+ Flip-Flops                                            : 691
 # Shift Registers                                      : 4
  2-bit shift register                                  : 1
  3-bit shift register                                  : 2
@@ -1745,24 +1766,24 @@ Top Level Output File Name         : lab5_top.ngc
 
 Primitive and Black Box Usage:
 ------------------------------
-# BELS                             : 2461
+# BELS                             : 2807
 #      GND                         : 1
-#      INV                         : 85
-#      LUT1                        : 182
-#      LUT2                        : 329
-#      LUT3                        : 173
-#      LUT4                        : 148
-#      LUT5                        : 110
-#      LUT6                        : 349
-#      MUXCY                       : 541
-#      MUXF7                       : 13
+#      INV                         : 98
+#      LUT1                        : 208
+#      LUT2                        : 379
+#      LUT3                        : 176
+#      LUT4                        : 146
+#      LUT5                        : 119
+#      LUT6                        : 420
+#      MUXCY                       : 625
+#      MUXF7                       : 15
 #      VCC                         : 1
-#      XORCY                       : 529
-# FlipFlops/Latches                : 666
+#      XORCY                       : 619
+# FlipFlops/Latches                : 696
 #      FD                          : 170
 #      FDE                         : 157
 #      FDR                         : 106
-#      FDRE                        : 201
+#      FDRE                        : 231
 #      FDSE                        : 31
 #      ODDR                        : 1
 # RAMS                             : 6
@@ -1789,18 +1810,18 @@ Selected Device : 7z020clg484-3
 
 
 Slice Logic Utilization: 
- Number of Slice Registers:             666  out of  106400     0%  
- Number of Slice LUTs:                 1380  out of  53200     2%  
-    Number used as Logic:              1376  out of  53200     2%  
+ Number of Slice Registers:             696  out of  106400     0%  
+ Number of Slice LUTs:                 1550  out of  53200     2%  
+    Number used as Logic:              1546  out of  53200     2%  
     Number used as Memory:                4  out of  17400     0%  
        Number used as SRL:                4
 
 Slice Logic Distribution: 
- Number of LUT Flip Flop pairs used:   1457
-   Number with an unused Flip Flop:     791  out of   1457    54%  
-   Number with an unused LUT:            77  out of   1457     5%  
-   Number of fully used LUT-FF pairs:   589  out of   1457    40%  
-   Number of unique control sets:        46
+ Number of LUT Flip Flop pairs used:   1630
+   Number with an unused Flip Flop:     934  out of   1630    57%  
+   Number with an unused LUT:            80  out of   1630     4%  
+   Number of fully used LUT-FF pairs:   616  out of   1630    37%  
+   Number of unique control sets:        49
 
 IO Utilization: 
  Number of IOs:                          61
@@ -1833,7 +1854,7 @@ Clock Information:
 --------------------------------------+------------------------+-------+
 Clock Signal                          | Clock buffer(FF name)  | Load  |
 --------------------------------------+------------------------+-------+
-clk                                   | PLLE2_ADV:CLKOUT0      | 539   |
+clk                                   | PLLE2_ADV:CLKOUT0      | 569   |
 adau1761_codec/codec_clock_gen/clkout0| BUFG                   | 78    |
 clk                                   | PLLE2_ADV:CLKOUT1      | 61    |
 --------------------------------------+------------------------+-------+
@@ -1863,7 +1884,7 @@ All values displayed in nanoseconds (ns)
 =========================================================================
 Timing constraint: Default period analysis for Clock 'clk'
   Clock period: 10.212ns (frequency: 97.926MHz)
-  Total number of paths / destination ports: 8324473468 / 1403
+  Total number of paths / destination ports: 8325174272 / 1493
 -------------------------------------------------------------------------
 Delay:               10.212ns (Levels of Logic = 8)
   Source:            wd_top/sample_ram/Mram_RAM (RAM)
@@ -1876,10 +1897,10 @@ Delay:               10.212ns (Levels of Logic = 8)
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
      RAMB18E1:CLKARDCLK->DOBDO2    4   1.846   0.564  wd_top/sample_ram/Mram_RAM (wd_top/read_sample<2>)
-     LUT6:I0->O            1   0.043   0.000  wd_top/wd/last_value[7]_trans_y[7]_LessThan_14_o2_F (N255)
+     LUT6:I0->O            1   0.043   0.000  wd_top/wd/last_value[7]_trans_y[7]_LessThan_14_o2_F (N249)
      MUXF7:I0->O           4   0.169   0.303  wd_top/wd/last_value[7]_trans_y[7]_LessThan_14_o2 (wd_top/wd/last_value[7]_trans_y[7]_LessThan_14_o1)
      LUT5:I4->O            1   0.043   0.343  wd_top/wd/last_value[7]_trans_y[7]_LessThan_14_o1 (wd_top/wd/last_value[7]_trans_y[7]_LessThan_14_o2)
-     LUT6:I4->O            2   0.043   0.293  wd_top/wd/valid_pixel30_SW2 (N139)
+     LUT6:I4->O            2   0.043   0.293  wd_top/wd/valid_pixel30_SW2 (N147)
      LUT6:I5->O            1   0.043   0.289  wd_top/wd/valid_pixel30_1 (wd_top/wd/valid_pixel301)
      LUT6:I5->O           63   0.043   0.391  wd_top/wd/valid_pixel36 (Maddsub_PWR_1_o_r[7]_MuLt_9_OUT_Madd4_lut<12>)
      DSP48E1:A5->PCOUT47    1   2.970   0.000  Mmult_n0069 (Mmult_n0069_PCOUT_to_Mmult_n00691_PCIN_47)
@@ -1905,8 +1926,8 @@ Delay:               4.623ns (Levels of Logic = 6)
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
      RAMB18E1:CLKARDCLK->DOADO2   23   1.846   0.526  adau1761_codec/i2c_interface/Inst_i2c_Inst_adau1761_configuraiton_data/Mram__n0373 (adau1761_codec/i2c_interface/Inst_i2c/inst_data<2>)
-     LUT4:I1->O            1   0.043   0.343  adau1761_codec/i2c_interface/Inst_i2c/Inst_i3c2/_n0515<3>_SW0 (N46)
-     LUT6:I4->O            6   0.043   0.479  adau1761_codec/i2c_interface/Inst_i2c/Inst_i3c2/_n0515<3> (adau1761_codec/i2c_interface/Inst_i2c/Inst_i3c2/_n0515)
+     LUT4:I1->O            1   0.043   0.343  adau1761_codec/i2c_interface/Inst_i2c/Inst_i3c2/_n0507<3>_SW0 (N54)
+     LUT6:I4->O            6   0.043   0.479  adau1761_codec/i2c_interface/Inst_i2c/Inst_i3c2/_n0507<3> (adau1761_codec/i2c_interface/Inst_i2c/Inst_i3c2/_n0507)
      LUT6:I2->O            2   0.043   0.293  adau1761_codec/i2c_interface/Inst_i2c/Inst_i3c2/Mmux_state[3]_GND_41_o_wide_mux_118_OUT251 (adau1761_codec/i2c_interface/Inst_i2c/Inst_i3c2/Mmux_state[3]_GND_41_o_wide_mux_118_OUT25)
      LUT6:I5->O            9   0.043   0.587  adau1761_codec/i2c_interface/Inst_i2c/Inst_i3c2/Mmux_state[3]_GND_41_o_wide_mux_118_OUT92 (adau1761_codec/i2c_interface/Inst_i2c/Inst_i3c2/Mmux_state[3]_GND_41_o_wide_mux_118_OUT92)
      LUT6:I0->O            1   0.043   0.289  adau1761_codec/i2c_interface/Inst_i2c/Inst_i3c2/Mmux_state[3]_GND_41_o_wide_mux_118_OUT151 (adau1761_codec/i2c_interface/Inst_i2c/Inst_i3c2/Mmux_state[3]_GND_41_o_wide_mux_118_OUT15)
@@ -1918,7 +1939,7 @@ Delay:               4.623ns (Levels of Logic = 6)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
-  Total number of paths / destination ports: 289 / 270
+  Total number of paths / destination ports: 319 / 300
 -------------------------------------------------------------------------
 Offset:              1.550ns (Levels of Logic = 3)
   Source:            JB<7> (PAD)
@@ -1930,7 +1951,7 @@ Offset:              1.550ns (Levels of Logic = 3)
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
      IBUF:I->O             5   0.000   0.475  JB_7_IBUF (JB_7_IBUF)
-     LUT4:I0->O            1   0.043   0.542  key_dec/_n0301_inv_SW0 (N102)
+     LUT4:I0->O            1   0.043   0.542  key_dec/_n0301_inv_SW0 (N110)
      LUT6:I1->O            4   0.043   0.293  key_dec/_n0301_inv (key_dec/_n0301_inv)
      FDE:CE                    0.153          key_dec/DecodeOut_0
     ----------------------------------------
@@ -1951,7 +1972,7 @@ Offset:              1.058ns (Levels of Logic = 3)
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
      IBUF:I->O            12   0.000   0.394  AC_GPIO3_IBUF (AC_GPIO3_IBUF)
-     LUT2:I0->O            7   0.043   0.578  adau1761_codec/i2c_interface/Inst_i2s_data_interface/i2s_lr_i2s_lr_last_AND_230_o1 (adau1761_codec/i2c_interface/Inst_i2s_data_interface/i2s_lr_i2s_lr_last_AND_230_o)
+     LUT2:I0->O            7   0.043   0.578  adau1761_codec/i2c_interface/Inst_i2s_data_interface/i2s_lr_i2s_lr_last_AND_240_o1 (adau1761_codec/i2c_interface/Inst_i2s_data_interface/i2s_lr_i2s_lr_last_AND_240_o)
      LUT6:I0->O            1   0.043   0.000  adau1761_codec/i2c_interface/Inst_i2s_data_interface/Mmux_sr_out[62]_audio_l_in[23]_mux_5_OUT431 (adau1761_codec/i2c_interface/Inst_i2s_data_interface/sr_out[62]_audio_l_in[23]_mux_5_OUT<49>)
      FDE:D                    -0.001          adau1761_codec/i2c_interface/Inst_i2s_data_interface/sr_out_49
     ----------------------------------------
@@ -2010,7 +2031,7 @@ Delay:               0.394ns (Levels of Logic = 1)
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O            82   0.000   0.394  btn_up_IBUF (btn_up_IBUF)
+     IBUF:I->O            83   0.000   0.394  btn_up_IBUF (btn_up_IBUF)
     MMCME2_ADV:RST             0.000          adau1761_codec/codec_clock_gen/mmcm_adv_inst
     ----------------------------------------
     Total                      0.394ns (0.000ns logic, 0.394ns route)
@@ -2035,21 +2056,21 @@ Clock to Setup on destination clock clk
                                       | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock                          |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 --------------------------------------+---------+---------+---------+---------+
-adau1761_codec/codec_clock_gen/clkout0|    1.454|         |         |         |
+adau1761_codec/codec_clock_gen/clkout0|    1.400|         |         |         |
 clk                                   |   10.212|         |         |         |
 --------------------------------------+---------+---------+---------+---------+
 
 =========================================================================
 
 
-Total REAL time to Xst completion: 29.00 secs
-Total CPU time to Xst completion: 28.37 secs
+Total REAL time to Xst completion: 30.00 secs
+Total CPU time to Xst completion: 30.39 secs
  
 --> 
 
-Total memory usage is 305448 kilobytes
+Total memory usage is 337256 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :  342 (   0 filtered)
+Number of warnings :  345 (   0 filtered)
 Number of infos    :   44 (   0 filtered)
 
