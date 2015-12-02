@@ -1,0 +1,5 @@
+verilog work "song_rom.v"
+verilog work "ff_lib.v"
+verilog work "song_reader_new.v"
+verilog work "song_reader_new_tb.v"
+verilog work "/afs/ir.stanford.edu/class/ee/xilinx/14.6/ISE_DS/ISE//verilog/src/glbl.v"
