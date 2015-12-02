@@ -1,4 +1,4 @@
-module note_player(
+module note_player_harmonics(
     input clk,
     input reset,
     input play_enable,  // When high we play, when low we don't.

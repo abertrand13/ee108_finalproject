@@ -1,5 +1,5 @@
 //! **************************************************************************
-// Written by: Map P.20131013 on Sun Nov 29 20:15:59 2015
+// Written by: Map P.20131013 on Tue Dec 01 16:32:11 2015
 //! **************************************************************************
 
 SCHEMATIC START;
@@ -73,9 +73,19 @@ PIN wd_top/sample_ram/Mram_RAM_pins<32> = BEL "wd_top/sample_ram/Mram_RAM"
 PIN wd_top/sample_ram/Mram_RAM_pins<33> = BEL "wd_top/sample_ram/Mram_RAM"
         PINNAME CLKBWRCLK;
 PIN
-        music_player/note_player/sine_read_mySineROM/Mram_addr[9]_memory[1023][15]_wide_mux_1_OUT_pins<32>
+        music_player/note_player/sine_read1_mySineROM/Mram_addr[9]_memory[1023][15]_wide_mux_1_OUT_pins<32>
         = BEL
-        "music_player/note_player/sine_read_mySineROM/Mram_addr[9]_memory[1023][15]_wide_mux_1_OUT"
+        "music_player/note_player/sine_read1_mySineROM/Mram_addr[9]_memory[1023][15]_wide_mux_1_OUT"
+        PINNAME CLKARDCLK;
+PIN
+        music_player/note_player/sine_read2_mySineROM/Mram_addr[9]_memory[1023][15]_wide_mux_1_OUT_pins<32>
+        = BEL
+        "music_player/note_player/sine_read2_mySineROM/Mram_addr[9]_memory[1023][15]_wide_mux_1_OUT"
+        PINNAME CLKARDCLK;
+PIN
+        music_player/note_player/sine_read3_mySineROM/Mram_addr[9]_memory[1023][15]_wide_mux_1_OUT_pins<32>
+        = BEL
+        "music_player/note_player/sine_read3_mySineROM/Mram_addr[9]_memory[1023][15]_wide_mux_1_OUT"
         PINNAME CLKARDCLK;
 PIN
         music_player/song_reader_lib/Mram_addr[6]_memory[127][11]_wide_mux_1_OUT_pins<32>
@@ -91,10 +101,11 @@ TIMEGRP clk = BEL "converted_0" BEL "converted_1" BEL "converted_2" BEL
         "converted_17" BEL
         "next_button_press_unit/one_pulse/last_value_storage/q_0" BEL
         "play_button_press_unit/one_pulse/last_value_storage/q_0" BEL
-        "led_div/q_0" BEL "led_div/q_1" BEL "led_div/q_2" BEL "led_div/q_3"
-        BEL "led_div/q_4" BEL "led_div/q_5" BEL "led_div/q_6" BEL
-        "led_div/q_7" BEL "led_div/q_8" BEL "led_div/q_9" BEL "led_div/q_10"
-        BEL "led_div/q_11" BEL "led_div/q_12" BEL "led_div/q_13" BEL
+        "music_player/codec_conditioner/new_frame_state/q_0" BEL "led_div/q_0"
+        BEL "led_div/q_1" BEL "led_div/q_2" BEL "led_div/q_3" BEL
+        "led_div/q_4" BEL "led_div/q_5" BEL "led_div/q_6" BEL "led_div/q_7"
+        BEL "led_div/q_8" BEL "led_div/q_9" BEL "led_div/q_10" BEL
+        "led_div/q_11" BEL "led_div/q_12" BEL "led_div/q_13" BEL
         "led_div/q_14" BEL "led_div/q_15" BEL "led_div/q_16" BEL
         "led_div/q_17" BEL "led_div/q_18" BEL "led_div/q_19" BEL
         "led_div/q_20" BEL "led_div/q_21" BEL "led_div/q_22" BEL
@@ -165,18 +176,53 @@ TIMEGRP clk = BEL "converted_0" BEL "converted_1" BEL "converted_2" BEL
         "music_player/song_reader/states/q_0" BEL
         "music_player/song_reader/states/q_1" BEL
         "music_player/song_reader/states/q_2" BEL
-        "music_player/note_player/state_reg/q_5" BEL
-        "music_player/note_player/state_reg/q_4" BEL
-        "music_player/note_player/state_reg/q_3" BEL
-        "music_player/note_player/state_reg/q_2" BEL
-        "music_player/note_player/state_reg/q_1" BEL
-        "music_player/note_player/state_reg/q_0" BEL
-        "music_player/note_player/freq_reg/q_5" BEL
-        "music_player/note_player/freq_reg/q_4" BEL
-        "music_player/note_player/freq_reg/q_3" BEL
-        "music_player/note_player/freq_reg/q_2" BEL
-        "music_player/note_player/freq_reg/q_1" BEL
+        "music_player/note_player/dyn/subtract_by/q_13" BEL
+        "music_player/note_player/dyn/subtract_by/q_12" BEL
+        "music_player/note_player/dyn/subtract_by/q_11" BEL
+        "music_player/note_player/dyn/subtract_by/q_10" BEL
+        "music_player/note_player/dyn/subtract_by/q_9" BEL
+        "music_player/note_player/dyn/subtract_by/q_8" BEL
+        "music_player/note_player/dyn/subtract_by/q_7" BEL
+        "music_player/note_player/dyn/subtract_by/q_6" BEL
+        "music_player/note_player/dyn/subtract_by/q_5" BEL
+        "music_player/note_player/dyn/subtract_by/q_4" BEL
+        "music_player/note_player/dyn/subtract_by/q_3" BEL
+        "music_player/note_player/dyn/subtract_by/q_2" BEL
+        "music_player/note_player/dyn/subtract_by/q_1" BEL
+        "music_player/note_player/dyn/subtract_by/q_0" BEL
+        "music_player/note_player/dyn/counter/q_3" BEL
+        "music_player/note_player/dyn/counter/q_2" BEL
+        "music_player/note_player/dyn/counter/q_1" BEL
+        "music_player/note_player/dyn/counter/q_0" BEL
+        "music_player/note_player/dyn/beat_gen/counter/q_2" BEL
+        "music_player/note_player/dyn/beat_gen/counter/q_1" BEL
+        "music_player/note_player/dyn/beat_gen/counter/q_0" BEL
         "music_player/note_player/freq_reg/q_0" BEL
+        "music_player/note_player/freq_reg/q_1" BEL
+        "music_player/note_player/freq_reg/q_2" BEL
+        "music_player/note_player/freq_reg/q_3" BEL
+        "music_player/note_player/freq_reg/q_4" BEL
+        "music_player/note_player/freq_reg/q_5" BEL
+        "music_player/note_player/state_reg/q_0" BEL
+        "music_player/note_player/state_reg/q_1" BEL
+        "music_player/note_player/state_reg/q_2" BEL
+        "music_player/note_player/state_reg/q_3" BEL
+        "music_player/note_player/state_reg/q_4" BEL
+        "music_player/note_player/state_reg/q_5" BEL
+        "music_player/note_player/dyn/length_of_time/q_13" BEL
+        "music_player/note_player/dyn/length_of_time/q_12" BEL
+        "music_player/note_player/dyn/length_of_time/q_11" BEL
+        "music_player/note_player/dyn/length_of_time/q_10" BEL
+        "music_player/note_player/dyn/length_of_time/q_9" BEL
+        "music_player/note_player/dyn/length_of_time/q_8" BEL
+        "music_player/note_player/dyn/length_of_time/q_7" BEL
+        "music_player/note_player/dyn/length_of_time/q_6" BEL
+        "music_player/note_player/dyn/length_of_time/q_5" BEL
+        "music_player/note_player/dyn/length_of_time/q_4" BEL
+        "music_player/note_player/dyn/length_of_time/q_3" BEL
+        "music_player/note_player/dyn/length_of_time/q_2" BEL
+        "music_player/note_player/dyn/length_of_time/q_1" BEL
+        "music_player/note_player/dyn/length_of_time/q_0" BEL
         "music_player/note_player/freq_rom/dout_18" BEL
         "music_player/note_player/freq_rom/dout_17" BEL
         "music_player/note_player/freq_rom/dout_16" BEL
@@ -196,30 +242,74 @@ TIMEGRP clk = BEL "converted_0" BEL "converted_1" BEL "converted_2" BEL
         "music_player/note_player/freq_rom/dout_2" BEL
         "music_player/note_player/freq_rom/dout_1" BEL
         "music_player/note_player/freq_rom/dout_0" BEL
-        "music_player/note_player/sine_read/flipper/q_21" BEL
-        "music_player/note_player/sine_read/flipper/q_20" BEL
-        "music_player/note_player/sine_read/flipper/q_19" BEL
-        "music_player/note_player/sine_read/flipper/q_18" BEL
-        "music_player/note_player/sine_read/flipper/q_17" BEL
-        "music_player/note_player/sine_read/flipper/q_16" BEL
-        "music_player/note_player/sine_read/flipper/q_15" BEL
-        "music_player/note_player/sine_read/flipper/q_14" BEL
-        "music_player/note_player/sine_read/flipper/q_13" BEL
-        "music_player/note_player/sine_read/flipper/q_12" BEL
-        "music_player/note_player/sine_read/flipper/q_11" BEL
-        "music_player/note_player/sine_read/flipper/q_10" BEL
-        "music_player/note_player/sine_read/flipper/q_9" BEL
-        "music_player/note_player/sine_read/flipper/q_8" BEL
-        "music_player/note_player/sine_read/flipper/q_7" BEL
-        "music_player/note_player/sine_read/flipper/q_6" BEL
-        "music_player/note_player/sine_read/flipper/q_5" BEL
-        "music_player/note_player/sine_read/flipper/q_4" BEL
-        "music_player/note_player/sine_read/flipper/q_3" BEL
-        "music_player/note_player/sine_read/flipper/q_2" BEL
-        "music_player/note_player/sine_read/flipper/q_1" BEL
-        "music_player/note_player/sine_read/flipper/q_0" BEL
-        "music_player/note_player/sine_read/shift_register1/q_0" BEL
-        "music_player/note_player/sine_read/shift_register2/q_0" BEL
+        "music_player/note_player/sine_read3/flipper/q_21" BEL
+        "music_player/note_player/sine_read3/flipper/q_20" BEL
+        "music_player/note_player/sine_read3/flipper/q_19" BEL
+        "music_player/note_player/sine_read3/flipper/q_18" BEL
+        "music_player/note_player/sine_read3/flipper/q_17" BEL
+        "music_player/note_player/sine_read3/flipper/q_16" BEL
+        "music_player/note_player/sine_read3/flipper/q_15" BEL
+        "music_player/note_player/sine_read3/flipper/q_14" BEL
+        "music_player/note_player/sine_read3/flipper/q_13" BEL
+        "music_player/note_player/sine_read3/flipper/q_12" BEL
+        "music_player/note_player/sine_read3/flipper/q_11" BEL
+        "music_player/note_player/sine_read3/flipper/q_10" BEL
+        "music_player/note_player/sine_read3/flipper/q_9" BEL
+        "music_player/note_player/sine_read3/flipper/q_8" BEL
+        "music_player/note_player/sine_read3/flipper/q_7" BEL
+        "music_player/note_player/sine_read3/flipper/q_6" BEL
+        "music_player/note_player/sine_read3/flipper/q_5" BEL
+        "music_player/note_player/sine_read3/flipper/q_4" BEL
+        "music_player/note_player/sine_read3/flipper/q_3" BEL
+        "music_player/note_player/sine_read3/flipper/q_2" BEL
+        "music_player/note_player/sine_read3/flipper/q_1" BEL
+        "music_player/note_player/sine_read3/flipper/q_0" BEL
+        "music_player/note_player/sine_read3/shift_register1/q_0" BEL
+        "music_player/note_player/sine_read3/shift_register2/q_0" BEL
+        "music_player/note_player/sine_read2/flipper/q_21" BEL
+        "music_player/note_player/sine_read2/flipper/q_20" BEL
+        "music_player/note_player/sine_read2/flipper/q_19" BEL
+        "music_player/note_player/sine_read2/flipper/q_18" BEL
+        "music_player/note_player/sine_read2/flipper/q_17" BEL
+        "music_player/note_player/sine_read2/flipper/q_16" BEL
+        "music_player/note_player/sine_read2/flipper/q_15" BEL
+        "music_player/note_player/sine_read2/flipper/q_14" BEL
+        "music_player/note_player/sine_read2/flipper/q_13" BEL
+        "music_player/note_player/sine_read2/flipper/q_12" BEL
+        "music_player/note_player/sine_read2/flipper/q_11" BEL
+        "music_player/note_player/sine_read2/flipper/q_10" BEL
+        "music_player/note_player/sine_read2/flipper/q_9" BEL
+        "music_player/note_player/sine_read2/flipper/q_8" BEL
+        "music_player/note_player/sine_read2/flipper/q_7" BEL
+        "music_player/note_player/sine_read2/flipper/q_6" BEL
+        "music_player/note_player/sine_read2/flipper/q_5" BEL
+        "music_player/note_player/sine_read2/flipper/q_4" BEL
+        "music_player/note_player/sine_read2/flipper/q_3" BEL
+        "music_player/note_player/sine_read2/flipper/q_2" BEL
+        "music_player/note_player/sine_read2/flipper/q_1" BEL
+        "music_player/note_player/sine_read2/flipper/q_0" BEL
+        "music_player/note_player/sine_read1/flipper/q_21" BEL
+        "music_player/note_player/sine_read1/flipper/q_20" BEL
+        "music_player/note_player/sine_read1/flipper/q_19" BEL
+        "music_player/note_player/sine_read1/flipper/q_18" BEL
+        "music_player/note_player/sine_read1/flipper/q_17" BEL
+        "music_player/note_player/sine_read1/flipper/q_16" BEL
+        "music_player/note_player/sine_read1/flipper/q_15" BEL
+        "music_player/note_player/sine_read1/flipper/q_14" BEL
+        "music_player/note_player/sine_read1/flipper/q_13" BEL
+        "music_player/note_player/sine_read1/flipper/q_12" BEL
+        "music_player/note_player/sine_read1/flipper/q_11" BEL
+        "music_player/note_player/sine_read1/flipper/q_10" BEL
+        "music_player/note_player/sine_read1/flipper/q_9" BEL
+        "music_player/note_player/sine_read1/flipper/q_8" BEL
+        "music_player/note_player/sine_read1/flipper/q_7" BEL
+        "music_player/note_player/sine_read1/flipper/q_6" BEL
+        "music_player/note_player/sine_read1/flipper/q_5" BEL
+        "music_player/note_player/sine_read1/flipper/q_4" BEL
+        "music_player/note_player/sine_read1/flipper/q_3" BEL
+        "music_player/note_player/sine_read1/flipper/q_2" BEL
+        "music_player/note_player/sine_read1/flipper/q_1" BEL
+        "music_player/note_player/sine_read1/flipper/q_0" BEL
         "music_player/codec_conditioner/next_sample_latch/q_15" BEL
         "music_player/codec_conditioner/next_sample_latch/q_14" BEL
         "music_player/codec_conditioner/next_sample_latch/q_13" BEL
@@ -274,31 +364,35 @@ TIMEGRP clk = BEL "converted_0" BEL "converted_1" BEL "converted_2" BEL
         "wd_top/wc/counter/q_5" BEL "wd_top/wc/counter/q_4" BEL
         "wd_top/wc/counter/q_3" BEL "wd_top/wc/counter/q_2" BEL
         "wd_top/wc/counter/q_1" BEL "wd_top/wc/counter/q_0" BEL
-        "wd_top/wc/positive_zero/q_0" BEL "wd_top/wc/states/q_0" BEL
-        "wd_top/wc/states/q_1" BEL "wd_top/wd/new_valid/q_0" BEL
-        "wd_top/wd/last_read_value/q_7" BEL "wd_top/wd/last_read_value/q_6"
-        BEL "wd_top/wd/last_read_value/q_5" BEL
-        "wd_top/wd/last_read_value/q_4" BEL "wd_top/wd/last_read_value/q_3"
-        BEL "wd_top/wd/last_read_value/q_2" BEL
-        "wd_top/wd/last_read_value/q_1" BEL "wd_top/wd/last_read_value/q_0"
-        BEL "wd_top/wd/new_y/q_9" BEL "wd_top/wd/new_y/q_8" BEL
-        "wd_top/wd/new_y/q_7" BEL "wd_top/wd/new_y/q_6" BEL
-        "wd_top/wd/new_y/q_5" BEL "wd_top/wd/new_y/q_4" BEL
-        "wd_top/wd/new_y/q_3" BEL "wd_top/wd/new_y/q_2" BEL
-        "wd_top/wd/new_y/q_1" BEL "wd_top/wd/last_read_addr/q_8" BEL
-        "wd_top/wd/last_read_addr/q_7" BEL "wd_top/wd/last_read_addr/q_6" BEL
-        "wd_top/wd/last_read_addr/q_5" BEL "wd_top/wd/last_read_addr/q_4" BEL
-        "wd_top/wd/last_read_addr/q_3" BEL "wd_top/wd/last_read_addr/q_2" BEL
-        "wd_top/wd/last_read_addr/q_1" BEL "wd_top/wd/last_read_addr/q_0" BEL
-        "music_player/codec_conditioner/new_frame_state/q_0" BEL
-        "wd_top/wc/index/q_0" BEL "clk_IBUF_BUFG" BEL "Mshreg_converted_20"
-        BEL "converted_20" BEL "next_button_press_unit/sync/ff3/Mshreg_q_0"
-        BEL "next_button_press_unit/sync/ff3/q_0" BEL
+        "wd_top/wc/positive_zero/q_0" BEL "wd_top/wc/index/q_0" BEL
+        "wd_top/wc/states/q_0" BEL "wd_top/wc/states/q_1" BEL
+        "wd_top/wd/new_valid/q_0" BEL "wd_top/wd/last_read_value/q_7" BEL
+        "wd_top/wd/last_read_value/q_6" BEL "wd_top/wd/last_read_value/q_5"
+        BEL "wd_top/wd/last_read_value/q_4" BEL
+        "wd_top/wd/last_read_value/q_3" BEL "wd_top/wd/last_read_value/q_2"
+        BEL "wd_top/wd/last_read_value/q_1" BEL
+        "wd_top/wd/last_read_value/q_0" BEL "wd_top/wd/new_y/q_9" BEL
+        "wd_top/wd/new_y/q_8" BEL "wd_top/wd/new_y/q_7" BEL
+        "wd_top/wd/new_y/q_6" BEL "wd_top/wd/new_y/q_5" BEL
+        "wd_top/wd/new_y/q_4" BEL "wd_top/wd/new_y/q_3" BEL
+        "wd_top/wd/new_y/q_2" BEL "wd_top/wd/new_y/q_1" BEL
+        "wd_top/wd/last_read_addr/q_8" BEL "wd_top/wd/last_read_addr/q_7" BEL
+        "wd_top/wd/last_read_addr/q_6" BEL "wd_top/wd/last_read_addr/q_5" BEL
+        "wd_top/wd/last_read_addr/q_4" BEL "wd_top/wd/last_read_addr/q_3" BEL
+        "wd_top/wd/last_read_addr/q_2" BEL "wd_top/wd/last_read_addr/q_1" BEL
+        "wd_top/wd/last_read_addr/q_0" BEL "clk_IBUF_BUFG" BEL
+        "Mshreg_converted_20" BEL "converted_20" BEL
+        "next_button_press_unit/sync/ff3/Mshreg_q_0" BEL
+        "next_button_press_unit/sync/ff3/q_0" BEL
         "play_button_press_unit/sync/ff3/Mshreg_q_0" BEL
         "play_button_press_unit/sync/ff3/q_0" PIN
         "wd_top/sample_ram/Mram_RAM_pins<32>" PIN
         "wd_top/sample_ram/Mram_RAM_pins<33>" PIN
-        "music_player/note_player/sine_read_mySineROM/Mram_addr[9]_memory[1023][15]_wide_mux_1_OUT_pins<32>"
+        "music_player/note_player/sine_read1_mySineROM/Mram_addr[9]_memory[1023][15]_wide_mux_1_OUT_pins<32>"
+        PIN
+        "music_player/note_player/sine_read2_mySineROM/Mram_addr[9]_memory[1023][15]_wide_mux_1_OUT_pins<32>"
+        PIN
+        "music_player/note_player/sine_read3_mySineROM/Mram_addr[9]_memory[1023][15]_wide_mux_1_OUT_pins<32>"
         PIN
         "music_player/song_reader_lib/Mram_addr[6]_memory[127][11]_wide_mux_1_OUT_pins<32>"
         PIN "hdmi/PLLE2_BASE_inst_pins<2>";
@@ -329,6 +423,7 @@ TIMEGRP adau1761_codec_codec_clock_gen_clkout0 = BEL
         "adau1761_codec/i2c_interface/Inst_i2s_data_interface/sr_out_48" BEL
         "adau1761_codec/i2c_interface/Inst_i2s_data_interface/i2s_lr_last" BEL
         "adau1761_codec/i2c_interface/Inst_i2s_data_interface/bclk_delay_0"
+        BEL "adau1761_codec/i2c_interface/Inst_i2s_data_interface/new_sample"
         BEL "adau1761_codec/i2c_interface/Inst_i2c/Inst_i3c2/state_FSM_FFd2"
         BEL "adau1761_codec/i2c_interface/Inst_i2c/Inst_i3c2/state_FSM_FFd3"
         BEL "adau1761_codec/i2c_interface/Inst_i2c/Inst_i3c2/state_FSM_FFd1"
@@ -382,7 +477,6 @@ TIMEGRP adau1761_codec_codec_clock_gen_clkout0 = BEL
         "adau1761_codec/i2c_interface/Inst_i2c/Inst_i3c2/delay_2" BEL
         "adau1761_codec/i2c_interface/Inst_i2c/Inst_i3c2/delay_1" BEL
         "adau1761_codec/i2c_interface/Inst_i2c/Inst_i3c2/delay_0" BEL
-        "adau1761_codec/i2c_interface/Inst_i2s_data_interface/new_sample" BEL
         "adau1761_codec/i2c_interface/Inst_i2c/Inst_i3c2/ack_flag" BEL
         "adau1761_codec/i2c_interface/Inst_i2s_data_interface/Mshreg_bclk_delay_1"
         BEL
@@ -406,8 +500,8 @@ TIMEGRP hdmi_clk_vgax2 = BEL "hdmi/ODDR_inst" BEL "hdmi/vcounter_10" BEL
         "hdmi/ypos_2" BEL "hdmi/ypos_1" BEL "hdmi/ypos_0" BEL "hdmi/hdmi_d_15"
         BEL "hdmi/hdmi_d_14" BEL "hdmi/hdmi_d_13" BEL "hdmi/hdmi_d_12" BEL
         "hdmi/hdmi_d_11" BEL "hdmi/hdmi_d_10" BEL "hdmi/hdmi_d_9" BEL
-        "hdmi/hdmi_d_8" BEL "hdmi/hdmi_vsync" BEL "hdmi/hdmi_hsync" BEL
-        "hdmi/edge" BEL "hdmi/hsync" BEL "hdmi/vsync";
+        "hdmi/hdmi_d_8" BEL "hdmi/hdmi_clk_bits_0" BEL "hdmi/hdmi_vsync" BEL
+        "hdmi/hdmi_hsync" BEL "hdmi/edge" BEL "hdmi/hsync" BEL "hdmi/vsync";
 TIMEGRP hdmi_clk = BEL "hdmi/Inst_i2c_sender/divider_7" BEL
         "hdmi/Inst_i2c_sender/divider_6" BEL "hdmi/Inst_i2c_sender/divider_5"
         BEL "hdmi/Inst_i2c_sender/divider_4" BEL

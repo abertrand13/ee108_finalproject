@@ -14,11 +14,11 @@ This is where the documentation will go.  Eventually.  You know, when we finish 
 #### Work Distribution
 - Alex - Chords, Launchpad, (Context Sensitive), Revamping song ROM format
 - Brendan - Dynamics, Color Changing
-- Nick - Harmonics
+- Nick - Harmonics, Chords
 
 #### Other Proposed Extensions
 - Multiple Voices
-- Some idea that Brendan had 
+- Some idea that Brendan had and no longer wants to do (so scratch this one)
 - Speed up/slow down
 - Multiple song ROMs
 - switch to turn on features (eg echo)

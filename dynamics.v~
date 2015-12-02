@@ -1,61 +1,109 @@
+`define BEAT_INPUT 3'd4
+
 module dynamics(
-input [5:0] attack,					// May not need these
-	input [5:0] decay,					// ^^
 	input [5:0] note_duration,			// Taken from Note_Player
 	input clk,
 	input reset,
-	input [15:0] sample,				// Taken from Note_Player/Harmonics
+	input [15:0] sample,					// Taken from Note_Player/Harmonics
 	input new_sample_ready,				// Also Taken from Note_player
-	input generate_next_sample,			// From Note_Player
 	output [15:0] final_sample			
 );
 
 	// IGNORING THE ATTACK PHASE FOR NOW. IF WE WANT TO IMPLEMENT, WE WILL HAVE TO SLIGHTLY CHANGE HOW DECAY
 	// WORKS BUT IT SHOULDN'T BE TOO MUCH...
-
-	// We need to figure out how to decay using the note_duration. Making it a smooth transition no matter how
-	// long or short a time the note is played for. We need to know how note_duration stores the actual duration
-	// of the note. As in is it one_hot? is it just simply a number and if so what does that number represent?
-
-
-
-	wire [4:0] count;
-	wire beat;
-	wire beat_input;
+	// We could theoretically just have a variable set into the reset of [counter, length_of_time & subtract_by]
+	// which is true while we are attacking and possibly for a defined amount of time after. Say a total of 1/4
+	// of the note. Then after we set it to false we could just subtract 1/8 of the note for the remaining amount
+	// of time, making the remaining amount of time effectively the new note_duration. And WABAMM!!! we've got it.
 
 
-	// USE CL TO FIGURE OUT BEAT_INPUT
-	// BEAT OF 1000 AS PARAMETER IS 1/48 OF A SECOND. WE CAN USE THIS TO MANIPULATE THE INPUT SO THAT EVEN IF THE
-	// NOTE IS ONLY A 16TH NOTE IT WILL DECAY PROPERLY.
-
-	beat_generator #(.STOP(beat_input))(
-		.clk(clk),
-		.r(reset),
-		.en(generate_next_sample),
-		.beat(beat)
-	);
-
-	dffre #(6) counter(
+	/* // Start Attack Phase and hold: Lets make attack always be a consistant 1/8 of note length, and hold it there
+	   // for another 1/8th of a second, then begin decay.
+	wire [3:0] attack)count;
+	wire attack_zero, attack_done;
+	wire [15:0] attack_final;
+	dffre #(.WIDTH(4)) attack(
 		.clk(clk),
 		.r(reset || new_sample_ready),
-		.en(beat),
-		.d(count + 1),
-		.q(count)
+		.d(attack_count + 1'b1),
+		.q(attack_count),
+		.en(attack_zero)
 	);
 
+	always @(*) begin
+		case (attack_count)
+		1:			{attack_final, attack_done} = {sample_subtract_8, 1'b0};
+		2:			{attack_final, attack_done} = {sample_subtract_4, 1'b0};
+		3:			{attack_final, attack_done} = {sample_subtract_4 + sample_subtract_8, 1'b0};
+		4:			{attack_final, attack_done} = {sample_subtract_2, 1'b0};
+		5:			{attack_final, attack_done} = {sample_subtract_2 + sample_subtract_8, 1'b0};
+		6:			{attack_final, attack_done} = {sample_subtract_2 + sample_subtract_4, 1'b0};
+		7:			{attack_final, attack_done} = {sample - sample_subtract_8, 1'b0};
+		8:			{attack_final, attack_done} = {sample, 1'b1};
+		default: {attack_final, attack_done} = {16'd0, 1'b0};
+		endcase
+	end
+	*/
 
+	wire [3:0] count;
+	wire [13:0] new_duration, temp_duration;
+	wire [13:0] subtractor;
+	wire zero;
+	wire [13:0] result;
+	assign zero = result == 0;
+	assign temp_duration = note_duration;
 
+	dffre #(.WIDTH(4)) counter(
+		.clk(clk),
+		.r(reset || new_sample_ready), // add || !attack_done
+		.en(zero),
+		.d(count + 1'b1),
+		.q(count)
+	);
+	
+	// Used to make new_duration long enough.
+	dffr #(.WIDTH(14)) length_of_time(
+		.clk(clk),
+		.r(reset || new_sample_ready), // add || !attack_done
+		.d(temp_duration << count + 1), // Changed this ( + 1 )
+		.q(new_duration)
+	);
+	
+	dffr #(.WIDTH(14)) subtract_by(
+		.clk(clk),
+		.r(reset || new_sample_ready || zero), // add || !attack_done
+		.d(subtractor + 1'b1),
+		.q(subtractor)
+	);
 
+	assign result = new_duration - subtractor;
+	
 
+	wire [15:0] sample_subtract_8;
+	wire [15:0] sample_subtract_4;
+	wire [15:0] sample_subtract_2;
+	reg [15:0] final_temp;
+	
+	assign sample_subtract_2 = sample >> 1;
+	assign sample_subtract_4 = sample >> 2;
+	assign sample_subtract_8 = sample >> 3;
+	
+	always @(*) begin
+		case (count)
+		1:			final_temp = sample - sample_subtract_8;
+		2:			final_temp = sample - sample_subtract_4;
+		3:			final_temp = sample - sample_subtract_4 - sample_subtract_8;
+		4:			final_temp = sample - sample_subtract_2;
+		5:			final_temp = sample - sample_subtract_2 - sample_subtract_8;
+		6:			final_temp = sample - sample_subtract_2 - sample_subtract_4;
+		7:			final_temp = sample_subtract_8;
+		8:			final_temp = 1'b0;
+		default: final_temp = sample;
+		endcase
+	end
 
-
-	// WE MAY ALSO NOT WANT TO SHIFT EVERY TIME, OR WE MAY WANT TO SHIFT EVERY COUPLE AND SUBTRACT THAT AMOUNT FROM THE PAST AMOUNT...
-
-
-
-
-
-	assign final_sample = sample >> count;
-
+	assign final_sample = final_temp;
+	// For after ATTACK Phase
+	// assign final_sample = attack_done ? final_temp : attack_final;
 
 endmodule

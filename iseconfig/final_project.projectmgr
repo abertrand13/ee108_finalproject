@@ -13,9 +13,17 @@
          <ClosedNode>/lab4_top Z:|groups|8|final_project|lab4_top.v</ClosedNode>
          <ClosedNode>/lab4_top |afs|ir.stanford.edu|class|ee108|groups|8|final_project|lab4_top.v</ClosedNode>
          <ClosedNode>/lab5_top Z:|groups|8|final_project|lab5_top.v/adau1761_codec - adau1761_codec</ClosedNode>
-         <ClosedNode>/lab5_top Z:|groups|8|final_project|lab5_top.v/music_player - music_player</ClosedNode>
+         <ClosedNode>/lab5_top Z:|groups|8|final_project|lab5_top.v/hdmi - zedboard_hdmi - Behavioral</ClosedNode>
+         <ClosedNode>/lab5_top Z:|groups|8|final_project|lab5_top.v/music_player - music_player/beat_generator - beat_generator</ClosedNode>
+         <ClosedNode>/lab5_top Z:|groups|8|final_project|lab5_top.v/music_player - music_player/codec_conditioner - codec_conditioner</ClosedNode>
+         <ClosedNode>/lab5_top Z:|groups|8|final_project|lab5_top.v/music_player - music_player/mcu - mcu</ClosedNode>
+         <ClosedNode>/lab5_top Z:|groups|8|final_project|lab5_top.v/music_player - music_player/note_player - note_player/sine_read1 - sine_reader</ClosedNode>
+         <ClosedNode>/lab5_top Z:|groups|8|final_project|lab5_top.v/music_player - music_player/note_player - note_player/sine_read2 - sine_reader</ClosedNode>
+         <ClosedNode>/lab5_top Z:|groups|8|final_project|lab5_top.v/music_player - music_player/note_player - note_player/sine_read3 - sine_reader</ClosedNode>
+         <ClosedNode>/lab5_top Z:|groups|8|final_project|lab5_top.v/music_player - music_player/song_reader - song_reader</ClosedNode>
          <ClosedNode>/lab5_top Z:|groups|8|final_project|lab5_top.v/next_button_press_unit - button_press_unit</ClosedNode>
          <ClosedNode>/lab5_top Z:|groups|8|final_project|lab5_top.v/play_button_press_unit - button_press_unit</ClosedNode>
+         <ClosedNode>/lab5_top Z:|groups|8|final_project|lab5_top.v/wd_top - wave_display_top</ClosedNode>
          <ClosedNode>/lab5_top Z:|groups|8|final_project|lab5_top.v/wd_top - wave_display_top/wc - wave_capture</ClosedNode>
          <ClosedNode>/lab5_top |afs|ir.stanford.edu|class|ee108|groups|8|final_project|lab5_top.v</ClosedNode>
          <ClosedNode>/lab5_top |afs|ir.stanford.edu|class|ee108|groups|8|final_project|lab5_top.v/adau1761_codec - adau1761_codec</ClosedNode>
@@ -30,15 +38,16 @@
          <ClosedNode>/lab5_top |afs|ir.stanford.edu|class|ee108|groups|8|final_project|lab5_top.v/wd_top - wave_display_top</ClosedNode>
          <ClosedNode>/new_song_reader Z:|groups|8|final_project|new_song_reader.v</ClosedNode>
          <ClosedNode>/new_song_reader |afs|ir.stanford.edu|class|ee108|groups|8|final_project|new_song_reader.v</ClosedNode>
+         <ClosedNode>/note_player Z:|groups|8|final_project|note_player.v</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem>wd - wave_display (Z:/groups/8/final_project/wave_display.v)</SelectedItem>
+         <SelectedItem>lab5_top (Z:/groups/8/final_project/lab5_top.v)</SelectedItem>
       </SelectedItems>
-      <ScrollbarPosition orientation="vertical" >10</ScrollbarPosition>
+      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000202000000010000000100000064000001ac000000020000000000000000000000000200000064ffffffff000000810000000300000002000001ac0000000100000003000000000000000100000003</ViewHeaderState>
+      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000202000000010000000100000064000001b0000000020000000000000000000000000200000064ffffffff000000810000000300000002000001b00000000100000003000000000000000100000003</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >true</UserChangedColumnWidths>
-      <CurrentItem>wd - wave_display (Z:/groups/8/final_project/wave_display.v)</CurrentItem>
+      <CurrentItem>lab5_top (Z:/groups/8/final_project/lab5_top.v)</CurrentItem>
    </ItemView>
    <ItemView engineview="SynthesisOnly" sourcetype="" guiview="Process" >
       <ClosedNodes>
@@ -63,7 +72,7 @@
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
       <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000000000000010000000000000000000000000000000000000252000000040101000100000000000000000000000064ffffffff000000810000000000000004000000510000000100000000000000290000000100000000000000840000000100000000000001540000000100000000</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
-      <CurrentItem></CurrentItem>
+      <CurrentItem>adau1761_codec.v</CurrentItem>
    </ItemView>
    <ItemView guiview="Library" >
       <ClosedNodes>
@@ -88,13 +97,13 @@
          <ClosedNode>User Constraints</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem></SelectedItem>
+         <SelectedItem>Configure Target Device</SelectedItem>
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000000000000000000fc000000010000000100000000000000000000000064ffffffff000000810000000000000001000000fc0000000100000000</ViewHeaderState>
+      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000000000000000000c9000000010000000100000000000000000000000064ffffffff000000810000000000000001000000c90000000100000000</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
-      <CurrentItem></CurrentItem>
+      <CurrentItem>Configure Target Device</CurrentItem>
    </ItemView>
    <ItemView engineview="SynthesisOnly" sourcetype="DESUT_UCF" guiview="Process" >
       <ClosedNodes>
@@ -123,5 +132,72 @@
       <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000000000000000000fc000000010000000100000000000000000000000064ffffffff000000810000000000000001000000fc0000000100000000</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
       <CurrentItem/>
+   </ItemView>
+   <ItemView engineview="BehavioralSim" guiview="Source" compilemode="AutoCompile" >
+      <ClosedNodes>
+         <ClosedNodesVersion>2</ClosedNodesVersion>
+         <ClosedNode>/color_changer_tb Z:|groups|8|final_project|color_changer_tb.v</ClosedNode>
+         <ClosedNode>/dynamics_tb Z:|groups|8|final_project|dynamics_tb.v</ClosedNode>
+         <ClosedNode>/lab5_top Z:|groups|8|final_project|lab5_top.v/adau1761_codec - adau1761_codec</ClosedNode>
+         <ClosedNode>/lab5_top Z:|groups|8|final_project|lab5_top.v/hdmi - zedboard_hdmi - Behavioral</ClosedNode>
+         <ClosedNode>/lab5_top Z:|groups|8|final_project|lab5_top.v/music_player - music_player/beat_generator - beat_generator</ClosedNode>
+         <ClosedNode>/lab5_top Z:|groups|8|final_project|lab5_top.v/music_player - music_player/codec_conditioner - codec_conditioner</ClosedNode>
+         <ClosedNode>/lab5_top Z:|groups|8|final_project|lab5_top.v/music_player - music_player/mcu - mcu</ClosedNode>
+         <ClosedNode>/lab5_top Z:|groups|8|final_project|lab5_top.v/music_player - music_player/note_player - note_player/dyn - dynamics</ClosedNode>
+         <ClosedNode>/lab5_top Z:|groups|8|final_project|lab5_top.v/music_player - music_player/note_player - note_player/sine_read1 - sine_reader</ClosedNode>
+         <ClosedNode>/lab5_top Z:|groups|8|final_project|lab5_top.v/music_player - music_player/note_player - note_player/sine_read2 - sine_reader</ClosedNode>
+         <ClosedNode>/lab5_top Z:|groups|8|final_project|lab5_top.v/music_player - music_player/note_player - note_player/sine_read3 - sine_reader</ClosedNode>
+         <ClosedNode>/lab5_top Z:|groups|8|final_project|lab5_top.v/music_player - music_player/song_reader - song_reader</ClosedNode>
+         <ClosedNode>/lab5_top Z:|groups|8|final_project|lab5_top.v/next_button_press_unit - button_press_unit</ClosedNode>
+         <ClosedNode>/lab5_top Z:|groups|8|final_project|lab5_top.v/play_button_press_unit - button_press_unit</ClosedNode>
+         <ClosedNode>/lab5_top Z:|groups|8|final_project|lab5_top.v/wd_top - wave_display_top</ClosedNode>
+         <ClosedNode>/mcu_tb Z:|groups|8|final_project|mcu_tb.v</ClosedNode>
+         <ClosedNode>/music_player_tb Z:|groups|8|final_project|music_player_tb.v</ClosedNode>
+         <ClosedNode>/new_song_reader Z:|groups|8|final_project|new_song_reader.v</ClosedNode>
+         <ClosedNode>/note_player Z:|groups|8|final_project|note_player.v</ClosedNode>
+         <ClosedNode>/note_player Z:|groups|8|final_project|note_player_harmonics.v</ClosedNode>
+         <ClosedNode>/note_player_harmonics Z:|groups|8|final_project|note_player_harmonics.v</ClosedNode>
+         <ClosedNode>/note_player_tb Z:|groups|8|final_project|note_player_tb.v</ClosedNode>
+         <ClosedNode>/shifter_tb Z:|groups|8|final_project|shifter_tb.v</ClosedNode>
+         <ClosedNode>/sine_reader_tb Z:|groups|8|final_project|sine_reader_tb.v</ClosedNode>
+         <ClosedNode>/song_reader_tb Z:|groups|8|final_project|song_reader_tb.v</ClosedNode>
+         <ClosedNode>/wave_capture_tb Z:|groups|8|final_project|wave_capture_tb.v</ClosedNode>
+         <ClosedNode>/wave_display_tb Z:|groups|8|final_project|wave_display_tb.v</ClosedNode>
+      </ClosedNodes>
+      <SelectedItems>
+         <SelectedItem>note_player_tb (Z:/groups/8/final_project/note_player_tb.v)</SelectedItem>
+      </SelectedItems>
+      <ScrollbarPosition orientation="vertical" >21</ScrollbarPosition>
+      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
+      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000202000000010000000100000064000001b0000000020000000000000000000000000200000064ffffffff000000810000000300000002000001b00000000100000003000000000000000100000003</ViewHeaderState>
+      <UserChangedColumnWidths orientation="horizontal" >true</UserChangedColumnWidths>
+      <CurrentItem>note_player_tb (Z:/groups/8/final_project/note_player_tb.v)</CurrentItem>
+   </ItemView>
+   <ItemView engineview="BehavioralSim" sourcetype="" guiview="Process" >
+      <ClosedNodes>
+         <ClosedNodesVersion>1</ClosedNodesVersion>
+         <ClosedNode>Design Utilities</ClosedNode>
+      </ClosedNodes>
+      <SelectedItems>
+         <SelectedItem></SelectedItem>
+      </SelectedItems>
+      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
+      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
+      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000000000000000000c9000000010000000100000000000000000000000064ffffffff000000810000000000000001000000c90000000100000000</ViewHeaderState>
+      <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
+      <CurrentItem></CurrentItem>
+   </ItemView>
+   <ItemView engineview="BehavioralSim" sourcetype="DESUT_VERILOG" guiview="Process" >
+      <ClosedNodes>
+         <ClosedNodesVersion>1</ClosedNodesVersion>
+      </ClosedNodes>
+      <SelectedItems>
+         <SelectedItem>Simulate Behavioral Model</SelectedItem>
+      </SelectedItems>
+      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
+      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
+      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000000000000000000c9000000010000000100000000000000000000000064ffffffff000000810000000000000001000000c90000000100000000</ViewHeaderState>
+      <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
+      <CurrentItem>Simulate Behavioral Model</CurrentItem>
    </ItemView>
 </Project>
