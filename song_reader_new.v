@@ -3,12 +3,11 @@
 // passing those notes to note_player
 
 
-`define PAUSE 3'b000 		// This pauses the song.  Triggered when we press pause
-`define READ 3'b001			// This reads the next note
-`define REST 3'b110 		// Resting before we read the next note (after we hit a rest in the ROM)
-`define WAIT 3'b010			// This goes through a wait cycle to allow the song ROM a cycle to return
-`define WAIT_DONE 3'b011	// This waits until note_done is high.  Do we need this anymore?
-`define INCREMENT 3'b100	// Increments the addr so we know which note we are on.  Do we need this anymore?
+`define PAUSE 	5'b00000 	// This pauses the song.  Triggered when we press pause
+`define READ 	5'b00001	// This reads the next note
+`define REST 	5'b00010 	// Resting before we read the next note (after we hit a rest in the ROM)
+`define WAIT 	5'b00100	// This goes through a wait cycle to allow the song ROM a cycle to return
+`define INCR 	5'b01000	// Increments the addr so we know which note we are on.  Do we need this anymore?
 
 
 module song_reader_new(
@@ -42,11 +41,11 @@ module song_reader_new(
 		);
 
 
-	wire [2:0] state;
-	reg [2:0] next;
+	wire [4:0] state;
+	reg [4:0] next;
 	
 	// keeps track of what state we're in	
-	dffr #(3) states(
+	dffr #(5) states(
 		.r(reset),
 		.clk(clk),
 		.d(next),
@@ -60,15 +59,18 @@ module song_reader_new(
 		.clk(clk),
 		.d(note_addr + 1'b1),
 		.q(note_addr),
-		.en(state == `INCREMENT)
+		.en(state == `INCR)
 	);
 	
-	wire [4:0] rest_beats;
-	reg [4:0] load_rest_beats;
+	wire [4:0] rest_beats; // current number of beats we've rested
+	reg [4:0] total_rest_beats; // number of rest beats we need to get to
+
+	
+	
 	dffre #(5) rest_counter (
 		.clk(clk),
-		.r(reset),
-		.d(state == `REST ? rest_beats - 1'b1 : load_rest_beats),
+		.r(reset || rest_beats == total_rest_beats),
+		.d(state == `REST ? rest_beats + 1'b1 : 1'b0),
 		.q(rest_beats),
 		.en(beat)
 	);
@@ -80,21 +82,21 @@ module song_reader_new(
 				next = `WAIT; // I don't like this mandatory delay, but it may be necessary
 			end
 			`WAIT : begin
-				next = (note_type == 1'b0 ? `INCREMENT : `REST);
+				next = (note_type == 1'b0 ? `INCR : `REST);
 				new_note_reg = ~note_type;
 				if(note_type) begin
-					load_rest_beats = note; // hack.  works because bit representations
+					total_rest_beats = note; // hack.  works because bit representations
 				end else begin
-					load_rest_beats = 1'b0;
+					total_rest_beats = 1'b0;
 				end
 			end
-			`INCREMENT : begin	
+			`INCR : begin	
 				new_note_reg = 1'b0;
 				next = `READ; // THIS IS SO MUCH DELAY
 			end
 			`REST : begin
 				new_note_reg = 1'b0;	
-				next = (rest_beats == 1'b0 ? `INCREMENT : `REST);
+				next = (rest_beats == total_rest_beats ? `INCR : `REST);
 			end
 			default: next = `PAUSE;
 		endcase

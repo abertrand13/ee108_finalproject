@@ -29,7 +29,7 @@ module song_reader(
 	// INSTANTIATIONS
   
 	// Song ROM
-	song_rom lib(
+	song_rom_old lib( // Need to change back to regular song_rom
 		.clk(clk),
 		.addr(addr),
 		.dout({note, duration})

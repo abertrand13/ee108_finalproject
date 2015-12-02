@@ -1,4 +1,4 @@
-Running: /afs/ir.stanford.edu/class/ee/xilinx/14.6/ISE_DS/ISE/bin/lin64/unwrapped/fuse -relaunch -intstyle "ise" -incremental -lib "unisims_ver" -lib "unimacro_ver" -lib "xilinxcorelib_ver" -lib "secureip" -o "/afs/ir.stanford.edu/class/ee108/groups/8/final_project/song_reader_new_tb_isim_beh.exe" -prj "/afs/ir.stanford.edu/class/ee108/groups/8/final_project/song_reader_new_tb_beh.prj" "work.song_reader_new_tb" "work.glbl" 
+Running: /afs/ir.stanford.edu/class/ee/xilinx/14.6/ISE_DS/ISE/bin/lin64/unwrapped/fuse -intstyle ise -incremental -lib unisims_ver -lib unimacro_ver -lib xilinxcorelib_ver -lib secureip -o /afs/ir.stanford.edu/class/ee108/groups/8/final_project/song_reader_new_tb_isim_beh.exe -prj /afs/ir.stanford.edu/class/ee108/groups/8/final_project/song_reader_new_tb_beh.prj work.song_reader_new_tb work.glbl 
 ISim P.68d (signature 0xfbc00daa)
 Number of CPUs detected in this system: 2
 Turning on mult-threading, number of parallel sub-compilation jobs: 4 
@@ -10,18 +10,18 @@ Analyzing Verilog file "/afs/ir.stanford.edu/class/ee108/groups/8/final_project/
 Analyzing Verilog file "/afs/ir.stanford.edu/class/ee/xilinx/14.6/ISE_DS/ISE//verilog/src/glbl.v" into library work
 Starting static elaboration
 Completed static elaboration
-Fuse Memory Usage: 94724 KB
-Fuse CPU Usage: 1080 ms
+Fuse Memory Usage: 94728 KB
+Fuse CPU Usage: 1020 ms
 Compiling module song_rom
-Compiling module dffr(WIDTH=3)
+Compiling module dffr(WIDTH=5)
 Compiling module dffre(WIDTH=5)
 Compiling module song_reader_new
 Compiling module song_reader_new_tb
 Compiling module glbl
 Time Resolution for simulation is 1ps.
-Waiting for 1 sub-compilation(s) to finish...
+Waiting for 3 sub-compilation(s) to finish...
 Compiled 6 Verilog Units
 Built simulation executable /afs/ir.stanford.edu/class/ee108/groups/8/final_project/song_reader_new_tb_isim_beh.exe
-Fuse Memory Usage: 393200 KB
-Fuse CPU Usage: 1120 ms
-GCC CPU Usage: 190 ms
+Fuse Memory Usage: 393208 KB
+Fuse CPU Usage: 1070 ms
+GCC CPU Usage: 830 ms

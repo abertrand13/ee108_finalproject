@@ -1,13 +1,11 @@
 module dynamics_tb();
-
-	//reg [5:0] attack;
-	//reg [5:0] decay;
 	reg [5:0] note_duration;
 	reg clk;
 	reg reset;
 	reg [15:0] sample;
 	reg new_sample_ready;
 	reg generate_next_sample;
+	reg beat;
 	wire [15:0] final_sample;
 	
 	initial begin
@@ -28,6 +26,13 @@ module dynamics_tb();
 		.final_sample(final_sample)
 	);
 	
+	/*beat_generator #(.STOP(4)) beat_gen(
+		.clk(clk),
+		.reset(reset),
+		.en(generate_next_sample),
+		.beat(beat)
+	);*/
+	
 	reg [15:0] expected_final_sample;
 	// May try having sample come in as a value of 8 (or something smoothly divided by 8) to make
 	// it easier to tell if it's subtracting by 1/8 every time. try 10400, 1300 is 1/8.
@@ -43,12 +48,12 @@ module dynamics_tb();
 	$display("Duration: %b, new_sample_ready : %b, final_sample: %b, expected: %b",
 	note_duration, new_sample_ready, final_sample, expected_final_sample);
 	
-	reset = 0;
-	note_duration = 6'd3;
-	sample = 16'd10400;
+	reset = 0;					// 96 clock cycles for 1/8th of a second. 12 for 1/64th.
+	note_duration = 6'd3;	// 1/16th of a second
+	sample = 16'd10400; 		// 1/8th of this number is 1300
 	new_sample_ready = 1'b0;
 	expected_final_sample = 16'd9100;
-	#125
+	#382//#125
 	$display("Duration: %b, new_sample_ready : %b, final_sample expected? %b",
 	note_duration, new_sample_ready, final_sample == expected_final_sample);
 	
@@ -56,7 +61,7 @@ module dynamics_tb();
 	sample = 16'd10400;
 	new_sample_ready = 1'b0;
 	expected_final_sample = 16'd7800;
-	#250
+	#763//#250
 	$display("Duration: %b, new_sample_ready : %b, final_sample expected? %b",
 	note_duration, new_sample_ready, final_sample == expected_final_sample);
 	
@@ -64,7 +69,7 @@ module dynamics_tb();
 	sample = 16'd10400;
 	new_sample_ready = 1'b0;
 	expected_final_sample = 16'd6500;
-	#490
+	#1526//#490
 	$display("Duration: %b, new_sample_ready : %b, final_sample expected? %b",
 	note_duration, new_sample_ready, final_sample == expected_final_sample);
 	
@@ -72,7 +77,7 @@ module dynamics_tb();
 	sample = 16'd10400;
 	new_sample_ready = 1'b0;
 	expected_final_sample = 16'd5200;
-	#970
+	#3052//#970
 	$display("Duration: %b, new_sample_ready : %b, final_sample expected? %b",
 	note_duration, new_sample_ready, final_sample == expected_final_sample);
 	
@@ -80,7 +85,7 @@ module dynamics_tb();
 	sample = 16'd10400;
 	new_sample_ready = 1'b0;
 	expected_final_sample = 16'd3900;
-	#1930
+	#6104//#1930
 	$display("Duration: %b, new_sample_ready : %b, final_sample expected? %b",
 	note_duration, new_sample_ready, final_sample == expected_final_sample);
 	
@@ -88,7 +93,7 @@ module dynamics_tb();
 	sample = 16'd10400;
 	new_sample_ready = 1'b0;
 	expected_final_sample = 16'd2600;
-	#3850
+	#12207//#3850
 	$display("Duration: %b, new_sample_ready : %b, final_sample expected? %b",
 	note_duration, new_sample_ready, final_sample == expected_final_sample);
 	
@@ -96,7 +101,7 @@ module dynamics_tb();
 	sample = 16'd10400;
 	new_sample_ready = 1'b0;
 	expected_final_sample = 16'd1300;
-	#7690
+	#24414//#7690
 	$display("Duration: %b, new_sample_ready : %b, final_sample expected? %b",
 	note_duration, new_sample_ready, final_sample == expected_final_sample);
 	
@@ -104,10 +109,12 @@ module dynamics_tb();
 	sample = 16'd10400;
 	new_sample_ready = 1'b0;
 	expected_final_sample = 16'd0;
-	#15370
+	#48828//#15370
 	$display("Duration: %b, new_sample_ready : %b, final_sample expected? %b",
 	note_duration, new_sample_ready, final_sample == expected_final_sample);
 	
+	// Testing with a negative sample to make sure the program works with
+	// signed numbers.
 	note_duration = 6'd24;
 	sample = 16'd0 - 16'd10400;
 	new_sample_ready = 1'b1;
