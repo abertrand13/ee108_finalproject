@@ -1,1 +1,0 @@
--intstyle "ise" -incremental -lib "unisims_ver" -lib "unimacro_ver" -lib "xilinxcorelib_ver" -lib "secureip" -o "/afs/ir.stanford.edu/class/ee108/groups/8/final_project/new_mcu_tb_isim_beh.exe" -prj "/afs/ir.stanford.edu/class/ee108/groups/8/final_project/new_mcu_tb_beh.prj" "work.new_mcu_tb" "work.glbl" 
