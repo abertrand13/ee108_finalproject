@@ -17,7 +17,8 @@ module note_distributor (
 );
 	
 	// vars for each note player
-	wire np1_done, np2_done, np3_done; // also used to tell which nps are ready for new notes
+	wire np1_done, np2_done, np3_done; 
+	wire np1_playing, np2_playing, np3_playing; // used to tell which nps are ready for new notes
 	wire [15:0] np1_sample, np2_sample, np3_sample;
 	wire np1_sample_ready, np2_sample_ready, np3_sample_ready;
 	wire np1_load, np2_load, np3_load; // used to tell which np to send a new note to
@@ -26,13 +27,13 @@ module note_distributor (
 	// essentially rolling an arbiter here, because apparently they're not
 	// built in.  sad face.
 	always @(*) begin
-		if(np1_done) begin
+		if(!np1_playing) begin
 			np_to_use = `NP1;
 		end
-		else if(np2_done) begin
+		else if(!np2_playing) begin
 			np_to_use = `NP2;
 		end
-		else if(np3_done) begin
+		else if(!np3_playing) begin
 			np_to_use = `NP3;
 		end
 		else np_to_use = `NP1;
@@ -84,6 +85,7 @@ module note_distributor (
 		.duration_to_load(duration_to_load),
 		// outputs	
 		.done_with_note(np1_done),
+		.playing(np1_playing),
 		.sample_out(np1_sample),
 		.new_sample_ready(np1_sample_ready));
 
@@ -101,6 +103,7 @@ module note_distributor (
 		.duration_to_load(duration_to_load),
 		// outputs	
 		.done_with_note(np2_done),
+		.playing(np2_playing),
 		.sample_out(np2_sample),
 		.new_sample_ready(np2_sample_ready));
 
@@ -117,7 +120,8 @@ module note_distributor (
 		.note_to_load(note_to_load),
 		.duration_to_load(duration_to_load),
 		// outputs	
-		.done_with_note(np3_done),
+		.done_with_note(np3_done),	
+		.playing(np3_playing),
 		.sample_out(np3_sample),
 		.new_sample_ready(np3_sample_ready));
 

@@ -74,7 +74,7 @@ module note_distributor_tb();
 		load_new_note = 1'b1;
 		#10
 		load_new_note = 1'b0;
-		#60
+		#80
 
 		note_to_load = 6'd50;
 		duration_to_load = 6'd3;
