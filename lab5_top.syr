@@ -111,6 +111,8 @@ Parsing module <dffr>.
 Parsing module <dffre>.
 Analyzing Verilog file "\\afs\ir\class\ee108\groups\8\final_project\sine_rom.v" into library work
 Parsing module <sine_rom>.
+Analyzing Verilog file "\\afs\ir\class\ee108\groups\8\final_project\codec_conditioner.v" into library work
+Parsing module <codec_conditioner>.
 Analyzing Verilog file "\\afs\ir\class\ee108\groups\8\final_project\beat_generator.v" into library work
 Parsing module <beat_generator>.
 Analyzing Verilog file "\\afs\ir\class\ee108\groups\8\final_project\song_rom_old.v" into library work
@@ -142,8 +144,6 @@ Analyzing Verilog file "\\afs\ir\class\ee108\groups\8\final_project\mcu.v" into 
 Parsing module <mcu>.
 Analyzing Verilog file "\\afs\ir\class\ee108\groups\8\final_project\debouncer.v" into library work
 Parsing module <debouncer>.
-Analyzing Verilog file "\\afs\ir\class\ee108\groups\8\final_project\codec_conditioner.v" into library work
-Parsing module <codec_conditioner>.
 Analyzing Verilog file "\\afs\ir\class\ee108\groups\8\final_project\brute_force_synchronizer.v" into library work
 Parsing module <brute_force_synchronizer>.
 Analyzing Verilog file "\\afs\ir\class\ee108\groups\8\final_project\wave_display_top.v" into library work
@@ -233,9 +233,15 @@ Elaborating module <sine_reader>.
 Elaborating module <dffre(WIDTH=22)>.
 
 Elaborating module <sine_rom>.
-WARNING:HDLCompiler:413 - "\\afs\ir\class\ee108\groups\8\final_project\note_player.v" Line 128: Result of 32-bit expression is truncated to fit in 6-bit target.
+WARNING:HDLCompiler:413 - "\\afs\ir\class\ee108\groups\8\final_project\note_player.v" Line 129: Result of 32-bit expression is truncated to fit in 6-bit target.
 
 Elaborating module <dynamics>.
+
+Elaborating module <codec_conditioner>.
+
+Elaborating module <dffre(WIDTH=1)>.
+
+Elaborating module <dffre(WIDTH=16)>.
 
 Elaborating module <dffre(WIDTH=14)>.
 
@@ -244,12 +250,6 @@ Elaborating module <beat_generator(STOP=3'b100)>.
 Elaborating module <dffre(WIDTH=10)>.
 
 Elaborating module <beat_generator(WIDTH=10,STOP=1000)>.
-
-Elaborating module <codec_conditioner>.
-
-Elaborating module <dffre(WIDTH=1)>.
-
-Elaborating module <dffre(WIDTH=16)>.
 
 Elaborating module <dff(WIDTH=17)>.
 WARNING:HDLCompiler:1127 - "\\afs\ir\class\ee108\groups\8\final_project\lab5_top.v" Line 114: Assignment to flopped_new_sample ignored, since the identifier is never used
@@ -477,9 +477,9 @@ Unit <dffre_1> synthesized.
 
 Synthesizing Unit <note_player>.
     Related source file is "\\afs\ir\class\ee108\groups\8\final_project\note_player.v".
-    Found 7-bit subtractor for signal <GND_17_o_GND_17_o_sub_1_OUT> created at line 129.
-    Found 16-bit adder for signal <n0040> created at line 133.
-    Found 16-bit adder for signal <temp_sample_out> created at line 133.
+    Found 7-bit subtractor for signal <GND_17_o_GND_17_o_sub_1_OUT> created at line 130.
+    Found 16-bit adder for signal <n0040> created at line 134.
+    Found 16-bit adder for signal <temp_sample_out> created at line 134.
     Summary:
 	inferred   3 Adder/Subtractor(s).
 	inferred   1 Multiplexer(s).
@@ -532,26 +532,26 @@ Unit <sine_rom> synthesized.
 
 Synthesizing Unit <dynamics>.
     Related source file is "\\afs\ir\class\ee108\groups\8\final_project\dynamics.v".
-    Found 15-bit subtractor for signal <GND_23_o_GND_23_o_sub_6_OUT> created at line 47.
-    Found 16-bit subtractor for signal <sample[15]_sample_subtract_8[15]_sub_13_OUT> created at line 74.
-    Found 14-bit subtractor for signal <result> created at line 138.
-    Found 16-bit subtractor for signal <sample[15]_sample_subtract_4[15]_sub_42_OUT> created at line 152.
-    Found 16-bit subtractor for signal <sample[15]_sample_subtract_8[15]_sub_44_OUT> created at line 153.
-    Found 16-bit subtractor for signal <sample[15]_sample_subtract_2[15]_sub_45_OUT> created at line 154.
-    Found 16-bit subtractor for signal <sample[15]_sample_subtract_8[15]_sub_47_OUT> created at line 155.
-    Found 16-bit subtractor for signal <sample[15]_sample_subtract_4[15]_sub_49_OUT> created at line 156.
-    Found 5-bit adder for signal <attack_count[4]_GND_23_o_add_4_OUT> created at line 45.
-    Found 14-bit adder for signal <attack_subtract[13]_GND_23_o_add_7_OUT> created at line 54.
-    Found 14-bit adder for signal <hold[13]_GND_23_o_add_8_OUT> created at line 62.
-    Found 16-bit adder for signal <sample_subtract_4[15]_sample_subtract_8[15]_add_9_OUT> created at line 70.
-    Found 16-bit adder for signal <sample_subtract_2[15]_sample_subtract_8[15]_add_10_OUT> created at line 72.
-    Found 16-bit adder for signal <sample_subtract_2[15]_sample_subtract_4[15]_add_11_OUT> created at line 73.
-    Found 5-bit adder for signal <count[4]_GND_23_o_add_31_OUT> created at line 115.
-    Found 14-bit adder for signal <subtractor[13]_GND_23_o_add_35_OUT> created at line 132.
-    Found 14-bit adder for signal <decay_duration> created at line 88.
-    Found 14-bit shifter logical left for signal <flop_duration[13]_count[4]_shift_left_34_OUT> created at line 124
-    Found 14-bit comparator equal for signal <decay> created at line 40
-    Found 14-bit comparator greater for signal <GND_23_o_subtractor[13]_LessThan_33_o> created at line 117
+    Found 15-bit subtractor for signal <GND_23_o_GND_23_o_sub_6_OUT> created at line 58.
+    Found 16-bit subtractor for signal <sample[15]_sample_subtract_8[15]_sub_13_OUT> created at line 89.
+    Found 14-bit subtractor for signal <result> created at line 157.
+    Found 16-bit subtractor for signal <sample[15]_sample_subtract_4[15]_sub_41_OUT> created at line 171.
+    Found 16-bit subtractor for signal <sample[15]_sample_subtract_8[15]_sub_43_OUT> created at line 172.
+    Found 16-bit subtractor for signal <sample[15]_sample_subtract_2[15]_sub_44_OUT> created at line 173.
+    Found 16-bit subtractor for signal <sample[15]_sample_subtract_8[15]_sub_46_OUT> created at line 174.
+    Found 16-bit subtractor for signal <sample[15]_sample_subtract_4[15]_sub_48_OUT> created at line 175.
+    Found 5-bit adder for signal <attack_count[4]_GND_23_o_add_4_OUT> created at line 56.
+    Found 14-bit adder for signal <attack_subtract[13]_GND_23_o_add_7_OUT> created at line 67.
+    Found 14-bit adder for signal <hold[13]_GND_23_o_add_8_OUT> created at line 77.
+    Found 16-bit adder for signal <sample_subtract_4[15]_sample_subtract_8[15]_add_9_OUT> created at line 85.
+    Found 16-bit adder for signal <sample_subtract_2[15]_sample_subtract_8[15]_add_10_OUT> created at line 87.
+    Found 16-bit adder for signal <sample_subtract_2[15]_sample_subtract_4[15]_add_11_OUT> created at line 88.
+    Found 5-bit adder for signal <count[4]_GND_23_o_add_30_OUT> created at line 131.
+    Found 14-bit adder for signal <subtractor[13]_GND_23_o_add_34_OUT> created at line 151.
+    Found 14-bit adder for signal <decay_duration> created at line 114.
+    Found 14-bit shifter logical left for signal <flop_duration[13]_count[4]_shift_left_33_OUT> created at line 141
+    Found 14-bit comparator equal for signal <decay> created at line 46
+    Found 14-bit comparator greater for signal <GND_23_o_subtractor[13]_LessThan_32_o> created at line 133
     Summary:
 	inferred  17 Adder/Subtractor(s).
 	inferred   2 Comparator(s).
@@ -559,61 +559,61 @@ Synthesizing Unit <dynamics>.
 	inferred   1 Combinational logic shifter(s).
 Unit <dynamics> synthesized.
 
-Synthesizing Unit <dffre_4>.
-    Related source file is "\\afs\ir\class\ee108\groups\8\final_project\ff_lib.v".
-        WIDTH = 14
-    Found 14-bit register for signal <q>.
-    Summary:
-	inferred  14 D-type flip-flop(s).
-Unit <dffre_4> synthesized.
-
-Synthesizing Unit <beat_generator_1>.
-    Related source file is "\\afs\ir\class\ee108\groups\8\final_project\beat_generator.v".
-        WIDTH = 10
-        STOP = 3'b100
-    Found 10-bit adder for signal <count[9]_GND_25_o_add_1_OUT> created at line 15.
-    Summary:
-	inferred   1 Adder/Subtractor(s).
-Unit <beat_generator_1> synthesized.
-
-Synthesizing Unit <dffre_5>.
-    Related source file is "\\afs\ir\class\ee108\groups\8\final_project\ff_lib.v".
-        WIDTH = 10
-    Found 10-bit register for signal <q>.
-    Summary:
-	inferred  10 D-type flip-flop(s).
-Unit <dffre_5> synthesized.
-
-Synthesizing Unit <beat_generator_2>.
-    Related source file is "\\afs\ir\class\ee108\groups\8\final_project\beat_generator.v".
-        WIDTH = 10
-        STOP = 1000
-    Found 10-bit adder for signal <count[9]_GND_28_o_add_1_OUT> created at line 15.
-    Summary:
-	inferred   1 Adder/Subtractor(s).
-Unit <beat_generator_2> synthesized.
-
 Synthesizing Unit <codec_conditioner>.
     Related source file is "\\afs\ir\class\ee108\groups\8\final_project\codec_conditioner.v".
     Summary:
 	inferred   1 Multiplexer(s).
 Unit <codec_conditioner> synthesized.
 
-Synthesizing Unit <dffre_6>.
+Synthesizing Unit <dffre_4>.
     Related source file is "\\afs\ir\class\ee108\groups\8\final_project\ff_lib.v".
         WIDTH = 1
     Found 1-bit register for signal <q>.
     Summary:
 	inferred   1 D-type flip-flop(s).
-Unit <dffre_6> synthesized.
+Unit <dffre_4> synthesized.
 
-Synthesizing Unit <dffre_7>.
+Synthesizing Unit <dffre_5>.
     Related source file is "\\afs\ir\class\ee108\groups\8\final_project\ff_lib.v".
         WIDTH = 16
     Found 16-bit register for signal <q>.
     Summary:
 	inferred  16 D-type flip-flop(s).
+Unit <dffre_5> synthesized.
+
+Synthesizing Unit <dffre_6>.
+    Related source file is "\\afs\ir\class\ee108\groups\8\final_project\ff_lib.v".
+        WIDTH = 14
+    Found 14-bit register for signal <q>.
+    Summary:
+	inferred  14 D-type flip-flop(s).
+Unit <dffre_6> synthesized.
+
+Synthesizing Unit <beat_generator_1>.
+    Related source file is "\\afs\ir\class\ee108\groups\8\final_project\beat_generator.v".
+        WIDTH = 10
+        STOP = 3'b100
+    Found 10-bit adder for signal <count[9]_GND_28_o_add_1_OUT> created at line 15.
+    Summary:
+	inferred   1 Adder/Subtractor(s).
+Unit <beat_generator_1> synthesized.
+
+Synthesizing Unit <dffre_7>.
+    Related source file is "\\afs\ir\class\ee108\groups\8\final_project\ff_lib.v".
+        WIDTH = 10
+    Found 10-bit register for signal <q>.
+    Summary:
+	inferred  10 D-type flip-flop(s).
 Unit <dffre_7> synthesized.
+
+Synthesizing Unit <beat_generator_2>.
+    Related source file is "\\afs\ir\class\ee108\groups\8\final_project\beat_generator.v".
+        WIDTH = 10
+        STOP = 1000
+    Found 10-bit adder for signal <count[9]_GND_31_o_add_1_OUT> created at line 15.
+    Summary:
+	inferred   1 Adder/Subtractor(s).
+Unit <beat_generator_2> synthesized.
 
 Synthesizing Unit <dff_2>.
     Related source file is "\\afs\ir\class\ee108\groups\8\final_project\ff_lib.v".
@@ -972,14 +972,14 @@ Macro Statistics
  8-bit adder                                           : 4
  8-bit subtractor                                      : 1
  9-bit adder                                           : 3
-# Registers                                            : 113
- 1-bit register                                        : 39
+# Registers                                            : 116
+ 1-bit register                                        : 40
  10-bit register                                       : 5
  11-bit register                                       : 6
  12-bit register                                       : 1
  127-bit register                                      : 1
  14-bit register                                       : 4
- 16-bit register                                       : 9
+ 16-bit register                                       : 11
  17-bit register                                       : 1
  2-bit register                                        : 4
  20-bit register                                       : 4
@@ -1006,12 +1006,12 @@ Macro Statistics
  21-bit comparator lessequal                           : 2
  8-bit comparator lessequal                            : 4
  9-bit comparator not equal                            : 1
-# Multiplexers                                         : 179
+# Multiplexers                                         : 180
  1-bit 2-to-1 multiplexer                              : 73
  1-bit 4-to-1 multiplexer                              : 3
  10-bit 2-to-1 multiplexer                             : 17
  14-bit 2-to-1 multiplexer                             : 1
- 16-bit 2-to-1 multiplexer                             : 13
+ 16-bit 2-to-1 multiplexer                             : 14
  2-bit 4-to-1 multiplexer                              : 3
  24-bit 2-to-1 multiplexer                             : 1
  29-bit 2-to-1 multiplexer                             : 5
@@ -1291,8 +1291,8 @@ Macro Statistics
  9-bit up counter                                      : 1
 # Accumulators                                         : 3
  22-bit up accumulator                                 : 3
-# Registers                                            : 785
- Flip-Flops                                            : 785
+# Registers                                            : 818
+ Flip-Flops                                            : 818
 # Comparators                                          : 22
  1-bit comparator greater                              : 1
  10-bit comparator greater                             : 2
@@ -1304,12 +1304,12 @@ Macro Statistics
  21-bit comparator lessequal                           : 2
  8-bit comparator lessequal                            : 4
  9-bit comparator not equal                            : 1
-# Multiplexers                                         : 151
+# Multiplexers                                         : 152
  1-bit 2-to-1 multiplexer                              : 50
  1-bit 4-to-1 multiplexer                              : 3
  10-bit 2-to-1 multiplexer                             : 17
  14-bit 2-to-1 multiplexer                             : 1
- 16-bit 2-to-1 multiplexer                             : 13
+ 16-bit 2-to-1 multiplexer                             : 14
  2-bit 4-to-1 multiplexer                              : 3
  24-bit 2-to-1 multiplexer                             : 1
  29-bit 2-to-1 multiplexer                             : 5
@@ -1409,7 +1409,7 @@ INFO:Xst:1901 - Instance PLLE2_BASE_inst in unit zedboard_hdmi of type PLLE2_BAS
 INFO:Xst:2261 - The FF/Latch <clk_last_quarter_1> in Unit <i2c_sender> is equivalent to the following 2 FFs/Latches, which will be removed : <clk_first_quarter_0> <data_sr_0> 
 INFO:Xst:2261 - The FF/Latch <hdmi/Inst_i2c_sender/clk_first_quarter_1> in Unit <lab5_top> is equivalent to the following FF/Latch, which will be removed : <hdmi/Inst_i2c_sender/clk_last_quarter_2> 
 
-Optimizing unit <dffre_7> ...
+Optimizing unit <dffre_5> ...
 
 Optimizing unit <dff_2> ...
 
@@ -1444,6 +1444,8 @@ Optimizing unit <mcu> ...
 Optimizing unit <song_reader> ...
 
 Optimizing unit <note_player> ...
+
+Optimizing unit <dynamics> ...
 
 Optimizing unit <frequency_rom> ...
 
@@ -1728,8 +1730,8 @@ Unit <lab5_top> processed.
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 692
- Flip-Flops                                            : 692
+# Registers                                            : 725
+ Flip-Flops                                            : 725
 # Shift Registers                                      : 4
  2-bit shift register                                  : 1
  3-bit shift register                                  : 2
@@ -1756,24 +1758,24 @@ Top Level Output File Name         : lab5_top.ngc
 
 Primitive and Black Box Usage:
 ------------------------------
-# BELS                             : 2792
+# BELS                             : 2811
 #      GND                         : 1
 #      INV                         : 97
 #      LUT1                        : 208
-#      LUT2                        : 380
-#      LUT3                        : 177
-#      LUT4                        : 148
-#      LUT5                        : 124
-#      LUT6                        : 398
+#      LUT2                        : 248
+#      LUT3                        : 176
+#      LUT4                        : 162
+#      LUT5                        : 173
+#      LUT6                        : 484
 #      MUXCY                       : 625
-#      MUXF7                       : 14
+#      MUXF7                       : 17
 #      VCC                         : 1
 #      XORCY                       : 619
-# FlipFlops/Latches                : 697
+# FlipFlops/Latches                : 730
 #      FD                          : 170
 #      FDE                         : 157
 #      FDR                         : 106
-#      FDRE                        : 232
+#      FDRE                        : 265
 #      FDSE                        : 31
 #      ODDR                        : 1
 # RAMS                             : 6
@@ -1800,18 +1802,18 @@ Selected Device : 7z020clg484-3
 
 
 Slice Logic Utilization: 
- Number of Slice Registers:             697  out of  106400     0%  
- Number of Slice LUTs:                 1536  out of  53200     2%  
-    Number used as Logic:              1532  out of  53200     2%  
+ Number of Slice Registers:             730  out of  106400     0%  
+ Number of Slice LUTs:                 1552  out of  53200     2%  
+    Number used as Logic:              1548  out of  53200     2%  
     Number used as Memory:                4  out of  17400     0%  
        Number used as SRL:                4
 
 Slice Logic Distribution: 
- Number of LUT Flip Flop pairs used:   1614
-   Number with an unused Flip Flop:     917  out of   1614    56%  
-   Number with an unused LUT:            78  out of   1614     4%  
-   Number of fully used LUT-FF pairs:   619  out of   1614    38%  
-   Number of unique control sets:        49
+ Number of LUT Flip Flop pairs used:   1646
+   Number with an unused Flip Flop:     916  out of   1646    55%  
+   Number with an unused LUT:            94  out of   1646     5%  
+   Number of fully used LUT-FF pairs:   636  out of   1646    38%  
+   Number of unique control sets:        52
 
 IO Utilization: 
  Number of IOs:                          61
@@ -1844,19 +1846,19 @@ Clock Information:
 --------------------------------------+------------------------+-------+
 Clock Signal                          | Clock buffer(FF name)  | Load  |
 --------------------------------------+------------------------+-------+
-clk                                   | PLLE2_ADV:CLKOUT0      | 570   |
+clk                                   | PLLE2_ADV:CLKOUT0      | 603   |
 adau1761_codec/codec_clock_gen/clkout0| BUFG                   | 78    |
 clk                                   | PLLE2_ADV:CLKOUT1      | 61    |
 --------------------------------------+------------------------+-------+
 
 Asynchronous Control Signals Information:
 ----------------------------------------
--------------------------------------------------------+-------------------------------------------------------------------------------+-------+
-Control Signal                                         | Buffer(FF name)                                                               | Load  |
--------------------------------------------------------+-------------------------------------------------------------------------------+-------+
-Maddsub_PWR_1_o_r[7]_MuLt_9_OUT_Madd4_lut<6>(XST_GND:G)| NONE(music_player/song_reader_lib/Mram_addr[6]_memory[127][11]_wide_mux_1_OUT)| 10    |
-wd_top/write_en(wd_top/wc/write_enable1:O)             | NONE(wd_top/sample_ram/Mram_RAM)                                              | 2     |
--------------------------------------------------------+-------------------------------------------------------------------------------+-------+
+-------------------------------------------------------+-------------------------------------------------------------------------------------------------+-------+
+Control Signal                                         | Buffer(FF name)                                                                                 | Load  |
+-------------------------------------------------------+-------------------------------------------------------------------------------------------------+-------+
+Maddsub_PWR_1_o_r[7]_MuLt_9_OUT_Madd4_lut<6>(XST_GND:G)| NONE(music_player/note_player/sine_read1_mySineROM/Mram_addr[9]_memory[1023][15]_wide_mux_1_OUT)| 10    |
+wd_top/write_en(wd_top/wc/write_enable1:O)             | NONE(wd_top/sample_ram/Mram_RAM)                                                                | 2     |
+-------------------------------------------------------+-------------------------------------------------------------------------------------------------+-------+
 
 Timing Summary:
 ---------------
@@ -1874,7 +1876,7 @@ All values displayed in nanoseconds (ns)
 =========================================================================
 Timing constraint: Default period analysis for Clock 'clk'
   Clock period: 10.212ns (frequency: 97.926MHz)
-  Total number of paths / destination ports: 8325134407 / 1496
+  Total number of paths / destination ports: 8320280961 / 1593
 -------------------------------------------------------------------------
 Delay:               10.212ns (Levels of Logic = 8)
   Source:            wd_top/sample_ram/Mram_RAM (RAM)
@@ -1887,7 +1889,7 @@ Delay:               10.212ns (Levels of Logic = 8)
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
      RAMB18E1:CLKARDCLK->DOBDO2    4   1.846   0.564  wd_top/sample_ram/Mram_RAM (wd_top/read_sample<2>)
-     LUT6:I0->O            1   0.043   0.000  wd_top/wd/last_value[7]_trans_y[7]_LessThan_14_o2_F (N245)
+     LUT6:I0->O            1   0.043   0.000  wd_top/wd/last_value[7]_trans_y[7]_LessThan_14_o2_F (N251)
      MUXF7:I0->O           4   0.169   0.303  wd_top/wd/last_value[7]_trans_y[7]_LessThan_14_o2 (wd_top/wd/last_value[7]_trans_y[7]_LessThan_14_o1)
      LUT5:I4->O            1   0.043   0.343  wd_top/wd/last_value[7]_trans_y[7]_LessThan_14_o1 (wd_top/wd/last_value[7]_trans_y[7]_LessThan_14_o2)
      LUT6:I4->O            2   0.043   0.293  wd_top/wd/valid_pixel30_SW2 (N147)
@@ -1929,7 +1931,7 @@ Delay:               4.623ns (Levels of Logic = 6)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
-  Total number of paths / destination ports: 320 / 301
+  Total number of paths / destination ports: 353 / 334
 -------------------------------------------------------------------------
 Offset:              1.550ns (Levels of Logic = 3)
   Source:            JB<7> (PAD)
@@ -1962,7 +1964,7 @@ Offset:              1.058ns (Levels of Logic = 3)
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
      IBUF:I->O            12   0.000   0.394  AC_GPIO3_IBUF (AC_GPIO3_IBUF)
-     LUT2:I0->O            7   0.043   0.578  adau1761_codec/i2c_interface/Inst_i2s_data_interface/i2s_lr_i2s_lr_last_AND_240_o1 (adau1761_codec/i2c_interface/Inst_i2s_data_interface/i2s_lr_i2s_lr_last_AND_240_o)
+     LUT2:I0->O            7   0.043   0.578  adau1761_codec/i2c_interface/Inst_i2s_data_interface/i2s_lr_i2s_lr_last_AND_237_o1 (adau1761_codec/i2c_interface/Inst_i2s_data_interface/i2s_lr_i2s_lr_last_AND_237_o)
      LUT6:I0->O            1   0.043   0.000  adau1761_codec/i2c_interface/Inst_i2s_data_interface/Mmux_sr_out[62]_audio_l_in[23]_mux_5_OUT431 (adau1761_codec/i2c_interface/Inst_i2s_data_interface/sr_out[62]_audio_l_in[23]_mux_5_OUT<49>)
      FDE:D                    -0.001          adau1761_codec/i2c_interface/Inst_i2s_data_interface/sr_out_49
     ----------------------------------------
@@ -1993,7 +1995,7 @@ Offset:              1.076ns (Levels of Logic = 2)
 Timing constraint: Default OFFSET OUT AFTER for Clock 'adau1761_codec/codec_clock_gen/clkout0'
   Total number of paths / destination ports: 8 / 8
 -------------------------------------------------------------------------
-Offset:              0.995ns (Levels of Logic = 2)
+Offset:              1.036ns (Levels of Logic = 2)
   Source:            adau1761_codec/i2c_interface/Inst_i2s_data_interface/new_sample (FF)
   Destination:       leds_r<3> (PAD)
   Source Clock:      adau1761_codec/codec_clock_gen/clkout0 rising
@@ -2002,12 +2004,12 @@ Offset:              0.995ns (Levels of Logic = 2)
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDR:C->Q             20   0.232   0.431  adau1761_codec/i2c_interface/Inst_i2s_data_interface/new_sample (adau1761_codec/i2c_interface/Inst_i2s_data_interface/new_sample)
+     FDR:C->Q            172   0.232   0.472  adau1761_codec/i2c_interface/Inst_i2s_data_interface/new_sample (adau1761_codec/i2c_interface/Inst_i2s_data_interface/new_sample)
      LUT4:I2->O            3   0.043   0.289  music_player/codec_conditioner/Mmux_valid_sample131 (leds_r_0_OBUF)
      OBUF:I->O                 0.000          leds_r_0_OBUF (leds_r<0>)
     ----------------------------------------
-    Total                      0.995ns (0.275ns logic, 0.720ns route)
-                                       (27.6% logic, 72.4% route)
+    Total                      1.036ns (0.275ns logic, 0.761ns route)
+                                       (26.6% logic, 73.4% route)
 
 =========================================================================
 Timing constraint: Default path analysis
@@ -2046,19 +2048,19 @@ Clock to Setup on destination clock clk
                                       | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock                          |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 --------------------------------------+---------+---------+---------+---------+
-adau1761_codec/codec_clock_gen/clkout0|    1.400|         |         |         |
+adau1761_codec/codec_clock_gen/clkout0|    4.212|         |         |         |
 clk                                   |   10.212|         |         |         |
 --------------------------------------+---------+---------+---------+---------+
 
 =========================================================================
 
 
-Total REAL time to Xst completion: 30.00 secs
-Total CPU time to Xst completion: 30.34 secs
+Total REAL time to Xst completion: 31.00 secs
+Total CPU time to Xst completion: 30.92 secs
  
 --> 
 
-Total memory usage is 305896 kilobytes
+Total memory usage is 336960 kilobytes
 
 Number of errors   :    0 (   0 filtered)
 Number of warnings :  345 (   0 filtered)

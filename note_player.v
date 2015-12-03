@@ -64,7 +64,8 @@ endmodule
     input beat,  // This is our 1/48th second beat
     input generate_next_sample,  // Tells us when the codec wants a new sample
     output [15:0] sample_out,  // Our sample output
-    output new_sample_ready  // Tells the codec when we've got a sample
+    output new_sample_ready,  // Tells the codec when we've got a sample
+	 input new_frame
 );
 
     wire [19:0] step_size;
@@ -129,16 +130,17 @@ endmodule
                         ? duration_to_load : state - 1;
 
      assign done_with_note = (state == 6'b0) && beat;
-	  wire [15:0] temp_sample_out; // Changed vv as well
+	  wire [15:0] temp_sample_out;
 	  assign temp_sample_out = (($signed(sample_out1) >>> 1) + ($signed(sample_out2) >>> 2) + ($signed(sample_out3) >>> 2)); //
 	  dynamics dyn( //
 			.clk(clk),
 			.reset(reset),
-			.sample(temp_sample_out),
+			.sample_start(temp_sample_out),
 			.done_with_note(done_with_note), // Changed This
+			.new_sample_ready(new_sample_ready),
 			.note_duration(duration_to_load),
 			.final_sample(sample_out),
-			.generate_next_sample(generate_next_sample)
+			.new_frame(new_frame)				// ADDED THIS
 		 );
     //assign sample_out = ((sample_out1 >> 1) + (sample_out2 >> 2) + (sample_out3 >> 2));
     assign new_sample_ready = (new_sample_ready1 && new_sample_ready2 && new_sample_ready3);

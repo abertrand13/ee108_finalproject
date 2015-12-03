@@ -100,7 +100,8 @@ module music_player(
         .beat(beat),
         .generate_next_sample(generate_next_sample),
         .sample_out(note_sample),
-        .new_sample_ready(note_sample_ready)
+        .new_sample_ready(note_sample_ready),
+		  .new_frame(new_frame)					// ADDED THIS
     );
 
 //

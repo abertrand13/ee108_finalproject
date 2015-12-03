@@ -4,19 +4,25 @@ module dynamics(
 	input [5:0] note_duration,			// Taken from Note_Player
 	input clk,
 	input reset,
-	input [15:0] sample,					// Taken from Note_Player/Harmonics
-	input done_with_note,				// This is now Done_with_note
-	input generate_next_sample,	//
-	output [15:0] final_sample			
+	input [15:0] sample_start,					// Taken from Note_Player/Harmonics
+	input new_sample_ready,
+	input done_with_note,			
+	output [15:0] final_sample,
+	input new_frame
 );
 
-	// IGNORING THE ATTACK PHASE FOR NOW. IF WE WANT TO IMPLEMENT, WE WILL HAVE TO SLIGHTLY CHANGE HOW DECAY
-	// WORKS BUT IT SHOULDN'T BE TOO MUCH...
-	// We could theoretically just have a variable set into the reset of [counter, length_of_time & subtract_by]
-	// which is true while we are attacking and possibly for a defined amount of time after. Say a total of 1/4
-	// of the note. Then after we set it to false we could just subtract 1/8 of the note for the remaining amount
-	// of time, making the remaining amount of time effectively the new note_duration. And WABAMM!!! we've got it.
-
+	wire generate_next_sample;
+	wire [15:0] sample;
+	
+	codec_conditioner codec_conditioner(
+        .clk(clk),
+        .reset(reset),
+        .new_sample_in(sample_start),
+        .latch_new_sample_in(new_sample_ready),
+        .generate_next_sample(generate_next_sample),
+        .new_frame(new_frame),
+        .valid_sample(sample)
+    );
 
 	// Start Attack Phase and hold: Lets make attack always be a consistant 1/8 of note length, and hold it there
 	// for another 1/8th of a second, then begin decay.
@@ -33,12 +39,17 @@ module dynamics(
 	// This will get the duration correct to have each count be 1/64th of the total duration
 	// Effectively making the attack phase 1/8th of total duration.
 	assign attack_duration = temp_duration << 2; 
-	// Attack_zero should be true after every 1/64 of note_duration
+	// Attack_zero should be true after every 1/64 of note_duration.
 	assign attack_zero = attack_duration - attack_subtract == 0;
 	// We want the hold to be 8 times as large at the attack_duration so that it also
 	// takes a full 1/8th of the duration.
 	assign decay = hold == attack_duration << 3;
 	
+	
+	
+	
+	// This keeps track of how many times we should have added 1/8th of the amplitude
+	// of the total sample to our output sample.
 	dffre #(.WIDTH(5)) attack(
 		.clk(clk),
 		.r(reset || done_with_note),
@@ -47,6 +58,8 @@ module dynamics(
 		.en(beat && attack_duration - attack_subtract == 1 && !attack_done)
 	);
 	
+	// When this reaches a certain limit i.e. 1/64th of the total note_duration,
+	// it will enable the count flop (as part of the enable).
 	dffre #(.WIDTH(14)) attack_sub(
 		.clk(clk),
 		.r(reset || done_with_note || attack_zero),
@@ -55,9 +68,11 @@ module dynamics(
 		.q(attack_subtract)
 	);
 	
+	// This takes care of the Sustain phase by waiting until the attack phase is
+	// done, then it counts up to 1/8th of the note duration.
 	dffre #(.WIDTH(14)) hold_phase(
 		.clk(clk),
-		.r(reset),
+		.r(reset || done_with_note),
 		.en(beat && !decay && attack_done),
 		.d(hold + 1'b1),
 		.q(hold)
@@ -95,43 +110,47 @@ module dynamics(
 	assign temp_duration = {8'd0, note_duration};
 	// This should take care of making the remaining decay last for only 3/4 of the duration.
 	// Effectively making the entire Attack and Decay last the whole amount of time.
-	assign fourth_temp_duration = temp_duration;// << 2;
-	assign decay_duration = fourth_temp_duration + fourth_temp_duration + fourth_temp_duration;
-	assign flop_duration = decay_duration;// >> 2;
+	//assign fourth_temp_duration = temp_duration;// << 2;
+	assign decay_duration = temp_duration + temp_duration + temp_duration;
+	assign flop_duration = decay_duration >> 2;
 	
-	beat_generator #(.STOP(`BEAT_INPUT)) beat_gen( //
+	// This sets up a beat pulse that will (should) pulse ever 1/256 of a second.
+	beat_generator #(.STOP(`BEAT_INPUT)) beat_gen( 
 		.clk(clk),
 		.reset(reset),
 		.en(generate_next_sample),
 		.beat(beat)
-	); //
+	); 
 
 	// Keeps track of how much we should be subtracting from sample.
 	// Every time result = 0 we increment count which then shifts the 
 	// temp_duration left, making result a larger number than it was before.
 	dffre #(.WIDTH(5)) counter(
 		.clk(clk),
-		.r(reset || done_with_note), // add || !attack_done
+		.r(reset || done_with_note),
 		.d(count + 1'b1),
 		.q(count),
-		.en(zero && subtractor > 0 && attack_done && decay)
+		.en(zero && subtractor > 0 && decay)
 	);
 	
-	// Used to make new_duration long enough.
+	// Used to make new_duration long enough. We made the duration longer each 
+	// time count is incremented to simulate an exponential decay.
 	dffre #(.WIDTH(14)) length_of_time(
 		.clk(clk),
 		.r(reset || done_with_note),
 		.d(flop_duration << count + 1'b1),
 		.q(new_duration),
-		.en(beat && attack_done && decay)	
+		.en(beat && decay)	
 	);
 	
+	// This is a counter that when it reaches a certain limit (new_duration)
+	// enables the counter flop, which in turn increments count and it starts over.
 	dffre #(.WIDTH(14)) subtract_by(
 		.clk(clk),
 		.r(reset || done_with_note || zero),
 		.d(subtractor + 1'b1),
 		.q(subtractor),
-		.en(beat && attack_done && decay)	
+		.en(beat && decay)	
 	);
 
 	// whether it's time to drop the volume of the note again (or not)
@@ -160,8 +179,6 @@ module dynamics(
 		endcase		
 	end
 
-	// There may be an issure with the above case statement where at the end of the note a single sample
-	// is sent back that is at full amplitude.
 	//assign final_sample = final_temp;
 	// For after ATTACK Phase
 	assign final_sample = attack_done ? final_temp : attack_final;

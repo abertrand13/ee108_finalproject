@@ -102,7 +102,6 @@ module song_reader_new(
 		endcase
 	end
 	
-	// assign new_note = state == `READ ? 1'b1 : 1'b0;
 	assign song_done = (note_done && (addr[4:0] == 5'd31));
 	
 endmodule

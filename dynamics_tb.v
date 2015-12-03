@@ -6,6 +6,7 @@ module dynamics_tb();
 	reg new_sample_ready;
 	reg generate_next_sample;
 	reg beat;
+	reg new_frame;
 	wire [15:0] final_sample;
 	
 	initial begin
@@ -20,10 +21,11 @@ module dynamics_tb();
 		.note_duration(note_duration),
 		.clk(clk),
 		.reset(reset),
-		.sample(sample),
-		.done_with_note(new_sample_ready),
-		.generate_next_sample(generate_next_sample),
-		.final_sample(final_sample)
+		.sample_start(sample),
+		.done_with_note(done_with_note),
+		.new_sample_ready(new_sample_ready),
+		.final_sample(final_sample),
+		.new_frame(new_frame)
 	);
 	
 	/*beat_generator #(.STOP(4)) beat_gen(
@@ -42,7 +44,7 @@ module dynamics_tb();
 	note_duration = 6'd3;
 	sample = 16'd0;
 	new_sample_ready = 1'b0;
-	generate_next_sample = 1'b1;
+	//generate_next_sample = 1'b1;
 	expected_final_sample = 16'd0;
 	#30
 	$display("Duration: %b, new_sample_ready : %b, final_sample: %b, expected: %b",
@@ -51,7 +53,7 @@ module dynamics_tb();
 	reset = 0;					// 96 clock cycles for 1/8th of a second. 12 for 1/64th.
 	note_duration = 6'd3;	// 1/16th of a second
 	sample = 16'd10400; 		// 1/8th of this number is 1300
-	new_sample_ready = 1'b0;
+	new_sample_ready = 1'b1;
 	expected_final_sample = 16'd9100;
 	#382//#125
 	$display("Duration: %b, new_sample_ready : %b, final_sample expected? %b",

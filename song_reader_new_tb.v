@@ -46,7 +46,7 @@ module song_reader_new_tb();
 		// Initial shenanigans	
 		play = 1'b1;
 		note_done = 1'b0;
-		song = 2'd0;
+		song = 2'd1;
 
 	end
 

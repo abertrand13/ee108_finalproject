@@ -3,6 +3,7 @@ module dynamics_with_attack_tb();
 	reg clk;
 	reg reset;
 	reg [15:0] sample;
+	reg done_with_note;
 	reg new_sample_ready;
 	reg generate_next_sample;
 	reg beat;
@@ -20,9 +21,9 @@ module dynamics_with_attack_tb();
 		.note_duration(note_duration),
 		.clk(clk),
 		.reset(reset),
-		.sample(sample),
-		.done_with_note(new_sample_ready),
-		.generate_next_sample(generate_next_sample),
+		.sample_start(sample),
+		.done_with_note(done_with_note),
+		.new_sample_ready(new_sample_ready),
 		.final_sample(final_sample)
 	);
 	

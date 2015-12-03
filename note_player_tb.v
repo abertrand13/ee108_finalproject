@@ -7,21 +7,21 @@ module note_player_tb();
     wire done_with_note, new_sample_ready, beat;
     wire [15:0] sample_out;
     reg expected_DWN, expected_NSR;
+	 reg new_frame;
 
     note_player np(
         .clk(clk),
         .reset(reset),
-
         .play_enable(play_enable),
         .note_to_load(note_to_load),
         .duration_to_load(duration_to_load),
         .load_new_note(load_new_note),
         .done_with_note(done_with_note),
-
         .beat(beat),
         .generate_next_sample(generate_next_sample),
         .sample_out(sample_out),
-        .new_sample_ready(new_sample_ready)
+        .new_sample_ready(new_sample_ready),
+		  .new_frame(new_frame)
     );
 	// Changed to 4 clk cycles per beat
     beat_generator #(.WIDTH(17), .STOP(3)) beat_generator(

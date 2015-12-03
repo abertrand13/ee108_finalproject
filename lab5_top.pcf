@@ -1,5 +1,5 @@
 //! **************************************************************************
-// Written by: Map P.20131013 on Wed Dec 02 12:13:08 2015
+// Written by: Map P.20131013 on Wed Dec 02 17:28:28 2015
 //! **************************************************************************
 
 SCHEMATIC START;
@@ -176,6 +176,46 @@ TIMEGRP clk = BEL "converted_0" BEL "converted_1" BEL "converted_2" BEL
         "music_player/song_reader/states/q_0" BEL
         "music_player/song_reader/states/q_1" BEL
         "music_player/song_reader/states/q_2" BEL
+        "music_player/note_player/freq_reg/q_0" BEL
+        "music_player/note_player/freq_reg/q_1" BEL
+        "music_player/note_player/freq_reg/q_2" BEL
+        "music_player/note_player/freq_reg/q_3" BEL
+        "music_player/note_player/freq_reg/q_4" BEL
+        "music_player/note_player/freq_reg/q_5" BEL
+        "music_player/note_player/state_reg/q_0" BEL
+        "music_player/note_player/state_reg/q_1" BEL
+        "music_player/note_player/state_reg/q_2" BEL
+        "music_player/note_player/state_reg/q_3" BEL
+        "music_player/note_player/state_reg/q_4" BEL
+        "music_player/note_player/state_reg/q_5" BEL
+        "music_player/note_player/dyn/subtract_by/q_13" BEL
+        "music_player/note_player/dyn/subtract_by/q_12" BEL
+        "music_player/note_player/dyn/subtract_by/q_11" BEL
+        "music_player/note_player/dyn/subtract_by/q_10" BEL
+        "music_player/note_player/dyn/subtract_by/q_9" BEL
+        "music_player/note_player/dyn/subtract_by/q_8" BEL
+        "music_player/note_player/dyn/subtract_by/q_7" BEL
+        "music_player/note_player/dyn/subtract_by/q_6" BEL
+        "music_player/note_player/dyn/subtract_by/q_5" BEL
+        "music_player/note_player/dyn/subtract_by/q_4" BEL
+        "music_player/note_player/dyn/subtract_by/q_3" BEL
+        "music_player/note_player/dyn/subtract_by/q_2" BEL
+        "music_player/note_player/dyn/subtract_by/q_1" BEL
+        "music_player/note_player/dyn/subtract_by/q_0" BEL
+        "music_player/note_player/dyn/hold_phase/q_13" BEL
+        "music_player/note_player/dyn/hold_phase/q_12" BEL
+        "music_player/note_player/dyn/hold_phase/q_11" BEL
+        "music_player/note_player/dyn/hold_phase/q_10" BEL
+        "music_player/note_player/dyn/hold_phase/q_9" BEL
+        "music_player/note_player/dyn/hold_phase/q_8" BEL
+        "music_player/note_player/dyn/hold_phase/q_7" BEL
+        "music_player/note_player/dyn/hold_phase/q_6" BEL
+        "music_player/note_player/dyn/hold_phase/q_5" BEL
+        "music_player/note_player/dyn/hold_phase/q_4" BEL
+        "music_player/note_player/dyn/hold_phase/q_3" BEL
+        "music_player/note_player/dyn/hold_phase/q_2" BEL
+        "music_player/note_player/dyn/hold_phase/q_1" BEL
+        "music_player/note_player/dyn/hold_phase/q_0" BEL
         "music_player/note_player/dyn/counter/q_3" BEL
         "music_player/note_player/dyn/counter/q_2" BEL
         "music_player/note_player/dyn/counter/q_1" BEL
@@ -194,34 +234,6 @@ TIMEGRP clk = BEL "converted_0" BEL "converted_1" BEL "converted_2" BEL
         "music_player/note_player/dyn/attack_sub/q_2" BEL
         "music_player/note_player/dyn/attack_sub/q_1" BEL
         "music_player/note_player/dyn/attack_sub/q_0" BEL
-        "music_player/note_player/dyn/hold_phase/q_13" BEL
-        "music_player/note_player/dyn/hold_phase/q_12" BEL
-        "music_player/note_player/dyn/hold_phase/q_11" BEL
-        "music_player/note_player/dyn/hold_phase/q_10" BEL
-        "music_player/note_player/dyn/hold_phase/q_9" BEL
-        "music_player/note_player/dyn/hold_phase/q_8" BEL
-        "music_player/note_player/dyn/hold_phase/q_7" BEL
-        "music_player/note_player/dyn/hold_phase/q_6" BEL
-        "music_player/note_player/dyn/hold_phase/q_5" BEL
-        "music_player/note_player/dyn/hold_phase/q_4" BEL
-        "music_player/note_player/dyn/hold_phase/q_3" BEL
-        "music_player/note_player/dyn/hold_phase/q_2" BEL
-        "music_player/note_player/dyn/hold_phase/q_1" BEL
-        "music_player/note_player/dyn/hold_phase/q_0" BEL
-        "music_player/note_player/dyn/subtract_by/q_13" BEL
-        "music_player/note_player/dyn/subtract_by/q_12" BEL
-        "music_player/note_player/dyn/subtract_by/q_11" BEL
-        "music_player/note_player/dyn/subtract_by/q_10" BEL
-        "music_player/note_player/dyn/subtract_by/q_9" BEL
-        "music_player/note_player/dyn/subtract_by/q_8" BEL
-        "music_player/note_player/dyn/subtract_by/q_7" BEL
-        "music_player/note_player/dyn/subtract_by/q_6" BEL
-        "music_player/note_player/dyn/subtract_by/q_5" BEL
-        "music_player/note_player/dyn/subtract_by/q_4" BEL
-        "music_player/note_player/dyn/subtract_by/q_3" BEL
-        "music_player/note_player/dyn/subtract_by/q_2" BEL
-        "music_player/note_player/dyn/subtract_by/q_1" BEL
-        "music_player/note_player/dyn/subtract_by/q_0" BEL
         "music_player/note_player/dyn/beat_gen/counter/q_2" BEL
         "music_player/note_player/dyn/beat_gen/counter/q_1" BEL
         "music_player/note_player/dyn/beat_gen/counter/q_0" BEL
@@ -229,19 +241,8 @@ TIMEGRP clk = BEL "converted_0" BEL "converted_1" BEL "converted_2" BEL
         "music_player/note_player/dyn/attack/q_2" BEL
         "music_player/note_player/dyn/attack/q_1" BEL
         "music_player/note_player/dyn/attack/q_0" BEL
-        "music_player/note_player/freq_reg/q_0" BEL
-        "music_player/note_player/freq_reg/q_1" BEL
-        "music_player/note_player/freq_reg/q_2" BEL
-        "music_player/note_player/freq_reg/q_3" BEL
-        "music_player/note_player/freq_reg/q_4" BEL
-        "music_player/note_player/freq_reg/q_5" BEL
-        "music_player/note_player/state_reg/q_0" BEL
-        "music_player/note_player/state_reg/q_1" BEL
-        "music_player/note_player/state_reg/q_2" BEL
-        "music_player/note_player/state_reg/q_3" BEL
-        "music_player/note_player/state_reg/q_4" BEL
-        "music_player/note_player/state_reg/q_5" BEL
-        "music_player/note_player/dyn/length_of_time/q_13" BEL
+        "music_player/note_player/dyn/codec_conditioner/new_frame_state/q_0"
+        BEL "music_player/note_player/dyn/length_of_time/q_13" BEL
         "music_player/note_player/dyn/length_of_time/q_12" BEL
         "music_player/note_player/dyn/length_of_time/q_11" BEL
         "music_player/note_player/dyn/length_of_time/q_10" BEL
@@ -254,6 +255,101 @@ TIMEGRP clk = BEL "converted_0" BEL "converted_1" BEL "converted_2" BEL
         "music_player/note_player/dyn/length_of_time/q_3" BEL
         "music_player/note_player/dyn/length_of_time/q_2" BEL
         "music_player/note_player/dyn/length_of_time/q_1" BEL
+        "music_player/note_player/dyn/codec_conditioner/next_sample_latch/q_15"
+        BEL
+        "music_player/note_player/dyn/codec_conditioner/next_sample_latch/q_14"
+        BEL
+        "music_player/note_player/dyn/codec_conditioner/next_sample_latch/q_13"
+        BEL
+        "music_player/note_player/dyn/codec_conditioner/next_sample_latch/q_12"
+        BEL
+        "music_player/note_player/dyn/codec_conditioner/next_sample_latch/q_11"
+        BEL
+        "music_player/note_player/dyn/codec_conditioner/next_sample_latch/q_10"
+        BEL
+        "music_player/note_player/dyn/codec_conditioner/next_sample_latch/q_9"
+        BEL
+        "music_player/note_player/dyn/codec_conditioner/next_sample_latch/q_8"
+        BEL
+        "music_player/note_player/dyn/codec_conditioner/next_sample_latch/q_7"
+        BEL
+        "music_player/note_player/dyn/codec_conditioner/next_sample_latch/q_6"
+        BEL
+        "music_player/note_player/dyn/codec_conditioner/next_sample_latch/q_5"
+        BEL
+        "music_player/note_player/dyn/codec_conditioner/next_sample_latch/q_4"
+        BEL
+        "music_player/note_player/dyn/codec_conditioner/next_sample_latch/q_3"
+        BEL
+        "music_player/note_player/dyn/codec_conditioner/next_sample_latch/q_2"
+        BEL
+        "music_player/note_player/dyn/codec_conditioner/next_sample_latch/q_1"
+        BEL
+        "music_player/note_player/dyn/codec_conditioner/next_sample_latch/q_0"
+        BEL
+        "music_player/note_player/dyn/codec_conditioner/current_sample_latch/q_15"
+        BEL
+        "music_player/note_player/dyn/codec_conditioner/current_sample_latch/q_14"
+        BEL
+        "music_player/note_player/dyn/codec_conditioner/current_sample_latch/q_13"
+        BEL
+        "music_player/note_player/dyn/codec_conditioner/current_sample_latch/q_12"
+        BEL
+        "music_player/note_player/dyn/codec_conditioner/current_sample_latch/q_11"
+        BEL
+        "music_player/note_player/dyn/codec_conditioner/current_sample_latch/q_10"
+        BEL
+        "music_player/note_player/dyn/codec_conditioner/current_sample_latch/q_9"
+        BEL
+        "music_player/note_player/dyn/codec_conditioner/current_sample_latch/q_8"
+        BEL
+        "music_player/note_player/dyn/codec_conditioner/current_sample_latch/q_7"
+        BEL
+        "music_player/note_player/dyn/codec_conditioner/current_sample_latch/q_6"
+        BEL
+        "music_player/note_player/dyn/codec_conditioner/current_sample_latch/q_5"
+        BEL
+        "music_player/note_player/dyn/codec_conditioner/current_sample_latch/q_4"
+        BEL
+        "music_player/note_player/dyn/codec_conditioner/current_sample_latch/q_3"
+        BEL
+        "music_player/note_player/dyn/codec_conditioner/current_sample_latch/q_2"
+        BEL
+        "music_player/note_player/dyn/codec_conditioner/current_sample_latch/q_1"
+        BEL
+        "music_player/note_player/dyn/codec_conditioner/current_sample_latch/q_0"
+        BEL "music_player/codec_conditioner/next_sample_latch/q_15" BEL
+        "music_player/codec_conditioner/next_sample_latch/q_14" BEL
+        "music_player/codec_conditioner/next_sample_latch/q_13" BEL
+        "music_player/codec_conditioner/next_sample_latch/q_12" BEL
+        "music_player/codec_conditioner/next_sample_latch/q_11" BEL
+        "music_player/codec_conditioner/next_sample_latch/q_10" BEL
+        "music_player/codec_conditioner/next_sample_latch/q_9" BEL
+        "music_player/codec_conditioner/next_sample_latch/q_8" BEL
+        "music_player/codec_conditioner/next_sample_latch/q_7" BEL
+        "music_player/codec_conditioner/next_sample_latch/q_6" BEL
+        "music_player/codec_conditioner/next_sample_latch/q_5" BEL
+        "music_player/codec_conditioner/next_sample_latch/q_4" BEL
+        "music_player/codec_conditioner/next_sample_latch/q_3" BEL
+        "music_player/codec_conditioner/next_sample_latch/q_2" BEL
+        "music_player/codec_conditioner/next_sample_latch/q_1" BEL
+        "music_player/codec_conditioner/next_sample_latch/q_0" BEL
+        "music_player/codec_conditioner/current_sample_latch/q_15" BEL
+        "music_player/codec_conditioner/current_sample_latch/q_14" BEL
+        "music_player/codec_conditioner/current_sample_latch/q_13" BEL
+        "music_player/codec_conditioner/current_sample_latch/q_12" BEL
+        "music_player/codec_conditioner/current_sample_latch/q_11" BEL
+        "music_player/codec_conditioner/current_sample_latch/q_10" BEL
+        "music_player/codec_conditioner/current_sample_latch/q_9" BEL
+        "music_player/codec_conditioner/current_sample_latch/q_8" BEL
+        "music_player/codec_conditioner/current_sample_latch/q_7" BEL
+        "music_player/codec_conditioner/current_sample_latch/q_6" BEL
+        "music_player/codec_conditioner/current_sample_latch/q_5" BEL
+        "music_player/codec_conditioner/current_sample_latch/q_4" BEL
+        "music_player/codec_conditioner/current_sample_latch/q_3" BEL
+        "music_player/codec_conditioner/current_sample_latch/q_2" BEL
+        "music_player/codec_conditioner/current_sample_latch/q_1" BEL
+        "music_player/codec_conditioner/current_sample_latch/q_0" BEL
         "music_player/note_player/freq_rom/dout_18" BEL
         "music_player/note_player/freq_rom/dout_17" BEL
         "music_player/note_player/freq_rom/dout_16" BEL
@@ -341,38 +437,6 @@ TIMEGRP clk = BEL "converted_0" BEL "converted_1" BEL "converted_2" BEL
         "music_player/note_player/sine_read1/flipper/q_2" BEL
         "music_player/note_player/sine_read1/flipper/q_1" BEL
         "music_player/note_player/sine_read1/flipper/q_0" BEL
-        "music_player/codec_conditioner/next_sample_latch/q_15" BEL
-        "music_player/codec_conditioner/next_sample_latch/q_14" BEL
-        "music_player/codec_conditioner/next_sample_latch/q_13" BEL
-        "music_player/codec_conditioner/next_sample_latch/q_12" BEL
-        "music_player/codec_conditioner/next_sample_latch/q_11" BEL
-        "music_player/codec_conditioner/next_sample_latch/q_10" BEL
-        "music_player/codec_conditioner/next_sample_latch/q_9" BEL
-        "music_player/codec_conditioner/next_sample_latch/q_8" BEL
-        "music_player/codec_conditioner/next_sample_latch/q_7" BEL
-        "music_player/codec_conditioner/next_sample_latch/q_6" BEL
-        "music_player/codec_conditioner/next_sample_latch/q_5" BEL
-        "music_player/codec_conditioner/next_sample_latch/q_4" BEL
-        "music_player/codec_conditioner/next_sample_latch/q_3" BEL
-        "music_player/codec_conditioner/next_sample_latch/q_2" BEL
-        "music_player/codec_conditioner/next_sample_latch/q_1" BEL
-        "music_player/codec_conditioner/next_sample_latch/q_0" BEL
-        "music_player/codec_conditioner/current_sample_latch/q_15" BEL
-        "music_player/codec_conditioner/current_sample_latch/q_14" BEL
-        "music_player/codec_conditioner/current_sample_latch/q_13" BEL
-        "music_player/codec_conditioner/current_sample_latch/q_12" BEL
-        "music_player/codec_conditioner/current_sample_latch/q_11" BEL
-        "music_player/codec_conditioner/current_sample_latch/q_10" BEL
-        "music_player/codec_conditioner/current_sample_latch/q_9" BEL
-        "music_player/codec_conditioner/current_sample_latch/q_8" BEL
-        "music_player/codec_conditioner/current_sample_latch/q_7" BEL
-        "music_player/codec_conditioner/current_sample_latch/q_6" BEL
-        "music_player/codec_conditioner/current_sample_latch/q_5" BEL
-        "music_player/codec_conditioner/current_sample_latch/q_4" BEL
-        "music_player/codec_conditioner/current_sample_latch/q_3" BEL
-        "music_player/codec_conditioner/current_sample_latch/q_2" BEL
-        "music_player/codec_conditioner/current_sample_latch/q_1" BEL
-        "music_player/codec_conditioner/current_sample_latch/q_0" BEL
         "sample_reg/q_15" BEL "sample_reg/q_14" BEL "sample_reg/q_13" BEL
         "sample_reg/q_12" BEL "sample_reg/q_11" BEL "sample_reg/q_10" BEL
         "sample_reg/q_9" BEL "sample_reg/q_8" BEL "key_dec/sclk_19" BEL
