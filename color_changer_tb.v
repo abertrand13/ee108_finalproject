@@ -1,9 +1,8 @@
 module color_changer_tb();
-	
-	reg button_pressed;
+
 	reg clk;
 	reg reset;
-	reg [1:0] row, col;		
+	reg [3:0] value;		
 	wire [23:0] final_color;
 	wire done;
 	
@@ -15,12 +14,10 @@ module color_changer_tb();
         forever #5 clk = ~clk;
     end
 	 
-	 color_changer dut(
-		.button_pressed(button_pressed),		// making this a simple 8 bit number to make it easier for testing
+	 color_changer dut(		// making this a simple 8 bit number to make it easier for testing
 		.clk(clk),
 		.reset(reset),
-		.row(row),
-		.col(col),
+		.value(value),
 		.final_color(final_color),
 		.done(done)
 	 );
@@ -31,77 +28,60 @@ module color_changer_tb();
 	// it registering that there was a button pressed.
 	initial begin
 	reset = 1;
-	button_pressed = 0;
-	row = 0;
-	col = 0;
+	value = 4'h1;
 	#30
-	$display("Button pressed: %b, button value: %b, final_color: %b, done: %b", button_pressed, 4'h1, final_color, done);
+	$display("Button value: %b, final_color: %b, done: %b", 4'h1, final_color, done);
 	
 	reset = 0;
-	button_pressed = 1;
-	row = 2;
-	col = 3;
+	value = 4'hc;
 	expected_final_color = 24'hc00000;
 	expected_done = 0;
 	#10
-	$display("Button pressed: %b, button value: %b, final_color: %b, expected: %b, done: %b, expected %b,", button_pressed, 4'hc,
+	$display("Button value: %b, final_color: %b, expected: %b, done: %b, expected %b,", 4'hc,
 	final_color, expected_final_color, done, expected_done);
 	
-	button_pressed = 0;
-	row = 3;
-	col = 1;
+	value = 4'h5;
 	expected_final_color = 24'hc00000;
 	expected_done = 0;
 	#10
-	$display("Button pressed: %b, button value: %b, final_color: %b, expected: %b, done: %b, expected %b,", button_pressed, 4'h8,
+	$display("Button value: %b, final_color: %b, expected: %b, done: %b, expected %b,", 4'hc,
 	final_color, expected_final_color, done, expected_done);
-	
-	button_pressed = 1;
-	row = 1;
-	col = 1;
+
+	value = 4'hf;
 	expected_final_color = 24'hc50000;
 	expected_done = 0;
 	#10
-	$display("Button pressed: %b, button value: %b, final_color: %b, expected: %b, done: %b, expected %b,", button_pressed, 4'h5,
+	$display("Button value: %b, final_color: %b, expected: %b, done: %b, expected %b,", 4'hc,
 	final_color, expected_final_color, done, expected_done);
-	
-	button_pressed = 1;
-	row = 0;
-	col = 3;
+
+	value = 4'ha;
 	expected_final_color = 24'hc5a000;
 	expected_done = 0;
 	#10
-	$display("Button pressed: %b, button value: %b, final_color: %b, expected: %b, done: %b, expected %b,", button_pressed, 4'ha,
+	$display("Button value: %b, final_color: %b, expected: %b, done: %b, expected %b,", 4'hc,
 	final_color, expected_final_color, done, expected_done);
-	
-	button_pressed = 1;
-	row = 3;
-	col = 0;
+
+	value = 4'h0;
 	expected_final_color = 24'hc5a000;
 	expected_done = 0;
 	#10
-	$display("Button pressed: %b, button value: %b, final_color: %b, expected: %b, done: %b, expected %b,", button_pressed, 4'h0,
+	$display("Button value: %b, final_color: %b, expected: %b, done: %b, expected %b,", 4'hc,
 	final_color, expected_final_color, done, expected_done);
-	
-	button_pressed = 1;
-	row = 3;
-	col = 3;
+
+	value = 4'hd;
 	expected_final_color = 24'hc5a0d0;
 	expected_done = 0;
 	#10
-	$display("Button pressed: %b, button value: %b, final_color: %b, expected: %b, done: %b, expected %b,", button_pressed, 4'hd,
+	$display("Button value: %b, final_color: %b, expected: %b, done: %b, expected %b,", 4'hc,
 	final_color, expected_final_color, done, expected_done);
-	
+
 	// Done should be 1 after this because all the values are taken/filled. (count would be 6)
-	button_pressed = 1;
-	row = 2'd2;
-	col = 2'd1;
+	value = 4'h8;
 	expected_final_color = 24'hc5a0d8;
-	expected_done = 1;
-	#10
-	$display("Button pressed: %b, button value: %b, final_color: %b, expected: %b, done: %b, expected %b,", button_pressed, 4'h8,
+	#10 expected_done = 1;
+	$display("Button value: %b, final_color: %b, expected: %b, done: %b, expected %b,", 4'hc,
 	final_color, expected_final_color, done, expected_done);
-	
+
 	#500
 	$stop;
 	

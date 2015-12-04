@@ -1,14 +1,12 @@
 module color_changer(
-	input button_pressed,
 	input clk,
 	input reset,
-	input [1:0] row, col,
+	input [3:0] value,
 	output [23:0] final_color,
 	output done
 );
 
 	wire [2:0] count;
-	wire [3:0] value;
 	wire [3:0] final_value;
 
 	// HAVING DONE BE THE RESET MAY MESS THIS UP FOR A CLOCK CYCLE, SOMETHING TO CHECK.
@@ -20,28 +18,19 @@ module color_changer(
 	reg [3:0] part_5;
 	reg [3:0] part_6;
 	reg done_temp;
-	
-	//	We could also have this outside and feeding it straight into the input...
-	launchpad_interface button_value(
-		.row(row),
-		.col(col),
-		.output_val(value)
-	);
 
-	dffre #(.WIDTH(3)) counter(
+	dffr #(.WIDTH(3)) counter(
 		.clk(clk),
 		.r(reset || done),
 		.d(count + 1'b1),
-		.q(count),
-		.en(button_pressed)
+		.q(count)
 	);
 
-	dffre #(.WIDTH(4)) get_value(
+	dffr #(.WIDTH(4)) get_value(
 		.clk(clk),
 		.r(reset),
 		.d(value),
-		.q(final_value),
-		.en(button_pressed)
+		.q(final_value)
 	);
 
 	//	Start Combinational Logic
@@ -53,7 +42,7 @@ module color_changer(
 		3: 			{part_1, part_2, part_3, part_4, part_5, part_6, done_temp} = {part_1, part_2, final_value, part_4, part_5, part_6, 1'b1};
 		4: 			{part_1, part_2, part_3, part_4, part_5, part_6, done_temp} = {part_1, part_2, part_3, final_value, part_5, part_6, 1'b0};
 		5: 			{part_1, part_2, part_3, part_4, part_5, part_6, done_temp} = {part_1, part_2, part_3, part_4, final_value, part_6, 1'b0};
-		6:			{part_1, part_2, part_3, part_4, part_5, part_6, done_temp} = {part_1, part_2, part_3, part_4, part_5, final_value, 1'b1};
+		6:				{part_1, part_2, part_3, part_4, part_5, part_6, done_temp} = {part_1, part_2, part_3, part_4, part_5, final_value, 1'b1};
 		default: 	{part_1, part_2, part_3, part_4, part_5, part_6, done_temp} = {part_1, part_2, part_3, part_4, part_5, part_6, 1'b0};
 		endcase
 	end

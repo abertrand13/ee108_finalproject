@@ -4,6 +4,7 @@ module new_mcu_tb();
     wire play, reset_player;
     wire [3:0] song;
 
+
     new_mcu dut(
         .clk(clk),
         .reset(reset),
