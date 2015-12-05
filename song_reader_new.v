@@ -3,9 +3,9 @@
 // passing those notes to note_player
 
 
-`define PAUSE 	5'b00000 	// This pauses the song.  Triggered when we press pause
+`define PAUSE 	5'b00000 // This pauses the song.  Triggered when we press pause
 `define READ 	5'b00001	// This reads the next note
-`define REST 	5'b00010 	// Resting before we read the next note (after we hit a rest in the ROM)
+`define REST 	5'b00010 // Resting before we read the next note (after we hit a rest in the ROM)
 `define WAIT 	5'b00100	// This goes through a wait cycle to allow the song ROM a cycle to return
 `define INCR 	5'b01000	// Increments the addr so we know which note we are on.  Do we need this anymore?
 
@@ -102,6 +102,7 @@ module song_reader_new(
 		endcase
 	end
 	
-	assign song_done = (note_done && (addr[4:0] == 5'd31));
+	//assign song_done = (note_done && (addr[4:0] == 5'd31));
+	assign song_done = (addr[4:0] == 5'd31); // temporary hack.  problem was rests never generate a note_done signal
 	
 endmodule

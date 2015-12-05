@@ -67,6 +67,7 @@ module lab5_top(
     wire [10:0] y_q; 	 
     // Color to display at the given x,y
     wire [7:0]  r, g, b;
+	 wire [3:0] keypad_value;
  
 //   
 //  ****************************************************************************
@@ -106,7 +107,8 @@ module lab5_top(
         .next_button(next),
         .new_frame(new_frame), 
         .sample_out(codec_sample),
-        .new_sample_generated(new_sample)
+        .new_sample_generated(new_sample),
+		  .keypad_value(keypad_value)
     );
     dff #(.WIDTH(17)) sample_reg (
         .clk(clk),
@@ -152,7 +154,7 @@ module lab5_top(
 //		  Launchpad interface
 //  ****************************************************************************
 //  
-	 wire [3:0] keypad_value;
+	 
 	 // Instantiate module to read keypresses
 	 keypad_decoder key_dec(
 		  .clk(clk),
