@@ -93,7 +93,7 @@ module music_player(
 		  .beat(beat),
 		  .metadata(metadata)
     );*/
-	 song_reader_new song_reader_new(
+	 song_reader song_reader(
         .clk(clk),
         .reset(reset | reset_player),
         .play(play),
@@ -102,9 +102,7 @@ module music_player(
         .note(note_to_play),
         .duration(duration_for_note),
         .new_note(new_note),
-        .note_done(note_done),
-		  .beat(beat),
-		  .metadata(metadata)
+        .note_done(note_done)
     );
 	 
 
