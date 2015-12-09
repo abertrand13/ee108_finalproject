@@ -10,18 +10,18 @@ module new_mcu(
     input reset,
 	// this is a one hot signal representing the song to be played (given by the hex value on the launchpad)
 	// it remains constant until a new song number is pressed
-    input [1:0] song_input,		// This needs to be 4 bits
+    input [3:0] song_input,		// This needs to be 4 bits
     input song_done,
 	 input color_changing,			// True when color_changing is done...
     output play,
     output reset_player,
 	//changed to 4 bit to hold 16 songs
-    output [1:0] song // NEEDS TO BE 4 BITS EVENTUALLY
+    output [3:0] song // NEEDS TO BE 4 BITS EVENTUALLY
 );
 
 	// this keeps track of when the song input changes
-	wire [1:0] prev_song;
-	dffre #(2) flipper2(
+	wire [3:0] prev_song;
+	dffre #(4) flipper2(
 		.clk(clk),
 		.r(reset),
 		.d(song_input),

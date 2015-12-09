@@ -5,7 +5,7 @@ module note_player(
     input [5:0] note_to_load,  // The note to play
     input [5:0] duration_to_load,  // The duration of the note to play
     input load_new_note,  // Tells us when we have a new note to load
-    output done_with_note,  // When we are done with the note this stays high.
+    //output done_with_note,  // When we are done with the note this stays high.
     input beat,  // This is our 1/48th second beat
     input generate_next_sample,  // Tells us when the codec wants a new sample
     output [15:0] sample_out,  // Our sample output
@@ -14,7 +14,10 @@ module note_player(
 	input new_frame
 );
 
-    wire [19:0] step_size;
+    wire done_with_note; //Alex added this tuesday night
+
+	
+	wire [19:0] step_size;
     wire [5:0] freq_rom_in;
 
     dffre #(.WIDTH(6)) freq_reg (
@@ -85,7 +88,7 @@ module note_player(
 		.q(playing)
 	);
 
-    assign done_with_note = (state == 6'b0) && beat;
+    	assign done_with_note = (state == 6'b0) && beat;
 	 
 	wire [15:0] temp_sample_out;
 	assign temp_sample_out = (($signed(sample_out1) >>> 1) + ($signed(sample_out2) >>> 2) + ($signed(sample_out3) >>> 2)); //

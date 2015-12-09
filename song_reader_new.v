@@ -33,12 +33,24 @@ module song_reader_new(
 
 	wire note_type;	// whether we've read in a note or a rest (the first bit)
 	
-	// Song ROM
-	song_rom lib(
+	// Song ROMS
+	song_rom1 lib1(
 		.clk(clk),
 		.addr(addr),
-		.dout({note_type, note, duration, metadata})
+		.dout(out1)
+		//.dout({note_type, note, duration, metadata})
 		);
+	
+	song_rom2 lib2(
+		.clk(clk),
+		.addr(addr),
+		.dout(out2)
+		);
+		
+	always @(*) begin
+	
+	end
+		
 
 
 	wire [4:0] state;
