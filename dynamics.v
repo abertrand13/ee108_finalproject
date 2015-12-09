@@ -1,5 +1,4 @@
 `define BEAT_INPUT 3'd4
-// I'm actually attacking and Holding for 1/6 of the total for each... Not sure why...
 module dynamics(
 	input [5:0] note_duration,			// Taken from Note_Player
 	input clk,
@@ -55,7 +54,7 @@ module dynamics(
 		.r(reset || done_with_note),
 		.d(attack_count + 1'b1),
 		.q(attack_count),
-		.en(beat && attack_duration - attack_subtract == 1 && !attack_done)
+		.en(beat && attack_duration - attack_subtract == 0 && !attack_done)
 	);
 	
 	// When this reaches a certain limit i.e. 1/64th of the total note_duration,
@@ -99,7 +98,6 @@ module dynamics(
 	wire [4:0] count;
 	wire [13:0] new_duration;
 	wire [13:0] temp_duration;
-	wire [13:0] fourth_temp_duration;
 	wire [13:0] decay_duration;
 	wire [13:0] subtractor;
 	wire zero;
@@ -107,10 +105,10 @@ module dynamics(
 	wire [13:0] flop_duration;
 	
 	assign zero = result == 0;
+	// This makes note_duration the right size and stores it in temp_duration.
 	assign temp_duration = {8'd0, note_duration};
 	// This should take care of making the remaining decay last for only 3/4 of the duration.
 	// Effectively making the entire Attack and Decay last the whole amount of time.
-	//assign fourth_temp_duration = temp_duration;// << 2;
 	assign decay_duration = temp_duration + temp_duration + temp_duration;
 	assign flop_duration = decay_duration >> 2;
 	

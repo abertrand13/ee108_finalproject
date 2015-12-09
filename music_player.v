@@ -24,7 +24,8 @@ module music_player(
     // Our final output sample to the codec. This needs to be synced to
     // new_frame.
     output wire [15:0] sample_out,
-	 input wire [3:0] keypad_value
+	 input wire [3:0] keypad_value,
+	 input color_changing
 );
     // The BEAT_COUNT is parameterized so you can reduce this in simulation.
     // If you reduce this to 100 your simulation will be 10x faster.
@@ -38,8 +39,8 @@ module music_player(
 
     wire play;
     wire reset_player;
-
-    wire [1:0] current_song;
+//	 ****************************************************************************
+    wire [3:0] current_song; // MAY NEED TO BE BIGGER
     wire song_done;
 	 /*
     mcu mcu(
@@ -59,12 +60,13 @@ module music_player(
 		.reset(reset),
 	// this is a one hot signal representing the song to be played (given by the hex value on the launchpad)
 	// it remains constant until a new song number is pressed
-		.song_input(keypad_value[1:0]),
+		.song_input(keypad_value),
 		.play(play),
 		.reset_player(reset_player),
 	//changed to 4 bit to hold 16 songs
 		.song(current_song),
-		.song_done(song_done)
+		.song_done(song_done),
+		.color_changing(color_changing)
 );
 
 
@@ -79,8 +81,9 @@ module music_player(
     wire [5:0] duration_for_note;
     wire new_note;
     wire note_done;
-	 wire metadata;
-    /*song_reader_new song_reader_new(
+	 wire [2:0] metadata;
+	 
+    song_reader_new song_reader_new(
         .clk(clk),
         .reset(reset | reset_player),
         .play(play),
@@ -92,8 +95,9 @@ module music_player(
         .note_done(note_done),
 		  .beat(beat),
 		  .metadata(metadata)
-    );*/
-	 song_reader song_reader(
+    );
+
+	 /*song_reader song_reader(
         .clk(clk),
         .reset(reset | reset_player),
         .play(play),
@@ -103,9 +107,8 @@ module music_player(
         .duration(duration_for_note),
         .new_note(new_note),
         .note_done(note_done)
-    );
+    );*/
 	 
-
 //
 //  ****************************************************************************
 //      Note Player
@@ -120,7 +123,7 @@ module music_player(
     wire generate_next_sample;
     wire [15:0] note_sample;
     wire note_sample_ready;
-    note_player note_player(
+    /*note_player note_player(
         .clk(clk),
         .reset(reset|reset_player),
         .play_enable(play),
@@ -134,9 +137,9 @@ module music_player(
         .new_sample_ready(note_sample_ready),
 		  .playing(),
 		  .new_frame(new_frame)					// ADDED THIS
-    );
-	 /*
-	note_distributor(
+    );*/
+	  	
+	 note_distributor sparknotes(
 		.clk(clk),
 		.reset(reset | reset_player),
 		.play(play),
@@ -147,8 +150,8 @@ module music_player(
 		.note_to_load(note_to_play),
 		.duration_to_load(duration_for_note),
 		.sample_out(note_sample),
-		.new_sample_ready(note_sample_ready));
-		*/
+		.new_sample_ready(note_sample_ready)
+	 );
 //
 //  ****************************************************************************
 //      Beat Generator
@@ -172,17 +175,17 @@ module music_player(
     assign new_sample_generated = generate_next_sample;
     codec_conditioner codec_conditioner(
         .clk(clk),
-
         // NOTE: The reset input for codec_conditioner should always be the
         // PURE UNMODIFIED top-level reset signal. Do not mix it with anything
         // else.
         .reset(reset),
-
         .new_sample_in(note_sample),
         .latch_new_sample_in(note_sample_ready),
         .generate_next_sample(generate_next_sample),
         .new_frame(new_frame),
         .valid_sample(sample_out)
     );
+	 
+	 
 
 endmodule

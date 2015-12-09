@@ -7,7 +7,10 @@ module wave_display_top(
     input [9:0]  y,  // [0..1023]     
     input valid,
     input vsync,
-	input [3:0] keypad_value,
+	 input [3:0] keypad_value,
+	 input switch,
+	 input ready,
+	 output color_changing,
     output [7:0] r,
     output [7:0] g,
     output [7:0] b
@@ -54,7 +57,10 @@ module wave_display_top(
         .read_value(read_sample),
         .read_index(read_index),
         .valid_pixel(valid_pixel),
-		.keypad_value(keypad_value),
+		  .keypad_value(keypad_value),
+		  .switch(switch),
+		  .ready(ready),
+		  .color_changing(color_changing),
         .r(wd_r), .g(wd_g), .b(wd_b)
     );
 

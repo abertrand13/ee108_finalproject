@@ -26,29 +26,31 @@ module lab5_top(
     inout   AC_SDA,             // I2C SDA 
 
     // LEDs
-    output wire [3:0] leds_l,
-    output wire [3:0] leds_r,
+    output wire [7:0] leds,
+	 
+	// DIP Switches
+	input [7:0] sw,
+	
     // DVI Interface
     
     // I2C
     inout  scl,
     inout  sda,
 	 
-	 output hdmi_clock,
-	 output hdmi_hsync,
-	 output hdmi_vsync,
-	 output [15:0] hdmi_d,
-	 output hdmi_de, 
-	 input hdmi_int, 
+	output hdmi_clock,
+	output hdmi_hsync,
+	output hdmi_vsync,
+	output [15:0] hdmi_d,
+	output hdmi_de, 
+	input hdmi_int, 
 	 
-	 input [8:1] sw,
     input btn_up,
     input btn_left,
     input btn_right,
     input btn_down,
 	 
-	 // JB Pmod interfce
-	 inout [7:0] JB
+	// JB Pmod interfce
+	inout [7:0] JB
 );  
     // button_press_unit's WIDTH parameter is exposed here so that you can
     // reduce it in simulation.  Setting it to 1 effectively disables it.
@@ -67,29 +69,30 @@ module lab5_top(
     wire [10:0] y_q; 	 
     // Color to display at the given x,y
     wire [7:0]  r, g, b;
-	 wire [3:0] keypad_value;
+	wire [3:0] keypad_value;
+	wire color_changing;	// Used to determine when we are changing the color of the waveform. 
  
 //   
 //  ****************************************************************************
 //      Button processor units
 //  ****************************************************************************
 //  
-    wire play;	// We should probably set this to always be true and use
+    wire switch;	// We should probably set this to always be true and use
 					// this vv for switching to set color.
     button_press_unit #(.WIDTH(BPU_WIDTH)) play_button_press_unit(
         .clk(clk),
         .reset(reset),
         .in(btn_left),
-        .out(play)
+        .out(switch)
     );
 
-    wire next; // Change this so that it goes true when we hit a button
+    wire ready; // Change this so that it goes true when we hit a button
 					// on the keypad.
     button_press_unit #(.WIDTH(BPU_WIDTH)) next_button_press_unit(
         .clk(clk),
         .reset(reset),
         .in(btn_right),
-        .out(next)
+        .out(ready)
     );
        
 //   
@@ -103,12 +106,13 @@ module lab5_top(
     music_player #(.BEAT_COUNT(BEAT_COUNT)) music_player(
         .clk(clk),
         .reset(reset),
-        .play_button(play),
-        .next_button(next),
+        .play_button(switch),
+        .next_button(ready),
         .new_frame(new_frame), 
         .sample_out(codec_sample),
         .new_sample_generated(new_sample),
-		  .keypad_value(keypad_value)
+		  .keypad_value(keypad_value),
+		  .color_changing(color_changing)
     );
     dff #(.WIDTH(17)) sample_reg (
         .clk(clk),
@@ -122,7 +126,7 @@ module lab5_top(
 //  ****************************************************************************
 //  
 
-   wire [23:0] hphone_r = 0;
+	wire [23:0] hphone_r = 0;
 	wire [23:0] line_in_l = 0;  
 	wire [23:0] line_in_r =  0; 
 	
@@ -161,6 +165,19 @@ module lab5_top(
 		  .Row(JB[7:4]),
 		  .Col(JB[3:0]),
 		  .DecodeOut(keypad_value));
+		  
+//
+//  ****************************************************************************
+//		  Switch interface
+//  ****************************************************************************
+//  
+	wire [3:0] switch_out;
+	
+	switch_decoder switch_dec(
+		.sw(sw),
+		.led_out(leds),
+		.sw_out(switch_out)
+		);
     
 //   
 //  ****************************************************************************
@@ -254,7 +271,7 @@ module lab5_top(
         .d (y),
         .q (y_q)
 		  );
-		  
+		   
     wave_display_top wd_top (
 		.clk (clk),
 		.reset (reset),
@@ -265,10 +282,14 @@ module lab5_top(
 		.valid(valid),
 		.vsync(hdmi_vsync),
 		.keypad_value(keypad_value),
+		.switch(switch),
+		.ready(ready),
+		.color_changing(color_changing),
 		.r(r),
 		.g(g),
 		.b(b)
     );
+	 
 
 endmodule
 

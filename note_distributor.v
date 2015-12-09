@@ -16,6 +16,7 @@ module note_distributor (
 	output new_sample_ready			// tells the codec we've got a new sample for it
 );
 	
+	
 	// vars for each note player
 	wire np1_done, np2_done, np3_done; 
 	wire np1_playing, np2_playing, np3_playing; // used to tell which nps are ready for new notes
@@ -129,9 +130,9 @@ module note_distributor (
 	// output final sample	
 	assign new_sample_ready = np1_sample_ready || np2_sample_ready || np3_sample_ready; // is this a problem?
 	wire [15:0] np1_sample_vol, np2_sample_vol, np3_sample_vol;
-	assign np1_sample_vol = $signed(np1_sample) >>> (np2_playing + np3_playing);
-	assign np2_sample_vol = $signed(np2_sample) >>> (np1_playing + np3_playing);	
-	assign np3_sample_vol = $signed(np3_sample) >>> (np1_playing + np2_playing);
+	assign np1_sample_vol = $signed(np1_sample) >>> (2);
+	assign np2_sample_vol = $signed(np2_sample) >>> (2);	
+	assign np3_sample_vol = $signed(np3_sample) >>> 2; //(np1_playing + np2_playing);
 	
 	assign sample_out = np1_sample_vol +
 						np2_sample_vol +

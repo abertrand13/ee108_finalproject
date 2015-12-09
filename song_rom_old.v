@@ -126,11 +126,11 @@ module song_rom_old (
 	assign memory[	109	] =	{6'd47, 6'd24};	// Note: 4G
 	assign memory[	110	] =	{6'd45, 6'd30};	// Note: 4F
 	assign memory[	111	] =	{6'd0, 6'd24};	// Note: rest
-	assign memory[	112	] =	{6'd63, 6'd12};	// Note: C
-	assign memory[	113	] =	{6'd63, 6'd12};	// Note: C
-	assign memory[	114	] =	{6'd63, 6'd12};	// Note: C
-	assign memory[	115	] =	{6'd63, 6'd12};	// Note: C
-	assign memory[	116	] =	{6'd63, 6'd24};	// Note: F
+	assign memory[	112	] =	{6'd40, 6'd12};	// Note: C
+	assign memory[	113	] =	{6'd40, 6'd12};	// Note: C
+	assign memory[	114	] =	{6'd40, 6'd12};	// Note: C
+	assign memory[	115	] =	{6'd40, 6'd12};	// Note: C
+	assign memory[	116	] =	{6'd45, 6'd24};	// Note: F
 	assign memory[	117	] =	{6'd63, 6'd12};	// Note: G
 	assign memory[	118	] =	{6'd63, 6'd18};	// Note: E
 	assign memory[	119	] =	{6'd63, 6'd24};	// Note: D

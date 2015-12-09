@@ -4,10 +4,23 @@ module wave_display(
 	input [9:0] y,
 	input [7:0] read_value,
 	input [3:0] keypad_value,
+	input switch,
+	input ready,
+	output color_changing,
 	output [8:0] read_address,
 	output valid_pixel,
 	output [7:0] r,g,b
 );
+
+	color_changer rainbow(
+		.clk(clk),
+		.reset(reset),
+		.value(keypad_value),
+		.switch(switch),
+		.ready(ready),
+		.final_color({r,g,b}),
+		.done(color_changing)
+	);
   
 	// DECLARATIONS
 	wire [7:0] trans_y; // translated y
@@ -150,6 +163,6 @@ module wave_display(
 	
 	assign valid_pixel = valid_wave_pixel || valid_launch_pixel;
 
-	assign {r,g,b} = 24'hFFFFFF;
+	//assign {r,g,b} = 24'hFFFFFF;
 
 endmodule

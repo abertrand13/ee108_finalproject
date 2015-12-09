@@ -3,11 +3,11 @@
 // passing those notes to note_player
 
 
-`define PAUSE 	5'b00000 // This pauses the song.  Triggered when we press pause
-`define READ 	5'b00001	// This reads the next note
-`define REST 	5'b00010 // Resting before we read the next note (after we hit a rest in the ROM)
-`define WAIT 	5'b00100	// This goes through a wait cycle to allow the song ROM a cycle to return
-`define INCR 	5'b01000	// Increments the addr so we know which note we are on.  Do we need this anymore?
+//`define PAUSE 	5'b00000 // This pauses the song.  Triggered when we press pause
+`define READ 	5'b00000	// This reads the next note
+`define REST 	5'b00001 // Resting before we read the next note (after we hit a rest in the ROM)
+`define WAIT 	5'b00010	// This goes through a wait cycle to allow the song ROM a cycle to return
+`define INCR 	5'b00100	// Increments the addr so we know which note we are on.  Do we need this anymore?
 
 
 module song_reader_new(
@@ -15,15 +15,15 @@ module song_reader_new(
 	input reset, 
 	input play, 					// whether or not to play (pause button affects this)
 	input note_done,				// Comes from note_player when a note is finished.  Do we need this?
-	input [1:0] song,				// what song we're currently playing
+	input [3:0] song,				// what song we're currently playing
 	input beat,						// the (48th of a second) beat
 	output song_done,				// go high when we're finished reading a particular song
 	output new_note,				// outputs to note_player when its time to play new note
-   	output [5:0] note, duration,	// the rest is info about the note to play
-   	output [2:0] metadata
+	output [5:0] note, duration,	// the rest is info about the note to play
+	output [2:0] metadata
 );
 	
-	wire [6:0] addr;
+	wire [8:0] addr;
 	wire [4:0] note_addr;
 	assign addr = {song, note_addr};
 
@@ -69,16 +69,16 @@ module song_reader_new(
 	
 	dffre #(5) rest_counter (
 		.clk(clk),
-		.r(reset || rest_beats == total_rest_beats),
-		.d(state == `REST ? rest_beats + 1'b1 : 1'b0),
+		.r(reset || rest_beats == total_rest_beats || state != `REST),
+		.d(rest_beats + 1'b1),
 		.q(rest_beats),
-		.en(beat)
+		.en(beat && state == `REST)
 	);
 
 	always @(*) begin
 		case(state)
-			`PAUSE : next = (play ? `READ : `PAUSE); // this may cause problems if you resume in the middle of a rest?
-			`READ : begin
+			//`PAUSE : next = (play ? `READ : `PAUSE); // this may cause problems if you resume in the middle of a rest?
+			`READ : begin		// This just helps us wait a clock cycle for songROM
 				next = `WAIT; // I don't like this mandatory delay, but it may be necessary
 			end
 			`WAIT : begin
@@ -95,10 +95,10 @@ module song_reader_new(
 				next = `READ; // THIS IS SO MUCH DELAY
 			end
 			`REST : begin
-				new_note_reg = 1'b0;	
+				new_note_reg = 1'b0;	 
 				next = (rest_beats == total_rest_beats ? `INCR : `REST);
 			end
-			default: next = `PAUSE;
+			default: next = `READ;  // Changed This from PAUSE
 		endcase
 	end
 	

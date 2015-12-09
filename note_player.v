@@ -50,7 +50,7 @@ module note_player(
         .step_size(step_size >> 1),
         .generate_next(play_enable && generate_next_sample),
         .sample_ready(new_sample_ready2),
-        .sample(sample_out2)
+	    .sample(sample_out2)
     );
 
     wire [15:0] sample_out3;
@@ -100,6 +100,6 @@ module note_player(
 		.final_sample(sample_out),
 		.new_frame(new_frame)				// ADDED THIS
 		);
-    //assign sample_out = ((sample_out1 >> 1) + (sample_out2 >> 2) + (sample_out3 >> 2));
+	// assign sample_out = temp_sample_out;
     assign new_sample_ready = (new_sample_ready1 && new_sample_ready2 && new_sample_ready3);
 endmodule

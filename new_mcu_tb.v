@@ -1,8 +1,8 @@
 module new_mcu_tb();
     reg clk, reset, song_done;
-    reg [3:0] song_input;
+    reg [1:0] song_input;
     wire play, reset_player;
-    wire [3:0] song;
+    wire [1:0] song;
 
 
     new_mcu dut(
@@ -27,13 +27,13 @@ module new_mcu_tb();
     // Tests
     initial begin
 	song_done = 0;
-	song_input = 4'h1;
-	#50 song_input = 4'h5;
-	#50 song_input = 4'hf;
+	song_input = 2'd1;
+	#50 song_input = 2'd2;
+	#50 song_input = 2'd1;
 	#10 song_done = 1;
 	#10 song_done = 0;
-	#50 song_input = 4'b1;
-	#50 song_input = 4'b0;
+	#50 song_input = 2'd1;
+	#50 song_input = 2'd0;
     end
 
 endmodule

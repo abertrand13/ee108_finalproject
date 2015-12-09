@@ -55,7 +55,7 @@ module wave_capture(
 	
 	always @(*) begin
 		case(state)
-		`ARMED: next_state = (curr_signed_bit > new_sample_in[15]) ? `ACTIVE : `ARMED;
+		`ARMED: 	next_state = (curr_signed_bit > new_sample_in[15]) ? `ACTIVE : `ARMED;
 		`ACTIVE: next_state = (counter_out == 8'd255) ? `WAIT : `ACTIVE;
 		`WAIT:	next_state = wave_display_idle ? `ARMED : `WAIT;
 		default: next_state = `ARMED;

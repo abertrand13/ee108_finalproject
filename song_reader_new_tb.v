@@ -41,7 +41,7 @@ module song_reader_new_tb();
 	// Tests
 	initial begin
 		reset = 1'b1;
-		#20 reset = 1'b0;
+		#50 reset = 1'b0;
 		
 		// Initial shenanigans	
 		play = 1'b1;
