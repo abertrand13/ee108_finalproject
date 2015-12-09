@@ -103,16 +103,20 @@ module lab5_top(
     wire new_frame;
     wire [15:0] codec_sample, flopped_sample;
     wire new_sample, flopped_new_sample;
+	
+	wire [3:0] switch_out;
+	
     music_player #(.BEAT_COUNT(BEAT_COUNT)) music_player(
         .clk(clk),
         .reset(reset),
         .play_button(switch),
         .next_button(ready),
-        .new_frame(new_frame), 
+        .new_frame(new_frame),
+		.sw_value(switch_out),
         .sample_out(codec_sample),
         .new_sample_generated(new_sample),
-		  .keypad_value(keypad_value),
-		  .color_changing(color_changing)
+		.keypad_value(keypad_value),
+		.color_changing(color_changing)
     );
     dff #(.WIDTH(17)) sample_reg (
         .clk(clk),
@@ -171,7 +175,6 @@ module lab5_top(
 //		  Switch interface
 //  ****************************************************************************
 //  
-	wire [3:0] switch_out;
 	
 	switch_decoder switch_dec(
 		.sw(sw),

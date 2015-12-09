@@ -104,9 +104,9 @@ module song_rom2 (	input clk,
 	assign memory[	 93	] =	{1'd1, 6'd0, 9'd0};	// Note: 
 	assign memory[	 94	] =	{1'd1, 6'd0, 9'd0};	// Note: 
 	assign memory[	 95	] =	{1'd1, 6'd0, 9'd0};	// Note: 
-	assign memory[	 96	] =	{1'b0, 6'd20, 6'd12, 3'd0};	// Note: 2E
+	assign memory[	 96	] =	{1'b0, 6'd27, 6'd12, 3'd0};	// Note: 3B
 	assign memory[	 97	] =	{1'd1, 6'd14, 9'd0};	// Note: 
-	assign memory[	 98	] =	{1'b0, 6'd20, 6'd12, 3'd0};	// Note: 2E
+	assign memory[	 98	] =	{1'b0, 6'd25, 6'd12, 3'd0};	// Note: 3A
 	assign memory[	 99	] =	{1'd1, 6'd14, 9'd0};	// Note: 
 	assign memory[	100	] =	{1'd1, 6'd0, 9'd0};	// Note: 
 	assign memory[	101	] =	{1'd1, 6'd0, 9'd0};	// Note: 
@@ -200,9 +200,9 @@ module song_rom2 (	input clk,
 	assign memory[	189	] =	{1'd1, 6'd0, 9'd0};	// Note: 
 	assign memory[	190	] =	{1'd1, 6'd0, 9'd0};	// Note: 
 	assign memory[	191	] =	{1'd1, 6'd0, 9'd0};	// Note: 
-	assign memory[	192	] =	{1'b0, 6'd25, 6'd12, 3'd0};	// Note: 3A
+	assign memory[	192	] =	{1'b0, 6'd32, 6'd12, 3'd0};	// Note: 3E
 	assign memory[	193	] =	{1'd1, 6'd14, 9'd0};	// Note: 
-	assign memory[	194	] =	{1'b0, 6'd25, 6'd12, 3'd0};	// Note: 3A
+	assign memory[	194	] =	{1'b0, 6'd30, 6'd12, 3'd0};	// Note: 3D
 	assign memory[	195	] =	{1'd1, 6'd14, 9'd0};	// Note: 
 	assign memory[	196	] =	{1'd1, 6'd0, 9'd0};	// Note: 
 	assign memory[	197	] =	{1'd1, 6'd0, 9'd0};	// Note: 
@@ -266,7 +266,7 @@ module song_rom2 (	input clk,
 	assign memory[	255	] =	{1'd1, 6'd0, 9'd0};	// Note: 
 	assign memory[	256	] =	{1'b0, 6'd29, 6'd12, 3'd0};	// Note: 3C#Db
 	assign memory[	257	] =	{1'd1, 6'd14, 9'd0};	// Note: 
-	assign memory[	258	] =	{1'b0, 6'd28, 6'd12, 3'd0};	// Note: 3C
+	assign memory[	258	] =	{1'b0, 6'd27, 6'd12, 3'd0};	// Note: 3B
 	assign memory[	259	] =	{1'd1, 6'd14, 9'd0};	// Note: 
 	assign memory[	260	] =	{1'd1, 6'd0, 9'd0};	// Note: 
 	assign memory[	261	] =	{1'd1, 6'd0, 9'd0};	// Note: 
@@ -296,9 +296,9 @@ module song_rom2 (	input clk,
 	assign memory[	285	] =	{1'd1, 6'd0, 9'd0};	// Note: 
 	assign memory[	286	] =	{1'd1, 6'd0, 9'd0};	// Note: 
 	assign memory[	287	] =	{1'd1, 6'd0, 9'd0};	// Note: 
-	assign memory[	288	] =	{1'b0, 6'd30, 6'd12, 3'd0};	// Note: 3D
+	assign memory[	288	] =	{1'b0, 6'd34, 6'd12, 3'd0};	// Note: 3F#Gb
 	assign memory[	289	] =	{1'd1, 6'd14, 9'd0};	// Note: 
-	assign memory[	290	] =	{1'b0, 6'd30, 6'd12, 3'd0};	// Note: 3D
+	assign memory[	290	] =	{1'b0, 6'd32, 6'd12, 3'd0};	// Note: 3E
 	assign memory[	291	] =	{1'd1, 6'd14, 9'd0};	// Note: 
 	assign memory[	292	] =	{1'd1, 6'd0, 9'd0};	// Note: 
 	assign memory[	293	] =	{1'd1, 6'd0, 9'd0};	// Note: 
@@ -456,9 +456,9 @@ module song_rom2 (	input clk,
 	assign memory[	445	] =	{1'd1, 6'd0, 9'd0};	// Note: 
 	assign memory[	446	] =	{1'd1, 6'd0, 9'd0};	// Note: 
 	assign memory[	447	] =	{1'd1, 6'd0, 9'd0};	// Note: 
-	assign memory[	448	] =	{1'b0, 6'd39, 6'd12, 3'd0};	// Note: 4B
+	assign memory[	448	] =	{1'b0, 6'd17, 6'd12, 3'd0};	// Note: 2C#Db
 	assign memory[	449	] =	{1'd1, 6'd14, 9'd0};	// Note: 
-	assign memory[	450	] =	{1'b0, 6'd39, 6'd12, 3'd0};	// Note: 4B
+	assign memory[	450	] =	{1'b0, 6'd15, 6'd12, 3'd0};	// Note: 2B
 	assign memory[	451	] =	{1'd1, 6'd14, 9'd0};	// Note: 
 	assign memory[	452	] =	{1'd1, 6'd0, 9'd0};	// Note: 
 	assign memory[	453	] =	{1'd1, 6'd0, 9'd0};	// Note: 

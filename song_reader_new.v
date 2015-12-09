@@ -17,10 +17,11 @@ module song_reader_new(
 	input note_done,				// Comes from note_player when a note is finished.  Do we need this?
 	input [3:0] song,				// what song we're currently playing
 	input beat,						// the (48th of a second) beat
+	input [2:0] sw_value,				// output of the switches on board
 	output song_done,				// go high when we're finished reading a particular song
 	output new_note,				// outputs to note_player when its time to play new note
-	output [5:0] note, duration,	// the rest is info about the note to play
-	output [2:0] metadata
+	output reg [5:0] note, duration,	// the rest is info about the note to play
+	output reg [2:0] metadata
 );
 	
 	wire [8:0] addr;
@@ -31,7 +32,9 @@ module song_reader_new(
 	assign new_note = new_note_reg;
 
 
-	wire note_type;	// whether we've read in a note or a rest (the first bit)
+	reg note_type;	// whether we've read in a note or a rest (the first bit)
+	
+	wire [15:0] out1, out2; // outputs of different song roms
 	
 	// Song ROMS
 	song_rom1 lib1(
@@ -48,7 +51,11 @@ module song_reader_new(
 		);
 		
 	always @(*) begin
-	
+		case(sw_value)
+			3'd1 : {note_type, note, duration, metadata} = out1;
+			3'd2 : {note_type, note, duration, metadata} = out2;
+			default : {note_type, note, duration, metadata} = out1;
+		endcase
 	end
 		
 

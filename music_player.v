@@ -17,6 +17,9 @@ module music_player(
 
     // The raw new_frame signal from the adau1761_codec.
     input new_frame,
+	
+	// switches on board
+	input [2:0] sw_value,
 
     // This output must go high for one cycle when a new sample is generated.
     output wire new_sample_generated,
@@ -88,13 +91,14 @@ module music_player(
         .reset(reset | reset_player),
         .play(play),
         .song(current_song),
+		.sw_value(sw_value),
         .song_done(song_done),
         .note(note_to_play),
         .duration(duration_for_note),
         .new_note(new_note),
         .note_done(note_done),
-		  .beat(beat),
-		  .metadata(metadata)
+		.beat(beat),
+		.metadata(metadata)
     );
 
 	 /*song_reader song_reader(
