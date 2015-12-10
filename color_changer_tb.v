@@ -5,6 +5,7 @@ module color_changer_tb();
 	reg [3:0] value;		
 	wire [23:0] final_color;
 	wire done;
+	reg switch, ready;
 	
 	initial begin
         clk = 1'b0;
@@ -18,6 +19,8 @@ module color_changer_tb();
 		.clk(clk),
 		.reset(reset),
 		.value(value),
+		.switch(switch),
+		.ready(ready),
 		.final_color(final_color),
 		.done(done)
 	 );
@@ -33,6 +36,10 @@ module color_changer_tb();
 	$display("Button value: %b, final_color: %b, done: %b", 4'h1, final_color, done);
 	
 	reset = 0;
+	switch = 1'b1;
+	#10
+	switch = 1'b0;
+	ready = 1'b1;
 	value = 4'hc;
 	expected_final_color = 24'hc00000;
 	expected_done = 0;

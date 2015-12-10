@@ -1,8 +1,8 @@
 module new_mcu_tb();
     reg clk, reset, song_done;
-    reg [1:0] song_input;
+    reg [3:0] song_input;
     wire play, reset_player;
-    wire [1:0] song;
+    wire [3:0] song;
 
 
     new_mcu dut(

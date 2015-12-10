@@ -33,7 +33,7 @@ module color_changer(
 		.r(reset || switch),
 		.d(value),
 		.q(final_value),
-		.en(ready && count <= 6)
+		.en(ready && count < 6)
 	);
 
 	//	Start Combinational Logic
@@ -51,7 +51,7 @@ module color_changer(
 	end
 
 	assign final_color = {part_1, part_2, part_3, part_4, part_5, part_6};
-	assign done = count == 6;
+	assign done = count >= 6;
 
 	// WE MAY NEED TO HAVE R,G,B SET TO EQUAL SOMETHING IN THE STATE MACHINE (CASE AND SWITCH) THAT WE ARE USING TO KEEP
 	// TRACK OF THE STATES IN OUR MAIN MODULE AND ONLY CHANGE FROM OUR STATE WHEN DONE == 1 AND SET R,G,B SET TO WHATEVER
