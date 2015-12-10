@@ -3,7 +3,7 @@ module song_reader_new_tb();
 	// DECLARATIONS
 	// inputs to song reader
 	reg clk, reset, play, note_done;
-	reg [1:0] song;
+	reg [3:0] song;
 	reg beat;
 	// outputs from song reader
 	wire song_done, new_note;

@@ -54,7 +54,7 @@ module dynamics(
 		.r(reset || done_with_note),
 		.d(attack_count + 1'b1),
 		.q(attack_count),
-		.en(beat && attack_duration - attack_subtract == 0 && !attack_done)
+		.en(beat && attack_duration - attack_subtract == 1'b1 && !attack_done)	// Changed from attack_duration - attack_subtract == 1'b1
 	);
 	
 	// When this reaches a certain limit i.e. 1/64th of the total note_duration,
@@ -104,13 +104,13 @@ module dynamics(
 	wire [13:0] result;
 	wire [13:0] flop_duration;
 	
-	assign zero = result == 0;
+	assign zero = result == 0 ;
 	// This makes note_duration the right size and stores it in temp_duration.
 	assign temp_duration = {8'd0, note_duration};
 	// This should take care of making the remaining decay last for only 3/4 of the duration.
 	// Effectively making the entire Attack and Decay last the whole amount of time.
 	assign decay_duration = temp_duration + temp_duration + temp_duration;
-	assign flop_duration = decay_duration >> 2;
+	assign flop_duration = decay_duration >> 1'b1;
 	
 	// This sets up a beat pulse that will (should) pulse ever 1/256 of a second.
 	beat_generator #(.STOP(`BEAT_INPUT)) beat_gen( 
@@ -128,7 +128,7 @@ module dynamics(
 		.r(reset || done_with_note),
 		.d(count + 1'b1),
 		.q(count),
-		.en(zero && subtractor > 0 && decay)
+		.en(zero && subtractor != 0 && decay)		// Changed from > 0
 	);
 	
 	// Used to make new_duration long enough. We made the duration longer each 
@@ -136,7 +136,7 @@ module dynamics(
 	dffre #(.WIDTH(14)) length_of_time(
 		.clk(clk),
 		.r(reset || done_with_note),
-		.d(flop_duration << count + 1'b1),
+		.d(flop_duration << count),
 		.q(new_duration),
 		.en(beat && decay)	
 	);
@@ -159,9 +159,9 @@ module dynamics(
 	wire [15:0] sample_subtract_2;
 	reg [15:0] final_temp;
 	
-	assign sample_subtract_2 = $signed(sample) >>> 1;
-	assign sample_subtract_4 = $signed(sample) >>> 2;
-	assign sample_subtract_8 = $signed(sample) >>> 3;
+	assign sample_subtract_2 = $signed(sample) >>> 1'b1;
+	assign sample_subtract_4 = $signed(sample) >>> 2'd2;
+	assign sample_subtract_8 = $signed(sample) >>> 2'd3;
 	
 	always @(*) begin
 		case (count)

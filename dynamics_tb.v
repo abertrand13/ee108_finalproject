@@ -4,6 +4,7 @@ module dynamics_tb();
 	reg reset;
 	reg [15:0] sample;
 	reg new_sample_ready;
+	reg done_with_note;
 	reg generate_next_sample;
 	reg beat;
 	reg new_frame;
@@ -16,6 +17,13 @@ module dynamics_tb();
         reset = 1'b0;
         forever #5 clk = ~clk;
     end
+
+	always begin
+	#30 new_frame = 1'b1;
+	generate_next_sample = 1'b1;
+	#10 new_frame = 1'b0;
+	generate_next_sample = 1'b0;
+	end
 	
 	dynamics dut(
 		.note_duration(note_duration),
@@ -41,6 +49,7 @@ module dynamics_tb();
 	initial begin
 	// First Testing a Note with a 1/16sec Duration.
 	reset = 1;
+	done_with_note = 1'b1;
 	note_duration = 6'd3;
 	sample = 16'd0;
 	new_sample_ready = 1'b0;
@@ -51,6 +60,7 @@ module dynamics_tb();
 	note_duration, new_sample_ready, final_sample, expected_final_sample);
 	
 	reset = 0;					// 96 clock cycles for 1/8th of a second. 12 for 1/64th.
+	done_with_note = 1'b0;
 	note_duration = 6'd3;	// 1/16th of a second
 	sample = 16'd10400; 		// 1/8th of this number is 1300
 	new_sample_ready = 1'b1;
@@ -118,6 +128,7 @@ module dynamics_tb();
 	// Testing with a negative sample to make sure the program works with
 	// signed numbers.
 	note_duration = 6'd24;
+	done_with_note = 1'b1;
 	sample = 16'd0 - 16'd10400;
 	new_sample_ready = 1'b1;
 	generate_next_sample = 1'b0;
@@ -127,6 +138,7 @@ module dynamics_tb();
 	note_duration, new_sample_ready, final_sample == expected_final_sample);
 	
 	note_duration = 6'd24;
+	done_with_note = 1'b0;
 	sample = 16'd0 - 16'd10400;
 	new_sample_ready = 1'b0;
 	generate_next_sample = 1'b1;

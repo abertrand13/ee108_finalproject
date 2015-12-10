@@ -1,6 +1,7 @@
 `define NP1  3'b001
 `define NP2  3'b010
 `define NP3  3'b100
+`define NONE 3'b000
 
 module note_distributor (
 	input clk,						// clk signal
@@ -37,7 +38,7 @@ module note_distributor (
 		else if(!np3_playing) begin
 			np_to_use = `NP3;
 		end
-		else np_to_use = `NP1;
+		else np_to_use = `NONE;
 	end
 	
 	
@@ -49,7 +50,7 @@ module note_distributor (
 		.clk(clk),
 		.r(reset),
 		.en(np_to_use == `NP1 || np1_load), // make sure the signal goes low right after it goes high
-		.d(load_new_note),		// TO BE FIXED (POTENTIALLY)
+		.d(load_new_note),		
 		.q(np1_load)
 	);
 	
@@ -85,7 +86,7 @@ module note_distributor (
 		.note_to_load(note_to_load),
 		.duration_to_load(duration_to_load),
 		// outputs	
-		//.done_with_note(np1_done),
+		.done_with_note(np1_done),
 		.playing(np1_playing),
 		.sample_out(np1_sample),
 		.new_sample_ready(np1_sample_ready));
@@ -103,7 +104,7 @@ module note_distributor (
 		.note_to_load(note_to_load),
 		.duration_to_load(duration_to_load),
 		// outputs	
-		//.done_with_note(np2_done),
+		.done_with_note(np2_done),
 		.playing(np2_playing),
 		.sample_out(np2_sample),
 		.new_sample_ready(np2_sample_ready));
@@ -121,7 +122,7 @@ module note_distributor (
 		.note_to_load(note_to_load),
 		.duration_to_load(duration_to_load),
 		// outputs	
-		//.done_with_note(np3_done),	
+		.done_with_note(np3_done),	
 		.playing(np3_playing),
 		.sample_out(np3_sample),
 		.new_sample_ready(np3_sample_ready));
@@ -130,9 +131,9 @@ module note_distributor (
 	// output final sample	
 	assign new_sample_ready = np1_sample_ready || np2_sample_ready || np3_sample_ready; // is this a problem?
 	wire [15:0] np1_sample_vol, np2_sample_vol, np3_sample_vol;
-	assign np1_sample_vol = $signed(np1_sample) >>> (2);
-	assign np2_sample_vol = $signed(np2_sample) >>> (2);	
-	assign np3_sample_vol = $signed(np3_sample) >>> 2; //(np1_playing + np2_playing);
+	assign np1_sample_vol = $signed(np1_sample) >>> 2'd2;
+	assign np2_sample_vol = $signed(np2_sample) >>> 2'd2;	
+	assign np3_sample_vol = $signed(np3_sample) >>> 2'd2; //(np1_playing + np2_playing);
 	
 	assign sample_out = np1_sample_vol +
 						np2_sample_vol +

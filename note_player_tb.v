@@ -8,6 +8,7 @@ module note_player_tb();
     wire [15:0] sample_out;
     reg expected_DWN, expected_NSR;
 	 reg new_frame;
+	 reg playing;
 
     note_player np(
         .clk(clk),
@@ -20,6 +21,7 @@ module note_player_tb();
         .beat(beat),
         .generate_next_sample(generate_next_sample),
         .sample_out(sample_out),
+		  .playing(playing),
         .new_sample_ready(new_sample_ready),
 		  .new_frame(new_frame)
     );
@@ -40,6 +42,13 @@ module note_player_tb();
         reset = 1'b0;
         forever #5 clk = ~clk;
     end
+	 
+	 always begin
+	 #30 new_frame = 1'b1;
+	 generate_next_sample = 1'b1;
+	 #10 new_frame = 1'b0;
+	 generate_next_sample = 1'b0;
+	 end
 
    // Tests
    initial begin
@@ -72,6 +81,7 @@ module note_player_tb();
 				note_to_load, duration_to_load, expected_DWN, done_with_note, expected_NSR, new_sample_ready, sample_out);
 	
 	generate_next_sample = 1;
+	play_enable = 1'b0;
 	note_to_load = 6'b010110;
 	duration_to_load = 5'b000101;
 	#50 expected_DWN = 1; expected_NSR = 1;
@@ -91,16 +101,14 @@ module note_player_tb();
 	$display("Note %b, Duration %b, expected DWN %b, actual %b, expected NSR %b actual %b, expected SO something actual %b",
 				note_to_load, duration_to_load, expected_DWN, done_with_note, expected_NSR, new_sample_ready, sample_out);
 	
-	reset = 1;
-	play_enable = 0;
+	reset = 0;
 	generate_next_sample = 0;
 	expected_DWN = 0;
 	expected_NSR = 0;
 	#30
 	$display("Note %b, Duration %b, expected DWN %b, actual %b, expected NSR %b actual %b, expected SO nothing actual %b",
 				note_to_load, duration_to_load, expected_DWN, done_with_note, expected_NSR, new_sample_ready, sample_out);
-	#200
-	$stop;
+	
 	
 
    end

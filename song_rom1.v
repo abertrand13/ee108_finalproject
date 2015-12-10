@@ -8,10 +8,10 @@ module song_rom1 (	input clk,
 	always @(posedge clk)				
 		dout = memory[addr];			
 					
-	assign memory[	  0	] =	{1'b0, 6'd15, 6'd12, 3'd0};	// Note: 2B
-	assign memory[	  1	] =	{1'd1, 6'd14, 9'd0};	// Note: 
-	assign memory[	  2	] =	{1'b0, 6'd15, 6'd12, 3'd0};	// Note: 2B
-	assign memory[	  3	] =	{1'd1, 6'd14, 9'd0};	// Note: 
+	assign memory[	  0	] =	{1'b0, 6'd15, 6'd48, 3'd0};	// Note: 2B
+	assign memory[	  1	] =	{1'd1, 6'd56, 9'd0};	// Note: 
+	assign memory[	  2	] =	{1'b0, 6'd44, 6'd48, 3'd0};	// Note: 2B
+	assign memory[	  3	] =	{1'd1, 6'd56, 9'd0};	// Note: 
 	assign memory[	  4	] =	{1'd1, 6'd0, 9'd0};	// Note: 
 	assign memory[	  5	] =	{1'd1, 6'd0, 9'd0};	// Note: 
 	assign memory[	  6	] =	{1'd1, 6'd0, 9'd0};	// Note: 

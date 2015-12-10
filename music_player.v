@@ -100,8 +100,8 @@ module music_player(
 		.beat(beat),
 		.metadata(metadata)
     );
-
-	 /*song_reader song_reader(
+/*
+	 song_reader song_reader(
         .clk(clk),
         .reset(reset | reset_player),
         .play(play),
@@ -141,8 +141,8 @@ module music_player(
         .new_sample_ready(note_sample_ready),
 		  .playing(),
 		  .new_frame(new_frame)					// ADDED THIS
-    );*/
-	  	
+    );
+	  	*/
 	 note_distributor sparknotes(
 		.clk(clk),
 		.reset(reset | reset_player),

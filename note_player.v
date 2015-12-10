@@ -5,7 +5,7 @@ module note_player(
     input [5:0] note_to_load,  // The note to play
     input [5:0] duration_to_load,  // The duration of the note to play
     input load_new_note,  // Tells us when we have a new note to load
-    //output done_with_note,  // When we are done with the note this stays high.
+    output done_with_note,  // When we are done with the note this stays high.
     input beat,  // This is our 1/48th second beat
     input generate_next_sample,  // Tells us when the codec wants a new sample
     output [15:0] sample_out,  // Our sample output
@@ -14,7 +14,7 @@ module note_player(
 	input new_frame
 );
 
-    wire done_with_note; //Alex added this tuesday night
+    //wire done_with_note; //Alex added this tuesday night
 
 	
 	wire [19:0] step_size;
@@ -53,7 +53,7 @@ module note_player(
         .step_size(step_size >> 1),
         .generate_next(play_enable && generate_next_sample),
         .sample_ready(new_sample_ready2),
-	    .sample(sample_out2)
+	.sample(sample_out2)
     );
 
     wire [15:0] sample_out3;
@@ -76,7 +76,7 @@ module note_player(
         .q(state)
     );
     assign next_state = (reset || done_with_note || load_new_note)
-                        ? duration_to_load : state - 1;
+                        ? duration_to_load : state - 1'b1;
 
 	// Hey guys, it's Alex.  I'm adding a thing!
 	// assign playing = (!reset && state > 1'b0); // reset is for initial condition
@@ -88,7 +88,7 @@ module note_player(
 		.q(playing)
 	);
 
-    	assign done_with_note = (state == 6'b0) && beat;
+    	assign done_with_note = (state == 6'b0);// && beat; //WAS causing an issue with static/overlap of notes
 	 
 	wire [15:0] temp_sample_out;
 	assign temp_sample_out = (($signed(sample_out1) >>> 1) + ($signed(sample_out2) >>> 2) + ($signed(sample_out3) >>> 2)); //
@@ -97,12 +97,12 @@ module note_player(
 		.clk(clk),
 		.reset(reset),
 		.sample_start(temp_sample_out),
-		.done_with_note(done_with_note), // Changed This
+		.done_with_note(done_with_note), 
 		.new_sample_ready(new_sample_ready),
 		.note_duration(duration_to_load),
 		.final_sample(sample_out),
-		.new_frame(new_frame)				// ADDED THIS
+		.new_frame(new_frame)				
 		);
-	// assign sample_out = temp_sample_out;
+	//assign sample_out = temp_sample_out;
     assign new_sample_ready = (new_sample_ready1 && new_sample_ready2 && new_sample_ready3);
 endmodule
