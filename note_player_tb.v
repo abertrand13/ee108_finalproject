@@ -17,7 +17,6 @@ module note_player_tb();
         .note_to_load(note_to_load),
         .duration_to_load(duration_to_load),
         .load_new_note(load_new_note),
-        .done_with_note(done_with_note),
         .beat(beat),
         .generate_next_sample(generate_next_sample),
         .sample_out(sample_out),
@@ -81,7 +80,6 @@ module note_player_tb();
 				note_to_load, duration_to_load, expected_DWN, done_with_note, expected_NSR, new_sample_ready, sample_out);
 	
 	generate_next_sample = 1;
-	play_enable = 1'b0;
 	note_to_load = 6'b010110;
 	duration_to_load = 5'b000101;
 	#50 expected_DWN = 1; expected_NSR = 1;
