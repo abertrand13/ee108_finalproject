@@ -28,7 +28,7 @@ module wave_display(
 	reg valid_x;
 	assign read_address = read_addr;	
 	always @(*) begin
-		case(x[10:8]) // was x
+		case(x[10:8])
 			3'b001: begin
 				read_addr = {read_index, 1'b0, x[7:1]};
 				valid_x = 1'b1;
@@ -103,6 +103,7 @@ module wave_display(
 	// logic to determine whether we should turn this pixel on as part of the wave display
 	assign valid_wave_pixel = valid_x && delayed_valid && !delayed_y[9] && valid_y; // going down or going up
 
+	
 	// logic to determine whether we should turn this pixel on as part of the
 	// launchpad display (ld)
 	wire [10:0] ld_top_x;

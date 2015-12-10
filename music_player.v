@@ -83,7 +83,6 @@ module music_player(
 	 wire [5:0] note_to_play;
     wire [5:0] duration_for_note;
     wire new_note;
-    wire note_done;
 	 wire [2:0] metadata;
 	 
     song_reader_new song_reader_new(
@@ -96,7 +95,6 @@ module music_player(
         .note(note_to_play),
         .duration(duration_for_note),
         .new_note(new_note),
-        .note_done(note_done),
 		.beat(beat),
 		.metadata(metadata)
     );

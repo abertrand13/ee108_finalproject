@@ -86,7 +86,7 @@ module note_distributor (
 		.note_to_load(note_to_load),
 		.duration_to_load(duration_to_load),
 		// outputs	
-		.done_with_note(np1_done),
+		//.done_with_note(np1_done),
 		.playing(np1_playing),
 		.sample_out(np1_sample),
 		.new_sample_ready(np1_sample_ready));
@@ -104,7 +104,7 @@ module note_distributor (
 		.note_to_load(note_to_load),
 		.duration_to_load(duration_to_load),
 		// outputs	
-		.done_with_note(np2_done),
+		//.done_with_note(np2_done),
 		.playing(np2_playing),
 		.sample_out(np2_sample),
 		.new_sample_ready(np2_sample_ready));
@@ -122,7 +122,7 @@ module note_distributor (
 		.note_to_load(note_to_load),
 		.duration_to_load(duration_to_load),
 		// outputs	
-		.done_with_note(np3_done),	
+		//.done_with_note(np3_done),	
 		.playing(np3_playing),
 		.sample_out(np3_sample),
 		.new_sample_ready(np3_sample_ready));

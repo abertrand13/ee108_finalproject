@@ -104,7 +104,7 @@ module lab5_top(
     wire [15:0] codec_sample, flopped_sample;
     wire new_sample, flopped_new_sample;
 	
-	wire [3:0] switch_out;
+	wire [2:0] switch_out;
 	
     music_player #(.BEAT_COUNT(BEAT_COUNT)) music_player(
         .clk(clk),
@@ -112,7 +112,7 @@ module lab5_top(
         .play_button(switch),
         .next_button(ready),
         .new_frame(new_frame),
-		.sw_value(switch_out),
+			.sw_value(switch_out),
         .sample_out(codec_sample),
         .new_sample_generated(new_sample),
 		.keypad_value(keypad_value),
@@ -136,7 +136,7 @@ module lab5_top(
 	
     // Output the sample onto the LEDs for the fun of it.
     //assign leds_l = codec_sample[15:12]; 
-    assign leds_r = codec_sample[15:12];
+    //assign leds_r = codec_sample[15:12];
 
     adau1761_codec adau1761_codec(
         .clk_100(clk),

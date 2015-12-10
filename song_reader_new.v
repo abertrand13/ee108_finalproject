@@ -14,7 +14,6 @@ module song_reader_new(
 	input clk,
 	input reset, 
 	input play, 					// whether or not to play (pause button affects this)
-	input note_done,				// Comes from note_player when a note is finished.  Do we need this?
 	input [3:0] song,				// what song we're currently playing
 	input beat,						// the (48th of a second) beat
 	input [2:0] sw_value,				// output of the switches on board
@@ -36,7 +35,7 @@ module song_reader_new(
 
 	reg note_type;	// whether we've read in a note or a rest (the first bit)
 	
-	wire [15:0] out1, out2; // outputs of different song roms
+	wire [15:0] out1, out2, out3, out4, out5; // outputs of different song roms
 	
 	// Song ROMS
 	song_rom1 lib1(
@@ -52,10 +51,32 @@ module song_reader_new(
 		.dout(out2)
 		);
 		
+	song_rom3 lib3(
+		.clk(clk),
+		.addr(addr),
+		.dout(out3)
+	);
+	
+	song_rom4 lib4(
+		.clk(clk),
+		.addr(addr),
+		.dout(out4)
+	);
+	
+	song_rom5 lib5(
+		.clk(clk),
+		.addr(addr),
+		.dout(out5)
+	);
+	
+		
 	always @(*) begin
 		case(sw_value)
 			3'd1 : {note_type, note_reg, duration_reg, metadata_reg} = out1;
 			3'd2 : {note_type, note_reg, duration_reg, metadata_reg} = out2;
+			3'd3 : {note_type, note_reg, duration_reg, metadata_reg} = out3;
+			3'd4 : {note_type, note_reg, duration_reg, metadata_reg} = out4;
+			3'd5 : {note_type, note_reg, duration_reg, metadata_reg} = out5;
 			default : {note_type, note_reg, duration_reg, metadata_reg} = out1;
 		endcase
 	end
