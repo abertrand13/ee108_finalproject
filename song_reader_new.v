@@ -16,7 +16,7 @@ module song_reader_new(
 	input play, 					// whether or not to play (pause button affects this)
 	input [3:0] song,				// what song we're currently playing
 	input beat,						// the (48th of a second) beat
-	input [2:0] sw_value,				// output of the switches on board
+	input [2:0] sw_value,			// output of the switches on board
 	output song_done,				// go high when we're finished reading a particular song
 	output new_note,				// outputs to note_player when its time to play new note
 	output [5:0] note, duration,	// the rest is info about the note to play
@@ -106,11 +106,10 @@ module song_reader_new(
 		.en(state == `INCR)
 	);
 	
+	
 	wire [5:0] rest_beats; // current number of beats we've rested
 	reg [5:0] total_rest_beats; // number of rest beats we need to get to
 
-	
-	
 	dffre #(6) rest_counter (
 		.clk(clk),
 		.r(reset || rest_beats == total_rest_beats || state != `REST),
@@ -136,7 +135,7 @@ module song_reader_new(
 			end
 			`INCR : begin	
 				new_note_reg = 1'b0;
-				next = `READ; // THIS IS SO MUCH DELAY
+				next = song_done ? `PAUSE : `READ;
 			end
 			`REST : begin
 				new_note_reg = 1'b0;	 
@@ -147,6 +146,6 @@ module song_reader_new(
 	end
 	
 	//assign song_done = (note_done && (addr[4:0] == 5'd31));
-	assign song_done = (addr[4:0] == 5'd31); // temporary hack.  problem was rests never generate a note_done signal
+	assign song_done = (addr[4:0] == 5'd31);// && (rest_beats == total_rest_beats - 1'b1) && (total_rest_beats > 1'b0); // temporary hack.  problem was rests never generate a note_done signal
 	
 endmodule

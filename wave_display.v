@@ -6,6 +6,7 @@ module wave_display(
 	input [3:0] keypad_value,
 	input switch,
 	input ready,
+	input [2:0] sw_value,
 	output color_changing,
 	output [8:0] read_address,
 	output valid_pixel,
@@ -29,11 +30,11 @@ module wave_display(
 	assign read_address = read_addr;	
 	always @(*) begin
 		case(x[10:8])
-			3'b001: begin
+			3'b000: begin // gonna need to change this
 				read_addr = {read_index, 1'b0, x[7:1]};
 				valid_x = 1'b1;
 			end
-			3'b010: begin
+			3'b001: begin // gonna need to change this
 				read_addr = {read_index, 1'b1, x[7:1]};
 				valid_x = 1'b1;
 			end
@@ -86,13 +87,16 @@ module wave_display(
 	// left edge case
 	// if the last addr was valid, keep last_value the way it is.  Otherwise, assign it to our current value
 	wire last_addr_valid;
-	assign last_addr_valid = (x - 2'd2 > 11'b00100000000);
+	// assign last_addr_valid = (x - 2'd2 > 11'b00100000000); // gonna need to change this
+	// this next line should probably just be x > 2
+	assign last_addr_valid = (x - 2'd2 > 11'b00000000000) && (x - 2'd2 < 11'b01011111111); // two's complement wraparound
 	wire [7:0] last_value;
 	assign last_value = last_addr_valid ? last_value_unmod : read_value;
 	
 	// right edge case
 	wire next_addr_valid;
-	assign next_addr_valid = (x + 2'd2 < 11'b01011111111);
+	// assign next_addr_valid = (x + 2'd2 < 11'b01011111111); // gonna need to change this
+	assign next_addr_valid = (x + 2'd2 < 11'b00111111111);
 	wire [7:0] read_value_mod;
 	assign read_value_mod = next_addr_valid ? read_value : last_value;
 	
@@ -108,8 +112,8 @@ module wave_display(
 	// launchpad display (ld)
 	wire [10:0] ld_top_x;
 	wire [9:0] ld_top_y;
-	wire [7:0] ld_size;
-	wire [6:0] ld_grid;
+	wire [9:0] ld_size;
+	wire [7:0] ld_grid;
 	
 	// convert the value of the pressed button to row/column format
 	wire [1:0] ld_row, ld_col; // for the pressed button
@@ -118,9 +122,9 @@ module wave_display(
 		.row(ld_row),
 		.col(ld_col));
 
-	assign ld_top_x = 11'd1000;
-	assign ld_top_y = 10'd500;
-	assign ld_size = 8'd200;
+	assign ld_top_x = 11'd512 + 4'd10;
+	assign ld_top_y = 10'd10;
+	assign ld_size = 10'd512;
 	assign ld_grid = ld_size >> 2;
 
 	wire valid_row_pixel, valid_col_pixel, valid_grid_pixel, valid_btn_pixel, valid_launch_pixel;
@@ -143,14 +147,14 @@ module wave_display(
 	assign valid_grid_pixel = valid_row_pixel || valid_col_pixel;
 	
 	// this is WAY too complicated.  Damn multiplication.
-	wire[8:0] ld_grid_xlowbound, ld_grid_ylowbound;
+	wire[10:0] ld_grid_xlowbound, ld_grid_ylowbound;
 	
-	multiplier #(.WIDTH(7)) xlowbound (
+	multiplier #(.WIDTH(11)) xlowbound (
 		.val(ld_grid),
 		.mult(ld_col),
 		.out(ld_grid_xlowbound));
 		
-	multiplier #(.WIDTH(7)) ylowbound (
+	multiplier #(.WIDTH(11)) ylowbound (
 		.val(ld_grid),
 		.mult(ld_row),
 		.out(ld_grid_ylowbound));
@@ -159,11 +163,30 @@ module wave_display(
 									 (x < ld_top_x + ld_grid_xlowbound + ld_grid) &&
 									 (y > ld_top_y + ld_grid_ylowbound) &&
 									 (y < ld_top_y + ld_grid_ylowbound + ld_grid);
+									 
+	// logic to determing whether we should turn this on as part of the switch display
+	wire [11:0] xBounds [8:0]; // one extra for extra edge
+	assign xBounds[8] = 11'd112;
+	assign xBounds[7] = 11'd212;
+	assign xBounds[6] = 11'd312;
+	assign xBounds[5] = 11'd412;
+	assign xBounds[4] = 11'd512;
+	assign xBounds[3] = 11'd612;
+	assign xBounds[2] = 11'd712;
+	assign xBounds[1] = 11'd812;
+	assign xBounds[0] = 11'd912;
 	
-	assign valid_launch_pixel = valid_grid_pixel || valid_btn_pixel;
+	wire valid_switch_pixel, valid_switch_pixel_x, valid_switch_pixel_y;
+	assign valid_switch_pixel_x = ((x > xBounds[sw_value + 1'b1]) && (x < xBounds[sw_value]));
+	assign valid_switch_pixel_y = (y >= 10'd600 && y <= 10'd700);
+	assign valid_switch_pixel = valid_switch_pixel_x && valid_switch_pixel_y;
+	
+	assign valid_launch_pixel = valid_grid_pixel || valid_btn_pixel || valid_switch_pixel;
 	
 	assign valid_pixel = valid_wave_pixel || valid_launch_pixel;
 
 	//assign {r,g,b} = 24'hFFFFFF;
+	
+	
 
 endmodule

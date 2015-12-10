@@ -2,7 +2,7 @@ module song_reader_new_tb();
 
 	// DECLARATIONS
 	// inputs to song reader
-	reg clk, reset, play, note_done;
+	reg clk, reset, play;
 	reg [3:0] song;
 	reg beat;
 	// outputs from song reader
@@ -15,8 +15,8 @@ module song_reader_new_tb();
 		.clk(clk),
 		.reset(reset),
 		.play(play),
-		.note_done(note_done),
 		.song(song),
+		.sw_value(3'd5),
 		.beat(beat),
 		.song_done(song_done),
 		.new_note(new_note),
@@ -45,7 +45,6 @@ module song_reader_new_tb();
 		
 		// Initial shenanigans	
 		play = 1'b1;
-		note_done = 1'b0;
 		song = 2'd1;
 
 	end

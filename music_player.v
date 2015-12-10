@@ -32,7 +32,7 @@ module music_player(
 );
     // The BEAT_COUNT is parameterized so you can reduce this in simulation.
     // If you reduce this to 100 your simulation will be 10x faster.
-    parameter BEAT_COUNT = 10;//00;
+    parameter BEAT_COUNT = 1;//00;
 
 //
 //  ****************************************************************************
@@ -84,7 +84,7 @@ module music_player(
     wire [5:0] duration_for_note;
     wire new_note;
 	 wire [2:0] metadata;
-	 
+ 
     song_reader_new song_reader_new(
         .clk(clk),
         .reset(reset | reset_player),
@@ -98,8 +98,8 @@ module music_player(
 		.beat(beat),
 		.metadata(metadata)
     );
-/*
-	 song_reader song_reader(
+
+	 /* song_reader song_reader(
         .clk(clk),
         .reset(reset | reset_player),
         .play(play),
@@ -109,7 +109,7 @@ module music_player(
         .duration(duration_for_note),
         .new_note(new_note),
         .note_done(note_done)
-    );*/
+    ); */
 	 
 //
 //  ****************************************************************************
@@ -132,15 +132,15 @@ module music_player(
         .note_to_load(note_to_play),
         .duration_to_load(duration_for_note),
         .load_new_note(new_note),
-        .done_with_note(note_done),
+        //.done_with_note(note_done),
         .beat(beat),
         .generate_next_sample(generate_next_sample),
         .sample_out(note_sample),
         .new_sample_ready(note_sample_ready),
 		  .playing(),
 		  .new_frame(new_frame)					// ADDED THIS
-    );
-	  	*/
+    );*/
+	  	
 	 note_distributor sparknotes(
 		.clk(clk),
 		.reset(reset | reset_player),

@@ -285,6 +285,7 @@ module lab5_top(
 		.valid(valid),
 		.vsync(hdmi_vsync),
 		.keypad_value(keypad_value),
+		.sw_value(switch_out),
 		.switch(switch),
 		.ready(ready),
 		.color_changing(color_changing),

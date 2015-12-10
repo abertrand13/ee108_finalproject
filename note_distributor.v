@@ -131,11 +131,14 @@ module note_distributor (
 	// output final sample	
 	assign new_sample_ready = np1_sample_ready || np2_sample_ready || np3_sample_ready; // is this a problem?
 	wire [15:0] np1_sample_vol, np2_sample_vol, np3_sample_vol;
-	assign np1_sample_vol = $signed(np1_sample) >>> 2;
-	assign np2_sample_vol = $signed(np2_sample) >>> 2;	
-	assign np3_sample_vol = $signed(np3_sample) >>> 2; //(np1_playing + np2_playing);
+	//assign np1_sample_vol = $signed(np1_sample) >>> 2;
+	//assign np2_sample_vol = $signed(np2_sample) >>> 2;	
+	//assign np3_sample_vol = $signed(np3_sample) >>> 2;
+	assign np1_sample_vol = $signed(np1_sample) >>> (np2_playing + np3_playing);
+	assign np2_sample_vol = $signed(np2_sample) >>> (np1_playing + np3_playing);	
+	assign np3_sample_vol = $signed(np3_sample) >>> (np1_playing + np2_playing);
 	
-	assign sample_out = np1_sample_vol +
-						np2_sample_vol + np3_sample_vol;
+	// assign sample_out = np1_sample;
+	assign sample_out = np1_sample_vol + np2_sample_vol + np3_sample_vol;
 	
 endmodule
