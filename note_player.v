@@ -16,6 +16,7 @@ module note_player(
 
     //wire done_with_note; //Alex added this tuesday night
 
+	wire [5:0] curr_note_duration; // the duration of the current note.  Input wire changes because we're reading in rests and things
 	
 	wire [19:0] step_size;
     wire [5:0] freq_rom_in;
@@ -67,7 +68,8 @@ module note_player(
         .sample(sample_out3)
     );
 
-    wire [5:0] state, next_state;
+    wire [5:0] state; // , next_state;
+	 reg [5:0] next_state;
     dffre #(.WIDTH(6)) state_reg (
         .clk(clk),
         .r(reset),
@@ -75,20 +77,39 @@ module note_player(
         .d(next_state),
         .q(state)
     );
-    assign next_state = (reset || done_with_note || load_new_note)
-                        ? duration_to_load : state - 1'b1;
+    /*assign next_state = (reset || done_with_note || load_new_note)
+                        ? duration_to_load : state - 1'b1;*/
+	always @(*) begin
+		if(load_new_note || reset) begin
+			next_state = duration_to_load;
+		end else if(done_with_note) begin
+			next_state = 1'b0;
+		end else begin
+			next_state = state - 1'b1;
+		end
+	end
+	
+	dffre #(.WIDTH(6)) duration_reg (
+		.clk(clk),
+		.r(reset),
+		.en(load_new_note),
+		.d(duration_to_load),
+		.q(curr_note_duration)
+	);
+		
 
 	// Hey guys, it's Alex.  I'm adding a thing!
 	// assign playing = (!reset && state > 1'b0); // reset is for initial condition
-	dffre #(.WIDTH(1)) currently_playing (
+	/*dffre #(.WIDTH(1)) currently_playing (
 		.clk(clk),
 		.r(reset),
 		.en(load_new_note || done_with_note), // this may give us trouble if the two occur at the same time (or one right after another?)
 		.d(~playing),
 		.q(playing)
-	);
+	);*/
+	assign playing = state > 1'b0;
 
-    	assign done_with_note = (state == 6'b0);// && beat; //WAS causing an issue with static/overlap of notes
+   assign done_with_note = (state == 6'b0);// && beat; //WAS causing an issue with static/overlap of notes
 	 
 	wire [15:0] temp_sample_out;
 	assign temp_sample_out = (($signed(sample_out1) >>> 1) + ($signed(sample_out2) >>> 2) + ($signed(sample_out3) >>> 2)); //
@@ -99,7 +120,7 @@ module note_player(
 		.sample_start(temp_sample_out),
 		.done_with_note(done_with_note), 
 		.new_sample_ready(new_sample_ready),
-		.note_duration(duration_to_load),
+		.note_duration(curr_note_duration),
 		.final_sample(sample_out),
 		.new_frame(new_frame)				
 		);

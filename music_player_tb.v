@@ -17,6 +17,7 @@ module music_player_tb();
 		.play_button(play_btn),
 		.next_button(next_btn),
 		.new_frame(new_frame),
+		.sw_value(3'd1),
 		.keypad_value(keypad_value),
 		.color_changing(color_changing),
 		.new_sample_generated(new_sample_generated),

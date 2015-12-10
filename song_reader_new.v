@@ -90,7 +90,7 @@ module song_reader_new(
 
 	
 	
-	dffre #(5) rest_counter (
+	dffre #(6) rest_counter (
 		.clk(clk),
 		.r(reset || rest_beats == total_rest_beats || state != `REST),
 		.d(rest_beats + 1'b1),

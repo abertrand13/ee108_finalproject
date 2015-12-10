@@ -32,7 +32,7 @@ module music_player(
 );
     // The BEAT_COUNT is parameterized so you can reduce this in simulation.
     // If you reduce this to 100 your simulation will be 10x faster.
-    parameter BEAT_COUNT = 1000;
+    parameter BEAT_COUNT = 10;//00;
 
 //
 //  ****************************************************************************
