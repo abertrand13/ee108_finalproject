@@ -1,9 +1,9 @@
 `define BEAT_INPUT 3'd4
 module dynamics(
-	input [5:0] note_duration,			// Taken from Note_Player
+	input [5:0] note_duration,			
 	input clk,
 	input reset,
-	input [15:0] sample_start,					// Taken from Note_Player/Harmonics
+	input [15:0] sample_start,					
 	input new_sample_ready,
 	input done_with_note,			
 	output [15:0] final_sample,
@@ -54,7 +54,7 @@ module dynamics(
 		.r(reset || done_with_note),
 		.d(attack_count + 1'b1),
 		.q(attack_count),
-		.en(beat && attack_duration - attack_subtract == 1'b1 && !attack_done)	// Changed from attack_duration - attack_subtract == 1'b1
+		.en(beat && attack_duration - attack_subtract == 1'b1 && !attack_done)
 	);
 	
 	// When this reaches a certain limit i.e. 1/64th of the total note_duration,
@@ -128,7 +128,7 @@ module dynamics(
 		.r(reset || done_with_note),
 		.d(count + 1'b1),
 		.q(count),
-		.en(zero && subtractor != 0 && decay)		// Changed from > 0
+		.en(zero && subtractor != 0 && decay)
 	);
 	
 	// Used to make new_duration long enough. We made the duration longer each 
@@ -151,7 +151,7 @@ module dynamics(
 		.en(beat && decay)	
 	);
 
-	// whether it's time to drop the volume of the note again (or not)
+	// Whether it's time to drop the volume of the note again (or not)
 	assign result = new_duration - subtractor;
 
 	wire [15:0] sample_subtract_8;
@@ -176,8 +176,6 @@ module dynamics(
 		default: final_temp = sample;
 		endcase		
 	end
-
-	//assign final_sample = final_temp;
 	// For after ATTACK Phase
 	assign final_sample = attack_done ? final_temp : attack_final;
 

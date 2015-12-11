@@ -2,12 +2,11 @@
 // Manages the reading of song_rom to get notes, and
 // passing those notes to note_player
 
-	// Changed PAUSE back to all zeros so that at reset it starts there.
 `define PAUSE 	5'b00000 // This pauses the song.  Triggered when we press pause
-`define READ 	5'b10000	// This reads the next note
-`define REST 	5'b00001 // Resting before we read the next note (after we hit a rest in the ROM)
-`define WAIT 	5'b00010	// This goes through a wait cycle to allow the song ROM a cycle to return
-`define INCR 	5'b00100	// Increments the addr so we know which note we are on.  Do we need this anymore?
+`define READ 	5'b00001	// This reads the next note
+`define REST 	5'b00010 // Resting before we read the next note (after we hit a rest in the ROM)
+`define WAIT1 	5'b00100	// This goes through a wait cycle to allow the song ROM a cycle to return
+`define INCR 	5'b01000	// Increments the addr so we know which note we are on.  Do we need this anymore?
 
 
 module song_reader_new(
@@ -35,14 +34,19 @@ module song_reader_new(
 
 	reg note_type;	// whether we've read in a note or a rest (the first bit)
 	
-	wire [15:0] out1, out2, out3, out4, out5; // outputs of different song roms
+	wire [15:0] out0, out1, out2, out3, out4, out5; // outputs of different song roms
 	
 	// Song ROMS
+	song_rom0 lib0(
+		.clk(clk),
+		.addr(addr),
+		.dout(out0)
+	);
+	
 	song_rom1 lib1(
 		.clk(clk),
 		.addr(addr),
 		.dout(out1)
-		//.dout({note_type, note, duration, metadata})
 		);
 	
 	song_rom2 lib2(
@@ -72,6 +76,7 @@ module song_reader_new(
 		
 	always @(*) begin
 		case(sw_value)
+			3'd0 : {note_type, note_reg, duration_reg, metadata_reg} = out0;	
 			3'd1 : {note_type, note_reg, duration_reg, metadata_reg} = out1;
 			3'd2 : {note_type, note_reg, duration_reg, metadata_reg} = out2;
 			3'd3 : {note_type, note_reg, duration_reg, metadata_reg} = out3;
@@ -98,7 +103,7 @@ module song_reader_new(
 	
 	// increments the note address to read from the song rom
 	// note that this is a 'greedy' reader - it goes until it hits a rest
-	dffre #(5) increment( // will have to up the bits on this to accomodate larger ROM
+	dffre #(5) increment(
 		.r(reset),
 		.clk(clk),
 		.d(note_addr + 1'b1),
@@ -120,11 +125,13 @@ module song_reader_new(
 
 	always @(*) begin
 		case(state)
-			`PAUSE : next = (play ? `READ : `PAUSE); // this may cause problems if you resume in the middle of a rest?
-			`READ : begin		// This just helps us wait a clock cycle for songROM
-				next = `WAIT; // I don't like this mandatory delay, but it may be necessary
+			`PAUSE : begin
+				next = (play ? `READ : `PAUSE); // this may cause problems if you resume in the middle of a rest?
 			end
-			`WAIT : begin
+			`READ : begin		// This just helps us wait a clock cycle for songROM
+				next = `WAIT1; // I don't like this mandatory delay, but it may be necessary
+			end
+			`WAIT1 : begin
 				next = (note_type == 1'b0 ? `INCR : `REST);
 				new_note_reg = ~note_type;
 				if(note_type) begin
@@ -133,19 +140,20 @@ module song_reader_new(
 					total_rest_beats = 1'b0;
 				end
 			end
-			`INCR : begin	
+			`INCR : begin
 				new_note_reg = 1'b0;
 				next = song_done ? `PAUSE : `READ;
 			end
 			`REST : begin
-				new_note_reg = 1'b0;	 
+				new_note_reg = 1'b0;
 				next = (rest_beats == total_rest_beats ? `INCR : `REST);
 			end
-			default: next = `PAUSE;  // Changed This from PAUSE
+			default: begin
+				next = `PAUSE;
+			end
 		endcase
 	end
 	
-	//assign song_done = (note_done && (addr[4:0] == 5'd31));
-	assign song_done = (addr[4:0] == 5'd31);// && (rest_beats == total_rest_beats - 1'b1) && (total_rest_beats > 1'b0); // temporary hack.  problem was rests never generate a note_done signal
+	assign song_done = (addr[4:0] == 5'd31);
 	
 endmodule

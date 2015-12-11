@@ -1,7 +1,7 @@
 module switch_decoder(
 	input [7:0] sw,
 	output reg [7:0] led_out,
-	output reg [3:0] sw_out
+	output reg [2:0] sw_out
 );
 
 	// This is essentially an arbiter

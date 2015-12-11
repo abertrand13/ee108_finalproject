@@ -70,7 +70,7 @@ module lab5_top(
     // Color to display at the given x,y
     wire [7:0]  r, g, b;
 	wire [3:0] keypad_value;
-	wire color_changing;	// Used to determine when we are changing the color of the waveform. 
+	wire color_changing;	// Used to determine when we are changing the color of the waveform. True when we are done changing... 
  
 //   
 //  ****************************************************************************
@@ -133,10 +133,6 @@ module lab5_top(
 	wire [23:0] hphone_r = 0;
 	wire [23:0] line_in_l = 0;  
 	wire [23:0] line_in_r =  0; 
-	
-    // Output the sample onto the LEDs for the fun of it.
-    //assign leds_l = codec_sample[15:12]; 
-    //assign leds_r = codec_sample[15:12];
 
     adau1761_codec adau1761_codec(
         .clk_100(clk),
@@ -195,7 +191,7 @@ module lab5_top(
         .d (led_counter + 27'd1),
         .q (led_counter)
     );
-    assign leds_l = led_counter[26:23];
+    // assign leds_l = led_counter[26:23];
  
     //==========================================================================
     // Display management -> do not touch!

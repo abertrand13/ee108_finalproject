@@ -19,7 +19,6 @@ module note_distributor (
 	
 	
 	// vars for each note player
-	//wire np1_done, np2_done, np3_done; 
 	wire np1_playing, np2_playing, np3_playing; // used to tell which nps are ready for new notes
 	wire [15:0] np1_sample, np2_sample, np3_sample;
 	wire np1_sample_ready, np2_sample_ready, np3_sample_ready;
@@ -82,11 +81,10 @@ module note_distributor (
 		.beat(beat),
 		.generate_next_sample(generate_next_sample),
 		.new_frame(new_frame),
-		.load_new_note(np1_load), // assuming right now that the note will stop by itself
+		.load_new_note(np1_load),
 		.note_to_load(note_to_load),
 		.duration_to_load(duration_to_load),
 		// outputs	
-		//.done_with_note(np1_done),
 		.playing(np1_playing),
 		.sample_out(np1_sample),
 		.new_sample_ready(np1_sample_ready));
@@ -100,11 +98,10 @@ module note_distributor (
 		.beat(beat),
 		.generate_next_sample(generate_next_sample),
 		.new_frame(new_frame),
-		.load_new_note(np2_load), // assuming right now that the note will stop by itself
+		.load_new_note(np2_load),
 		.note_to_load(note_to_load),
 		.duration_to_load(duration_to_load),
 		// outputs	
-		//.done_with_note(np2_done),
 		.playing(np2_playing),
 		.sample_out(np2_sample),
 		.new_sample_ready(np2_sample_ready));
@@ -118,27 +115,23 @@ module note_distributor (
 		.beat(beat),
 		.generate_next_sample(generate_next_sample),
 		.new_frame(new_frame),
-		.load_new_note(np3_load), // assuming right now that the note will stop by itself
+		.load_new_note(np3_load),
 		.note_to_load(note_to_load),
 		.duration_to_load(duration_to_load),
-		// outputs	
-		//.done_with_note(np3_done),	
+		// outputs		
 		.playing(np3_playing),
 		.sample_out(np3_sample),
 		.new_sample_ready(np3_sample_ready));
 
 	
 	// output final sample	
-	assign new_sample_ready = np1_sample_ready || np2_sample_ready || np3_sample_ready; // is this a problem?
+	assign new_sample_ready = np1_sample_ready || np2_sample_ready || np3_sample_ready;
 	wire [15:0] np1_sample_vol, np2_sample_vol, np3_sample_vol;
-	//assign np1_sample_vol = $signed(np1_sample) >>> 2;
-	//assign np2_sample_vol = $signed(np2_sample) >>> 2;	
-	//assign np3_sample_vol = $signed(np3_sample) >>> 2;
-	assign np1_sample_vol = $signed(np1_sample) >>> (np2_playing + np3_playing);
-	assign np2_sample_vol = $signed(np2_sample) >>> (np1_playing + np3_playing);	
-	assign np3_sample_vol = $signed(np3_sample) >>> (np1_playing + np2_playing);
+	assign np1_sample_vol = $signed(np1_sample) >>> (2);
+	assign np2_sample_vol = $signed(np2_sample) >>> (2);	
+	assign np3_sample_vol = $signed(np3_sample) >>> (2);
 	
-	// assign sample_out = np1_sample;
+	
 	assign sample_out = np1_sample_vol + np2_sample_vol + np3_sample_vol;
 	
 endmodule

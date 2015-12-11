@@ -11,8 +11,6 @@ module color_changer(
 	wire [8:0] count;
 	wire [3:0] final_value;
 
-	// HAVING DONE BE THE RESET MAY MESS THIS UP FOR A CLOCK CYCLE, SOMETHING TO CHECK.
-
 	reg [3:0] part_1;
 	reg [3:0] part_2;
 	reg [3:0] part_3;
@@ -52,10 +50,6 @@ module color_changer(
 
 	assign final_color = {part_1, part_2, part_3, part_4, part_5, part_6};
 	assign done = count >= 6;
-
-	// WE MAY NEED TO HAVE R,G,B SET TO EQUAL SOMETHING IN THE STATE MACHINE (CASE AND SWITCH) THAT WE ARE USING TO KEEP
-	// TRACK OF THE STATES IN OUR MAIN MODULE AND ONLY CHANGE FROM OUR STATE WHEN DONE == 1 AND SET R,G,B SET TO WHATEVER
-	// COLORS WE OUTPUT. DURING OTHER STATES THEY EQUAL THEMSELVES. WILL NEED TO USE REG's.
 
 
 endmodule
